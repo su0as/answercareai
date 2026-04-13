@@ -66,13 +66,15 @@ export default function Nav() {
         {/* Desktop CTA */}
         <div className="hidden md:flex items-center gap-3">
           <a
-            href="tel:+15551234567"
+            href="tel:+18005551234"
             className="text-sm text-text-secondary hover:text-text-primary transition-colors duration-200"
           >
-            (555) 123-4567
+            (800) 555-1234
           </a>
           <Link
-            href="/dental#pricing"
+            href="https://calendly.com/answercare-ai/discovery-call"
+            target="_blank"
+            rel="noopener noreferrer"
             className="bg-text-primary text-bg-primary text-sm px-4 py-2 rounded-lg font-medium hover:bg-accent-home transition-colors duration-200"
           >
             Get Started
@@ -118,13 +120,15 @@ export default function Nav() {
           ))}
           <div className="pt-3 border-t border-border-subtle mt-2 flex flex-col gap-2">
             <a
-              href="tel:+15551234567"
+              href="tel:+18005551234"
               className="block px-3 py-2.5 text-sm text-text-secondary text-center border border-border rounded-lg"
             >
-              Call: (555) 123-4567
+              Call: (800) 555-1234
             </a>
             <Link
-              href="/dental#pricing"
+              href="https://calendly.com/answercare-ai/discovery-call"
+              target="_blank"
+              rel="noopener noreferrer"
               className="block px-3 py-2.5 text-sm text-center bg-text-primary text-bg-primary rounded-lg font-medium"
             >
               Get Started

@@ -80,7 +80,9 @@ export default function IndustryGrid() {
             Don&apos;t see your industry? We customize AnswerCare for any appointment-based or call-dependent business.
           </p>
           <a
-            href="tel:+15551234567"
+            href="https://calendly.com/answercare-ai/discovery-call"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-sm font-medium text-text-primary border border-text-primary px-5 py-2.5 rounded-xl hover:bg-text-primary hover:text-bg-primary transition-all duration-200"
           >
             Tell us about your business →

@@ -46,8 +46,13 @@ export default function PricingCard({
         </div>
         <div className="flex items-center gap-2 text-xs text-text-muted">
           <span className="line-through">${tier.setupOriginal} setup</span>
-          <span className="text-success font-medium">FREE setup</span>
+          <span className="text-success font-medium">
+            ${Math.round(parseInt(tier.setupOriginal.replace(/\D/g, '')) * 0.7)} setup (30% off)
+          </span>
         </div>
+        <p className="mt-1 text-xs text-text-muted leading-snug">
+          One-time setup fee. Non-refundable. Covers full onboarding, configuration, and testing.
+        </p>
         <div className="mt-2 text-xs font-mono-accent text-text-secondary">
           {tier.calls}
         </div>
@@ -76,7 +81,9 @@ export default function PricingCard({
       </ul>
 
       <Link
-        href="tel:+15551234567"
+        href="https://calendly.com/answercare-ai/discovery-call"
+        target="_blank"
+        rel="noopener noreferrer"
         className={`block text-center px-6 py-3 rounded-xl font-medium text-sm transition-all duration-200 hover:scale-[1.01] ${
           tier.isFeatured
             ? accentButtonClass

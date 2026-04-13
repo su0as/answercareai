@@ -44,7 +44,7 @@ export default function VerticalPage({ data }: VerticalPageProps) {
         tag={data.tagline}
         headline={data.headline}
         subheadline={data.subheadline}
-        ctaPrimary={{ label: 'Start Free Trial', href: '#pricing' }}
+        ctaPrimary={{ label: 'Start Free Trial', href: 'https://calendly.com/answercare-ai/discovery-call' }}
         ctaSecondary={{
           label: `Call Demo Line → ${data.demoPhone}`,
           href: `tel:+${data.demoPhone.replace(/\D/g, '')}`,
@@ -167,7 +167,7 @@ export default function VerticalPage({ data }: VerticalPageProps) {
       <FinalCTA
         headline={`Your ${data.shortName.toLowerCase()} practice, reimagined.`}
         subheadline="14-day free trial. Full onboarding. Dedicated account manager. No credit card required."
-        ctaPrimary={{ label: 'Start Free Trial', href: '#pricing' }}
+        ctaPrimary={{ label: 'Start Free Trial', href: 'https://calendly.com/answercare-ai/discovery-call' }}
         ctaSecondary={{ label: `Call Demo: ${data.demoPhone}`, href: `tel:+${data.demoPhone.replace(/\D/g, '')}` }}
         accentButtonClass="bg-bg-primary text-text-primary hover:bg-bg-secondary"
       />

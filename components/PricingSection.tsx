@@ -57,7 +57,7 @@ export default function PricingSection({
         {/* Founding offer */}
         <div className="mb-10 text-center">
           <span className="inline-block text-sm text-text-secondary border border-dashed border-border px-4 py-2 rounded-xl">
-            🎁 <strong className="text-text-primary">Founding Client Offer:</strong> First 10 clients get free setup + locked-in pricing forever
+            🎁 <strong className="text-text-primary">Founding Client Offer:</strong> 30% off setup + rate locked for life <span className="text-accent-home font-semibold">(7 of 10 spots remaining)</span>
           </span>
         </div>
 
@@ -72,7 +72,57 @@ export default function PricingSection({
             />
           ))}
         </div>
+
+        {/* What's included in setup accordion */}
+        <SetupAccordion accentTextClass={accentTextClass} />
+
+        <p className="mt-6 text-center text-xs text-text-muted max-w-xl mx-auto">
+          For comparison, a typical virtual receptionist charges $500–$1,500 for setup, plus $15–$25/hr ongoing. AnswerCare AI is a fixed monthly rate — no hourly billing, no surprises.
+        </p>
       </div>
     </section>
+  )
+}
+
+function SetupAccordion({ accentTextClass }: { accentTextClass?: string }) {
+  return (
+    <details className="mt-8 bg-bg-primary border border-border rounded-2xl group">
+      <summary className="flex items-center justify-between px-6 py-4 cursor-pointer list-none select-none">
+        <span className="text-sm font-medium text-text-primary">What&apos;s included in setup?</span>
+        <svg
+          className="w-4 h-4 text-text-muted transition-transform duration-200 group-open:rotate-180"
+          viewBox="0 0 16 16"
+          fill="none"
+          aria-hidden="true"
+        >
+          <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </summary>
+      <div className="px-6 pb-6 pt-2 border-t border-border-subtle">
+        <ul className="space-y-2.5 mt-3">
+          {[
+            'Discovery call with your dedicated account manager (60 min)',
+            'Custom script written for your business, workflows, and edge cases',
+            'Integration with your scheduling software or CRM',
+            'Call forwarding configuration and technical testing',
+            'Staff training on how to work alongside the AI',
+            'Two rounds of script revisions before go-live',
+            '30-day check-in call after launch to tune performance',
+          ].map((item) => (
+            <li key={item} className="flex items-start gap-2.5 text-sm text-text-secondary">
+              <svg
+                className={`w-4 h-4 mt-0.5 flex-shrink-0 ${accentTextClass ?? 'text-accent-home'}`}
+                viewBox="0 0 16 16"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path d="M13 4L6.5 11.5 3 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </details>
   )
 }

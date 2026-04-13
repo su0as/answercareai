@@ -20,10 +20,10 @@ export default function Footer() {
             </p>
             <div className="mt-4">
               <a
-                href="tel:+15551234567"
+                href="tel:+18005551234"
                 className="text-sm text-text-secondary hover:text-bg-primary transition-colors"
               >
-                (555) 123-4567
+                (800) 555-1234
               </a>
             </div>
           </div>
@@ -83,7 +83,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <a href="tel:+15551234567" className="text-sm text-text-secondary hover:text-bg-primary transition-colors">
+                <a href="tel:+18005551234" className="text-sm text-text-secondary hover:text-bg-primary transition-colors">
                   Demo Line
                 </a>
               </li>
@@ -100,13 +100,19 @@ export default function Footer() {
                 <span className="text-sm text-text-muted">About</span>
               </li>
               <li>
-                <span className="text-sm text-text-muted">Contact</span>
+                <a href="mailto:hello@answercare.ai" className="text-sm text-text-secondary hover:text-bg-primary transition-colors">
+                  Contact
+                </a>
               </li>
               <li>
-                <span className="text-sm text-text-muted">Privacy Policy</span>
+                <Link href="/privacy" className="text-sm text-text-secondary hover:text-bg-primary transition-colors">
+                  Privacy Policy
+                </Link>
               </li>
               <li>
-                <span className="text-sm text-text-muted">Terms of Service</span>
+                <Link href="/terms" className="text-sm text-text-secondary hover:text-bg-primary transition-colors">
+                  Terms of Service
+                </Link>
               </li>
             </ul>
           </div>

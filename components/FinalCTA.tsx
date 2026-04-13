@@ -11,8 +11,8 @@ interface FinalCTAProps {
 export default function FinalCTA({
   headline = 'Your front desk, reimagined.',
   subheadline = '14-day free trial. Full onboarding included. No credit card required.',
-  ctaPrimary = { label: 'Start Free Trial', href: '/dental#pricing' },
-  ctaSecondary = { label: 'Book a Demo', href: 'tel:+15551234567' },
+  ctaPrimary = { label: 'Start Free Trial', href: 'https://calendly.com/answercare-ai/discovery-call' },
+  ctaSecondary = { label: 'Book a Demo', href: 'tel:+18005551234' },
   accentButtonClass = 'bg-bg-primary text-text-primary hover:bg-bg-secondary',
 }: FinalCTAProps) {
   return (
@@ -31,6 +31,8 @@ export default function FinalCTA({
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
           <Link
             href={ctaPrimary.href}
+            target="_blank"
+            rel="noopener noreferrer"
             className={`px-8 py-4 rounded-xl font-medium text-sm w-full sm:w-auto text-center transition-all duration-200 hover:scale-[1.02] ${accentButtonClass}`}
           >
             {ctaPrimary.label}
@@ -43,7 +45,7 @@ export default function FinalCTA({
           </a>
         </div>
         <p className="mt-6 text-xs text-white/30 font-mono-accent">
-          First 10 clients: free setup + locked-in pricing. &nbsp;🎁
+          30% off setup + rate locked for life — 7 of 10 founding spots remaining. &nbsp;🎁
         </p>
       </div>
     </section>

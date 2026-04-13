@@ -52,7 +52,7 @@ export default function Hero({
           >
             <span className="inline-flex items-center gap-2 text-xs font-mono-accent tracking-widest uppercase text-text-secondary border border-border px-3 py-1.5 rounded-full">
               <span className="w-1.5 h-1.5 rounded-full bg-success inline-block animate-pulse" />
-              Founding Client Offer — First 10 clients get free setup
+              Founding Client Offer — 30% off setup, rate locked for life
             </span>
           </div>
         )}
@@ -77,6 +77,8 @@ export default function Hero({
         >
           <Link
             href={ctaPrimary.href}
+            target={ctaPrimary.href.startsWith('http') ? '_blank' : undefined}
+            rel={ctaPrimary.href.startsWith('http') ? 'noopener noreferrer' : undefined}
             className={`px-6 py-3.5 rounded-xl font-medium text-sm w-full sm:w-auto text-center transition-all duration-200 hover:scale-[1.02] hover:shadow-lg ${accentButtonClass}`}
           >
             {ctaPrimary.label}

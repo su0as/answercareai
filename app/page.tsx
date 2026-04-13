@@ -24,10 +24,10 @@ export default function HomePage() {
       <Hero
         headline="Your front desk. Managed by AI. Optimized by humans."
         subheadline="AnswerCare is your managed AI receptionist — we handle every call, book every appointment, and send you monthly intelligence reports. Not software. An operations partner."
-        ctaPrimary={{ label: 'Start Free Trial', href: '/dental#pricing' }}
+        ctaPrimary={{ label: 'Start Free Trial', href: 'https://calendly.com/answercare-ai/discovery-call' }}
         ctaSecondary={{
-          label: 'Call Our Demo Line → (555) 123-4567',
-          href: 'tel:+15551234567',
+          label: 'Call Our Demo Line → (800) 555-1234',
+          href: 'tel:+18005551234',
           phone: 'true',
         }}
         trustBadges={['14-day free trial', 'No credit card', 'Cancel anytime']}
