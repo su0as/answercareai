@@ -9,7 +9,7 @@ export default function StickyCTA() {
   const sentinelRef = useRef<HTMLDivElement>(null)
   const pathname = usePathname()
 
-  if (pathname?.startsWith('/trades')) return null
+  if (pathname === '/' || pathname?.startsWith('/trades')) return null
 
   useEffect(() => {
     if (typeof window !== 'undefined') {

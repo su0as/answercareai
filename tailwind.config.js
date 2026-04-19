@@ -29,7 +29,8 @@ module.exports = {
         mono: ['Geist Mono', 'JetBrains Mono', 'monospace'],
         'inter-tight': ['"Inter Tight"', 'Inter', 'Arial', 'sans-serif'],
         'inter': ['Inter', 'system-ui', 'sans-serif'],
-        'jb-mono': ['"JetBrains Mono"', 'monospace'],
+        'jb-mono': ['"JetBrains Mono"', '"IBM Plex Mono"', 'monospace'],
+        'fraunces': ['Fraunces', 'Georgia', 'serif'],
       },
       animation: {
         ticker: 'ticker 40s linear infinite',
