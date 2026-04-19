@@ -1,11 +1,15 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
+import { usePathname } from 'next/navigation'
 
 export default function StickyCTA() {
   const [visible, setVisible] = useState(false)
   const [dismissed, setDismissed] = useState(false)
   const sentinelRef = useRef<HTMLDivElement>(null)
+  const pathname = usePathname()
+
+  if (pathname?.startsWith('/trades')) return null
 
   useEffect(() => {
     if (typeof window !== 'undefined') {

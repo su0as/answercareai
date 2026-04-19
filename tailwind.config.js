@@ -27,6 +27,9 @@ module.exports = {
         serif: ['Instrument Serif', 'Georgia', 'serif'],
         sans: ['Geist', 'system-ui', 'sans-serif'],
         mono: ['Geist Mono', 'JetBrains Mono', 'monospace'],
+        'inter-tight': ['"Inter Tight"', 'Inter', 'Arial', 'sans-serif'],
+        'inter': ['Inter', 'system-ui', 'sans-serif'],
+        'jb-mono': ['"JetBrains Mono"', 'monospace'],
       },
       animation: {
         ticker: 'ticker 40s linear infinite',
