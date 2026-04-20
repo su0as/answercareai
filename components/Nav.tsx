@@ -1,62 +1,69 @@
 'use client'
 
-import Link from 'next/link'
+import { useState, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
-
-const DISPLAY = { fontFamily: '"Inter Tight", Inter, Arial, sans-serif' }
-const MONO = { fontFamily: '"JetBrains Mono", monospace' }
 
 export default function Nav() {
   const pathname = usePathname()
+  const [scrolled, setScrolled] = useState(false)
 
-  // Hidden on trades page (has its own inline nav)
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 80)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
   if (pathname?.startsWith('/trades')) return null
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-[#F5F2EC] border-b border-[#D5CFC1]">
-      <div className="max-w-[1200px] mx-auto px-6 sm:px-10 h-14 flex items-center justify-between">
-        {/* Logo */}
-        <Link
-          href="/"
-          className="flex items-center gap-2 hover:opacity-70 transition-opacity"
-          aria-label="AnswerCare AI"
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 h-[60px] transition-all duration-300 ${
+        scrolled ? 'border-b border-[#D5CFC1]' : 'border-b border-transparent'
+      }`}
+      style={{
+        backgroundColor: scrolled ? 'rgba(245,242,236,0.92)' : '#F5F2EC',
+        backdropFilter: scrolled ? 'blur(12px)' : 'none',
+        WebkitBackdropFilter: scrolled ? 'blur(12px)' : 'none',
+      }}
+    >
+      <div className="max-w-[1200px] mx-auto px-5 sm:px-10 h-full flex items-center justify-between">
+
+        {/* Wordmark — Fraunces, no "AI" suffix */}
+        <span
+          className="text-[#0E0E0E] tracking-[-0.01em] select-none"
+          style={{
+            fontFamily: 'Fraunces, Georgia, serif',
+            fontWeight: 600,
+            fontSize: '20px',
+            fontOpticalSizing: 'auto',
+          }}
         >
-          <span
-            className="text-[#0E0E0E] text-[15px]"
-            style={{ ...DISPLAY, fontWeight: 600 }}
-          >
-            AnswerCare.ai
-          </span>
-        </Link>
+          AnswerCare
+        </span>
 
-        {/* Desktop right */}
-        <div className="hidden sm:flex items-center gap-6">
-          <a
-            href="tel:+18005551234"
-            className="text-[#4A4641] hover:text-[#0E0E0E] transition-colors"
-            style={{ ...MONO, fontSize: '13px', letterSpacing: '-0.01em' }}
-          >
-            +1 (800) 555-1234
-          </a>
-          <a
-            href="https://calendly.com/answercare-ai/discovery-call"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[13px] text-[#0E0E0E] border border-[#0E0E0E] px-4 py-1.5 rounded hover:bg-[#0E0E0E] hover:text-[#F5F2EC] transition-all"
-            style={{ ...DISPLAY, fontWeight: 500 }}
-          >
-            Get started →
-          </a>
-        </div>
-
-        {/* Mobile */}
+        {/* Primary CTA — visible at all times */}
         <a
           href="tel:+18005551234"
-          className="sm:hidden text-[13px] text-[#B3392D] border border-[#B3392D] px-3 py-1.5 rounded"
-          style={{ ...MONO, letterSpacing: '-0.01em' }}
+          className="hover:opacity-85 transition-opacity"
+          style={{
+            backgroundColor: '#B3392D',
+            color: '#F5F2EC',
+            padding: '10px 20px',
+            borderRadius: '6px',
+            fontFamily: '"Inter Tight", Inter, Arial, sans-serif',
+            fontWeight: 500,
+            fontSize: '15px',
+            textDecoration: 'none',
+            display: 'inline-flex',
+            alignItems: 'center',
+            boxShadow: '0 1px 0 rgba(0,0,0,0.12)',
+            letterSpacing: '0em',
+          }}
         >
-          📞 Call
+          <span className="hidden sm:inline">Call demo →</span>
+          <span className="sm:hidden">Call →</span>
         </a>
+
       </div>
     </header>
   )

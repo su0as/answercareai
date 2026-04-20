@@ -5,7 +5,7 @@ import { useState, useEffect, useRef } from 'react'
 const MONO = { fontFamily: '"JetBrains Mono", "IBM Plex Mono", monospace' }
 const BODY = { fontFamily: '"Inter Tight", Inter, Arial, sans-serif' }
 
-function useCountUp(target: number, duration = 350) {
+function useCountUp(target: number, duration = 400) {
   const [value, setValue] = useState(target)
   const raf = useRef<number | null>(null)
   const start = useRef<number | null>(null)
@@ -49,16 +49,18 @@ function Slider({ label, value, min, max, step = 1, display, onChange }: SliderP
   const pct = ((value - min) / (max - min)) * 100
 
   return (
-    <div className="mb-8">
-      <div className="flex items-baseline justify-between mb-3">
-        <label className="text-[13px] text-[#4A4641]" style={BODY}>{label}</label>
-        <span className="text-[15px] text-[#0E0E0E]" style={{ ...MONO, letterSpacing: '-0.01em' }}>{display}</span>
+    <div className="mb-10">
+      <div className="flex items-baseline justify-between mb-4">
+        <label className="text-[15px] text-[#4A4641]" style={BODY}>{label}</label>
+        <span className="text-[16px] text-[#0E0E0E]" style={{ ...MONO, letterSpacing: '-0.01em' }}>{display}</span>
       </div>
-      <div className="relative h-px bg-[#D5CFC1]">
+      <div className="relative h-[2px] bg-[#D5CFC1] rounded-full">
+        {/* Filled portion — accent red */}
         <div
-          className="absolute left-0 top-0 h-full bg-[#0E0E0E]"
-          style={{ width: `${pct}%` }}
+          className="absolute left-0 top-0 h-full rounded-full"
+          style={{ width: `${pct}%`, backgroundColor: '#B3392D' }}
         />
+        {/* Hidden range input for interaction */}
         <input
           type="range"
           min={min}
@@ -66,21 +68,20 @@ function Slider({ label, value, min, max, step = 1, display, onChange }: SliderP
           step={step}
           value={value}
           onChange={(e) => onChange(Number(e.target.value))}
-          className="absolute -top-3 left-0 w-full h-7 opacity-0 cursor-pointer"
+          className="absolute -top-4 left-0 w-full h-9 opacity-0 cursor-pointer"
           style={{ WebkitAppearance: 'none' }}
+          aria-label={label}
         />
+        {/* Thumb — accent red with paper border */}
         <div
-          className="absolute top-1/2 w-3.5 h-3.5 rounded-full bg-[#0E0E0E] -translate-y-1/2 pointer-events-none"
-          style={{ left: `calc(${pct}% - 7px)` }}
+          className="absolute top-1/2 -translate-y-1/2 w-5 h-5 rounded-full pointer-events-none"
+          style={{
+            left: `calc(${pct}% - 10px)`,
+            backgroundColor: '#B3392D',
+            border: '2.5px solid #F5F2EC',
+            boxShadow: '0 0 0 1px rgba(179,57,45,0.25), 0 1px 3px rgba(0,0,0,0.12)',
+          }}
         />
-      </div>
-      <div className="flex justify-between mt-2">
-        <span className="text-[11px] text-[#4A4641]/60" style={MONO}>
-          {typeof min === 'number' && label.toLowerCase().includes('value') ? fmt(min) : `${min}${label.toLowerCase().includes('rate') ? '%' : ''}`}
-        </span>
-        <span className="text-[11px] text-[#4A4641]/60" style={MONO}>
-          {typeof max === 'number' && label.toLowerCase().includes('value') ? fmt(max) : `${max}${label.toLowerCase().includes('rate') ? '%' : ''}`}
-        </span>
       </div>
     </div>
   )
@@ -94,21 +95,31 @@ export default function HomeROICalc() {
   const monthlyLoss = Math.round(missedCalls * (closeRate / 100) * jobValue)
   const annualLoss = monthlyLoss * 12
   const paybackJobs = Math.ceil(199 / jobValue)
-  const hoursToPayback = Math.round((199 / (monthlyLoss / (30 * 24))) * 10) / 10
 
   const displayLoss = useCountUp(monthlyLoss)
   const displayAnnual = useCountUp(annualLoss)
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 items-start">
-      {/* Left — inputs (2/5 width) */}
-      <div className="lg:col-span-2">
+    <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-20 items-start">
+
+      {/* Left — inputs (5/12) */}
+      <div className="lg:col-span-5">
+        <h3
+          className="text-[#0E0E0E] leading-[1.15] tracking-[-0.015em] mb-3"
+          style={{ ...BODY, fontSize: 'clamp(22px, 3vw, 28px)', fontWeight: 500 }}
+        >
+          What&apos;s voicemail costing you?
+        </h3>
+        <p className="text-[16px] text-[#4A4641] leading-[1.55] mb-10" style={BODY}>
+          Drag the sliders. The math updates live.
+        </p>
+
         <Slider
           label="Average job value"
           value={jobValue}
           min={50}
           max={2000}
-          step={25}
+          step={10}
           display={fmt(jobValue)}
           onChange={setJobValue}
         />
@@ -117,7 +128,7 @@ export default function HomeROICalc() {
           value={missedCalls}
           min={5}
           max={150}
-          step={5}
+          step={1}
           display={`${missedCalls}`}
           onChange={setMissedCalls}
         />
@@ -133,54 +144,71 @@ export default function HomeROICalc() {
 
         {/* Formula */}
         <div className="pt-6 border-t border-[#D5CFC1]">
-          <p className="text-[11px] text-[#4A4641]/70 leading-[1.6]" style={MONO}>
-            missed × close rate × job value<br />
-            = monthly revenue lost
+          <p className="text-[11px] text-[#4A4641]/60 leading-[1.7]" style={MONO}>
+            missed calls × close rate × job value<br />
+            = monthly revenue lost to voicemail
           </p>
         </div>
       </div>
 
-      {/* Right — output (3/5 width) */}
-      <div className="lg:col-span-3">
-        <p className="text-[13px] text-[#4A4641] mb-3" style={BODY}>
-          You&apos;re losing
+      {/* Right — output (7/12) */}
+      <div className="lg:col-span-7">
+        <p className="text-[11px] text-[#4A4641] uppercase tracking-[0.10em] mb-4" style={MONO}>
+          you&apos;re losing
         </p>
+
+        {/* Big number */}
         <div
-          className="text-[#0E0E0E] leading-[1.0] tracking-[-0.03em] mb-2"
-          style={{ ...MONO, fontSize: 'clamp(64px, 9vw, 120px)' }}
+          className="leading-[1.0] tracking-[-0.02em] mb-3"
+          style={{ ...MONO, fontSize: 'clamp(72px, 11vw, 144px)', color: '#B3392D' }}
         >
           {fmt(displayLoss)}
         </div>
-        <p className="text-[18px] text-[#4A4641] mb-8" style={BODY}>
-          /month to voicemail.
+
+        {/* Underline accent */}
+        <div className="mb-4" style={{ width: '55%', height: '2px', backgroundColor: '#B3392D' }} />
+
+        <p className="text-[12px] text-[#4A4641] uppercase tracking-[0.10em] mb-8" style={MONO}>
+          /month to voicemail
         </p>
 
-        <div className="border-t border-[#D5CFC1] pt-6 space-y-3">
-          <div className="flex items-baseline gap-2">
-            <span className="text-[13px] text-[#4A4641]" style={BODY}>That&apos;s</span>
-            <span className="text-[17px] text-[#0E0E0E] font-semibold" style={{ ...MONO }}>{fmt(displayAnnual)}</span>
-            <span className="text-[13px] text-[#4A4641]" style={BODY}>per year.</span>
-          </div>
-          <p className="text-[13px] text-[#4A4641]" style={BODY}>
-            AnswerCare AI costs <span className="text-[#0E0E0E] font-medium" style={MONO}>$199/month</span>.{' '}
-            Pays back after{' '}
-            <span className="text-[#0E0E0E] font-medium" style={MONO}>{paybackJobs} booked {paybackJobs === 1 ? 'job' : 'jobs'}</span>
-            {hoursToPayback < 48 ? ` — roughly ${hoursToPayback} hours of recovered work per month.` : '.'}
+        <div className="space-y-3 mb-10 border-t border-[#D5CFC1] pt-6">
+          <p className="text-[17px] text-[#4A4641] leading-[1.55]" style={BODY}>
+            That&apos;s{' '}
+            <span className="text-[#0E0E0E]" style={{ ...MONO, fontWeight: 400 }}>{fmt(displayAnnual)}</span>
+            {' '}per year.
+          </p>
+          <p className="text-[17px] text-[#4A4641] leading-[1.55]" style={BODY}>
+            AnswerCare costs{' '}
+            <span className="text-[#0E0E0E]" style={MONO}>$199/month</span>.
+            {' '}Pays back after{' '}
+            <span className="text-[#0E0E0E]" style={MONO}>
+              {paybackJobs} booked {paybackJobs === 1 ? 'job' : 'jobs'}
+            </span>.
           </p>
         </div>
 
-        <div className="mt-8">
-          <a
-            href="https://calendly.com/answercare-ai/discovery-call"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-[14px] text-[#B3392D] border border-[#B3392D] px-5 py-2.5 rounded hover:bg-[#B3392D] hover:text-white transition-all"
-            style={{ ...BODY, fontWeight: 500 }}
-          >
-            Stop the bleed →
-          </a>
-        </div>
+        <a
+          href="#pricing"
+          className="hover:opacity-85 transition-opacity"
+          style={{
+            backgroundColor: '#B3392D',
+            color: '#F5F2EC',
+            padding: '20px 32px',
+            borderRadius: '6px',
+            fontFamily: '"Inter Tight", Inter, Arial, sans-serif',
+            fontWeight: 500,
+            fontSize: '16px',
+            display: 'inline-flex',
+            alignItems: 'center',
+            boxShadow: '0 1px 0 rgba(0,0,0,0.12)',
+            textDecoration: 'none',
+          }}
+        >
+          Stop the bleed →
+        </a>
       </div>
+
     </div>
   )
 }
