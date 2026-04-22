@@ -8,35 +8,43 @@ const BODY = { fontFamily: '"Inter Tight", Inter, Arial, sans-serif' }
 const faqs = [
   {
     q: 'Will my callers know it\'s AI?',
-    a: 'Yes, if they ask directly. We don\'t deceive. But in 90% of trade calls — especially emergency situations — the caller just wants help and a booking. Call the demo line yourself (+1 800 555-1234) and ask it directly. It handles the question cleanly.',
+    a: 'If they ask directly, yes — we don\'t deceive. Listen to the demo recordings on this page. Most callers don\'t ask because the call feels natural and their problem gets handled.',
   },
   {
-    q: 'What if the AI can\'t handle a call?',
-    a: 'It collects job details and texts you immediately with full caller information. You call back from the job site when you have 2 minutes. No dropped balls — you always get the information even if you can\'t answer in real time.',
+    q: 'What happens if the AI can\'t handle a call?',
+    a: 'It takes a detailed message and SMS-notifies you immediately so you can call back within minutes. You can also set it to forward specific call types — emergencies, specific keywords — directly to your phone.',
   },
   {
-    q: 'How is this different from a virtual receptionist service?',
-    a: 'A virtual receptionist service is humans in a call center. They cost $300-$1,500/month, work 9-to-5, and can only handle one call at a time. Our AI answers in under 2 seconds, works 24/7, handles simultaneous calls, and costs $199/month. The difference in speed and availability is the point.',
+    q: 'What if my business has unique requirements?',
+    a: 'Every setup includes a 30-minute discovery call where we map your trade, service area, rates, scheduling rules, and edge cases. Your script is custom — not a generic template.',
   },
   {
-    q: 'What scheduling tools does it integrate with?',
-    a: 'Google Calendar, Jobber, Housecall Pro, and ServiceM8 natively. Outlook and Zapier for everything else. Tell us what you use during onboarding and we configure it.',
+    q: 'What if I don\'t hit 20 jobs in the first 30 days?',
+    a: 'Your first month is free. You paid $497 setup — we deliver the service regardless. You can continue at $199/month, try us another 30 days, or walk away. No clawback, no argument.',
+  },
+  {
+    q: 'What does it integrate with?',
+    a: 'Google Calendar, Jobber, Housecall Pro, and ServiceM8 natively. Via Zapier for everything else. Tell us what you use during onboarding and we configure it.',
   },
   {
     q: 'Is my data secure?',
-    a: 'Call recordings and caller information are encrypted in transit (TLS) and at rest (AES-256). We use US-based Twilio phone infrastructure. Recordings are deleted after 90 days by default. We don\'t sell your data.',
+    a: 'All calls run on US phone infrastructure (Twilio). Data encrypted in transit and at rest. Call recordings are not shared with anyone but you. You can delete any call log on request.',
   },
   {
-    q: 'Can I try before committing to the full setup?',
-    a: 'Yes — call the demo line (+1 800 555-1234) right now and interact with the live agent. That\'s the actual AI that will answer your calls. If it impresses you, book a 15-minute setup call. If not, you\'ve lost nothing.',
+    q: 'Can I listen to my calls?',
+    a: 'Yes. Every call is logged with full recording and transcript. You access them through a simple dashboard or they can be SMS\'d to you after each call.',
   },
   {
-    q: 'What if you don\'t hit the guarantee?',
-    a: 'You pay nothing for that month. We Zelle you $500 within 48 hours. No argument, no support ticket, no escalation process. We show you the booking log on day 31 — you count. If it\'s below 20, the $500 arrives.',
+    q: 'How is this different from an answering service?',
+    a: 'Answering services charge $250–$600/month for limited hours and pass messages through humans. AnswerCare is 24/7, answers in under 2 seconds, books directly into your calendar, and costs less than half.',
   },
   {
     q: 'What happens to my existing phone number?',
-    a: 'We forward it. Your number stays on your current carrier. If you cancel, forwarding stops within 24 hours and your phone works exactly as before. No porting, no SIM changes, no risk.',
+    a: 'We forward it. Your number stays yours. If you cancel, forwarding stops within 24 hours and your phone works exactly as before. No porting, no SIM changes, no risk.',
+  },
+  {
+    q: 'Who answers if I want to talk to a human at AnswerCare?',
+    a: 'We\'re a small team. Email hello@answercareai.com — replies within 4 hours during US business hours. Every customer gets direct access to the founder for setup calls and escalations.',
   },
 ]
 
@@ -45,9 +53,7 @@ export default function HomeFAQ() {
 
   return (
     <div>
-      {/* First divider */}
       <div className="border-t border-[#D5CFC1]" />
-
       {faqs.map((faq, i) => (
         <div key={i} className="border-b border-[#D5CFC1]">
           <button
@@ -69,10 +75,7 @@ export default function HomeFAQ() {
                 {faq.q}
               </p>
               {open === i && (
-                <p
-                  className="mt-4 text-[15px] text-[#4A4641] leading-[1.65]"
-                  style={BODY}
-                >
+                <p className="mt-4 text-[15px] text-[#4A4641] leading-[1.65]" style={BODY}>
                   {faq.a}
                 </p>
               )}
