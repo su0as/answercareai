@@ -6,7 +6,7 @@ import HomeAudioPlayer from '@/components/HomeAudioPlayer'
 export const metadata: Metadata = {
   title: 'AI Phone Agent for One-Person Trades | AnswerCare AI',
   description:
-    'We answer every call, book 20 jobs in 30 days, or your first month is free. $199/month after $497 setup. Live in 5 days. Built for locksmiths, plumbers, garage door, HVAC.',
+    'Stop losing jobs to voicemail. AI phone agent for solo trade operators — books 20 jobs in 30 days or your first month is free. Plans from $99/month, $0 setup. Live in 5 days.',
 }
 
 // ─── Design tokens ─────────────────────────────────────────────────────────────
@@ -85,7 +85,7 @@ interface CompRow {
 }
 
 const compRows: CompRow[] = [
-  { feature: 'Cost per month', voicemail: '$0', human: '$3,800+', answering: '$250–$600', answercare: '$199 *' },
+  { feature: 'Cost per month', voicemail: '$0', human: '$3,800+', answering: '$255+/mo', answercare: 'from $99/mo' },
   { feature: '24/7 coverage', voicemail: false, human: 'No (9–5 only)', answering: true, answercare: true },
   { feature: 'Answers in < 2 seconds', voicemail: false, human: 'Usually', answering: 'Varies', answercare: 'Always' },
   { feature: 'Never on lunch break', voicemail: false, human: false, answering: false, answercare: true },
@@ -93,7 +93,7 @@ const compRows: CompRow[] = [
   { feature: 'Custom script for your trade', voicemail: false, human: 'Weeks to train', answering: 'Generic', answercare: 'Day 1, yours' },
   { feature: 'SMS to you on every booking', voicemail: false, human: 'Usually', answering: 'Sometimes', answercare: 'Every call' },
   { feature: 'Handles 2 calls at once', voicemail: false, human: false, answering: true, answercare: true },
-  { feature: 'Approx. cost per booked job', voicemail: '—', human: '~$38', answering: '~$12', answercare: '~$4' },
+  { feature: 'Approx. cost per booked job', voicemail: '—', human: '~$38', answering: '~$15', answercare: '~$4' },
 ]
 
 function CellDisplay({ value, isAnswerCare }: { value: CellVal; isAnswerCare?: boolean }) {
@@ -152,8 +152,8 @@ export default function HomePage() {
               style={{ ...DISPLAY, fontSize: 'clamp(64px, 8.5vw, 120px)' }}
             >
               Stop losing<br />
-              jobs to<br />
-              voicemail.
+              $4,375/mo<br />
+              to voicemail.
             </h1>
 
             <p
@@ -218,7 +218,7 @@ export default function HomePage() {
             >
               [ FIRST MONTH FREE ]
             </span>
-            {['SETUP $497', 'MONTHLY $199 AFTER', 'LIVE IN 5 DAYS'].map((tag) => (
+            {['FROM $99/MONTH', '$0 SETUP', 'LIVE IN 5 DAYS'].map((tag) => (
               <span key={tag} className="text-[11px] text-[#4A4641]/50" style={MONO}>
                 [ {tag} ]
               </span>
@@ -399,7 +399,7 @@ export default function HomePage() {
                 {[
                   { label: 'Voicemail', isAC: false },
                   { label: 'Human receptionist', isAC: false },
-                  { label: 'Answering service', isAC: false },
+                  { label: 'Smith.ai', isAC: false },
                   { label: 'AnswerCare AI', isAC: true },
                 ].map(({ label, isAC }) => (
                   <div
@@ -451,7 +451,7 @@ export default function HomePage() {
           </div>
 
           <p className="mt-4 text-[11px] text-[#4A4641]/60" style={MONO}>
-            * First month free if fewer than 20 jobs booked. $199/month after that. Based on $350 avg job, 50 calls/month, at market rates.
+            Based on $350 avg job, 50 calls/month. Smith.ai pricing per public plans, April 2026. First month free on all AnswerCare plans if fewer than 20 jobs booked.
           </p>
 
         </div>
@@ -483,7 +483,7 @@ export default function HomePage() {
                 n: '03',
                 title: 'Guarantee Window',
                 detail: 'Days 1–30 live',
-                body: 'If we book fewer than 20 jobs, your first month is free — you only paid the $497 setup. Hit 20+ and you continue at $199/month. Cancel any month, 7 days notice.',
+                body: 'If we book fewer than 20 jobs, your first month is free — no questions asked. Hit 20+ and billing starts at your plan rate. Cancel any month, 7 days notice.',
               },
             ].map(({ n, title, detail, body }) => (
               <div
@@ -541,7 +541,7 @@ export default function HomePage() {
             <div className="col-span-12 lg:col-span-7">
 
               <p className="text-[19px] text-[#4A4641] leading-[1.65] mb-9" style={BODY}>
-                You pay the $497 setup. That&apos;s it for the first month. We track every booked job from day one. On day 31, we show you the log. If we haven&apos;t hit 20 bookings, your first month is free — keep the service, try us another 30 days, or walk away.
+                No credit card held against the guarantee. We go live, track every booked job from day one, and on day 31 we show you the full log. Under 20 jobs? Your first month is free — keep the service, try another 30 days, or walk away.
               </p>
 
               <div>
@@ -673,102 +673,195 @@ export default function HomePage() {
 
       {/* ══════════════════════════════════════════════════════════════════════
           SECTION 10 — PRICING  (id="pricing" anchors ROI calc CTA)
-          One plan. "First month free" badge. Founding rate.
+          Three tiers. First month free on all plans. $497 setup is opt-in.
       ══════════════════════════════════════════════════════════════════════ */}
       <section id="pricing" className="py-20 sm:py-28 bg-[#EBE7DD]">
         <div className={CONTAINER}>
           <SectionLabel n="10" title="PRICING" />
 
-          <p
-            className="text-[11px] text-[#4A4641]/60 uppercase tracking-[0.10em] mb-8"
-            style={MONO}
-          >
-            one plan · no tiers · no upsells
-          </p>
+          {/* First month free banner */}
+          <div className="mb-10">
+            <span
+              className="text-[12px] px-3 py-1.5 rounded inline-block"
+              style={{ ...MONO, color: '#2D6A4F', backgroundColor: 'rgba(45,106,79,0.08)', border: '1px solid rgba(45,106,79,0.2)' }}
+            >
+              ★ FIRST MONTH FREE ON ALL PLANS IF WE DON&apos;T HIT 20 JOBS
+            </span>
+          </div>
 
-          <div className="max-w-[640px]">
-            <div className="border border-[#D5CFC1] rounded-sm bg-[#F5F2EC] overflow-hidden">
+          {/* 3-tier grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
 
-              {/* First month free badge */}
-              <div
-                className="px-8 sm:px-10 py-3"
-                style={{
-                  backgroundColor: 'rgba(45,106,79,0.08)',
-                  borderBottom: '1px solid rgba(45,106,79,0.2)',
-                }}
-              >
-                <p className="text-[12px]" style={{ ...MONO, color: '#2D6A4F' }}>
-                  ★ FIRST MONTH FREE IF WE DON&apos;T HIT 20 JOBS
+            {/* Tier 1 — Solo Truck */}
+            <div className="border border-[#D5CFC1] rounded-sm bg-[#F5F2EC] overflow-hidden flex flex-col">
+              <div className="p-7 sm:p-8 flex flex-col flex-1">
+                <p className="text-[11px] text-[#4A4641] uppercase tracking-[0.10em] mb-5" style={MONO}>
+                  Solo Truck
                 </p>
-              </div>
-
-              <div className="p-8 sm:p-10">
-
-                {/* Pricing display */}
-                <div className="mb-1 flex items-baseline gap-3">
-                  <span
-                    className="leading-[1.0] tracking-[-0.02em]"
-                    style={{ ...MONO, fontSize: 'clamp(48px, 6vw, 72px)', color: '#0E0E0E' }}
-                  >
-                    $497
+                <div className="flex items-baseline gap-2 mb-1">
+                  <span className="leading-[1.0] tracking-[-0.02em]" style={{ ...MONO, fontSize: '48px', color: '#0E0E0E' }}>
+                    $99
                   </span>
-                  <span className="text-[18px] text-[#4A4641]" style={BODY}>setup</span>
+                  <span className="text-[15px] text-[#4A4641]" style={BODY}>/month</span>
                 </div>
-                <div className="mb-3 flex items-baseline gap-2">
-                  <span
-                    className="leading-[1.0] tracking-[-0.02em]"
-                    style={{ ...MONO, fontSize: 'clamp(32px, 4vw, 48px)', color: '#0E0E0E' }}
-                  >
-                    $199
-                  </span>
-                  <span className="text-[16px] text-[#4A4641]" style={BODY}>/month after that</span>
-                </div>
-                <p className="text-[13px] text-[#4A4641]/60 mb-8" style={BODY}>
-                  Monthly billing starts day 31 — only if we hit 20 jobs. No credit card held against the guarantee.
+                <p className="text-[13px] text-[#4A4641]/60 mb-7" style={BODY}>
+                  $0 setup · 1-person operation
                 </p>
-
-                {/* Founding rate */}
-                <div className="bg-[#EBE7DD] border border-[#D5CFC1] rounded px-4 py-2.5 mb-8 inline-block">
-                  <p className="text-[12px] text-[#4A4641]" style={MONO}>
-                    ★ FOUNDING RATE — 13 of 20 spots remaining. Rate locked for life.
-                  </p>
-                </div>
-
-                {/* Feature list */}
-                <div className="border-t border-[#D5CFC1] mb-8">
+                <div className="border-t border-[#D5CFC1] mb-7 flex-1">
                   {[
-                    'Unlimited inbound calls (soft cap 500/mo)',
-                    '24/7 coverage — nights, weekends, holidays',
-                    'Custom call script for your trade & service area',
-                    'Booking into Google Calendar, Jobber, Housecall Pro, ServiceM8',
-                    'Real-time SMS notifications on every booking',
-                    'Monthly performance report with full call log',
-                    'Spam & robocall filtering',
-                    'US phone infrastructure (Twilio)',
-                    '30-day performance guarantee',
-                    '7-day cancellation, no contract',
+                    'Unlimited inbound calls',
+                    '24/7 coverage',
+                    'Custom call script',
+                    'Calendar booking',
+                    'SMS on every call',
+                    'Cancel anytime',
                   ].map((f) => (
-                    <div key={f} className="border-b border-[#D5CFC1]/50 py-3 flex items-start gap-3">
-                      <span className="text-[#B3392D] text-[11px] mt-0.5 flex-shrink-0" style={MONO}>→</span>
-                      <p className="text-[15px] text-[#4A4641] leading-[1.5]" style={BODY}>{f}</p>
+                    <div key={f} className="border-b border-[#D5CFC1]/50 py-2.5 flex items-start gap-2.5">
+                      <span className="mt-0.5 flex-shrink-0" style={{ ...MONO, color: '#B3392D', fontSize: '11px' }}>→</span>
+                      <p className="text-[13px] text-[#4A4641]" style={BODY}>{f}</p>
                     </div>
                   ))}
                 </div>
-
-                {/* Primary button — full width inside card */}
                 <a
                   href="https://calendly.com/answercare-ai/discovery-call"
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{ ...BTN_PRIMARY, display: 'flex', justifyContent: 'center' }}
+                  style={{ ...BTN_SECONDARY, display: 'flex', justifyContent: 'center', padding: '14px 20px', fontSize: '14px' }}
+                  className="hover:bg-[#E8D6D2] hover:border-[#B3392D] hover:text-[#B3392D] transition-all"
+                >
+                  Get started →
+                </a>
+              </div>
+            </div>
+
+            {/* Tier 2 — Crew (most popular) */}
+            <div className="border border-[#B3392D] rounded-sm bg-[#F5F2EC] overflow-hidden flex flex-col">
+              <div className="px-7 sm:px-8 py-2.5" style={{ backgroundColor: '#B3392D' }}>
+                <p className="text-[11px] text-[#F5F2EC] uppercase tracking-[0.10em]" style={MONO}>
+                  ★ Most popular
+                </p>
+              </div>
+              <div className="p-7 sm:p-8 flex flex-col flex-1">
+                <p className="text-[11px] text-[#4A4641] uppercase tracking-[0.10em] mb-5" style={MONO}>
+                  Crew
+                </p>
+                <div className="flex items-baseline gap-2 mb-1">
+                  <span className="leading-[1.0] tracking-[-0.02em]" style={{ ...MONO, fontSize: '48px', color: '#0E0E0E' }}>
+                    $199
+                  </span>
+                  <span className="text-[15px] text-[#4A4641]" style={BODY}>/month</span>
+                </div>
+                <p className="text-[13px] text-[#4A4641]/60 mb-4" style={BODY}>
+                  $0 setup · 2–5 person team
+                </p>
+                <div className="bg-[#EBE7DD] border border-[#D5CFC1] rounded px-3 py-2 mb-6 inline-block">
+                  <p className="text-[11px] text-[#4A4641]" style={MONO}>
+                    ★ FOUNDING — 13 of 20 spots. Rate locked for life.
+                  </p>
+                </div>
+                <div className="border-t border-[#D5CFC1] mb-7 flex-1">
+                  {[
+                    'Everything in Solo Truck',
+                    'Multi-tech call routing',
+                    'Custom voice & script',
+                    'Jobber, Housecall Pro, ServiceM8',
+                    'Priority support',
+                    'Monthly performance report',
+                    'Spam & robocall filtering',
+                  ].map((f) => (
+                    <div key={f} className="border-b border-[#D5CFC1]/50 py-2.5 flex items-start gap-2.5">
+                      <span className="mt-0.5 flex-shrink-0" style={{ ...MONO, color: '#B3392D', fontSize: '11px' }}>→</span>
+                      <p className="text-[13px] text-[#4A4641]" style={BODY}>{f}</p>
+                    </div>
+                  ))}
+                </div>
+                <a
+                  href="https://calendly.com/answercare-ai/discovery-call"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ ...BTN_PRIMARY, display: 'flex', justifyContent: 'center', padding: '14px 20px', fontSize: '14px' }}
                   className="hover:opacity-85 transition-opacity"
                 >
                   Start your 30-day guarantee →
                 </a>
-
               </div>
             </div>
+
+            {/* Tier 3 — Local Empire */}
+            <div className="border border-[#D5CFC1] rounded-sm bg-[#F5F2EC] overflow-hidden flex flex-col">
+              <div className="p-7 sm:p-8 flex flex-col flex-1">
+                <p className="text-[11px] text-[#4A4641] uppercase tracking-[0.10em] mb-5" style={MONO}>
+                  Local Empire
+                </p>
+                <div className="flex items-baseline gap-2 mb-1">
+                  <span className="leading-[1.0] tracking-[-0.02em]" style={{ ...MONO, fontSize: '48px', color: '#0E0E0E' }}>
+                    $399
+                  </span>
+                  <span className="text-[15px] text-[#4A4641]" style={BODY}>/month</span>
+                </div>
+                <p className="text-[13px] text-[#4A4641]/60 mb-7" style={BODY}>
+                  $99 setup · Multi-truck &amp; multi-location
+                </p>
+                <div className="border-t border-[#D5CFC1] mb-7 flex-1">
+                  {[
+                    'Everything in Crew',
+                    'Google Business Profile mgmt',
+                    'Automated review requests',
+                    'Lead gen add-ons',
+                    'Dedicated CSM',
+                    'Multi-location routing',
+                  ].map((f) => (
+                    <div key={f} className="border-b border-[#D5CFC1]/50 py-2.5 flex items-start gap-2.5">
+                      <span className="mt-0.5 flex-shrink-0" style={{ ...MONO, color: '#B3392D', fontSize: '11px' }}>→</span>
+                      <p className="text-[13px] text-[#4A4641]" style={BODY}>{f}</p>
+                    </div>
+                  ))}
+                </div>
+                <a
+                  href="https://calendly.com/answercare-ai/discovery-call"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ ...BTN_SECONDARY, display: 'flex', justifyContent: 'center', padding: '14px 20px', fontSize: '14px' }}
+                  className="hover:bg-[#E8D6D2] hover:border-[#B3392D] hover:text-[#B3392D] transition-all"
+                >
+                  Get started →
+                </a>
+              </div>
+            </div>
+
           </div>
+
+          {/* Pro Setup — optional add-on */}
+          <div className="border border-[#D5CFC1] rounded-sm bg-[#F5F2EC] p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
+            <div>
+              <p className="text-[11px] text-[#4A4641] uppercase tracking-[0.10em] mb-2" style={MONO}>
+                Pro Setup — optional add-on
+              </p>
+              <p className="mb-1" style={{ ...BODY, fontSize: '17px', fontWeight: 500, color: '#0E0E0E' }}>
+                Done-for-you onboarding ·{' '}
+                <span style={MONO}>$497 one-time</span>
+              </p>
+              <p className="text-[14px] text-[#4A4641] leading-[1.5]" style={BODY}>
+                We write your full call script, configure all integrations, and run a live test call before launch. 30-min discovery call included.
+              </p>
+            </div>
+            <a
+              href="https://calendly.com/answercare-ai/discovery-call"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                ...BTN_SECONDARY,
+                padding: '12px 24px',
+                fontSize: '14px',
+                whiteSpace: 'nowrap' as const,
+                flexShrink: 0,
+              }}
+              className="hover:bg-[#E8D6D2] hover:border-[#B3392D] hover:text-[#B3392D] transition-all"
+            >
+              Add to any plan →
+            </a>
+          </div>
+
         </div>
       </section>
 
@@ -912,7 +1005,7 @@ export default function HomePage() {
             >
               [ FIRST MONTH FREE ]
             </span>
-            {['$497 SETUP', '$199/MONTH', '5-DAY SETUP', 'CANCEL ANYTIME'].map((tag) => (
+            {['FROM $99/MONTH', '$0 SETUP', '5-DAY SETUP', 'CANCEL ANYTIME'].map((tag) => (
               <span key={tag} className="text-[11px] text-white/20" style={MONO}>
                 [ {tag} ]
               </span>
