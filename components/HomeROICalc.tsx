@@ -94,7 +94,6 @@ export default function HomeROICalc() {
 
   const monthlyLoss = Math.round(missedCalls * (closeRate / 100) * jobValue)
   const annualLoss = monthlyLoss * 12
-  const paybackJobs = Math.ceil(199 / jobValue)
 
   const displayLoss = useCountUp(monthlyLoss)
   const displayAnnual = useCountUp(annualLoss)
@@ -176,15 +175,12 @@ export default function HomeROICalc() {
           <p className="text-[17px] text-[#4A4641] leading-[1.55]" style={BODY}>
             That&apos;s{' '}
             <span className="text-[#0E0E0E]" style={{ ...MONO, fontWeight: 400 }}>{fmt(displayAnnual)}</span>
-            {' '}per year.
+            {' '}per year someone else is booking.
           </p>
           <p className="text-[17px] text-[#4A4641] leading-[1.55]" style={BODY}>
             AnswerCare costs{' '}
-            <span className="text-[#0E0E0E]" style={MONO}>$199/month</span>.
-            {' '}Pays back after{' '}
-            <span className="text-[#0E0E0E]" style={MONO}>
-              {paybackJobs} booked {paybackJobs === 1 ? 'job' : 'jobs'}
-            </span>.
+            <span className="text-[#0E0E0E]" style={MONO}>$199/month</span>
+            {' '}— covered by the first 2 hours of recovered work each month.
           </p>
         </div>
 

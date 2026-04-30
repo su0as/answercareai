@@ -8,7 +8,7 @@ const BODY = { fontFamily: '"Inter Tight", Inter, Arial, sans-serif' }
 const faqs = [
   {
     q: 'Will my callers know it\'s AI?',
-    a: 'If they ask directly, yes — we don\'t deceive. Listen to the demo recordings on this page. Most callers don\'t ask because the call feels natural and their problem gets handled.',
+    a: 'If they ask, yes. We don\'t deceive. Most callers don\'t ask because the call feels natural — they get their problem solved and move on with their day. Listen to the demo recordings above to hear how it sounds.',
   },
   {
     q: 'What happens if the AI can\'t handle a call?',

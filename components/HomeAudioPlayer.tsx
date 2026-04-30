@@ -9,17 +9,17 @@ const recordings = [
   {
     label: 'Emergency lockout — 11:47 PM',
     duration: '1:12',
-    desc: 'Caller stranded in parking lot. AI collects address, confirms same-night service, texts confirmation.',
+    desc: 'Caller stranded in parking lot. Collects address, confirms same-night service, texts confirmation.',
   },
   {
     label: 'Garage door off track — Saturday morning',
     duration: '0:58',
-    desc: 'Homeowner can\'t get car out. AI books next available slot and sends the address to the operator.',
+    desc: 'Homeowner can\'t get car out. Books next available slot and sends the address to the operator.',
   },
   {
     label: 'Pricing inquiry — caller on the fence',
     duration: '1:31',
-    desc: 'AI gives ballpark from rate card, collects job details, books without requiring a callback.',
+    desc: 'Gives ballpark from rate card, collects job details, books without requiring a callback.',
   },
 ]
 
