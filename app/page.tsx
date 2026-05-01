@@ -313,7 +313,7 @@ export default function HomePage() {
                 <div key={n} className="border-t border-[#D5CFC1] pt-5 pb-5">
                   <span
                     className="block leading-[1.0] tracking-[-0.02em] mb-2"
-                    style={{ ...MONO, fontSize: 'clamp(28px, 3.5vw, 44px)', color: '#B3392D' }}
+                    style={{ ...MONO, fontSize: 'clamp(28px, 3.5vw, 44px)', color: '#0E0E0E' }}
                   >
                     {n}
                   </span>
@@ -553,7 +553,7 @@ export default function HomePage() {
                   '20+ jobs? You continue at $199/month. Cancel any month, 7 days notice.',
                 ].map((item, i) => (
                   <div key={i} className="border-t border-[#D5CFC1] py-4 flex items-start gap-4">
-                    <span className="text-[#B3392D] text-[11px] mt-0.5 flex-shrink-0" style={MONO}>—</span>
+                    <span className="text-[#4A4641]/40 text-[11px] mt-0.5 flex-shrink-0" style={MONO}>—</span>
                     <p className="text-[17px] text-[#4A4641] leading-[1.55]" style={BODY}>{item}</p>
                   </div>
                 ))}
@@ -654,7 +654,7 @@ export default function HomePage() {
                 className="border-t border-[#D5CFC1] py-7 sm:pr-10 flex items-start gap-4"
               >
                 <span
-                  className="text-[#B3392D] flex-shrink-0 mt-0.5 whitespace-nowrap"
+                  className="text-[#4A4641] flex-shrink-0 mt-0.5 whitespace-nowrap"
                   style={{ ...MONO, fontSize: '13px' }}
                 >
                   ⟶ {n}
@@ -745,7 +745,7 @@ export default function HomePage() {
                     '7-day cancellation, no contract',
                   ].map((f) => (
                     <div key={f} className="border-b border-[#D5CFC1]/50 py-3 flex items-start gap-3">
-                      <span className="text-[#B3392D] text-[11px] mt-0.5 flex-shrink-0" style={MONO}>→</span>
+                      <span className="text-[#4A4641]/50 text-[11px] mt-0.5 flex-shrink-0" style={MONO}>→</span>
                       <p className="text-[15px] text-[#4A4641] leading-[1.5]" style={BODY}>{f}</p>
                     </div>
                   ))}
@@ -792,7 +792,7 @@ export default function HomePage() {
                   'You\'ve lost sleep over how much voicemail is costing you',
                 ].map((item) => (
                   <div key={item} className="border-t border-[#D5CFC1] py-4 flex items-start gap-3">
-                    <span className="text-[#B3392D] text-[12px] mt-0.5 flex-shrink-0" style={MONO}>→</span>
+                    <span className="text-[#0E0E0E] text-[12px] mt-0.5 flex-shrink-0" style={MONO}>→</span>
                     <p className="text-[17px] text-[#0E0E0E] leading-[1.5]" style={BODY}>{item}</p>
                   </div>
                 ))}
