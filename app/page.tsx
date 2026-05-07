@@ -160,7 +160,7 @@ export default function HomePage() {
               className="col-span-12 lg:col-start-9 lg:col-span-4 mt-10 lg:mt-0 pb-2 text-[#4A4641] leading-[1.5]"
               style={{ ...BODY, fontSize: 'clamp(18px, 1.8vw, 22px)' }}
             >
-              We answer every call. We qualify every caller. We book every job — while you&apos;re under a sink, on a ladder, or halfway through the drive.
+              Automated call handling. Automated caller qualification. Automated appointment booking — while you&apos;re under a sink, on a ladder, or halfway through the drive.
             </p>
           </div>
 
@@ -531,11 +531,12 @@ export default function HomePage() {
             className="text-[#0E0E0E] leading-[1.02] tracking-[-0.025em] mb-12 sm:mb-16"
             style={{ ...DISPLAY, fontSize: 'clamp(48px, 7.5vw, 112px)' }}
           >
-            20 booked jobs<br />
+            20 booked<br />
+            appointments<br />
             in 30 days.<br />
             <br />
             Or your first<br />
-            month is on us.
+            month is waived.
           </h2>
 
           <div className="grid grid-cols-12 gap-x-6 sm:gap-x-10">
@@ -726,7 +727,7 @@ export default function HomePage() {
                 {/* Founding rate */}
                 <div className="bg-[#EBE7DD] border border-[#D5CFC1] rounded px-4 py-2.5 mb-8 inline-block">
                   <p className="text-[12px] text-[#4A4641]" style={MONO}>
-                    ★ FOUNDING RATE — 13 of 20 spots remaining. Rate locked for life.
+                    ★ EARLY CUSTOMER TIER — 13 of 20 spots remaining. Rate locked for life.
                   </p>
                 </div>
 
@@ -831,7 +832,7 @@ export default function HomePage() {
       {/* ══════════════════════════════════════════════════════════════════════
           SECTION 12 — FAQ  (10 questions, expanded from 8)
       ══════════════════════════════════════════════════════════════════════ */}
-      <section className="py-20 sm:py-28 bg-[#EBE7DD]">
+      <section id="faq" className="py-20 sm:py-28 bg-[#EBE7DD]">
         <div className={CONTAINER}>
           <SectionLabel n="12" title="QUESTIONS" />
           <div className="max-w-3xl">
