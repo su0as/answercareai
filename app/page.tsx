@@ -28,7 +28,7 @@ const CONTAINER = 'max-w-[1200px] mx-auto px-5 sm:px-10'
 
 // Primary button — exactly 4 canonical placements: nav, hero, pricing, final CTA
 const BTN_PRIMARY: React.CSSProperties = {
-  backgroundColor: '#B3392D',
+  backgroundColor: '#2D6A4F',
   color: '#F5F2EC',
   padding: '20px 32px',
   borderRadius: '6px',
@@ -179,7 +179,7 @@ export default function HomePage() {
           <a
             href="tel:+18005551234"
             className="block leading-[1.0] tracking-[-0.02em] hover:opacity-70 transition-opacity mb-8"
-            style={{ ...MONO, fontSize: 'clamp(44px, 8vw, 120px)', color: '#B3392D' }}
+            style={{ ...MONO, fontSize: 'clamp(44px, 8vw, 120px)', color: '#2D6A4F' }}
             aria-label="Call +1 800 555 1234"
           >
             +1 (800) 555-1234
@@ -199,7 +199,7 @@ export default function HomePage() {
               target="_blank"
               rel="noopener noreferrer"
               style={BTN_SECONDARY}
-              className="hover:bg-[#E8D6D2] hover:border-[#B3392D] hover:text-[#B3392D] transition-all"
+              className="hover:bg-[rgba(45,106,79,0.06)] hover:border-[#2D6A4F] hover:text-[#2D6A4F] transition-all"
             >
               Book a 15-min setup call
             </a>
@@ -357,7 +357,7 @@ export default function HomePage() {
                   padding: '12px 24px',
                   fontSize: '15px',
                 }}
-                className="hover:bg-[#E8D6D2] hover:border-[#B3392D] hover:text-[#B3392D] transition-all"
+                className="hover:bg-[rgba(45,106,79,0.06)] hover:border-[#2D6A4F] hover:text-[#2D6A4F] transition-all"
               >
                 Call demo →
               </a>
@@ -725,8 +725,11 @@ export default function HomePage() {
                 </p>
 
                 {/* Founding rate */}
-                <div className="bg-[#EBE7DD] border border-[#D5CFC1] rounded px-4 py-2.5 mb-8 inline-block">
-                  <p className="text-[12px] text-[#4A4641]" style={MONO}>
+                <div
+                  className="rounded px-4 py-2.5 mb-8 inline-block"
+                  style={{ backgroundColor: 'rgba(45,106,79,0.08)', border: '1px solid rgba(45,106,79,0.2)' }}
+                >
+                  <p className="text-[12px]" style={{ ...MONO, color: '#2D6A4F' }}>
                     ★ EARLY CUSTOMER TIER — 13 of 20 spots remaining. Rate locked for life.
                   </p>
                 </div>
@@ -871,7 +874,7 @@ export default function HomePage() {
           <a
             href="tel:+18005551234"
             className="block leading-[1.0] tracking-[-0.02em] hover:opacity-70 transition-opacity mb-10"
-            style={{ ...MONO, fontSize: 'clamp(44px, 8vw, 112px)', color: '#B3392D' }}
+            style={{ ...MONO, fontSize: 'clamp(44px, 8vw, 112px)', color: '#2D6A4F' }}
           >
             +1 (800) 555-1234
           </a>

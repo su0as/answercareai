@@ -54,7 +54,7 @@ export default function Nav() {
           href="tel:+18005551234"
           className="hover:opacity-85 transition-opacity"
           style={{
-            backgroundColor: '#B3392D',
+            backgroundColor: '#2D6A4F',
             color: '#F5F2EC',
             padding: '10px 20px',
             borderRadius: '6px',

@@ -62,7 +62,7 @@ export default function HomeFAQ() {
             aria-expanded={open === i}
           >
             <span
-              className="text-[11px] text-[#B3392D] flex-shrink-0 mt-1 tracking-[0.08em]"
+              className="text-[11px] text-[#4A4641]/50 flex-shrink-0 mt-1 tracking-[0.08em]"
               style={MONO}
             >
               Q/{String(i + 1).padStart(2, '0')}

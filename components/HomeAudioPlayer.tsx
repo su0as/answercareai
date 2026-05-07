@@ -35,9 +35,9 @@ export default function HomeAudioPlayer() {
             onClick={() => setActive(active === i ? null : i)}
             className="flex-shrink-0 w-9 h-9 rounded-full border flex items-center justify-center transition-all mt-0.5"
             style={{
-              borderColor: active === i ? '#B3392D' : '#D5CFC1',
-              color: active === i ? '#F5F2EC' : '#B3392D',
-              backgroundColor: active === i ? '#B3392D' : 'transparent',
+              borderColor: active === i ? '#2D6A4F' : '#D5CFC1',
+              color: active === i ? '#F5F2EC' : '#2D6A4F',
+              backgroundColor: active === i ? '#2D6A4F' : 'transparent',
             }}
             aria-label={active === i ? `Pause ${r.label}` : `Play ${r.label}`}
           >
@@ -74,7 +74,7 @@ export default function HomeAudioPlayer() {
             <div className="h-px bg-[#D5CFC1] mb-3 relative overflow-hidden">
               {active === i && (
                 <div
-                  className="absolute left-0 top-0 h-full bg-[#B3392D]"
+                  className="absolute left-0 top-0 h-full bg-[#2D6A4F]"
                   style={{
                     width: '38%',
                     animation: 'progressPulse 3s ease-in-out infinite',
@@ -89,7 +89,7 @@ export default function HomeAudioPlayer() {
                 <a
                   href="tel:+18005551234"
                   className="underline underline-offset-2 hover:text-[#0E0E0E] transition-colors"
-                  style={{ ...MONO, color: '#B3392D', fontSize: '12px' }}
+                  style={{ ...MONO, color: '#2D6A4F', fontSize: '12px' }}
                 >
                   +1 (800) 555-1234
                 </a>{' '}
