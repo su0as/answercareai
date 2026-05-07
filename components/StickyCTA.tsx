@@ -9,8 +9,10 @@ export default function StickyCTA() {
   const sentinelRef = useRef<HTMLDivElement>(null)
   const pathname = usePathname()
 
-  if (pathname === '/' || pathname?.startsWith('/trades')) return null
+  // Compute hide flag — must NOT be used for early return before hooks
+  const shouldHide = pathname === '/' || pathname?.startsWith('/trades')
 
+  // All hooks must fire unconditionally — Rules of Hooks
   useEffect(() => {
     if (typeof window !== 'undefined') {
       setDismissed(sessionStorage.getItem('ctaDismissed') === 'true')
@@ -18,6 +20,7 @@ export default function StickyCTA() {
   }, [])
 
   useEffect(() => {
+    if (shouldHide) return
     // Watch the hero section sentinel
     const hero = document.querySelector('main > :first-child')
     if (!hero) return
@@ -27,14 +30,14 @@ export default function StickyCTA() {
     )
     observer.observe(hero)
     return () => observer.disconnect()
-  }, [])
+  }, [shouldHide])
 
   const dismiss = () => {
     sessionStorage.setItem('ctaDismissed', 'true')
     setDismissed(true)
   }
 
-  if (dismissed || !visible) return null
+  if (shouldHide || dismissed || !visible) return null
 
   return (
     <>
