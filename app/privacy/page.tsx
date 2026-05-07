@@ -42,7 +42,7 @@ export default function PrivacyPage() {
               1. Introduction
             </h2>
             <p className="text-[16px] text-[#4A4641] leading-[1.65]">
-              AnswerCare AI (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) is committed to protecting your privacy and the privacy of your callers. This Privacy Policy explains what information we collect, how we use it, and your rights regarding that information. It applies to our website, marketing communications, and the managed AI receptionist Service provided to our business clients.
+              AnswerCare AI (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) is committed to protecting your privacy and the privacy of your callers. This Privacy Policy explains what information we collect, how we use it, and your rights regarding that information. It applies to our website, marketing communications, and the automated phone scheduling Service provided to our business clients.
             </p>
           </section>
 
@@ -141,8 +141,8 @@ export default function PrivacyPage() {
             </ul>
             <p className="text-[16px] text-[#4A4641] leading-[1.65]">
               To exercise any of these rights, contact us at{' '}
-              <a href="mailto:privacy@answercare.ai" className="text-[#B3392D] hover:underline">
-                privacy@answercare.ai
+              <a href="mailto:privacy@answercareai.com" className="text-[#B3392D] hover:underline">
+                privacy@answercareai.com
               </a>
               . We will respond to all requests within 30 days.
             </p>
@@ -172,8 +172,8 @@ export default function PrivacyPage() {
             </h2>
             <p className="text-[16px] text-[#4A4641] leading-[1.65]">
               If you are a California resident, you have the right to know what personal information we collect about you, the right to request deletion of your personal information, and the right to non-discrimination for exercising your privacy rights. We do not sell personal information as defined under the CCPA. To submit a verifiable consumer request, contact us at{' '}
-              <a href="mailto:privacy@answercare.ai" className="text-[#B3392D] hover:underline">
-                privacy@answercare.ai
+              <a href="mailto:privacy@answercareai.com" className="text-[#B3392D] hover:underline">
+                privacy@answercareai.com
               </a>
               .
             </p>
@@ -191,8 +191,8 @@ export default function PrivacyPage() {
           <section className="pt-8 border-t border-[#D5CFC1]">
             <p className="text-[14px] text-[#4A4641]">
               Privacy questions or requests? Contact us at{' '}
-              <a href="mailto:privacy@answercare.ai" className="text-[#B3392D] hover:underline" style={MONO}>
-                privacy@answercare.ai
+              <a href="mailto:privacy@answercareai.com" className="text-[#B3392D] hover:underline" style={MONO}>
+                privacy@answercareai.com
               </a>
             </p>
           </section>

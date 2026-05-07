@@ -7,7 +7,7 @@ const DISPLAY = { fontFamily: 'Fraunces, Georgia, serif', fontOpticalSizing: 'au
 
 export const metadata: Metadata = {
   title: 'Terms of Service — AnswerCare AI',
-  description: 'Terms of Service for AnswerCare AI managed AI receptionist service.',
+  description: 'Terms of Service for AnswerCare AI automated phone scheduling software.',
 }
 
 export default function TermsPage() {
@@ -32,11 +32,12 @@ export default function TermsPage() {
           Terms of Service
         </h1>
         <p className="text-[13px] text-[#4A4641]/60 mb-14" style={MONO}>
-          Last updated: April 13, 2026
+          Last updated: May 7, 2026
         </p>
 
         <div className="space-y-10" style={BODY}>
 
+          {/* 1 */}
           <section>
             <h2 className="text-[18px] text-[#0E0E0E] mb-3" style={{ fontWeight: 600 }}>
               1. Acceptance of Terms
@@ -46,51 +47,71 @@ export default function TermsPage() {
             </p>
           </section>
 
+          {/* 2 — rewritten: software platform framing, not "managed service" */}
           <section>
             <h2 className="text-[18px] text-[#0E0E0E] mb-3" style={{ fontWeight: 600 }}>
               2. Description of Service
             </h2>
             <p className="text-[16px] text-[#4A4641] leading-[1.65]">
-              AnswerCare AI provides a managed AI-powered receptionist service for small businesses in the United States. Our Service includes 24/7 call handling, appointment booking, lead capture, call transcription, and monthly intelligence reporting. The Service is delivered as a managed subscription — we configure, monitor, and continuously optimize your AI receptionist on your behalf.
+              AnswerCare AI is a software platform that provides automated phone-based appointment booking and customer scheduling for small service businesses in the United States. The platform handles inbound communications, captures lead information, schedules appointments into your calendar, and delivers monthly performance reports. The Service is delivered as a software subscription with one-time setup configuration.
             </p>
           </section>
 
+          {/* 3 — Founding Client Pricing capped at 20 customers */}
           <section>
             <h2 className="text-[18px] text-[#0E0E0E] mb-3" style={{ fontWeight: 600 }}>
               3. Setup Fees and Subscriptions
             </h2>
             <p className="text-[16px] text-[#4A4641] leading-[1.65] mb-4">
-              Use of the Service requires payment of a one-time setup fee and an ongoing monthly subscription fee, as outlined in your selected pricing tier.
+              Use of the Service requires payment of a one-time setup fee and an ongoing monthly subscription fee.
             </p>
             <ul className="list-disc pl-5 space-y-2 text-[15px] text-[#4A4641] leading-[1.65]">
-              <li><strong className="text-[#0E0E0E] font-medium">Setup Fee:</strong> The setup fee is a one-time, non-refundable payment that covers onboarding, configuration, scripting, and testing of your AI receptionist. Payment of the setup fee initiates the onboarding process.</li>
+              <li><strong className="text-[#0E0E0E] font-medium">Setup Fee:</strong> The setup fee is a one-time, non-refundable payment that covers onboarding, configuration, scripting, and testing. Payment of the setup fee initiates the onboarding process.</li>
               <li><strong className="text-[#0E0E0E] font-medium">Monthly Subscription:</strong> Monthly fees are billed in advance on a recurring basis. Your subscription begins on your go-live date.</li>
-              <li><strong className="text-[#0E0E0E] font-medium">Founding Client Pricing:</strong> Clients who join under a founding pricing offer will have their monthly rate locked for the life of the account, provided their subscription remains active and in good standing.</li>
+              <li><strong className="text-[#0E0E0E] font-medium">Founding Client Pricing:</strong> Clients who join during the Founding Client period (first 20 paying customers) will have their monthly subscription rate locked at $199/month for as long as their subscription remains continuously active and in good standing. Founding rates apply only to the original subscription tier and do not transfer to upgraded service tiers.</li>
               <li><strong className="text-[#0E0E0E] font-medium">Price Changes:</strong> We reserve the right to change subscription pricing with 30 days&apos; written notice to non-founding clients.</li>
             </ul>
           </section>
 
+          {/* 4 — replaced Free Trial with First-Month Performance Guarantee */}
           <section>
             <h2 className="text-[18px] text-[#0E0E0E] mb-3" style={{ fontWeight: 600 }}>
-              4. Free Trial
+              4. First-Month Performance Guarantee
             </h2>
+            <p className="text-[16px] text-[#4A4641] leading-[1.65] mb-4">
+              New clients are eligible for our first-month performance guarantee. After your one-time setup fee is paid and your service goes live:
+            </p>
+            <ul className="list-disc pl-5 space-y-2 mb-4 text-[15px] text-[#4A4641] leading-[1.65]">
+              <li>We track every booked job from day 1, timestamped and logged</li>
+              <li>On day 31, we share the complete booking log with you</li>
+              <li>If we book fewer than 20 qualified jobs in your first 30 days of live service, your first month subscription fee ($199) is waived</li>
+              <li>If we book 20 or more qualified jobs, you continue at $199/month and your first month is charged on day 31</li>
+              <li>&quot;Qualified jobs&quot; are defined in our Refund Policy</li>
+            </ul>
             <p className="text-[16px] text-[#4A4641] leading-[1.65]">
-              We offer a 14-day free trial for new clients. During the free trial, full Service functionality is available. No credit card is required to begin a trial, but payment information must be provided prior to go-live if you choose to continue. We reserve the right to limit or terminate free trials at our sole discretion.
+              The setup fee is non-refundable in all cases. See our{' '}
+              <Link href="/refund" className="text-[#B3392D] hover:underline">
+                Refund Policy
+              </Link>
+              {' '}for full details.
             </p>
           </section>
 
+          {/* 5 — simplified: defer to Refund Policy */}
           <section>
             <h2 className="text-[18px] text-[#0E0E0E] mb-3" style={{ fontWeight: 600 }}>
               5. Cancellation and Refunds
             </h2>
-            <p className="text-[16px] text-[#4A4641] leading-[1.65] mb-3">
-              You may cancel your monthly subscription at any time. Cancellation takes effect at the end of the current billing cycle. We do not provide prorated refunds for unused time within a billing period.
-            </p>
             <p className="text-[16px] text-[#4A4641] leading-[1.65]">
-              The one-time setup fee is non-refundable under all circumstances, including early cancellation, dissatisfaction, or change of business circumstances. This fee compensates for the dedicated time and resources invested in your onboarding and configuration.
+              Cancellation, refunds, and the first-month performance guarantee are governed by our{' '}
+              <Link href="/refund" className="text-[#B3392D] hover:underline">
+                Refund Policy
+              </Link>
+              , which is incorporated into these Terms by reference. Please review the Refund Policy at answercareai.com/refund for complete details.
             </p>
           </section>
 
+          {/* 6 */}
           <section>
             <h2 className="text-[18px] text-[#0E0E0E] mb-3" style={{ fontWeight: 600 }}>
               6. Your Responsibilities
@@ -101,13 +122,14 @@ export default function TermsPage() {
             <ul className="list-disc pl-5 space-y-2 text-[15px] text-[#4A4641] leading-[1.65]">
               <li>Providing accurate business information during onboarding</li>
               <li>Ensuring your call forwarding is properly configured</li>
-              <li>Reviewing and approving your AI script before go-live</li>
+              <li>Reviewing and approving your script before go-live</li>
               <li>Complying with all applicable laws, including telecommunications and consumer privacy laws in your jurisdiction</li>
               <li>Notifying AnswerCare AI of changes to your business that may affect call handling (e.g., new services, updated hours, staff changes)</li>
-              <li>Ensuring that all callers to your business are aware they may interact with an AI system, as required by applicable law</li>
+              <li>Ensuring that all callers to your business are aware they may interact with an automated system, as required by applicable law</li>
             </ul>
           </section>
 
+          {/* 7 */}
           <section>
             <h2 className="text-[18px] text-[#0E0E0E] mb-3" style={{ fontWeight: 600 }}>
               7. Prohibited Uses
@@ -118,12 +140,13 @@ export default function TermsPage() {
             <ul className="list-disc pl-5 space-y-2 text-[15px] text-[#4A4641] leading-[1.65]">
               <li>Engage in any illegal activity or assist in any unlawful conduct</li>
               <li>Deceive, defraud, or harm callers or third parties</li>
-              <li>Collect or process sensitive personal data (including medical records, financial account numbers, or social security numbers) through the AI system without appropriate legal authorization</li>
+              <li>Collect or process sensitive personal data (including medical records, financial account numbers, or social security numbers) through the platform without appropriate legal authorization</li>
               <li>Violate any federal, state, or local telecommunications laws</li>
               <li>Attempt to reverse-engineer, copy, or resell any part of the Service</li>
             </ul>
           </section>
 
+          {/* 8 */}
           <section>
             <h2 className="text-[18px] text-[#0E0E0E] mb-3" style={{ fontWeight: 600 }}>
               8. Intellectual Property
@@ -133,6 +156,7 @@ export default function TermsPage() {
             </p>
           </section>
 
+          {/* 9 */}
           <section>
             <h2 className="text-[18px] text-[#0E0E0E] mb-3" style={{ fontWeight: 600 }}>
               9. Service Availability and Uptime
@@ -142,6 +166,7 @@ export default function TermsPage() {
             </p>
           </section>
 
+          {/* 10 */}
           <section>
             <h2 className="text-[18px] text-[#0E0E0E] mb-3" style={{ fontWeight: 600 }}>
               10. Limitation of Liability
@@ -160,6 +185,7 @@ export default function TermsPage() {
             </p>
           </section>
 
+          {/* 11 */}
           <section>
             <h2 className="text-[18px] text-[#0E0E0E] mb-3" style={{ fontWeight: 600 }}>
               11. Disclaimers
@@ -169,6 +195,7 @@ export default function TermsPage() {
             </p>
           </section>
 
+          {/* 12 */}
           <section>
             <h2 className="text-[18px] text-[#0E0E0E] mb-3" style={{ fontWeight: 600 }}>
               12. Governing Law and Disputes
@@ -178,6 +205,7 @@ export default function TermsPage() {
             </p>
           </section>
 
+          {/* 13 */}
           <section>
             <h2 className="text-[18px] text-[#0E0E0E] mb-3" style={{ fontWeight: 600 }}>
               13. Changes to These Terms
@@ -187,11 +215,24 @@ export default function TermsPage() {
             </p>
           </section>
 
+          {/* 14 — new: Telecommunications and Caller Disclosure */}
+          <section>
+            <h2 className="text-[18px] text-[#0E0E0E] mb-3" style={{ fontWeight: 600 }}>
+              14. Telecommunications and Caller Disclosure
+            </h2>
+            <p className="text-[16px] text-[#4A4641] leading-[1.65] mb-3">
+              The Service may include AI-driven voice interactions with your callers. As a Client, you are responsible for any caller disclosure obligations required by applicable laws in your jurisdiction (including but not limited to laws requiring disclosure that callers are interacting with AI systems). AnswerCare AI provides recommended caller disclosure language but does not guarantee compliance with your specific local, state, or federal requirements.
+            </p>
+            <p className="text-[16px] text-[#4A4641] leading-[1.65]">
+              AnswerCare AI is not a telecommunications carrier and does not provide telecommunications services as defined by the U.S. Federal Communications Commission. Voice and SMS infrastructure is provided by third-party carriers (e.g., Twilio Inc.) under their respective terms of service.
+            </p>
+          </section>
+
           <section className="pt-8 border-t border-[#D5CFC1]">
             <p className="text-[14px] text-[#4A4641]">
               Questions about these Terms? Contact us at{' '}
-              <a href="mailto:hello@answercare.ai" className="text-[#B3392D] hover:underline" style={MONO}>
-                hello@answercare.ai
+              <a href="mailto:hello@answercareai.com" className="text-[#B3392D] hover:underline" style={MONO}>
+                hello@answercareai.com
               </a>
             </p>
           </section>
