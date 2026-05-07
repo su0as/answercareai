@@ -757,7 +757,7 @@ export default function HomePage() {
 
                 {/* Primary button — full width inside card */}
                 <a
-                  href="https://calendly.com/answercare-ai/discovery-call"
+                  href="https://whop.com/answercare-ai/answercare-for-solo-trade-operators/"
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{ ...BTN_PRIMARY, display: 'flex', justifyContent: 'center' }}
@@ -889,13 +889,13 @@ export default function HomePage() {
               Call the demo
             </a>
             <a
-              href="https://calendly.com/answercare-ai/discovery-call"
+              href="https://whop.com/answercare-ai/answercare-for-solo-trade-operators/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[16px] text-[#F5F2EC]/60 hover:text-[#F5F2EC] transition-colors underline underline-offset-4"
               style={BODY}
             >
-              Book a 15-minute setup call →
+              Start your guarantee →
             </a>
           </div>
 
