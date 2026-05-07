@@ -160,7 +160,7 @@ export default function HomePage() {
               className="col-span-12 lg:col-start-9 lg:col-span-4 mt-10 lg:mt-0 pb-2 text-[#4A4641] leading-[1.5]"
               style={{ ...BODY, fontSize: 'clamp(18px, 1.8vw, 22px)' }}
             >
-              Automated call handling. Automated caller qualification. Automated appointment booking — while you&apos;re under a sink, on a ladder, or halfway through the drive.
+              AnswerCare answers every call, qualifies the customer, books the job, and texts you the details — while you&apos;re on-site, on a ladder, or halfway through the drive.
             </p>
           </div>
 
@@ -205,7 +205,7 @@ export default function HomePage() {
             </a>
           </div>
 
-          {/* Tag row — "FIRST MONTH FREE" in success green */}
+          {/* Tag row — pricing spec */}
           <div className="flex flex-wrap gap-2.5">
             <span
               className="text-[13px] px-2.5 py-1 rounded"
@@ -217,9 +217,9 @@ export default function HomePage() {
                 letterSpacing: '0.12em',
               }}
             >
-              [ FIRST MONTH FREE ]
+              [ 14 LIVE DAYS FREE ]
             </span>
-            {['$497 SETUP', '$199/MO AFTER', 'LIVE IN 5 DAYS'].map((tag) => (
+            {['$497 SETUP', 'THEN $199/MO', 'LIVE IN 5 DAYS'].map((tag) => (
               <span key={tag} className="text-[13px] text-[#4A4641]/50" style={{ ...MONO, letterSpacing: '0.12em' }}>
                 [ {tag} ]
               </span>
@@ -482,9 +482,9 @@ export default function HomePage() {
               },
               {
                 n: '03',
-                title: 'Guarantee Window',
-                detail: 'Days 1–30 live',
-                body: 'We track every booked job from day 1. If we book fewer than 20 in 30 days, your first month is free — you only paid the $497 setup. Hit 20+ and you continue at $199/month. Cancel any month, 7 days notice.',
+                title: '14 Live Days Free',
+                detail: 'Days 1–14 after go-live',
+                body: 'Monthly billing starts on day 15 after go-live — not before. Use AnswerCare with real callers for two full weeks. Cancel before day 15 and you pay nothing beyond the $497 setup. Continue and you pay $199/month.',
               },
             ].map(({ n, title, detail, body }) => (
               <div
@@ -519,39 +519,38 @@ export default function HomePage() {
       </section>
 
       {/* ══════════════════════════════════════════════════════════════════════
-          SECTION 8 — THE GUARANTEE  (rewritten — no $500 payout)
-          New offer: first month free if < 20 jobs in 30 days.
+          SECTION 8 — THE GUARANTEE
+          14 live days free. Monthly billing starts on day 15.
       ══════════════════════════════════════════════════════════════════════ */}
       <section className="py-20 sm:py-28 bg-[#EBE7DD]">
         <div className={CONTAINER}>
           <SectionLabel n="08" title="THE GUARANTEE" />
 
-          {/* Headline — biggest display type on the page */}
+          {/* Headline */}
           <h2
             className="text-[#0E0E0E] leading-[1.02] tracking-[-0.025em] mb-12 sm:mb-16"
             style={{ ...DISPLAY, fontSize: 'clamp(48px, 7.5vw, 112px)' }}
           >
-            20 booked<br />
-            appointments<br />
-            in 30 days.<br />
+            14 live days.<br />
             <br />
-            Or your first<br />
-            month is waived.
+            Try it before<br />
+            you pay monthly.
           </h2>
 
           <div className="grid grid-cols-12 gap-x-6 sm:gap-x-10">
             <div className="col-span-12 lg:col-span-7">
 
               <p className="text-[19px] text-[#4A4641] leading-[1.65] mb-9" style={BODY}>
-                No credit card held against the guarantee. We go live, track every booked job from day one, and on day 31 we show you the full log. Under 20 jobs? Your first month is free — keep the service, try another 30 days, or walk away.
+                Monthly billing starts on day 15 after go-live — not at signup, not at setup. Use AnswerCare with your real callers for two full weeks. If we&apos;re not answering, qualifying, and sending you booking opportunities, we fix it or your first month is waived.
               </p>
 
               <div>
                 {[
-                  'We track every booked job from day 1, timestamped and logged.',
-                  'On day 31 we show you the full booking log, ready to count.',
-                  'Under 20 jobs? Your first month is free. We eat it.',
-                  '20+ jobs? You continue at $199/month. Cancel any month, 7 days notice.',
+                  'Every call answered in under 2 seconds from day 1.',
+                  'Every booking sent to you by SMS with caller name, number, job type, and address.',
+                  'Every call logged with full transcript.',
+                  'Cancel before day 15 — pay nothing beyond the $497 setup.',
+                  'Continue after day 15 — $199/month, cancel any month with 7 days notice.',
                 ].map((item, i) => (
                   <div key={i} className="border-t border-[#D5CFC1] py-4 flex items-start gap-4">
                     <span className="text-[#4A4641]/40 text-[11px] mt-0.5 flex-shrink-0" style={MONO}>—</span>
@@ -561,7 +560,7 @@ export default function HomePage() {
                 <div className="border-t border-[#D5CFC1]" />
               </div>
 
-              {/* Success-green callout */}
+              {/* Green callout */}
               <div
                 className="mt-6 px-4 py-3 rounded inline-block"
                 style={{
@@ -570,7 +569,7 @@ export default function HomePage() {
                 }}
               >
                 <p className="text-[12px]" style={{ ...MONO, color: '#2D6A4F' }}>
-                  ★ No credit card held against the guarantee. No clawback. No fine print.
+                  ★ Monthly billing starts day 15 after go-live. No surprises.
                 </p>
               </div>
 
@@ -582,7 +581,7 @@ export default function HomePage() {
                   style={BTN_PRIMARY}
                   className="hover:opacity-85 transition-opacity"
                 >
-                  Start your 30-day guarantee →
+                  Start your setup →
                 </a>
               </div>
 
@@ -675,14 +674,14 @@ export default function HomePage() {
 
       {/* ══════════════════════════════════════════════════════════════════════
           SECTION 10 — PRICING  (id="pricing" anchors ROI calc CTA)
-          One plan. No tiers. No upsells. First month free badge. Founding rate.
+          3-step offer: $497 setup → 14 live days → $199/month.
       ══════════════════════════════════════════════════════════════════════ */}
       <section id="pricing" className="py-20 sm:py-28 bg-[#EBE7DD]">
         <div className={CONTAINER}>
           <SectionLabel n="10" title="PRICING" />
 
           <p
-            className="text-[11px] text-[#4A4641]/60 uppercase tracking-[0.10em] mb-8"
+            className="text-[11px] text-[#4A4641]/60 uppercase tracking-[0.10em] mb-10"
             style={MONO}
           >
             one plan · no tiers · no upsells
@@ -691,7 +690,7 @@ export default function HomePage() {
           <div className="max-w-[640px]">
             <div className="border border-[#D5CFC1] rounded-sm bg-[#F5F2EC] overflow-hidden">
 
-              {/* First month free badge */}
+              {/* Early customer tier badge */}
               <div
                 className="px-8 sm:px-10 py-3"
                 style={{
@@ -700,53 +699,75 @@ export default function HomePage() {
                 }}
               >
                 <p className="text-[12px]" style={{ ...MONO, color: '#2D6A4F' }}>
-                  ★ FIRST MONTH FREE IF WE DON&apos;T HIT 20 JOBS
+                  ★ EARLY CUSTOMER TIER — 13 of 20 spots remaining. Rate locked for life.
                 </p>
               </div>
 
               <div className="p-8 sm:p-10">
 
-                {/* Pricing display */}
-                <div className="mb-1 flex items-baseline gap-3">
-                  <span
-                    className="leading-[1.0] tracking-[-0.02em]"
-                    style={{ ...MONO, fontSize: 'clamp(48px, 6vw, 72px)', color: '#0E0E0E' }}
-                  >
-                    $199
-                  </span>
-                  <span className="text-[18px] text-[#4A4641]" style={BODY}>/month</span>
-                </div>
-                <div className="mb-3 flex items-baseline gap-2">
-                  <span className="text-[22px] text-[#4A4641]" style={MONO}>+ $497</span>
-                  <span className="text-[16px] text-[#4A4641]" style={BODY}>one-time setup</span>
-                </div>
-                <p className="text-[13px] text-[#4A4641]/60 mb-8" style={BODY}>
-                  Monthly billing starts day 31 — only if we hit 20 jobs. No credit card held against the guarantee.
-                </p>
-
-                {/* Founding rate */}
-                <div
-                  className="rounded px-4 py-2.5 mb-8 inline-block"
-                  style={{ backgroundColor: 'rgba(45,106,79,0.08)', border: '1px solid rgba(45,106,79,0.2)' }}
-                >
-                  <p className="text-[12px]" style={{ ...MONO, color: '#2D6A4F' }}>
-                    ★ EARLY CUSTOMER TIER — 13 of 20 spots remaining. Rate locked for life.
+                {/* Step 1 — Setup */}
+                <div className="mb-8 pb-8 border-b border-[#D5CFC1]">
+                  <p className="text-[11px] text-[#4A4641]/50 uppercase tracking-[0.10em] mb-3" style={MONO}>step 1</p>
+                  <div className="flex items-baseline gap-3 mb-2">
+                    <span
+                      className="leading-[1.0] tracking-[-0.02em]"
+                      style={{ ...MONO, fontSize: 'clamp(40px, 5vw, 60px)', color: '#0E0E0E' }}
+                    >
+                      $497
+                    </span>
+                    <span className="text-[16px] text-[#4A4641]" style={BODY}>one-time setup</span>
+                  </div>
+                  <p className="text-[14px] text-[#4A4641] leading-[1.6]" style={BODY}>
+                    Includes your trade-specific call script, call flow configuration, forwarding setup, calendar and Jobber integration, SMS notifications, and test calls before go-live.
                   </p>
                 </div>
 
-                {/* Feature list */}
+                {/* Step 2 — 14 live days */}
+                <div className="mb-8 pb-8 border-b border-[#D5CFC1]">
+                  <p className="text-[11px] text-[#4A4641]/50 uppercase tracking-[0.10em] mb-3" style={MONO}>step 2</p>
+                  <div className="flex items-baseline gap-3 mb-2">
+                    <span
+                      className="leading-[1.0] tracking-[-0.02em]"
+                      style={{ ...MONO, fontSize: 'clamp(40px, 5vw, 60px)', color: '#2D6A4F' }}
+                    >
+                      14 days
+                    </span>
+                    <span className="text-[16px] text-[#4A4641]" style={BODY}>free after go-live</span>
+                  </div>
+                  <p className="text-[14px] text-[#4A4641] leading-[1.6]" style={BODY}>
+                    Use AnswerCare with real callers before monthly billing starts. Cancel before day 15 — you pay nothing beyond the setup fee.
+                  </p>
+                </div>
+
+                {/* Step 3 — Monthly */}
+                <div className="mb-8">
+                  <p className="text-[11px] text-[#4A4641]/50 uppercase tracking-[0.10em] mb-3" style={MONO}>step 3</p>
+                  <div className="flex items-baseline gap-3 mb-2">
+                    <span
+                      className="leading-[1.0] tracking-[-0.02em]"
+                      style={{ ...MONO, fontSize: 'clamp(40px, 5vw, 60px)', color: '#0E0E0E' }}
+                    >
+                      $199
+                    </span>
+                    <span className="text-[16px] text-[#4A4641]" style={BODY}>/month after day 15</span>
+                  </div>
+                  <p className="text-[14px] text-[#4A4641] leading-[1.6]" style={BODY}>
+                    Billed monthly. Cancel anytime with 7 days notice.
+                  </p>
+                </div>
+
+                {/* What's included */}
                 <div className="border-t border-[#D5CFC1] mb-8">
+                  <p className="text-[11px] text-[#4A4641]/50 uppercase tracking-[0.10em] pt-5 pb-3" style={MONO}>everything included</p>
                   {[
-                    'Unlimited inbound calls (soft cap 500/mo)',
-                    '24/7 coverage — nights, weekends, holidays',
-                    'Custom call script for your trade & service area',
-                    'Booking into Google Calendar, Jobber, Housecall Pro, ServiceM8',
-                    'Real-time SMS notifications on every booking',
-                    'Monthly performance report with full call log',
-                    'Spam & robocall filtering',
+                    '24/7 answering — nights, weekends, holidays',
+                    'Call qualification and appointment booking',
+                    'SMS notification on every booking',
+                    'Google Calendar, Jobber, Housecall Pro, ServiceM8',
+                    'Full call logs and transcripts',
+                    'Monthly performance report',
+                    'Spam and robocall filtering',
                     'US phone infrastructure (Twilio)',
-                    '30-day performance guarantee',
-                    '7-day cancellation, no contract',
                   ].map((f) => (
                     <div key={f} className="border-b border-[#D5CFC1]/50 py-3 flex items-start gap-3">
                       <span className="text-[#4A4641]/50 text-[11px] mt-0.5 flex-shrink-0" style={MONO}>→</span>
@@ -755,7 +776,7 @@ export default function HomePage() {
                   ))}
                 </div>
 
-                {/* Primary button — full width inside card */}
+                {/* Primary button */}
                 <a
                   href="https://whop.com/answercare-ai/answercare-for-solo-trade-operators/"
                   target="_blank"
@@ -763,7 +784,7 @@ export default function HomePage() {
                   style={{ ...BTN_PRIMARY, display: 'flex', justifyContent: 'center' }}
                   className="hover:opacity-85 transition-opacity"
                 >
-                  Start your 30-day guarantee →
+                  Start your setup →
                 </a>
 
               </div>
@@ -910,9 +931,9 @@ export default function HomePage() {
                 border: '1px solid rgba(45,106,79,0.25)',
               }}
             >
-              [ FIRST MONTH FREE ]
+              [ 14 LIVE DAYS FREE ]
             </span>
-            {['$497 SETUP', '$199/MONTH', '5-DAY SETUP', 'CANCEL ANYTIME'].map((tag) => (
+            {['$497 SETUP', 'THEN $199/MO', 'LIVE IN 5 DAYS', 'CANCEL ANYTIME'].map((tag) => (
               <span key={tag} className="text-[11px] text-white/20" style={MONO}>
                 [ {tag} ]
               </span>

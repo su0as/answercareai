@@ -48,22 +48,22 @@ export default function RefundPage() {
 
           <section>
             <h2 className="text-[18px] text-[#0E0E0E] mb-3" style={{ fontWeight: 600 }}>
-              2. First-Month Guarantee
+              2. 14-Day Live Trial
             </h2>
             <p className="text-[16px] text-[#4A4641] leading-[1.65] mb-3">
-              We guarantee results in your first 30 days of live service. If we do not book at least 20 jobs on your behalf within the first 30 days of your go-live date, your first month&apos;s subscription fee ($199) is waived — you do not pay it, and if it has already been charged, it is refunded in full.
+              Monthly billing begins on day 15 after your go-live date — not at signup, not at setup. You use AnswerCare with real callers for 14 full days before any monthly charge is collected. If you cancel before day 15, you pay nothing beyond the $497 setup fee.
             </p>
             <p className="text-[16px] text-[#4A4641] leading-[1.65]">
-              This guarantee applies only to the first month. It is contingent on your call forwarding being active and correctly configured for the full 30-day period, and on you not having paused or requested changes to the service during the evaluation window.
+              If we are not answering, qualifying, and sending you real booking opportunities during the 14-day live period due to a fault on our end, we will fix it or waive your first month&apos;s subscription. This applies to system failures, misconfigured forwarding on our part, or integration failures we caused.
             </p>
           </section>
 
           <section>
             <h2 className="text-[18px] text-[#0E0E0E] mb-3" style={{ fontWeight: 600 }}>
-              3. After the First 30 Days
+              3. After the 14-Day Trial
             </h2>
             <p className="text-[16px] text-[#4A4641] leading-[1.65]">
-              Monthly subscription fees are non-refundable after the first 30-day guarantee period. We do not provide prorated refunds for cancellations mid-billing-cycle. If you cancel, your service remains active through the end of the current billing period.
+              Monthly subscription fees ($199/month) are non-refundable once billed after the 14-day live period. We do not provide prorated refunds for cancellations mid-billing-cycle. If you cancel, your service remains active through the end of the current billing period.
             </p>
           </section>
 
@@ -82,17 +82,17 @@ export default function RefundPage() {
 
           <section>
             <h2 className="text-[18px] text-[#0E0E0E] mb-3" style={{ fontWeight: 600 }}>
-              5. How to Claim the First-Month Guarantee
+              5. How to Cancel During the 14-Day Trial
             </h2>
             <p className="text-[16px] text-[#4A4641] leading-[1.65] mb-3">
-              If you believe we did not meet the 20-job threshold in your first 30 days, email{' '}
+              Email{' '}
               <a href="mailto:hello@answercareai.com" className="text-[#B3392D] hover:underline" style={MONO}>
                 hello@answercareai.com
               </a>
-              {' '}within 7 days of your day-31 billing date with the subject line &quot;First-month guarantee claim.&quot;
+              {' '}before day 15 after go-live with the subject line &quot;Cancel during trial.&quot; We will confirm cancellation within 24 hours and no monthly charge will be collected.
             </p>
             <p className="text-[16px] text-[#4A4641] leading-[1.65]">
-              We will pull your call logs and confirm the count within 2 business days. If the threshold was not met, the $199 will be waived or refunded without argument. No screenshots, no case-building — we have the logs.
+              The $497 setup fee is non-refundable in all cases, including cancellation during the trial period.
             </p>
           </section>
 

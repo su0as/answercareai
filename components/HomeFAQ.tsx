@@ -8,43 +8,43 @@ const BODY = { fontFamily: '"Inter Tight", Inter, Arial, sans-serif' }
 const faqs = [
   {
     q: 'Will my callers know it\'s AI?',
-    a: 'If they ask, yes. We don\'t deceive. Most callers don\'t ask because the call feels natural — they get their problem solved and move on with their day. Listen to the demo recordings above to hear how it sounds.',
+    a: 'If they ask, yes — we don\'t deceive. Most callers don\'t ask because the call feels natural and their problem gets solved. You can also configure a disclosure prompt at the start of every call if required in your state. Listen to the demo recordings above to hear exactly how it sounds.',
   },
   {
     q: 'What happens if the AI can\'t handle a call?',
-    a: 'It takes a detailed message and SMS-notifies you immediately so you can call back within minutes. You can also set it to forward specific call types — emergencies, specific keywords — directly to your phone.',
+    a: 'It takes a detailed message and sends you an SMS immediately so you can call back within minutes. You can also configure it to forward specific call types — emergencies, specific keywords, after-hours escalations — directly to your cell.',
   },
   {
-    q: 'What if my business has unique requirements?',
-    a: 'Every setup includes a 30-minute discovery call where we map your trade, service area, rates, scheduling rules, and edge cases. Your script is custom — not a generic template.',
+    q: 'Can I keep my existing phone number?',
+    a: 'Yes. We forward your existing number to a Twilio line we provision for your account. Your number stays yours. If you cancel, call forwarding stops within 24 hours and your phone works exactly as before. No porting, no SIM changes, no risk.',
   },
   {
-    q: 'What if I don\'t hit 20 jobs in the first 30 days?',
-    a: 'Your first month is free. You paid $497 setup — we deliver the service regardless. You can continue at $199/month, try us another 30 days, or walk away. No clawback, no argument.',
+    q: 'Does it work after hours?',
+    a: '24/7/365 — nights, weekends, holidays, while you\'re on a job, while you\'re sleeping. Every call is answered in under 2 seconds regardless of when it comes in. This is specifically why trade operators use it: most emergency calls come outside business hours.',
   },
   {
-    q: 'What does it integrate with?',
-    a: 'Google Calendar, Jobber, Housecall Pro, and ServiceM8 natively. Via Zapier for everything else. Tell us what you use during onboarding and we configure it.',
+    q: 'Can it book into Jobber or Housecall Pro?',
+    a: 'Yes. We integrate directly with Google Calendar, Jobber, Housecall Pro, and ServiceM8. Bookings land in your schedule automatically — no manual entry. We configure the integration during your setup call.',
+  },
+  {
+    q: 'What if I already use a receptionist or answering service?',
+    a: 'AnswerCare costs less than half of a human answering service ($199/month vs $250–600/month) and answers in under 2 seconds vs the typical 4–8 ring wait. If you want to run both during the 14-day live period to compare, you can. Most clients who do that cancel the answering service within the first week.',
+  },
+  {
+    q: 'What happens during the 14 free days?',
+    a: 'Everything is live. Your line is forwarded, calls are answered, bookings land in your calendar, and you receive SMS notifications in real time. You\'re using the full product with real callers — not a limited demo. Monthly billing starts on day 15 only if you decide to continue.',
+  },
+  {
+    q: 'What does the $497 setup include?',
+    a: 'A 30-minute discovery call where we learn your trade, service area, rates, and call-handling preferences. We write your custom call script. You review and approve it. We configure forwarding, calendar integration, and SMS notifications. We run test calls before go-live. Everything needed to put you live within 5 days.',
   },
   {
     q: 'Is my data secure?',
-    a: 'All calls run on US phone infrastructure (Twilio). Data encrypted in transit and at rest. Call recordings are not shared with anyone but you. You can delete any call log on request.',
-  },
-  {
-    q: 'Can I listen to my calls?',
-    a: 'Yes. Every call is logged with full recording and transcript. You access them through a simple dashboard or they can be SMS\'d to you after each call.',
+    a: 'All calls run on US phone infrastructure (Twilio). Data is encrypted in transit and at rest. Call recordings are not shared with anyone but you. You can delete any call log on request. See our Privacy Policy for full details.',
   },
   {
     q: 'How is this different from an answering service?',
-    a: 'Answering services charge $250–$600/month for limited hours and pass messages through humans. AnswerCare is 24/7, answers in under 2 seconds, books directly into your calendar, and costs less than half.',
-  },
-  {
-    q: 'What happens to my existing phone number?',
-    a: 'We forward it. Your number stays yours. If you cancel, forwarding stops within 24 hours and your phone works exactly as before. No porting, no SIM changes, no risk.',
-  },
-  {
-    q: 'Who answers if I want to talk to a human at AnswerCare?',
-    a: 'We\'re a small team. Email hello@answercareai.com — replies within 4 hours during US business hours. Every customer gets direct access to the founder for setup calls and escalations.',
+    a: 'Answering services charge $250–600/month for limited hours and pass messages through humans who don\'t know your business. AnswerCare answers in under 2 seconds, books directly into your calendar, sends you an SMS on every booking, and runs 24/7 at $199/month after a 14-day live trial.',
   },
 ]
 
