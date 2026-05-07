@@ -9,53 +9,52 @@ export const metadata: Metadata = {
     'Stop losing jobs to voicemail. AI phone agent for solo trade operators — books 20 jobs in 30 days or your first month is free. Plans from $99/month, $0 setup. Live in 5 days.',
 }
 
-// ─── Design tokens ─────────────────────────────────────────────────────────────
-// paper:       #F5F2EC   warm off-white page background
-// paper-deep:  #EBE7DD   alternating section bands
-// ink:         #0E0E0E   near-black type / contrast bands
-// ink-soft:    #4A4641   secondary/muted text
-// line:        #D5CFC1   1px hairline dividers
-// accent:      #B3392D   cadmium red — ONE accent, ~3% of pixels max
-// success:     #2D6A4F   ONLY for "first month free" badge and comparison checkmarks
+// ─── Design tokens (Apple) ─────────────────────────────────────────────────────
+// fog:         #f5f5f7   Apple page canvas
+// snow:        #ffffff   card / alternating section lifts
+// ink:         #1d1d1f   near-black type
+// graphite:    #707070   secondary/muted text
+// silver-mist: #e8e8ed   1px hairline dividers
+// azure:       #0071e3   ONE primary CTA accent — buttons only
+// loss-red:    #B3392D   revenue loss / ROI calc only
+// success:     #2D6A4F   "14 LIVE DAYS FREE" badge + comparison ✓ only
 
 const DISPLAY = {
-  fontFamily: 'Fraunces, Georgia, serif',
-  fontOpticalSizing: 'auto' as const,
+  fontFamily: 'Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif',
 }
-const BODY = { fontFamily: '"Inter Tight", Inter, Arial, sans-serif' }
+const BODY = { fontFamily: 'Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif' }
 const MONO = { fontFamily: '"JetBrains Mono", "IBM Plex Mono", monospace' }
 const CONTAINER = 'max-w-[1200px] mx-auto px-5 sm:px-10'
 
 // Primary button — exactly 4 canonical placements: nav, hero, pricing, final CTA
 const BTN_PRIMARY: React.CSSProperties = {
-  backgroundColor: '#2D6A4F',
-  color: '#F5F2EC',
-  padding: '20px 32px',
-  borderRadius: '6px',
-  fontFamily: '"Inter Tight", Inter, Arial, sans-serif',
-  fontWeight: 500,
-  fontSize: '16px',
+  backgroundColor: '#0071e3',
+  color: '#ffffff',
+  padding: '14px 28px',
+  borderRadius: '999px',
+  fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+  fontWeight: 400,
+  fontSize: '17px',
   display: 'inline-flex',
   alignItems: 'center',
-  boxShadow: '0 1px 0 rgba(0,0,0,0.12)',
   textDecoration: 'none',
-  letterSpacing: '0em',
+  letterSpacing: '-0.01em',
 }
 
 // Secondary (ghost) button
 const BTN_SECONDARY: React.CSSProperties = {
   backgroundColor: 'transparent',
-  color: '#0E0E0E',
-  padding: '20px 32px',
-  borderRadius: '6px',
-  fontFamily: '"Inter Tight", Inter, Arial, sans-serif',
-  fontWeight: 500,
-  fontSize: '16px',
+  color: '#1d1d1f',
+  padding: '14px 28px',
+  borderRadius: '999px',
+  fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+  fontWeight: 400,
+  fontSize: '17px',
   display: 'inline-flex',
   alignItems: 'center',
-  border: '1px solid rgba(14,14,14,0.2)',
+  border: '1px solid #e8e8ed',
   textDecoration: 'none',
-  letterSpacing: '0em',
+  letterSpacing: '-0.01em',
 }
 
 // ─── Section label ──────────────────────────────────────────────────────────────
@@ -63,12 +62,12 @@ function SectionLabel({ n, title }: { n: string; title: string }) {
   return (
     <div className="flex items-center gap-4 mb-16 sm:mb-20">
       <span
-        className="text-[11px] text-[#4A4641] tracking-[0.10em] whitespace-nowrap uppercase"
+        className="text-[11px] text-[#707070] tracking-[0.10em] whitespace-nowrap uppercase"
         style={MONO}
       >
         — {n} / {title}
       </span>
-      <div className="flex-1 h-px bg-[#D5CFC1]" />
+      <div className="flex-1 h-px bg-[#e8e8ed]" />
     </div>
   )
 }
@@ -99,14 +98,14 @@ const compRows: CompRow[] = [
 function CellDisplay({ value, isAnswerCare }: { value: CellVal; isAnswerCare?: boolean }) {
   if (value === true) {
     return (
-      <span style={{ color: '#2D6A4F', fontWeight: 600, fontFamily: '"Inter Tight", Inter, sans-serif', fontSize: '15px' }}>
+      <span style={{ color: '#2D6A4F', fontWeight: 600, fontFamily: 'Inter, system-ui, sans-serif', fontSize: '15px' }}>
         ✓
       </span>
     )
   }
   if (value === false) {
     return (
-      <span style={{ color: '#4A4641', opacity: 0.3, fontFamily: '"JetBrains Mono", monospace', fontSize: '13px' }}>
+      <span style={{ color: '#707070', opacity: 0.5, fontFamily: '"JetBrains Mono", monospace', fontSize: '13px' }}>
         —
       </span>
     )
@@ -114,8 +113,8 @@ function CellDisplay({ value, isAnswerCare }: { value: CellVal; isAnswerCare?: b
   return (
     <span
       style={{
-        color: isAnswerCare ? '#0E0E0E' : '#4A4641',
-        fontFamily: '"Inter Tight", Inter, sans-serif',
+        color: isAnswerCare ? '#1d1d1f' : '#707070',
+        fontFamily: 'Inter, system-ui, sans-serif',
         fontSize: isAnswerCare ? '14px' : '13px',
         fontWeight: isAnswerCare ? 600 : 400,
       }}
@@ -127,7 +126,7 @@ function CellDisplay({ value, isAnswerCare }: { value: CellVal; isAnswerCare?: b
 
 export default function HomePage() {
   return (
-    <div className="bg-[#F5F2EC] text-[#0E0E0E]">
+    <div className="bg-[#f5f5f7] text-[#1d1d1f]">
 
       {/* ══════════════════════════════════════════════════════════════════════
           SECTION 1 — HERO
@@ -139,7 +138,7 @@ export default function HomePage() {
 
           {/* Eyebrow */}
           <p
-            className="text-[11px] text-[#4A4641] tracking-[0.12em] uppercase mb-12"
+            className="text-[11px] text-[#707070] tracking-[0.12em] uppercase mb-12"
             style={MONO}
           >
             24/7 PHONE ANSWERING · BUILT FOR SOLO TRADE OPERATORS
@@ -148,8 +147,8 @@ export default function HomePage() {
           {/* Asymmetric 12-col: H1 left (9), subhead bottom-right (4) */}
           <div className="grid grid-cols-12 gap-x-6 sm:gap-x-8 items-end mb-14">
             <h1
-              className="col-span-12 lg:col-span-9 text-[#0E0E0E] leading-[0.95] tracking-[-0.035em]"
-              style={{ ...DISPLAY, fontSize: 'clamp(64px, 8.5vw, 120px)' }}
+              className="col-span-12 lg:col-span-9 text-[#1d1d1f] leading-[0.95] tracking-[-0.035em]"
+              style={{ ...DISPLAY, fontSize: 'clamp(64px, 8.5vw, 120px)', fontWeight: 700 }}
             >
               Stop losing<br />
               $4,375/mo<br />
@@ -157,7 +156,7 @@ export default function HomePage() {
             </h1>
 
             <p
-              className="col-span-12 lg:col-start-9 lg:col-span-4 mt-10 lg:mt-0 pb-2 text-[#4A4641] leading-[1.5]"
+              className="col-span-12 lg:col-start-9 lg:col-span-4 mt-10 lg:mt-0 pb-2 text-[#707070] leading-[1.5]"
               style={{ ...BODY, fontSize: 'clamp(18px, 1.8vw, 22px)' }}
             >
               AnswerCare answers every call, qualifies the customer, books the job, and texts you the details — while you&apos;re on-site, on a ladder, or halfway through the drive.
@@ -167,19 +166,19 @@ export default function HomePage() {
           {/* Divider */}
           <div className="flex items-center gap-4 mb-8">
             <span
-              className="text-[11px] text-[#4A4641] uppercase tracking-[0.10em] whitespace-nowrap"
+              className="text-[11px] text-[#707070] uppercase tracking-[0.10em] whitespace-nowrap"
               style={MONO}
             >
               — call to hear it work
             </span>
-            <div className="flex-1 h-px bg-[#D5CFC1]" />
+            <div className="flex-1 h-px bg-[#e8e8ed]" />
           </div>
 
           {/* Phone number — largest element in the hero */}
           <a
             href="tel:+18005551234"
             className="block leading-[1.0] tracking-[-0.02em] hover:opacity-70 transition-opacity mb-8"
-            style={{ ...MONO, fontSize: 'clamp(44px, 8vw, 120px)', color: '#2D6A4F' }}
+            style={{ ...MONO, fontSize: 'clamp(44px, 8vw, 120px)', color: '#0071e3' }}
             aria-label="Call +1 800 555 1234"
           >
             +1 (800) 555-1234
@@ -199,7 +198,7 @@ export default function HomePage() {
               target="_blank"
               rel="noopener noreferrer"
               style={BTN_SECONDARY}
-              className="hover:bg-[rgba(45,106,79,0.06)] hover:border-[#2D6A4F] hover:text-[#2D6A4F] transition-all"
+              className="hover:bg-[rgba(0,113,227,0.06)] hover:border-[#0071e3] hover:text-[#0071e3] transition-all"
             >
               Book a 15-min setup call
             </a>
@@ -220,7 +219,7 @@ export default function HomePage() {
               [ 14 LIVE DAYS FREE ]
             </span>
             {['$497 SETUP', 'THEN $199/MO', 'LIVE IN 5 DAYS'].map((tag) => (
-              <span key={tag} className="text-[13px] text-[#4A4641]/50" style={{ ...MONO, letterSpacing: '0.12em' }}>
+              <span key={tag} className="text-[13px] text-[#707070]/50" style={{ ...MONO, letterSpacing: '0.12em' }}>
                 [ {tag} ]
               </span>
             ))}
@@ -233,7 +232,7 @@ export default function HomePage() {
           SECTION 2 — TRUST SIGNAL BAND
           Four quantifiable claims. No fake logos. No invented testimonials.
       ══════════════════════════════════════════════════════════════════════ */}
-      <section className="py-10 sm:py-14 bg-[#EBE7DD] border-y border-[#D5CFC1]">
+      <section className="py-10 sm:py-14 bg-white border-y border-[#e8e8ed]">
         <div className={CONTAINER}>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 sm:gap-6">
             {[
@@ -245,11 +244,11 @@ export default function HomePage() {
               <div key={metric} className="text-center sm:text-left">
                 <div
                   className="leading-[1.0] tracking-[-0.02em] mb-2"
-                  style={{ ...MONO, fontSize: 'clamp(24px, 3vw, 36px)', color: '#0E0E0E' }}
+                  style={{ ...MONO, fontSize: 'clamp(24px, 3vw, 36px)', color: '#1d1d1f' }}
                 >
                   {metric}
                 </div>
-                <p className="text-[13px] text-[#4A4641] leading-[1.4]" style={BODY}>
+                <p className="text-[13px] text-[#707070] leading-[1.4]" style={BODY}>
                   {label}
                 </p>
               </div>
@@ -273,7 +272,7 @@ export default function HomePage() {
           SECTION 4 — THE PROBLEM
           Editorial narrative (8 cols) + marginalia metrics (4 cols).
       ══════════════════════════════════════════════════════════════════════ */}
-      <section className="py-20 sm:py-28 bg-[#EBE7DD]">
+      <section className="py-20 sm:py-28 bg-white">
         <div className={CONTAINER}>
           <SectionLabel n="04" title="THE PROBLEM" />
 
@@ -282,22 +281,22 @@ export default function HomePage() {
             {/* Narrative — 8 cols */}
             <div className="col-span-12 lg:col-span-8">
               <h2
-                className="text-[#0E0E0E] leading-[1.08] tracking-[-0.02em] mb-9"
-                style={{ ...DISPLAY, fontSize: 'clamp(32px, 4vw, 52px)' }}
+                className="text-[#1d1d1f] leading-[1.08] tracking-[-0.02em] mb-9"
+                style={{ ...DISPLAY, fontSize: 'clamp(32px, 4vw, 52px)', fontWeight: 600 }}
               >
                 It&apos;s 2:43 PM.<br />
                 You&apos;re under a sink.
               </h2>
-              <p className="text-[#4A4641] leading-[1.65] mb-6" style={{ ...BODY, fontSize: '19px' }}>
+              <p className="text-[#707070] leading-[1.65] mb-6" style={{ ...BODY, fontSize: '19px' }}>
                 A customer calls with an emergency lockout — a $185 job that needs someone on-site in an hour. Your phone rings twice. You can&apos;t reach it. They hit voicemail. They hang up.
               </p>
-              <p className="text-[#4A4641] leading-[1.65] mb-8" style={{ ...BODY, fontSize: '19px' }}>
+              <p className="text-[#707070] leading-[1.65] mb-8" style={{ ...BODY, fontSize: '19px' }}>
                 They call the next locksmith on Google. They book with him.
               </p>
-              <p className="text-[#0E0E0E] leading-[1.4] mb-8" style={{ ...BODY, fontSize: '22px', fontWeight: 600 }}>
+              <p className="text-[#1d1d1f] leading-[1.4] mb-8" style={{ ...BODY, fontSize: '22px', fontWeight: 600 }}>
                 &ldquo;You just lost a job you didn&apos;t even know existed.&rdquo;
               </p>
-              <p className="text-[#4A4641]/70 leading-[1.6]" style={{ ...BODY, fontSize: '16px', fontStyle: 'italic' }}>
+              <p className="text-[#707070]/70 leading-[1.6]" style={{ ...BODY, fontSize: '16px', fontStyle: 'italic' }}>
                 Hiring a receptionist costs $3,800/month, goes home at 5 PM, and can&apos;t answer two calls at once.
               </p>
             </div>
@@ -310,16 +309,16 @@ export default function HomePage() {
                 { n: '$4,200', label: 'average monthly revenue lost at $350/job', source: null },
                 { n: '67%', label: 'of after-hours calls go unanswered at one-person shops', source: null },
               ].map(({ n, label, source }) => (
-                <div key={n} className="border-t border-[#D5CFC1] pt-5 pb-5">
+                <div key={n} className="border-t border-[#e8e8ed] pt-5 pb-5">
                   <span
                     className="block leading-[1.0] tracking-[-0.02em] mb-2"
-                    style={{ ...MONO, fontSize: 'clamp(28px, 3.5vw, 44px)', color: '#0E0E0E' }}
+                    style={{ ...MONO, fontSize: 'clamp(28px, 3.5vw, 44px)', color: '#1d1d1f' }}
                   >
                     {n}
                   </span>
-                  <p className="text-[14px] text-[#4A4641] leading-[1.5]" style={BODY}>{label}</p>
+                  <p className="text-[14px] text-[#707070] leading-[1.5]" style={BODY}>{label}</p>
                   {source && (
-                    <p className="text-[11px] text-[#4A4641]/50 mt-1" style={MONO}>{source}</p>
+                    <p className="text-[11px] text-[#707070]/50 mt-1" style={MONO}>{source}</p>
                   )}
                 </div>
               ))}
@@ -342,12 +341,12 @@ export default function HomePage() {
             {/* Left — 4 cols */}
             <div className="col-span-12 lg:col-span-4">
               <h2
-                className="text-[#0E0E0E] leading-[1.1] tracking-[-0.02em] mb-5"
-                style={{ ...DISPLAY, fontSize: 'clamp(28px, 3vw, 40px)' }}
+                className="text-[#1d1d1f] leading-[1.1] tracking-[-0.02em] mb-5"
+                style={{ ...DISPLAY, fontSize: 'clamp(28px, 3vw, 40px)', fontWeight: 600 }}
               >
                 Real calls.<br />Anonymized.
               </h2>
-              <p className="text-[17px] text-[#4A4641] leading-[1.6] mb-7" style={BODY}>
+              <p className="text-[17px] text-[#707070] leading-[1.6] mb-7" style={BODY}>
                 Three recordings of the same service that&apos;ll answer your shop&apos;s calls. Listen, then call the demo line yourself to hear it live.
               </p>
               <a
@@ -357,7 +356,7 @@ export default function HomePage() {
                   padding: '12px 24px',
                   fontSize: '15px',
                 }}
-                className="hover:bg-[rgba(45,106,79,0.06)] hover:border-[#2D6A4F] hover:text-[#2D6A4F] transition-all"
+                className="hover:bg-[rgba(0,113,227,0.06)] hover:border-[#0071e3] hover:text-[#0071e3] transition-all"
               >
                 Call demo →
               </a>
@@ -376,13 +375,13 @@ export default function HomePage() {
           SECTION 6 — COMPARISON TABLE
           Your options, side by side. AnswerCare column highlighted.
       ══════════════════════════════════════════════════════════════════════ */}
-      <section className="py-20 sm:py-28 bg-[#EBE7DD]">
+      <section className="py-20 sm:py-28 bg-white">
         <div className={CONTAINER}>
           <SectionLabel n="06" title="HOW IT COMPARES" />
 
           <h2
-            className="text-[#0E0E0E] leading-[1.1] tracking-[-0.015em] mb-12"
-            style={{ ...DISPLAY, fontSize: 'clamp(28px, 3.5vw, 40px)' }}
+            className="text-[#1d1d1f] leading-[1.1] tracking-[-0.015em] mb-12"
+            style={{ ...DISPLAY, fontSize: 'clamp(28px, 3.5vw, 40px)', fontWeight: 600 }}
           >
             Your four options for handling calls.
           </h2>
@@ -407,13 +406,13 @@ export default function HomePage() {
                     key={label}
                     className="px-3 py-2.5"
                     style={{
-                      backgroundColor: isAC ? '#F5F2EC' : 'transparent',
+                      backgroundColor: isAC ? '#f0f0f2' : 'transparent',
                       borderRadius: isAC ? '4px 4px 0 0' : undefined,
                     }}
                   >
                     <p
                       className="text-[11px] uppercase tracking-[0.08em]"
-                      style={{ ...MONO, color: isAC ? '#0E0E0E' : '#4A4641' }}
+                      style={{ ...MONO, color: isAC ? '#1d1d1f' : '#707070' }}
                     >
                       {label}
                     </p>
@@ -425,11 +424,11 @@ export default function HomePage() {
               {compRows.map((row, i) => (
                 <div
                   key={i}
-                  className="grid border-t border-[#D5CFC1]"
+                  className="grid border-t border-[#e8e8ed]"
                   style={{ gridTemplateColumns: '2.2fr 1fr 1.6fr 1.5fr 1.6fr' }}
                 >
                   <div className="py-3 pr-4">
-                    <p className="text-[13px] text-[#4A4641]" style={BODY}>{row.feature}</p>
+                    <p className="text-[13px] text-[#707070]" style={BODY}>{row.feature}</p>
                   </div>
                   {(['voicemail', 'human', 'answering', 'answercare'] as const).map((col) => {
                     const isAC = col === 'answercare'
@@ -437,7 +436,7 @@ export default function HomePage() {
                       <div
                         key={col}
                         className="py-3 px-3 flex items-center"
-                        style={{ backgroundColor: isAC ? '#F5F2EC' : 'transparent' }}
+                        style={{ backgroundColor: isAC ? '#f0f0f2' : 'transparent' }}
                       >
                         <CellDisplay value={row[col]} isAnswerCare={isAC} />
                       </div>
@@ -447,11 +446,11 @@ export default function HomePage() {
               ))}
 
               {/* Last border */}
-              <div className="border-t border-[#D5CFC1]" />
+              <div className="border-t border-[#e8e8ed]" />
             </div>
           </div>
 
-          <p className="mt-4 text-[11px] text-[#4A4641]/60" style={MONO}>
+          <p className="mt-4 text-[11px] text-[#707070]/60" style={MONO}>
             Based on $350 avg job, 50 calls/month. Smith.ai pricing per public plans, April 2026. First month free on all AnswerCare plans if fewer than 20 jobs booked.
           </p>
 
@@ -489,30 +488,30 @@ export default function HomePage() {
             ].map(({ n, title, detail, body }) => (
               <div
                 key={n}
-                className="border-t border-[#D5CFC1] py-8 sm:py-10 grid grid-cols-12 gap-x-6 sm:gap-x-10 items-start"
+                className="border-t border-[#e8e8ed] py-8 sm:py-10 grid grid-cols-12 gap-x-6 sm:gap-x-10 items-start"
               >
                 <div className="col-span-2 sm:col-span-1">
                   <span
-                    className="leading-[1.0] text-[#D5CFC1]"
+                    className="leading-[1.0] text-[#e8e8ed]"
                     style={{ ...MONO, fontSize: 'clamp(40px, 5vw, 72px)' }}
                   >
                     {n}
                   </span>
                 </div>
                 <div className="col-span-10 sm:col-span-3 pt-2">
-                  <p className="text-[#0E0E0E] mb-1" style={{ ...BODY, fontSize: '19px', fontWeight: 500 }}>
+                  <p className="text-[#1d1d1f] mb-1" style={{ ...BODY, fontSize: '19px', fontWeight: 500 }}>
                     {title}
                   </p>
-                  <span className="text-[11px] text-[#4A4641]/60 tracking-[0.08em]" style={MONO}>
+                  <span className="text-[11px] text-[#707070]/60 tracking-[0.08em]" style={MONO}>
                     [ {detail} ]
                   </span>
                 </div>
                 <div className="col-span-12 sm:col-span-8 mt-4 sm:mt-0">
-                  <p className="text-[19px] text-[#4A4641] leading-[1.65]" style={BODY}>{body}</p>
+                  <p className="text-[19px] text-[#707070] leading-[1.65]" style={BODY}>{body}</p>
                 </div>
               </div>
             ))}
-            <div className="border-t border-[#D5CFC1]" />
+            <div className="border-t border-[#e8e8ed]" />
           </div>
 
         </div>
@@ -522,14 +521,14 @@ export default function HomePage() {
           SECTION 8 — THE GUARANTEE
           14 live days free. Monthly billing starts on day 15.
       ══════════════════════════════════════════════════════════════════════ */}
-      <section className="py-20 sm:py-28 bg-[#EBE7DD]">
+      <section className="py-20 sm:py-28 bg-white">
         <div className={CONTAINER}>
           <SectionLabel n="08" title="THE GUARANTEE" />
 
           {/* Headline */}
           <h2
-            className="text-[#0E0E0E] leading-[1.02] tracking-[-0.025em] mb-12 sm:mb-16"
-            style={{ ...DISPLAY, fontSize: 'clamp(48px, 7.5vw, 112px)' }}
+            className="text-[#1d1d1f] leading-[1.02] tracking-[-0.025em] mb-12 sm:mb-16"
+            style={{ ...DISPLAY, fontSize: 'clamp(48px, 7.5vw, 112px)', fontWeight: 700 }}
           >
             14 live days.<br />
             <br />
@@ -540,7 +539,7 @@ export default function HomePage() {
           <div className="grid grid-cols-12 gap-x-6 sm:gap-x-10">
             <div className="col-span-12 lg:col-span-7">
 
-              <p className="text-[19px] text-[#4A4641] leading-[1.65] mb-9" style={BODY}>
+              <p className="text-[19px] text-[#707070] leading-[1.65] mb-9" style={BODY}>
                 Monthly billing starts on day 15 after go-live — not at signup, not at setup. Use AnswerCare with your real callers for two full weeks. If we&apos;re not answering, qualifying, and sending you booking opportunities, we fix it or your first month is waived.
               </p>
 
@@ -552,12 +551,12 @@ export default function HomePage() {
                   'Cancel before day 15 — pay nothing beyond the $497 setup.',
                   'Continue after day 15 — $199/month, cancel any month with 7 days notice.',
                 ].map((item, i) => (
-                  <div key={i} className="border-t border-[#D5CFC1] py-4 flex items-start gap-4">
-                    <span className="text-[#4A4641]/40 text-[11px] mt-0.5 flex-shrink-0" style={MONO}>—</span>
-                    <p className="text-[17px] text-[#4A4641] leading-[1.55]" style={BODY}>{item}</p>
+                  <div key={i} className="border-t border-[#e8e8ed] py-4 flex items-start gap-4">
+                    <span className="text-[#707070]/40 text-[11px] mt-0.5 flex-shrink-0" style={MONO}>—</span>
+                    <p className="text-[17px] text-[#707070] leading-[1.55]" style={BODY}>{item}</p>
                   </div>
                 ))}
-                <div className="border-t border-[#D5CFC1]" />
+                <div className="border-t border-[#e8e8ed]" />
               </div>
 
               {/* Green callout */}
@@ -599,8 +598,8 @@ export default function HomePage() {
           <SectionLabel n="09" title="WHAT YOU GET" />
 
           <h2
-            className="text-[#0E0E0E] leading-[1.1] tracking-[-0.015em] mb-12"
-            style={{ ...DISPLAY, fontSize: 'clamp(28px, 3.5vw, 40px)' }}
+            className="text-[#1d1d1f] leading-[1.1] tracking-[-0.015em] mb-12"
+            style={{ ...DISPLAY, fontSize: 'clamp(28px, 3.5vw, 40px)', fontWeight: 600 }}
           >
             Built for one-truck operations.<br />
             Everything included.
@@ -651,19 +650,19 @@ export default function HomePage() {
             ].map(({ n, title, desc }) => (
               <div
                 key={n}
-                className="border-t border-[#D5CFC1] py-7 sm:pr-10 flex items-start gap-4"
+                className="border-t border-[#e8e8ed] py-7 sm:pr-10 flex items-start gap-4"
               >
                 <span
-                  className="text-[#4A4641] flex-shrink-0 mt-0.5 whitespace-nowrap"
+                  className="text-[#707070] flex-shrink-0 mt-0.5 whitespace-nowrap"
                   style={{ ...MONO, fontSize: '13px' }}
                 >
                   ⟶ {n}
                 </span>
                 <div>
-                  <p className="text-[#0E0E0E] mb-2" style={{ ...BODY, fontSize: '17px', fontWeight: 500 }}>
+                  <p className="text-[#1d1d1f] mb-2" style={{ ...BODY, fontSize: '17px', fontWeight: 500 }}>
                     {title}
                   </p>
-                  <p className="text-[15px] text-[#4A4641] leading-[1.6]" style={BODY}>{desc}</p>
+                  <p className="text-[15px] text-[#707070] leading-[1.6]" style={BODY}>{desc}</p>
                 </div>
               </div>
             ))}
@@ -676,19 +675,19 @@ export default function HomePage() {
           SECTION 10 — PRICING  (id="pricing" anchors ROI calc CTA)
           3-step offer: $497 setup → 14 live days → $199/month.
       ══════════════════════════════════════════════════════════════════════ */}
-      <section id="pricing" className="py-20 sm:py-28 bg-[#EBE7DD]">
+      <section id="pricing" className="py-20 sm:py-28 bg-white">
         <div className={CONTAINER}>
           <SectionLabel n="10" title="PRICING" />
 
           <p
-            className="text-[11px] text-[#4A4641]/60 uppercase tracking-[0.10em] mb-10"
+            className="text-[11px] text-[#707070]/60 uppercase tracking-[0.10em] mb-10"
             style={MONO}
           >
             one plan · no tiers · no upsells
           </p>
 
           <div className="max-w-[640px]">
-            <div className="border border-[#D5CFC1] rounded-sm bg-[#F5F2EC] overflow-hidden">
+            <div className="border border-[#e8e8ed] rounded-[28px] bg-white overflow-hidden">
 
               {/* Early customer tier badge */}
               <div
@@ -706,25 +705,25 @@ export default function HomePage() {
               <div className="p-8 sm:p-10">
 
                 {/* Step 1 — Setup */}
-                <div className="mb-8 pb-8 border-b border-[#D5CFC1]">
-                  <p className="text-[11px] text-[#4A4641]/50 uppercase tracking-[0.10em] mb-3" style={MONO}>step 1</p>
+                <div className="mb-8 pb-8 border-b border-[#e8e8ed]">
+                  <p className="text-[11px] text-[#707070]/50 uppercase tracking-[0.10em] mb-3" style={MONO}>step 1</p>
                   <div className="flex items-baseline gap-3 mb-2">
                     <span
                       className="leading-[1.0] tracking-[-0.02em]"
-                      style={{ ...MONO, fontSize: 'clamp(40px, 5vw, 60px)', color: '#0E0E0E' }}
+                      style={{ ...MONO, fontSize: 'clamp(40px, 5vw, 60px)', color: '#1d1d1f' }}
                     >
                       $497
                     </span>
-                    <span className="text-[16px] text-[#4A4641]" style={BODY}>one-time setup</span>
+                    <span className="text-[16px] text-[#707070]" style={BODY}>one-time setup</span>
                   </div>
-                  <p className="text-[14px] text-[#4A4641] leading-[1.6]" style={BODY}>
+                  <p className="text-[14px] text-[#707070] leading-[1.6]" style={BODY}>
                     Includes your trade-specific call script, call flow configuration, forwarding setup, calendar and Jobber integration, SMS notifications, and test calls before go-live.
                   </p>
                 </div>
 
                 {/* Step 2 — 14 live days */}
-                <div className="mb-8 pb-8 border-b border-[#D5CFC1]">
-                  <p className="text-[11px] text-[#4A4641]/50 uppercase tracking-[0.10em] mb-3" style={MONO}>step 2</p>
+                <div className="mb-8 pb-8 border-b border-[#e8e8ed]">
+                  <p className="text-[11px] text-[#707070]/50 uppercase tracking-[0.10em] mb-3" style={MONO}>step 2</p>
                   <div className="flex items-baseline gap-3 mb-2">
                     <span
                       className="leading-[1.0] tracking-[-0.02em]"
@@ -732,33 +731,33 @@ export default function HomePage() {
                     >
                       14 days
                     </span>
-                    <span className="text-[16px] text-[#4A4641]" style={BODY}>free after go-live</span>
+                    <span className="text-[16px] text-[#707070]" style={BODY}>free after go-live</span>
                   </div>
-                  <p className="text-[14px] text-[#4A4641] leading-[1.6]" style={BODY}>
+                  <p className="text-[14px] text-[#707070] leading-[1.6]" style={BODY}>
                     Use AnswerCare with real callers before monthly billing starts. Cancel before day 15 — you pay nothing beyond the setup fee.
                   </p>
                 </div>
 
                 {/* Step 3 — Monthly */}
                 <div className="mb-8">
-                  <p className="text-[11px] text-[#4A4641]/50 uppercase tracking-[0.10em] mb-3" style={MONO}>step 3</p>
+                  <p className="text-[11px] text-[#707070]/50 uppercase tracking-[0.10em] mb-3" style={MONO}>step 3</p>
                   <div className="flex items-baseline gap-3 mb-2">
                     <span
                       className="leading-[1.0] tracking-[-0.02em]"
-                      style={{ ...MONO, fontSize: 'clamp(40px, 5vw, 60px)', color: '#0E0E0E' }}
+                      style={{ ...MONO, fontSize: 'clamp(40px, 5vw, 60px)', color: '#1d1d1f' }}
                     >
                       $199
                     </span>
-                    <span className="text-[16px] text-[#4A4641]" style={BODY}>/month after day 15</span>
+                    <span className="text-[16px] text-[#707070]" style={BODY}>/month after day 15</span>
                   </div>
-                  <p className="text-[14px] text-[#4A4641] leading-[1.6]" style={BODY}>
+                  <p className="text-[14px] text-[#707070] leading-[1.6]" style={BODY}>
                     Billed monthly. Cancel anytime with 7 days notice.
                   </p>
                 </div>
 
                 {/* What's included */}
-                <div className="border-t border-[#D5CFC1] mb-8">
-                  <p className="text-[11px] text-[#4A4641]/50 uppercase tracking-[0.10em] pt-5 pb-3" style={MONO}>everything included</p>
+                <div className="border-t border-[#e8e8ed] mb-8">
+                  <p className="text-[11px] text-[#707070]/50 uppercase tracking-[0.10em] pt-5 pb-3" style={MONO}>everything included</p>
                   {[
                     '24/7 answering — nights, weekends, holidays',
                     'Call qualification and appointment booking',
@@ -769,9 +768,9 @@ export default function HomePage() {
                     'Spam and robocall filtering',
                     'US phone infrastructure (Twilio)',
                   ].map((f) => (
-                    <div key={f} className="border-b border-[#D5CFC1]/50 py-3 flex items-start gap-3">
-                      <span className="text-[#4A4641]/50 text-[11px] mt-0.5 flex-shrink-0" style={MONO}>→</span>
-                      <p className="text-[15px] text-[#4A4641] leading-[1.5]" style={BODY}>{f}</p>
+                    <div key={f} className="border-b border-[#e8e8ed]/50 py-3 flex items-start gap-3">
+                      <span className="text-[#707070]/50 text-[11px] mt-0.5 flex-shrink-0" style={MONO}>→</span>
+                      <p className="text-[15px] text-[#707070] leading-[1.5]" style={BODY}>{f}</p>
                     </div>
                   ))}
                 </div>
@@ -805,7 +804,7 @@ export default function HomePage() {
 
             {/* FOR — dark, accent-red arrows */}
             <div className="col-span-12 lg:col-span-5">
-              <h3 className="text-[#0E0E0E] mb-7" style={{ ...BODY, fontSize: '19px', fontWeight: 600 }}>
+              <h3 className="text-[#1d1d1f] mb-7" style={{ ...BODY, fontSize: '19px', fontWeight: 600 }}>
                 This is for you if
               </h3>
               <div>
@@ -816,12 +815,12 @@ export default function HomePage() {
                   'You miss jobs because you\'re on jobs',
                   'You\'ve lost sleep over how much voicemail is costing you',
                 ].map((item) => (
-                  <div key={item} className="border-t border-[#D5CFC1] py-4 flex items-start gap-3">
-                    <span className="text-[#0E0E0E] text-[12px] mt-0.5 flex-shrink-0" style={MONO}>→</span>
-                    <p className="text-[17px] text-[#0E0E0E] leading-[1.5]" style={BODY}>{item}</p>
+                  <div key={item} className="border-t border-[#e8e8ed] py-4 flex items-start gap-3">
+                    <span className="text-[#1d1d1f] text-[12px] mt-0.5 flex-shrink-0" style={MONO}>→</span>
+                    <p className="text-[17px] text-[#1d1d1f] leading-[1.5]" style={BODY}>{item}</p>
                   </div>
                 ))}
-                <div className="border-t border-[#D5CFC1]" />
+                <div className="border-t border-[#e8e8ed]" />
               </div>
             </div>
 
@@ -829,7 +828,7 @@ export default function HomePage() {
 
             {/* NOT FOR — muted, em-dashes */}
             <div className="col-span-12 lg:col-span-5 lg:col-start-7">
-              <h3 className="text-[#4A4641] mb-7" style={{ ...BODY, fontSize: '19px', fontWeight: 400 }}>
+              <h3 className="text-[#707070] mb-7" style={{ ...BODY, fontSize: '19px', fontWeight: 400 }}>
                 This isn&apos;t for you if
               </h3>
               <div>
@@ -840,12 +839,12 @@ export default function HomePage() {
                   'You do under $200K/year (our math won\'t work for you yet)',
                   'You\'re not willing to forward calls to a new number',
                 ].map((item) => (
-                  <div key={item} className="border-t border-[#D5CFC1] py-4 flex items-start gap-3">
-                    <span className="text-[#4A4641]/40 text-[12px] mt-0.5 flex-shrink-0" style={MONO}>—</span>
-                    <p className="text-[17px] text-[#4A4641] leading-[1.5]" style={BODY}>{item}</p>
+                  <div key={item} className="border-t border-[#e8e8ed] py-4 flex items-start gap-3">
+                    <span className="text-[#707070]/40 text-[12px] mt-0.5 flex-shrink-0" style={MONO}>—</span>
+                    <p className="text-[17px] text-[#707070] leading-[1.5]" style={BODY}>{item}</p>
                   </div>
                 ))}
-                <div className="border-t border-[#D5CFC1]" />
+                <div className="border-t border-[#e8e8ed]" />
               </div>
             </div>
 
@@ -856,7 +855,7 @@ export default function HomePage() {
       {/* ══════════════════════════════════════════════════════════════════════
           SECTION 12 — FAQ  (10 questions, expanded from 8)
       ══════════════════════════════════════════════════════════════════════ */}
-      <section id="faq" className="py-20 sm:py-28 bg-[#EBE7DD]">
+      <section id="faq" className="py-20 sm:py-28 bg-white">
         <div className={CONTAINER}>
           <SectionLabel n="12" title="QUESTIONS" />
           <div className="max-w-3xl">
@@ -869,7 +868,7 @@ export default function HomePage() {
           SECTION 13 — FINAL CTA  (full-bleed ink band)
           New headline. Phone number is the typographic event.
       ══════════════════════════════════════════════════════════════════════ */}
-      <section className="bg-[#0E0E0E] py-24 sm:py-32">
+      <section className="bg-[#1d1d1f] py-24 sm:py-32">
         <div className={CONTAINER}>
 
           <p
@@ -880,8 +879,8 @@ export default function HomePage() {
           </p>
 
           <h2
-            className="text-[#F5F2EC] leading-[1.05] tracking-[-0.025em] mb-8"
-            style={{ ...DISPLAY, fontSize: 'clamp(40px, 6.5vw, 88px)' }}
+            className="text-white leading-[1.05] tracking-[-0.025em] mb-8"
+            style={{ ...DISPLAY, fontSize: 'clamp(40px, 6.5vw, 88px)', fontWeight: 700 }}
           >
             Every missed call is a job<br />
             you already paid for.
@@ -895,7 +894,7 @@ export default function HomePage() {
           <a
             href="tel:+18005551234"
             className="block leading-[1.0] tracking-[-0.02em] hover:opacity-70 transition-opacity mb-10"
-            style={{ ...MONO, fontSize: 'clamp(44px, 8vw, 112px)', color: '#2D6A4F' }}
+            style={{ ...MONO, fontSize: 'clamp(44px, 8vw, 112px)', color: '#0071e3' }}
           >
             +1 (800) 555-1234
           </a>
@@ -904,7 +903,7 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5 mb-10">
             <a
               href="tel:+18005551234"
-              style={{ ...BTN_PRIMARY, backgroundColor: '#F5F2EC', color: '#0E0E0E' }}
+              style={{ ...BTN_PRIMARY, backgroundColor: '#ffffff', color: '#1d1d1f' }}
               className="hover:opacity-85 transition-opacity"
             >
               Call the demo
@@ -913,7 +912,7 @@ export default function HomePage() {
               href="https://whop.com/answercare-ai/answercare-for-solo-trade-operators/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[16px] text-[#F5F2EC]/60 hover:text-[#F5F2EC] transition-colors underline underline-offset-4"
+              className="text-[16px] text-white/60 hover:text-white transition-colors underline underline-offset-4"
               style={BODY}
             >
               Start your guarantee →

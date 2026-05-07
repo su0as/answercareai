@@ -3,7 +3,7 @@
 import { useState } from 'react'
 
 const MONO = { fontFamily: '"JetBrains Mono", "IBM Plex Mono", monospace' }
-const BODY = { fontFamily: '"Inter Tight", Inter, Arial, sans-serif' }
+const BODY = { fontFamily: 'Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif' }
 
 const recordings = [
   {
@@ -29,15 +29,15 @@ export default function HomeAudioPlayer() {
   return (
     <div>
       {recordings.map((r, i) => (
-        <div key={i} className="border-b border-[#D5CFC1] py-6 flex items-start gap-5 group">
+        <div key={i} className="border-b border-[#e8e8ed] py-6 flex items-start gap-5 group">
           {/* Play button */}
           <button
             onClick={() => setActive(active === i ? null : i)}
             className="flex-shrink-0 w-9 h-9 rounded-full border flex items-center justify-center transition-all mt-0.5"
             style={{
-              borderColor: active === i ? '#2D6A4F' : '#D5CFC1',
-              color: active === i ? '#F5F2EC' : '#2D6A4F',
-              backgroundColor: active === i ? '#2D6A4F' : 'transparent',
+              borderColor: active === i ? '#0071e3' : '#e8e8ed',
+              color: active === i ? '#ffffff' : '#0071e3',
+              backgroundColor: active === i ? '#0071e3' : 'transparent',
             }}
             aria-label={active === i ? `Pause ${r.label}` : `Play ${r.label}`}
           >
@@ -57,13 +57,13 @@ export default function HomeAudioPlayer() {
           <div className="flex-1 min-w-0">
             <div className="flex items-center justify-between mb-3">
               <p
-                className="text-[15px] text-[#0E0E0E]"
+                className="text-[15px] text-[#1d1d1f]"
                 style={{ ...BODY, fontWeight: 500 }}
               >
                 &ldquo;{r.label}&rdquo;
               </p>
               <span
-                className="text-[12px] text-[#4A4641] ml-4 flex-shrink-0"
+                className="text-[12px] text-[#707070] ml-4 flex-shrink-0"
                 style={MONO}
               >
                 {r.duration}
@@ -71,10 +71,10 @@ export default function HomeAudioPlayer() {
             </div>
 
             {/* Timeline bar */}
-            <div className="h-px bg-[#D5CFC1] mb-3 relative overflow-hidden">
+            <div className="h-px bg-[#e8e8ed] mb-3 relative overflow-hidden">
               {active === i && (
                 <div
-                  className="absolute left-0 top-0 h-full bg-[#2D6A4F]"
+                  className="absolute left-0 top-0 h-full bg-[#0071e3]"
                   style={{
                     width: '38%',
                     animation: 'progressPulse 3s ease-in-out infinite',
@@ -84,19 +84,19 @@ export default function HomeAudioPlayer() {
             </div>
 
             {active === i ? (
-              <p className="text-[13px] text-[#4A4641]" style={BODY}>
+              <p className="text-[13px] text-[#707070]" style={BODY}>
                 → Call{' '}
                 <a
                   href="tel:+18005551234"
-                  className="underline underline-offset-2 hover:text-[#0E0E0E] transition-colors"
-                  style={{ ...MONO, color: '#2D6A4F', fontSize: '12px' }}
+                  className="underline underline-offset-2 hover:text-[#1d1d1f] transition-colors"
+                  style={{ ...MONO, color: '#0071e3', fontSize: '12px' }}
                 >
                   +1 (800) 555-1234
                 </a>{' '}
                 to hear it live — you&apos;ll speak with the same agent.
               </p>
             ) : (
-              <p className="text-[13px] text-[#4A4641]" style={BODY}>
+              <p className="text-[13px] text-[#707070]" style={BODY}>
                 {r.desc}
               </p>
             )}

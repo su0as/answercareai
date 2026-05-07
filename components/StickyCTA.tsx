@@ -45,7 +45,14 @@ export default function StickyCTA() {
       <div className="hidden sm:flex fixed bottom-6 right-6 z-50 items-center gap-2 animate-fade-up">
         <a
           href="tel:+18005551234"
-          className="flex items-center gap-2.5 bg-bg-dark text-bg-primary border border-white/20 pl-4 pr-3 py-3 rounded-full text-sm font-medium hover:border-white/50 transition-all duration-200 hover:scale-[1.02] shadow-lg"
+          className="flex items-center gap-2.5 pl-4 pr-3 py-3 rounded-full text-sm font-medium hover:opacity-85 transition-opacity"
+          style={{
+            backgroundColor: '#1d1d1f',
+            color: '#ffffff',
+            border: '1px solid rgba(255,255,255,0.12)',
+            fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+            textDecoration: 'none',
+          }}
           aria-label="Call demo line (800) 555-1234"
         >
           <span className="text-base" aria-hidden="true">📞</span>
@@ -53,7 +60,12 @@ export default function StickyCTA() {
         </a>
         <button
           onClick={dismiss}
-          className="w-7 h-7 rounded-full bg-bg-dark border border-white/20 text-white/50 hover:text-white flex items-center justify-center text-xs hover:border-white/40 transition-all duration-150"
+          className="w-7 h-7 rounded-full flex items-center justify-center text-xs transition-all duration-150 hover:opacity-70"
+          style={{
+            backgroundColor: '#1d1d1f',
+            border: '1px solid rgba(255,255,255,0.2)',
+            color: 'rgba(255,255,255,0.5)',
+          }}
           aria-label="Dismiss demo CTA"
         >
           ×
@@ -62,17 +74,30 @@ export default function StickyCTA() {
 
       {/* Mobile: full-width bottom bar */}
       <div className="sm:hidden fixed bottom-0 left-0 right-0 z-50 animate-fade-up">
-        <div className="bg-bg-dark border-t border-white/10 px-4 py-3 flex items-center justify-between gap-3">
+        <div
+          className="px-4 py-3 flex items-center justify-between gap-3"
+          style={{
+            backgroundColor: '#1d1d1f',
+            borderTop: '1px solid rgba(255,255,255,0.1)',
+          }}
+        >
           <a
             href="tel:+18005551234"
-            className="flex-1 flex items-center justify-center gap-2 text-bg-primary text-sm font-medium py-2.5 rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
+            className="flex-1 flex items-center justify-center gap-2 text-sm font-medium py-2.5 rounded-full hover:opacity-85 transition-opacity"
+            style={{
+              color: '#ffffff',
+              backgroundColor: 'rgba(255,255,255,0.1)',
+              fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+              textDecoration: 'none',
+            }}
           >
             <span aria-hidden="true">📞</span>
             Call Demo — (800) 555-1234
           </a>
           <button
             onClick={dismiss}
-            className="text-white/40 hover:text-white text-lg w-8 h-8 flex items-center justify-center flex-shrink-0"
+            className="text-lg w-8 h-8 flex items-center justify-center flex-shrink-0 hover:opacity-70 transition-opacity"
+            style={{ color: 'rgba(255,255,255,0.4)' }}
             aria-label="Dismiss"
           >
             ×

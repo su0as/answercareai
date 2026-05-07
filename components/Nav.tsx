@@ -18,24 +18,23 @@ export default function Nav() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 h-[64px] transition-all duration-300 ${
-        scrolled ? 'border-b border-[#D5CFC1]' : 'border-b border-transparent'
+        scrolled ? 'border-b border-[#e8e8ed]' : 'border-b border-transparent'
       }`}
       style={{
-        backgroundColor: scrolled ? 'rgba(245,242,236,0.92)' : '#F5F2EC',
-        backdropFilter: scrolled ? 'blur(12px)' : 'none',
-        WebkitBackdropFilter: scrolled ? 'blur(12px)' : 'none',
+        backgroundColor: scrolled ? 'rgba(245,245,247,0.88)' : '#f5f5f7',
+        backdropFilter: scrolled ? 'saturate(180%) blur(20px)' : 'none',
+        WebkitBackdropFilter: scrolled ? 'saturate(180%) blur(20px)' : 'none',
       }}
     >
       <div className="max-w-[1200px] mx-auto px-5 sm:px-10 h-full flex items-center justify-between">
 
-        {/* Wordmark — Fraunces, no suffix */}
+        {/* Wordmark */}
         <span
-          className="text-[#0E0E0E] tracking-[-0.01em] select-none"
+          className="text-[#1d1d1f] tracking-[-0.02em] select-none"
           style={{
-            fontFamily: 'Fraunces, Georgia, serif',
-            fontWeight: 600,
-            fontSize: '22px',
-            fontOpticalSizing: 'auto',
+            fontFamily: 'Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif',
+            fontWeight: 700,
+            fontSize: '20px',
           }}
         >
           AnswerCare
@@ -43,7 +42,7 @@ export default function Nav() {
 
         {/* Center label — desktop only */}
         <span
-          className="hidden md:block text-[13px] text-[#4A4641]"
+          className="hidden md:block text-[13px] text-[#707070]"
           style={{ fontFamily: '"JetBrains Mono", "IBM Plex Mono", monospace' }}
         >
           Built for solo trades
@@ -54,17 +53,17 @@ export default function Nav() {
           href="tel:+18005551234"
           className="hover:opacity-85 transition-opacity"
           style={{
-            backgroundColor: '#2D6A4F',
-            color: '#F5F2EC',
-            padding: '10px 20px',
-            borderRadius: '6px',
-            fontFamily: '"Inter Tight", Inter, Arial, sans-serif',
-            fontWeight: 500,
+            backgroundColor: '#0071e3',
+            color: '#ffffff',
+            padding: '8px 20px',
+            borderRadius: '999px',
+            fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+            fontWeight: 400,
             fontSize: '15px',
             textDecoration: 'none',
             display: 'inline-flex',
             alignItems: 'center',
-            boxShadow: '0 1px 0 rgba(0,0,0,0.12)',
+            letterSpacing: '-0.01em',
           }}
         >
           <span className="hidden sm:inline">Call demo →</span>

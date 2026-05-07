@@ -3,7 +3,7 @@
 import { useState } from 'react'
 
 const MONO = { fontFamily: '"JetBrains Mono", "IBM Plex Mono", monospace' }
-const BODY = { fontFamily: '"Inter Tight", Inter, Arial, sans-serif' }
+const BODY = { fontFamily: 'Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif' }
 
 const faqs = [
   {
@@ -53,35 +53,35 @@ export default function HomeFAQ() {
 
   return (
     <div>
-      <div className="border-t border-[#D5CFC1]" />
+      <div className="border-t border-[#e8e8ed]" />
       {faqs.map((faq, i) => (
-        <div key={i} className="border-b border-[#D5CFC1]">
+        <div key={i} className="border-b border-[#e8e8ed]">
           <button
             className="w-full flex items-start gap-5 py-6 sm:py-7 text-left group"
             onClick={() => setOpen(open === i ? null : i)}
             aria-expanded={open === i}
           >
             <span
-              className="text-[11px] text-[#4A4641]/50 flex-shrink-0 mt-1 tracking-[0.08em]"
+              className="text-[11px] text-[#707070]/50 flex-shrink-0 mt-1 tracking-[0.08em]"
               style={MONO}
             >
               Q/{String(i + 1).padStart(2, '0')}
             </span>
             <div className="flex-1 min-w-0">
               <p
-                className="text-[16px] sm:text-[17px] text-[#0E0E0E] group-hover:text-[#4A4641] transition-colors"
+                className="text-[16px] sm:text-[17px] text-[#1d1d1f] group-hover:text-[#707070] transition-colors"
                 style={{ ...BODY, fontWeight: 500 }}
               >
                 {faq.q}
               </p>
               {open === i && (
-                <p className="mt-4 text-[15px] text-[#4A4641] leading-[1.65]" style={BODY}>
+                <p className="mt-4 text-[15px] text-[#707070] leading-[1.65]" style={BODY}>
                   {faq.a}
                 </p>
               )}
             </div>
             <span
-              className="text-[#4A4641] text-[18px] flex-shrink-0 mt-0.5 w-5 text-right leading-none"
+              className="text-[#707070] text-[18px] flex-shrink-0 mt-0.5 w-5 text-right leading-none"
               aria-hidden="true"
             >
               {open === i ? '−' : '+'}

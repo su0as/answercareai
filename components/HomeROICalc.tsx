@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react'
 
 const MONO = { fontFamily: '"JetBrains Mono", "IBM Plex Mono", monospace' }
-const BODY = { fontFamily: '"Inter Tight", Inter, Arial, sans-serif' }
+const BODY = { fontFamily: 'Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif' }
 
 function useCountUp(target: number, duration = 400) {
   const [value, setValue] = useState(target)
@@ -51,10 +51,10 @@ function Slider({ label, value, min, max, step = 1, display, onChange }: SliderP
   return (
     <div className="mb-10">
       <div className="flex items-baseline justify-between mb-4">
-        <label className="text-[15px] text-[#4A4641]" style={BODY}>{label}</label>
-        <span className="text-[16px] text-[#0E0E0E]" style={{ ...MONO, letterSpacing: '-0.01em' }}>{display}</span>
+        <label className="text-[15px] text-[#707070]" style={BODY}>{label}</label>
+        <span className="text-[16px] text-[#1d1d1f]" style={{ ...MONO, letterSpacing: '-0.01em' }}>{display}</span>
       </div>
-      <div className="relative h-[2px] bg-[#D5CFC1] rounded-full">
+      <div className="relative h-[2px] bg-[#e8e8ed] rounded-full">
         {/* Filled portion — accent red */}
         <div
           className="absolute left-0 top-0 h-full rounded-full"
@@ -78,7 +78,7 @@ function Slider({ label, value, min, max, step = 1, display, onChange }: SliderP
           style={{
             left: `calc(${pct}% - 10px)`,
             backgroundColor: '#B3392D',
-            border: '2.5px solid #F5F2EC',
+            border: '2.5px solid #f5f5f7',
             boxShadow: '0 0 0 1px rgba(179,57,45,0.25), 0 1px 3px rgba(0,0,0,0.12)',
           }}
         />
@@ -104,12 +104,12 @@ export default function HomeROICalc() {
       {/* Left — inputs (5/12) */}
       <div className="lg:col-span-5">
         <h3
-          className="text-[#0E0E0E] leading-[1.15] tracking-[-0.015em] mb-3"
+          className="text-[#1d1d1f] leading-[1.15] tracking-[-0.015em] mb-3"
           style={{ ...BODY, fontSize: 'clamp(22px, 3vw, 28px)', fontWeight: 500 }}
         >
           What&apos;s voicemail costing you?
         </h3>
-        <p className="text-[16px] text-[#4A4641] leading-[1.55] mb-10" style={BODY}>
+        <p className="text-[16px] text-[#707070] leading-[1.55] mb-10" style={BODY}>
           Drag the sliders. The math updates live.
         </p>
 
@@ -142,8 +142,8 @@ export default function HomeROICalc() {
         />
 
         {/* Formula */}
-        <div className="pt-6 border-t border-[#D5CFC1]">
-          <p className="text-[11px] text-[#4A4641]/60 leading-[1.7]" style={MONO}>
+        <div className="pt-6 border-t border-[#e8e8ed]">
+          <p className="text-[11px] text-[#707070]/60 leading-[1.7]" style={MONO}>
             missed calls × close rate × job value<br />
             = monthly revenue lost to voicemail
           </p>
@@ -152,7 +152,7 @@ export default function HomeROICalc() {
 
       {/* Right — output (7/12) */}
       <div className="lg:col-span-7">
-        <p className="text-[11px] text-[#4A4641] uppercase tracking-[0.10em] mb-4" style={MONO}>
+        <p className="text-[11px] text-[#707070] uppercase tracking-[0.10em] mb-4" style={MONO}>
           you&apos;re losing
         </p>
 
@@ -167,19 +167,19 @@ export default function HomeROICalc() {
         {/* Underline accent */}
         <div className="mb-4" style={{ width: '55%', height: '2px', backgroundColor: '#B3392D' }} />
 
-        <p className="text-[12px] text-[#4A4641] uppercase tracking-[0.10em] mb-8" style={MONO}>
+        <p className="text-[12px] text-[#707070] uppercase tracking-[0.10em] mb-8" style={MONO}>
           /month to voicemail
         </p>
 
-        <div className="space-y-3 mb-10 border-t border-[#D5CFC1] pt-6">
-          <p className="text-[17px] text-[#4A4641] leading-[1.55]" style={BODY}>
+        <div className="space-y-3 mb-10 border-t border-[#e8e8ed] pt-6">
+          <p className="text-[17px] text-[#707070] leading-[1.55]" style={BODY}>
             That&apos;s{' '}
-            <span className="text-[#0E0E0E]" style={{ ...MONO, fontWeight: 400 }}>{fmt(displayAnnual)}</span>
+            <span className="text-[#1d1d1f]" style={{ ...MONO, fontWeight: 400 }}>{fmt(displayAnnual)}</span>
             {' '}per year someone else is booking.
           </p>
-          <p className="text-[17px] text-[#4A4641] leading-[1.55]" style={BODY}>
+          <p className="text-[17px] text-[#707070] leading-[1.55]" style={BODY}>
             AnswerCare costs{' '}
-            <span className="text-[#0E0E0E]" style={MONO}>$199/month</span>
+            <span className="text-[#1d1d1f]" style={MONO}>$199/month</span>
             {' '}— covered by the first 2 hours of recovered work each month.
           </p>
         </div>
@@ -189,16 +189,16 @@ export default function HomeROICalc() {
           className="hover:opacity-85 transition-opacity"
           style={{
             backgroundColor: '#B3392D',
-            color: '#F5F2EC',
-            padding: '20px 32px',
-            borderRadius: '6px',
-            fontFamily: '"Inter Tight", Inter, Arial, sans-serif',
-            fontWeight: 500,
-            fontSize: '16px',
+            color: '#ffffff',
+            padding: '14px 28px',
+            borderRadius: '999px',
+            fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+            fontWeight: 400,
+            fontSize: '17px',
             display: 'inline-flex',
             alignItems: 'center',
-            boxShadow: '0 1px 0 rgba(0,0,0,0.12)',
             textDecoration: 'none',
+            letterSpacing: '-0.01em',
           }}
         >
           Stop the bleed →
