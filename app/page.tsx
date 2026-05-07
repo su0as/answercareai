@@ -576,7 +576,7 @@ export default function HomePage() {
 
               <div className="mt-8">
                 <a
-                  href="https://calendly.com/answercare-ai/discovery-call"
+                  href="https://whop.com/answercare-ai/answercare-for-solo-trade-operators/"
                   target="_blank"
                   rel="noopener noreferrer"
                   style={BTN_PRIMARY}
