@@ -3,51 +3,53 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
-const BODY = { fontFamily: 'Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif' }
-const MONO = { fontFamily: '"JetBrains Mono", monospace' }
+function Logo() {
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+      <div style={{
+        width: 26, height: 26, borderRadius: 8,
+        background: 'var(--ink)', color: 'var(--bg)',
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        position: 'relative',
+      }}>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <path d="M3 2.2c0-.8.7-1.4 1.5-1.2l1.7.4c.6.1 1 .6 1 1.2v1.6c0 .5-.3.9-.7 1.1l-.9.4c.6 1.6 1.7 2.7 3.3 3.3l.4-.9c.2-.4.6-.7 1.1-.7h1.6c.6 0 1.1.4 1.2 1l.4 1.7c.2.8-.4 1.5-1.2 1.5C5.4 11.6 2.4 8.6 3 2.2Z" fill="currentColor"/>
+        </svg>
+        <span style={{
+          position: 'absolute', top: -2, right: -2,
+          width: 8, height: 8, borderRadius: '50%',
+          background: 'var(--accent)',
+          boxShadow: '0 0 0 2px var(--bg)',
+        }} />
+      </div>
+      <span style={{ fontWeight: 600, letterSpacing: '-.01em', fontSize: 17 }}>AnswerCare</span>
+    </div>
+  )
+}
 
 export default function Footer() {
   const pathname = usePathname()
   if (pathname?.startsWith('/trades')) return null
 
   return (
-    <footer className="bg-white border-t border-[#e8e8ed] py-10 px-6">
-      <div className="max-w-[1200px] mx-auto">
-
-        {/* Top row: brand + email */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-5">
-          <p className="text-[13px] text-[#707070]" style={BODY}>
-            AnswerCare AI &nbsp;&middot;&nbsp; &copy; {new Date().getFullYear()}
-          </p>
-          <a
-            href="mailto:hello@answercareai.com"
-            className="text-[13px] text-[#707070] hover:text-[#1d1d1f] transition-colors underline underline-offset-2"
-            style={MONO}
-          >
-            hello@answercareai.com
-          </a>
+    <footer style={{ borderTop: '1px solid var(--line)', padding: '36px 0', background: 'rgba(14,14,12,.02)' }}>
+      <div className="wrap" style={{
+        display: 'flex', justifyContent: 'space-between',
+        alignItems: 'center', gap: 24, flexWrap: 'wrap',
+      }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 24 }}>
+          <Logo />
+          <span className="mono" style={{ fontSize: 11, color: 'var(--muted)', letterSpacing: '.06em' }}>
+            EST. 2024 · AUSTIN, TX
+          </span>
         </div>
-
-        {/* Divider */}
-        <div className="h-px bg-[#e8e8ed] mb-5" />
-
-        {/* Bottom row: nav links */}
-        <div className="flex flex-wrap gap-x-4 gap-y-2 text-[13px] text-[#707070]" style={BODY}>
-          <Link href="/product" className="hover:text-[#1d1d1f] transition-colors">How It Works</Link>
-          <span className="text-[#e8e8ed]">&middot;</span>
-          <Link href="/#pricing" className="hover:text-[#1d1d1f] transition-colors">Pricing</Link>
-          <span className="text-[#e8e8ed]">&middot;</span>
-          <Link href="/#faq" className="hover:text-[#1d1d1f] transition-colors">FAQ</Link>
-          <span className="text-[#e8e8ed]">&middot;</span>
-          <Link href="/privacy" className="hover:text-[#1d1d1f] transition-colors">Privacy</Link>
-          <span className="text-[#e8e8ed]">&middot;</span>
-          <Link href="/terms" className="hover:text-[#1d1d1f] transition-colors">Terms</Link>
-          <span className="text-[#e8e8ed]">&middot;</span>
-          <Link href="/refund" className="hover:text-[#1d1d1f] transition-colors">Refund Policy</Link>
-          <span className="text-[#e8e8ed]">&middot;</span>
-          <a href="mailto:hello@answercareai.com" className="hover:text-[#1d1d1f] transition-colors">Contact</a>
+        <div style={{ display: 'flex', gap: 24, fontSize: 13, color: 'var(--muted)', flexWrap: 'wrap' }}>
+          <Link href="/privacy" className="ulink">Privacy</Link>
+          <Link href="/terms" className="ulink">Terms</Link>
+          <Link href="/refund" className="ulink">Refund</Link>
+          <Link href="/product" className="ulink">How It Works</Link>
+          <a href="mailto:hello@answercareai.com" className="ulink">hello@answercareai.com</a>
         </div>
-
       </div>
     </footer>
   )

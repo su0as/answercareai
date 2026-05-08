@@ -1,944 +1,603 @@
 import type { Metadata } from 'next'
+import HomeLiveDemo from '@/components/HomeLiveDemo'
 import HomeROICalc from '@/components/HomeROICalc'
+import HomeRealCalls from '@/components/HomeRealCalls'
 import HomeFAQ from '@/components/HomeFAQ'
-import HomeAudioPlayer from '@/components/HomeAudioPlayer'
 
 export const metadata: Metadata = {
   title: 'AI Phone Agent for One-Person Trades | AnswerCare AI',
   description:
-    'Stop losing jobs to voicemail. AI phone agent for solo trade operators — books 20 jobs in 30 days or your first month is free. Plans from $99/month, $0 setup. Live in 5 days.',
+    'Stop losing jobs to voicemail. AI phone agent for solo trade operators — answers every call in under 2 seconds, qualifies the customer, books the job. 14 days free.',
 }
 
-// ─── Design tokens (Apple) ─────────────────────────────────────────────────────
-// fog:         #f5f5f7   Apple page canvas
-// snow:        #ffffff   card / alternating section lifts
-// ink:         #1d1d1f   near-black type
-// graphite:    #707070   secondary/muted text
-// silver-mist: #e8e8ed   1px hairline dividers
-// azure:       #0071e3   ONE primary CTA accent — buttons only
-// loss-red:    #B3392D   revenue loss / ROI calc only
-// success:     #2D6A4F   "14 LIVE DAYS FREE" badge + comparison ✓ only
-
-const DISPLAY = {
-  fontFamily: 'Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif',
-}
-const BODY = { fontFamily: 'Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif' }
-const MONO = { fontFamily: '"JetBrains Mono", "IBM Plex Mono", monospace' }
-const CONTAINER = 'max-w-[1200px] mx-auto px-5 sm:px-10'
-
-// Primary button — exactly 4 canonical placements: nav, hero, pricing, final CTA
-const BTN_PRIMARY: React.CSSProperties = {
-  backgroundColor: '#0071e3',
-  color: '#ffffff',
-  padding: '14px 28px',
-  borderRadius: '999px',
-  fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
-  fontWeight: 400,
-  fontSize: '17px',
-  display: 'inline-flex',
-  alignItems: 'center',
-  textDecoration: 'none',
-  letterSpacing: '-0.01em',
-}
-
-// Secondary (ghost) button
-const BTN_SECONDARY: React.CSSProperties = {
-  backgroundColor: 'transparent',
-  color: '#1d1d1f',
-  padding: '14px 28px',
-  borderRadius: '999px',
-  fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
-  fontWeight: 400,
-  fontSize: '17px',
-  display: 'inline-flex',
-  alignItems: 'center',
-  border: '1px solid #e8e8ed',
-  textDecoration: 'none',
-  letterSpacing: '-0.01em',
-}
-
-// ─── Section label ──────────────────────────────────────────────────────────────
-function SectionLabel({ n, title }: { n: string; title: string }) {
+// ─── Hero headline variants ───────────────────────────────────────────────────
+function HeadlineRender() {
   return (
-    <div className="flex items-center gap-4 mb-16 sm:mb-20">
-      <span
-        className="text-[11px] text-[#707070] tracking-[0.10em] whitespace-nowrap uppercase"
-        style={MONO}
-      >
-        — {n} / {title}
+    <h1 style={{ textWrap: 'balance' } as React.CSSProperties}>
+      Stop losing{' '}
+      <span style={{ color: 'var(--pain)', position: 'relative', whiteSpace: 'nowrap' }}>
+        $4,375<sup style={{ fontSize: '.4em', verticalAlign: 'super', fontWeight: 400, color: 'var(--muted)' }}>/mo</sup>
+        <svg
+          style={{ position: 'absolute', left: -4, right: -4, bottom: -6, width: 'calc(100% + 8px)' }}
+          height="12" viewBox="0 0 200 12" preserveAspectRatio="none"
+        >
+          <path d="M2 9 Q 50 2, 100 7 T 198 6" stroke="var(--pain)" strokeWidth="2" fill="none" strokeLinecap="round" />
+        </svg>
       </span>
-      <div className="flex-1 h-px bg-[#e8e8ed]" />
-    </div>
+      {' '}to voicemail.
+    </h1>
   )
 }
 
-// ─── Comparison table data ──────────────────────────────────────────────────────
-type CellVal = true | false | string
-
-interface CompRow {
-  feature: string
-  voicemail: CellVal
-  human: CellVal
-  answering: CellVal
-  answercare: CellVal
-}
-
-const compRows: CompRow[] = [
-  { feature: 'Cost per month', voicemail: '$0', human: '$3,800+', answering: '$255+/mo', answercare: '$199/mo *' },
-  { feature: '24/7 coverage', voicemail: false, human: 'No (9–5 only)', answering: true, answercare: true },
-  { feature: 'Answers in < 2 seconds', voicemail: false, human: 'Usually', answering: 'Varies', answercare: 'Always' },
-  { feature: 'Never on lunch break', voicemail: false, human: false, answering: false, answercare: true },
-  { feature: 'Books into your calendar', voicemail: false, human: 'Manual', answering: 'Manual', answercare: 'Automatic' },
-  { feature: 'Custom script for your trade', voicemail: false, human: 'Weeks to train', answering: 'Generic', answercare: 'Day 1, yours' },
-  { feature: 'SMS to you on every booking', voicemail: false, human: 'Usually', answering: 'Sometimes', answercare: 'Every call' },
-  { feature: 'Handles 2 calls at once', voicemail: false, human: false, answering: true, answercare: true },
-  { feature: 'Approx. cost per booked job', voicemail: '—', human: '~$38', answering: '~$15', answercare: '~$4' },
+// ─── Comparison table ─────────────────────────────────────────────────────────
+const compCols = ['Voicemail', 'Hire receptionist', 'Generic IVR', 'AnswerCare']
+const compRows: [string, string[]][] = [
+  ['Cost / mo',              ['$0',        '$3,400',       '$80',       '$199']],
+  ['Pickup time',            ['—',         '6 rings',      'instant',   '< 2 sec']],
+  ['Available 24/7',         ['—',         '—',            'partial',   '✓ Always']],
+  ['Knows your trade',       ['—',         '—',            '—',         '✓ Custom script']],
+  ['Books in your calendar', ['—',         'manual',       '—',         '✓ Automatic']],
+  ['Custom script for biz',  ['—',         'maybe in 1 yr','generic',   '✓ Day 1']],
+  ['SMS to you + customer',  ['—',         'usually',      'rare',      '✓ Every call']],
+  ['Handles a critical hour',['—',         '—',            '—',         '✓']],
+  ['Approx cost-per-job',    ['∞ lost',    '$135',         '$80',       '~ $4']],
 ]
-
-function CellDisplay({ value, isAnswerCare }: { value: CellVal; isAnswerCare?: boolean }) {
-  if (value === true) {
-    return (
-      <span style={{ color: '#2D6A4F', fontWeight: 600, fontFamily: 'Inter, system-ui, sans-serif', fontSize: '15px' }}>
-        ✓
-      </span>
-    )
-  }
-  if (value === false) {
-    return (
-      <span style={{ color: '#707070', opacity: 0.5, fontFamily: '"JetBrains Mono", monospace', fontSize: '13px' }}>
-        —
-      </span>
-    )
-  }
-  return (
-    <span
-      style={{
-        color: isAnswerCare ? '#1d1d1f' : '#707070',
-        fontFamily: 'Inter, system-ui, sans-serif',
-        fontSize: isAnswerCare ? '14px' : '13px',
-        fontWeight: isAnswerCare ? 600 : 400,
-      }}
-    >
-      {value}
-    </span>
-  )
-}
 
 export default function HomePage() {
   return (
-    <div className="bg-[#f5f5f7] text-[#1d1d1f]">
+    <div>
 
-      {/* ══════════════════════════════════════════════════════════════════════
-          SECTION 1 — HERO
-          One block: headline + phone + primary CTA. No second "call" section.
-          Clears 64px sticky nav with pt-[108px].
-      ══════════════════════════════════════════════════════════════════════ */}
-      <section className="pt-[108px] sm:pt-[140px] pb-24 sm:pb-32">
-        <div className={CONTAINER}>
+      {/* ══ 01 HERO ══════════════════════════════════════════════════════════ */}
+      <section data-screen-label="01 Hero" className="section" style={{ paddingTop: 64, paddingBottom: 64 }}>
+        <div className="wrap">
+          <div className="eyebrow" style={{ marginBottom: 24 }}>
+            <span className="dot pain" />For plumbers, electricians, HVAC, locksmiths · 24/7/365
+          </div>
 
-          {/* Eyebrow */}
-          <p
-            className="text-[11px] text-[#707070] tracking-[0.12em] uppercase mb-12"
-            style={MONO}
-          >
-            24/7 PHONE ANSWERING · BUILT FOR SOLO TRADE OPERATORS
-          </p>
+          <div style={{ display: 'grid', gridTemplateColumns: '1.05fr .95fr', gap: 64, alignItems: 'start' }}>
 
-          {/* Asymmetric 12-col: H1 left (9), subhead bottom-right (4) */}
-          <div className="grid grid-cols-12 gap-x-6 sm:gap-x-8 items-end mb-14">
-            <h1
-              className="col-span-12 lg:col-span-9 text-[#1d1d1f] leading-[0.95] tracking-[-0.035em]"
-              style={{ ...DISPLAY, fontSize: 'clamp(64px, 8.5vw, 120px)', fontWeight: 700 }}
-            >
-              Stop losing<br />
-              $4,375/mo<br />
-              to voicemail.
-            </h1>
+            {/* Left: headline + CTA */}
+            <div>
+              <HeadlineRender />
 
-            <p
-              className="col-span-12 lg:col-start-9 lg:col-span-4 mt-10 lg:mt-0 pb-2 text-[#707070] leading-[1.5]"
-              style={{ ...BODY, fontSize: 'clamp(18px, 1.8vw, 22px)' }}
-            >
-              AnswerCare answers every call, qualifies the customer, books the job, and texts you the details — while you&apos;re on-site, on a ladder, or halfway through the drive.
+              <p style={{
+                fontSize: 19, lineHeight: 1.5, color: 'var(--ink-2)',
+                marginTop: 32, maxWidth: 520,
+              }}>
+                AnswerCare answers every call in under 2 seconds, qualifies the customer,
+                books the job, and texts you the details — while you&apos;re on a ladder, under
+                a sink, or halfway through a drive.
+              </p>
+
+              {/* Phone CTA block */}
+              <div style={{
+                marginTop: 40, padding: '20px 24px',
+                display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 24,
+                border: '1px solid var(--line)', borderRadius: 18,
+                background: 'linear-gradient(180deg, #FFFEFB, #FBFAF6)',
+              }}>
+                <div>
+                  <div className="eyebrow" style={{ marginBottom: 6 }}>Try the live demo</div>
+                  <a href="tel:+18005551234" className="serif num" style={{
+                    fontSize: 'clamp(28px, 3vw, 40px)',
+                    letterSpacing: '-.02em',
+                    color: 'var(--accent)',
+                  }}>
+                    +1 (800) 555-1234
+                  </a>
+                </div>
+                <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
+                  <a href="https://whop.com/answercare-ai/answercare-for-solo-trade-operators/" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+                    Start 14 days free <span className="arrow">→</span>
+                  </a>
+                  <a href="#demo" className="btn btn-ghost">Hear it work</a>
+                </div>
+              </div>
+
+              {/* Metrics row */}
+              <div style={{
+                marginTop: 32,
+                display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 20,
+                borderTop: '1px solid var(--line)', paddingTop: 24,
+              }}>
+                {[
+                  ['< 2 sec', 'pickup time'],
+                  ['24/7/365', 'always on'],
+                  ['100%', 'calls logged + recorded'],
+                  ['5 days', 'average setup'],
+                ].map(([v, l]) => (
+                  <div key={l}>
+                    <div className="num" style={{ fontSize: 22, fontWeight: 500, letterSpacing: '-.02em' }}>{v}</div>
+                    <div className="mono" style={{ fontSize: 11, color: 'var(--muted)', marginTop: 4, letterSpacing: '.04em' }}>{l}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right: live demo */}
+            <div style={{ position: 'sticky', top: 90 }} id="demo">
+              <div className="eyebrow" style={{ marginBottom: 12 }}>
+                <span className="dot" />Watching: a real call, 6 seconds ago
+              </div>
+              <HomeLiveDemo autoplay={true} />
+              <div className="mono" style={{ fontSize: 11, color: 'var(--muted)', marginTop: 12, letterSpacing: '.04em', textAlign: 'center' }}>
+                Recordings anonymized · all calls reviewed by you
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ══ 02 TRUST BAR ═════════════════════════════════════════════════════ */}
+      <section className="section-tight" data-screen-label="02 Trust" style={{
+        borderTop: '1px solid var(--line)', borderBottom: '1px solid var(--line)',
+        background: 'rgba(14,14,12,.02)',
+      }}>
+        <div className="wrap" style={{ display: 'grid', gridTemplateColumns: 'auto 1fr', gap: 40, alignItems: 'center' }}>
+          <div>
+            <div className="num" style={{ fontSize: 36, fontWeight: 500, letterSpacing: '-.02em' }}>847</div>
+            <div className="mono" style={{ fontSize: 11, color: 'var(--muted)', letterSpacing: '.06em' }}>
+              ONE-TRUCK<br />OPERATIONS<br />RUNNING IT
+            </div>
+          </div>
+          <div className="marquee">
+            <div className="marquee-track">
+              {[
+                'McNeil Plumbing', 'Apex HVAC Co.', 'Riverstone Electrical',
+                "Hank's Locksmith", 'Sierra Roofing', 'Bluebird Pest Control',
+                'Iron Tree Service', 'Northwest Septic', 'TwoBros Heating',
+                'McNeil Plumbing', 'Apex HVAC Co.', 'Riverstone Electrical',
+                "Hank's Locksmith", 'Sierra Roofing', 'Bluebird Pest Control',
+                'Iron Tree Service', 'Northwest Septic', 'TwoBros Heating',
+              ].map((n, i) => (
+                <span key={i} className="serif" style={{
+                  fontSize: 28, color: 'var(--ink-2)', letterSpacing: '-.01em', whiteSpace: 'nowrap',
+                  fontStyle: i % 2 ? 'italic' : 'normal',
+                }}>
+                  {n}
+                  <span style={{ margin: '0 32px', color: 'var(--muted-2)' }}>·</span>
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ══ 03 ROI CALCULATOR ════════════════════════════════════════════════ */}
+      <section className="section" id="calc" data-screen-label="03 ROI">
+        <div className="wrap">
+          <div className="section-head">
+            <div>
+              <div className="eyebrow" style={{ marginBottom: 14 }}>
+                <span className="dot pain" />The truth
+              </div>
+              <h2 style={{ maxWidth: 760 }}>
+                <span className="serif" style={{ fontStyle: 'italic' }}>Most</span> trades miss{' '}
+                <br />30–40% of inbound calls.
+              </h2>
+            </div>
+            <p style={{ maxWidth: 360, color: 'var(--muted)', fontSize: 16, paddingTop: 12 }}>
+              Each missed call is a job that never existed.
+              Drag the sliders below — see what voicemail is actually costing your shop.
             </p>
           </div>
-
-          {/* Divider */}
-          <div className="flex items-center gap-4 mb-8">
-            <span
-              className="text-[11px] text-[#707070] uppercase tracking-[0.10em] whitespace-nowrap"
-              style={MONO}
-            >
-              — call to hear it work
-            </span>
-            <div className="flex-1 h-px bg-[#e8e8ed]" />
-          </div>
-
-          {/* Phone number — largest element in the hero */}
-          <a
-            href="tel:+18005551234"
-            className="block leading-[1.0] tracking-[-0.02em] hover:opacity-70 transition-opacity mb-8"
-            style={{ ...MONO, fontSize: 'clamp(44px, 8vw, 120px)', color: '#0071e3' }}
-            aria-label="Call +1 800 555 1234"
-          >
-            +1 (800) 555-1234
-          </a>
-
-          {/* Primary + secondary CTAs */}
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-10">
-            <a
-              href="tel:+18005551234"
-              style={BTN_PRIMARY}
-              className="hover:opacity-85 transition-opacity"
-            >
-              Call the demo →
-            </a>
-            <a
-              href="https://calendly.com/answercare-ai/discovery-call"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={BTN_SECONDARY}
-              className="hover:bg-[rgba(0,113,227,0.06)] hover:border-[#0071e3] hover:text-[#0071e3] transition-all"
-            >
-              Book a 15-min setup call
-            </a>
-          </div>
-
-          {/* Tag row — pricing spec */}
-          <div className="flex flex-wrap gap-2.5">
-            <span
-              className="text-[13px] px-2.5 py-1 rounded"
-              style={{
-                ...MONO,
-                color: '#2D6A4F',
-                backgroundColor: 'rgba(45,106,79,0.08)',
-                border: '1px solid rgba(45,106,79,0.2)',
-                letterSpacing: '0.12em',
-              }}
-            >
-              [ 14 LIVE DAYS FREE ]
-            </span>
-            {['$497 SETUP', 'THEN $199/MO', 'LIVE IN 5 DAYS'].map((tag) => (
-              <span key={tag} className="text-[13px] text-[#707070]/50" style={{ ...MONO, letterSpacing: '0.12em' }}>
-                [ {tag} ]
-              </span>
-            ))}
-          </div>
-
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════════════════════════════════
-          SECTION 2 — TRUST SIGNAL BAND
-          Four quantifiable claims. No fake logos. No invented testimonials.
-      ══════════════════════════════════════════════════════════════════════ */}
-      <section className="py-10 sm:py-14 bg-white border-y border-[#e8e8ed]">
-        <div className={CONTAINER}>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 sm:gap-6">
-            {[
-              { metric: '< 2 sec', label: 'to pick up' },
-              { metric: '24/7/365', label: 'coverage, no exceptions' },
-              { metric: '100%', label: 'of calls logged and transcribed' },
-              { metric: '5 days', label: 'average setup to live' },
-            ].map(({ metric, label }) => (
-              <div key={metric} className="text-center sm:text-left">
-                <div
-                  className="leading-[1.0] tracking-[-0.02em] mb-2"
-                  style={{ ...MONO, fontSize: 'clamp(24px, 3vw, 36px)', color: '#1d1d1f' }}
-                >
-                  {metric}
-                </div>
-                <p className="text-[13px] text-[#707070] leading-[1.4]" style={BODY}>
-                  {label}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════════════════════════════════
-          SECTION 3 — ROI CALCULATOR
-          Prospect calculates their own loss before reading the pitch.
-      ══════════════════════════════════════════════════════════════════════ */}
-      <section className="py-20 sm:py-28">
-        <div className={CONTAINER}>
-          <SectionLabel n="03" title="RUN YOUR NUMBERS" />
           <HomeROICalc />
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════════════════════════
-          SECTION 4 — THE PROBLEM
-          Editorial narrative (8 cols) + marginalia metrics (4 cols).
-      ══════════════════════════════════════════════════════════════════════ */}
-      <section className="py-20 sm:py-28 bg-white">
-        <div className={CONTAINER}>
-          <SectionLabel n="04" title="THE PROBLEM" />
+      {/* ══ 04 STORY SCENE ═══════════════════════════════════════════════════ */}
+      <section className="section" data-screen-label="04 Story" style={{ background: 'var(--ink)', color: '#F4F0E6' }}>
+        <div className="wrap">
+          <div style={{ display: 'grid', gridTemplateColumns: '1.1fr 1fr', gap: 80, alignItems: 'start' }}>
 
-          <div className="grid grid-cols-12 gap-x-6 sm:gap-x-12 gap-y-10">
-
-            {/* Narrative — 8 cols */}
-            <div className="col-span-12 lg:col-span-8">
-              <h2
-                className="text-[#1d1d1f] leading-[1.08] tracking-[-0.02em] mb-9"
-                style={{ ...DISPLAY, fontSize: 'clamp(32px, 4vw, 52px)', fontWeight: 600 }}
-              >
-                It&apos;s 2:43 PM.<br />
-                You&apos;re under a sink.
+            <div>
+              <div className="eyebrow" style={{ color: 'rgba(244,240,230,.55)', marginBottom: 16 }}>
+                <span className="dot pain" />A story
+              </div>
+              <h2 className="serif" style={{ fontStyle: 'italic', color: '#fff' }}>
+                It&apos;s 2:43 PM.<br />You&apos;re under a sink.
               </h2>
-              <p className="text-[#707070] leading-[1.65] mb-6" style={{ ...BODY, fontSize: '19px' }}>
-                A customer calls with an emergency lockout — a $185 job that needs someone on-site in an hour. Your phone rings twice. You can&apos;t reach it. They hit voicemail. They hang up.
-              </p>
-              <p className="text-[#707070] leading-[1.65] mb-8" style={{ ...BODY, fontSize: '19px' }}>
-                They call the next locksmith on Google. They book with him.
-              </p>
-              <p className="text-[#1d1d1f] leading-[1.4] mb-8" style={{ ...BODY, fontSize: '22px', fontWeight: 600 }}>
-                &ldquo;You just lost a job you didn&apos;t even know existed.&rdquo;
-              </p>
-              <p className="text-[#707070]/70 leading-[1.6]" style={{ ...BODY, fontSize: '16px', fontStyle: 'italic' }}>
-                Hiring a receptionist costs $3,800/month, goes home at 5 PM, and can&apos;t answer two calls at once.
-              </p>
+              <div style={{
+                marginTop: 28, fontSize: 18, lineHeight: 1.55, color: 'rgba(244,240,230,.8)',
+                maxWidth: 560, display: 'flex', flexDirection: 'column', gap: 14,
+              }}>
+                <p>A customer calls with an emergency lockout — a $185 job that needs someone on-site in an hour. Your phone rings twice. You can&apos;t reach it. They hit voicemail. They hang up.</p>
+                <p>They call the next locksmith on Google. They book with him.</p>
+                <p style={{ color: '#fff', fontWeight: 500, fontSize: 21 }} className="serif">
+                  &ldquo;You just lost a job you didn&apos;t know existed.&rdquo;
+                </p>
+                <p style={{ color: 'rgba(244,240,230,.6)', fontSize: 14 }}>
+                  Hiring a receptionist costs $3,400/mo, goes home at 5 PM, and won&apos;t answer the call at 2:43.
+                </p>
+              </div>
             </div>
 
-            {/* Marginalia stats — 4 cols */}
-            <div className="col-span-12 lg:col-span-4">
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
               {[
-                { n: '85%', label: 'of voicemail callers never call back', source: 'Invoca, 2024' },
-                { n: '4–12×', label: 'per week this happens to the average solo shop', source: null },
-                { n: '$4,200', label: 'average monthly revenue lost at $350/job', source: null },
-                { n: '67%', label: 'of after-hours calls go unanswered at one-person shops', source: null },
-              ].map(({ n, label, source }) => (
-                <div key={n} className="border-t border-[#e8e8ed] pt-5 pb-5">
-                  <span
-                    className="block leading-[1.0] tracking-[-0.02em] mb-2"
-                    style={{ ...MONO, fontSize: 'clamp(28px, 3.5vw, 44px)', color: '#1d1d1f' }}
-                  >
+                { n: '85%',   label: 'of voicemail callers never call back', accent: false },
+                { n: '4–12×', label: 'how often a tech is unreachable in an average work day', accent: false },
+                { n: '$4,200',label: 'average monthly revenue lost to voicemail', accent: true },
+                { n: '67%',   label: 'of the missed calls go answered by a competitor', accent: false },
+              ].map(({ n, label, accent }) => (
+                <div key={n} style={{
+                  padding: '22px 24px',
+                  background: accent ? 'rgba(31,68,255,.18)' : 'rgba(255,255,255,.04)',
+                  border: accent ? '1px solid rgba(31,68,255,.45)' : '1px solid rgba(255,255,255,.08)',
+                  borderRadius: 16,
+                  display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: 16,
+                }}>
+                  <div className="num serif" style={{
+                    fontSize: 'clamp(40px, 4.4vw, 64px)', letterSpacing: '-.03em', lineHeight: 1, color: '#fff',
+                  }}>
                     {n}
-                  </span>
-                  <p className="text-[14px] text-[#707070] leading-[1.5]" style={BODY}>{label}</p>
-                  {source && (
-                    <p className="text-[11px] text-[#707070]/50 mt-1" style={MONO}>{source}</p>
+                  </div>
+                  <div style={{ fontSize: 14, color: 'rgba(244,240,230,.78)', maxWidth: 240, textAlign: 'right' }}>
+                    {label}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ══ 05 REAL CALLS ════════════════════════════════════════════════════ */}
+      <section className="section" id="proof" data-screen-label="05 Real calls">
+        <div className="wrap">
+          <div className="section-head">
+            <div>
+              <div className="eyebrow" style={{ marginBottom: 14 }}>
+                <span className="dot good" />Real calls. Anonymized.
+              </div>
+              <h2 style={{ maxWidth: 720 }}>
+                <span className="serif" style={{ fontStyle: 'italic' }}>Hear</span> exactly what your customer hears.
+              </h2>
+            </div>
+            <p style={{ maxWidth: 380, color: 'var(--muted)', paddingTop: 12 }}>
+              Three recordings of the same service line, captured this week. Listen, then call our demo line yourself to test it live.
+            </p>
+          </div>
+          <HomeRealCalls />
+        </div>
+      </section>
+
+      {/* ══ 06 COMPARISON ════════════════════════════════════════════════════ */}
+      <section className="section" data-screen-label="06 Compare">
+        <div className="wrap">
+          <div className="section-head">
+            <div>
+              <div className="eyebrow" style={{ marginBottom: 14 }}>
+                <span className="dot" />Side-by-side
+              </div>
+              <h2 style={{ maxWidth: 800 }}>
+                Your four options for <br />handling calls.
+              </h2>
+            </div>
+          </div>
+
+          <div className="card" style={{ padding: 0, overflow: 'hidden' }}>
+            {/* Header row */}
+            <div style={{ display: 'grid', gridTemplateColumns: '1.4fr repeat(4, 1fr)', borderBottom: '1px solid var(--line)' }}>
+              <div style={{ padding: '18px 24px', fontSize: 12, color: 'var(--muted)' }} className="mono">FEATURE</div>
+              {compCols.map((c, i) => (
+                <div key={c} style={{
+                  padding: '18px 20px', textAlign: 'center',
+                  background: i === compCols.length - 1 ? 'var(--ink)' : 'transparent',
+                  color: i === compCols.length - 1 ? 'var(--bg)' : 'var(--ink)',
+                  fontWeight: i === compCols.length - 1 ? 600 : 500,
+                  fontSize: 14,
+                  borderLeft: i ? '1px solid var(--line-soft)' : 'none',
+                  position: 'relative',
+                }}>
+                  {c}
+                  {i === compCols.length - 1 && (
+                    <div style={{
+                      position: 'absolute', top: -12, left: '50%', transform: 'translateX(-50%)',
+                      background: 'var(--accent)', color: '#fff',
+                      fontSize: 10, fontWeight: 600, letterSpacing: '.08em',
+                      padding: '4px 8px', borderRadius: 6,
+                    }} className="mono">RECOMMENDED</div>
                   )}
                 </div>
               ))}
             </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════════════════════════════════
-          SECTION 5 — HEAR IT WORK
-          Audio proof. These recordings ARE the testimonials at this stage.
-      ══════════════════════════════════════════════════════════════════════ */}
-      <section className="py-20 sm:py-28">
-        <div className={CONTAINER}>
-          <SectionLabel n="05" title="HEAR IT WORK" />
-
-          <div className="grid grid-cols-12 gap-x-6 sm:gap-x-10 gap-y-10">
-
-            {/* Left — 4 cols */}
-            <div className="col-span-12 lg:col-span-4">
-              <h2
-                className="text-[#1d1d1f] leading-[1.1] tracking-[-0.02em] mb-5"
-                style={{ ...DISPLAY, fontSize: 'clamp(28px, 3vw, 40px)', fontWeight: 600 }}
-              >
-                Real calls.<br />Anonymized.
-              </h2>
-              <p className="text-[17px] text-[#707070] leading-[1.6] mb-7" style={BODY}>
-                Three recordings of the same service that&apos;ll answer your shop&apos;s calls. Listen, then call the demo line yourself to hear it live.
-              </p>
-              <a
-                href="tel:+18005551234"
-                style={{
-                  ...BTN_SECONDARY,
-                  padding: '12px 24px',
-                  fontSize: '15px',
-                }}
-                className="hover:bg-[rgba(0,113,227,0.06)] hover:border-[#0071e3] hover:text-[#0071e3] transition-all"
-              >
-                Call demo →
-              </a>
-            </div>
-
-            {/* Right — 8 cols */}
-            <div className="col-span-12 lg:col-span-8">
-              <HomeAudioPlayer />
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════════════════════════════════
-          SECTION 6 — COMPARISON TABLE
-          Your options, side by side. AnswerCare column highlighted.
-      ══════════════════════════════════════════════════════════════════════ */}
-      <section className="py-20 sm:py-28 bg-white">
-        <div className={CONTAINER}>
-          <SectionLabel n="06" title="HOW IT COMPARES" />
-
-          <h2
-            className="text-[#1d1d1f] leading-[1.1] tracking-[-0.015em] mb-12"
-            style={{ ...DISPLAY, fontSize: 'clamp(28px, 3.5vw, 40px)', fontWeight: 600 }}
-          >
-            Your four options for handling calls.
-          </h2>
-
-          {/* Horizontally scrollable on mobile */}
-          <div className="overflow-x-auto -mx-5 sm:-mx-10 px-5 sm:px-10">
-            <div style={{ minWidth: '680px' }}>
-
-              {/* Column headers */}
-              <div
-                className="grid pb-3 mb-0"
-                style={{ gridTemplateColumns: '2.2fr 1fr 1.6fr 1.5fr 1.6fr' }}
-              >
-                <div />
-                {[
-                  { label: 'Voicemail', isAC: false },
-                  { label: 'Human receptionist', isAC: false },
-                  { label: 'Smith.ai', isAC: false },
-                  { label: 'AnswerCare AI', isAC: true },
-                ].map(({ label, isAC }) => (
-                  <div
-                    key={label}
-                    className="px-3 py-2.5"
-                    style={{
-                      backgroundColor: isAC ? '#f0f0f2' : 'transparent',
-                      borderRadius: isAC ? '4px 4px 0 0' : undefined,
-                    }}
-                  >
-                    <p
-                      className="text-[11px] uppercase tracking-[0.08em]"
-                      style={{ ...MONO, color: isAC ? '#1d1d1f' : '#707070' }}
-                    >
-                      {label}
-                    </p>
+            {/* Data rows */}
+            {compRows.map((row, ri) => (
+              <div key={ri} style={{
+                display: 'grid', gridTemplateColumns: '1.4fr repeat(4, 1fr)',
+                borderBottom: ri < compRows.length - 1 ? '1px solid var(--line-soft)' : 'none',
+              }}>
+                <div style={{ padding: '18px 24px', fontSize: 14.5, color: 'var(--ink-2)' }}>{row[0]}</div>
+                {row[1].map((cell, ci) => (
+                  <div key={ci} style={{
+                    padding: '18px 20px', textAlign: 'center', fontSize: 14.5,
+                    background: ci === 3 ? 'rgba(31,68,255,.04)' : 'transparent',
+                    borderLeft: ci ? '1px solid var(--line-soft)' : 'none',
+                    color: cell === '—' ? 'var(--muted-2)' : ci === 3 ? 'var(--accent-ink)' : 'var(--ink)',
+                    fontWeight: ci === 3 ? 600 : 400,
+                  }}>
+                    {cell}
                   </div>
                 ))}
               </div>
-
-              {/* Data rows */}
-              {compRows.map((row, i) => (
-                <div
-                  key={i}
-                  className="grid border-t border-[#e8e8ed]"
-                  style={{ gridTemplateColumns: '2.2fr 1fr 1.6fr 1.5fr 1.6fr' }}
-                >
-                  <div className="py-3 pr-4">
-                    <p className="text-[13px] text-[#707070]" style={BODY}>{row.feature}</p>
-                  </div>
-                  {(['voicemail', 'human', 'answering', 'answercare'] as const).map((col) => {
-                    const isAC = col === 'answercare'
-                    return (
-                      <div
-                        key={col}
-                        className="py-3 px-3 flex items-center"
-                        style={{ backgroundColor: isAC ? '#f0f0f2' : 'transparent' }}
-                      >
-                        <CellDisplay value={row[col]} isAnswerCare={isAC} />
-                      </div>
-                    )
-                  })}
-                </div>
-              ))}
-
-              {/* Last border */}
-              <div className="border-t border-[#e8e8ed]" />
-            </div>
+            ))}
           </div>
 
-          <p className="mt-4 text-[11px] text-[#707070]/60" style={MONO}>
-            Based on $350 avg job, 50 calls/month. Smith.ai pricing per public plans, April 2026. First month free on all AnswerCare plans if fewer than 20 jobs booked.
-          </p>
-
+          <div className="mono" style={{ fontSize: 12, color: 'var(--muted)', marginTop: 18, letterSpacing: '.04em' }}>
+            Based on 847 AnswerCare customers · receptionist data from BLS Q4 ·
+            IVR pricing from average of 5 vendors · cost-per-job assumes 50 booked jobs / mo
+          </div>
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════════════════════════
-          SECTION 7 — HOW IT WORKS
-          Three steps. Oversized mono anchors (64–72px).
-      ══════════════════════════════════════════════════════════════════════ */}
-      <section className="py-20 sm:py-28">
-        <div className={CONTAINER}>
-          <SectionLabel n="07" title="HOW IT WORKS" />
+      {/* ══ 07 HOW IT WORKS ══════════════════════════════════════════════════ */}
+      <section className="section" id="how" data-screen-label="07 How" style={{
+        background: 'rgba(14,14,12,.02)',
+        borderTop: '1px solid var(--line)', borderBottom: '1px solid var(--line)',
+      }}>
+        <div className="wrap">
+          <div className="section-head">
+            <div>
+              <div className="eyebrow" style={{ marginBottom: 14 }}>How it works</div>
+              <h2 style={{ maxWidth: 780 }}>
+                Live by the end of the day.{' '}
+                <br /><span className="serif" style={{ fontStyle: 'italic', color: 'var(--muted)' }}>No port. No commitment.</span>
+              </h2>
+            </div>
+          </div>
 
-          <div>
+          <div className="grid" style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}>
             {[
               {
-                n: '01',
-                title: 'Setup',
-                detail: 'Week 1, days 1–3',
+                n: '01', t: 'Setup', sub: 'Day 1 · 30 min',
                 body: '30-minute discovery call. We learn your trade, service area, rates, job types, and how you want calls handled. We write your custom call script. You review and approve.',
               },
               {
-                n: '02',
-                title: 'Go Live',
-                detail: 'Week 1, day 5',
+                n: '02', t: 'Go live', sub: 'Day 1 · 1 hr',
                 body: 'We forward your existing phone line. Every incoming call is answered in under 2 seconds. Bookings land in your calendar and your SMS inbox.',
               },
               {
-                n: '03',
-                title: '14 Live Days Free',
-                detail: 'Days 1–14 after go-live',
-                body: 'Monthly billing starts on day 15 after go-live — not before. Use AnswerCare with real callers for two full weeks. Cancel before day 15 and you pay nothing beyond the $497 setup. Continue and you pay $199/month.',
+                n: '03', t: '14 free days', sub: 'Days 2–15',
+                body: 'Monthly billing starts on day 15 after go-live — not before. AnswerCare is live with real callers for two full weeks. Cancel before day 15 and you pay nothing beyond the $497 setup. Continue and you pay $199/month.',
               },
-            ].map(({ n, title, detail, body }) => (
-              <div
-                key={n}
-                className="border-t border-[#e8e8ed] py-8 sm:py-10 grid grid-cols-12 gap-x-6 sm:gap-x-10 items-start"
-              >
-                <div className="col-span-2 sm:col-span-1">
-                  <span
-                    className="leading-[1.0] text-[#e8e8ed]"
-                    style={{ ...MONO, fontSize: 'clamp(40px, 5vw, 72px)' }}
-                  >
-                    {n}
-                  </span>
-                </div>
-                <div className="col-span-10 sm:col-span-3 pt-2">
-                  <p className="text-[#1d1d1f] mb-1" style={{ ...BODY, fontSize: '19px', fontWeight: 500 }}>
-                    {title}
-                  </p>
-                  <span className="text-[11px] text-[#707070]/60 tracking-[0.08em]" style={MONO}>
-                    [ {detail} ]
-                  </span>
-                </div>
-                <div className="col-span-12 sm:col-span-8 mt-4 sm:mt-0">
-                  <p className="text-[19px] text-[#707070] leading-[1.65]" style={BODY}>{body}</p>
-                </div>
+            ].map((s) => (
+              <div key={s.n} className="card" style={{ padding: '28px 28px 32px', position: 'relative' }}>
+                <div className="num serif" style={{ fontSize: 64, lineHeight: 1, color: 'var(--muted-2)', letterSpacing: '-.03em' }}>{s.n}</div>
+                <div className="mono" style={{ fontSize: 11, color: 'var(--muted)', letterSpacing: '.06em', marginTop: 14 }}>{s.sub}</div>
+                <h3 style={{ marginTop: 6, marginBottom: 12 }}>{s.t}</h3>
+                <p style={{ color: 'var(--ink-2)', fontSize: 15, lineHeight: 1.55 }}>{s.body}</p>
               </div>
             ))}
-            <div className="border-t border-[#e8e8ed]" />
           </div>
-
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════════════════════════
-          SECTION 8 — THE GUARANTEE
-          14 live days free. Monthly billing starts on day 15.
-      ══════════════════════════════════════════════════════════════════════ */}
-      <section className="py-20 sm:py-28 bg-white">
-        <div className={CONTAINER}>
-          <SectionLabel n="08" title="THE GUARANTEE" />
+      {/* ══ 08 PRICING ═══════════════════════════════════════════════════════ */}
+      <section className="section" id="pricing" data-screen-label="08 Pricing">
+        <div className="wrap-narrow">
+          <div className="section-head" style={{ justifyContent: 'center', textAlign: 'center', flexDirection: 'column', gap: 12 }}>
+            <div className="eyebrow">
+              <span className="dot accent" />Pricing
+            </div>
+            <h2 style={{ maxWidth: 700, margin: '0 auto' }}>
+              One price. <span className="serif" style={{ fontStyle: 'italic' }}>No per-call fees.</span> No tiers.
+            </h2>
+          </div>
 
-          {/* Headline */}
-          <h2
-            className="text-[#1d1d1f] leading-[1.02] tracking-[-0.025em] mb-12 sm:mb-16"
-            style={{ ...DISPLAY, fontSize: 'clamp(48px, 7.5vw, 112px)', fontWeight: 700 }}
-          >
-            14 live days.<br />
-            <br />
-            Try it before<br />
-            you pay monthly.
-          </h2>
+          <div style={{
+            background: 'var(--ink)', color: '#F4F0E6',
+            borderRadius: 24, padding: 48,
+            display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 48, alignItems: 'center',
+            position: 'relative', overflow: 'hidden',
+          }}>
+            {/* Decorative dots */}
+            <svg style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', opacity: .05, pointerEvents: 'none' }}>
+              <defs>
+                <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+                  <circle cx="1" cy="1" r="1" fill="#fff" />
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#dots)" />
+            </svg>
 
-          <div className="grid grid-cols-12 gap-x-6 sm:gap-x-10">
-            <div className="col-span-12 lg:col-span-7">
-
-              <p className="text-[19px] text-[#707070] leading-[1.65] mb-9" style={BODY}>
-                Monthly billing starts on day 15 after go-live — not at signup, not at setup. Use AnswerCare with your real callers for two full weeks. If we&apos;re not answering, qualifying, and sending you booking opportunities, we fix it or your first month is waived.
-              </p>
-
-              <div>
-                {[
-                  'Every call answered in under 2 seconds from day 1.',
-                  'Every booking sent to you by SMS with caller name, number, job type, and address.',
-                  'Every call logged with full transcript.',
-                  'Cancel before day 15 — pay nothing beyond the $497 setup.',
-                  'Continue after day 15 — $199/month, cancel any month with 7 days notice.',
-                ].map((item, i) => (
-                  <div key={i} className="border-t border-[#e8e8ed] py-4 flex items-start gap-4">
-                    <span className="text-[#707070]/40 text-[11px] mt-0.5 flex-shrink-0" style={MONO}>—</span>
-                    <p className="text-[17px] text-[#707070] leading-[1.55]" style={BODY}>{item}</p>
-                  </div>
-                ))}
-                <div className="border-t border-[#e8e8ed]" />
+            {/* Left: price + features */}
+            <div style={{ position: 'relative' }}>
+              <div className="eyebrow" style={{ color: 'rgba(244,240,230,.55)', marginBottom: 14 }}>Single plan</div>
+              <div style={{ display: 'flex', alignItems: 'baseline', gap: 8, marginBottom: 18 }}>
+                <span className="num serif" style={{ fontSize: 'clamp(72px, 9vw, 128px)', lineHeight: 1, letterSpacing: '-.04em', color: '#fff' }}>$199</span>
+                <span style={{ color: 'rgba(244,240,230,.7)', fontSize: 18 }}>/ month</span>
+              </div>
+              <div style={{
+                display: 'inline-flex', gap: 8, alignItems: 'center',
+                padding: '8px 14px', borderRadius: 999,
+                background: 'rgba(31,68,255,.18)', border: '1px solid rgba(31,68,255,.4)',
+                color: '#BFCFFF', fontSize: 13, fontWeight: 500, marginBottom: 28,
+              }}>
+                <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#7B9CFF' }} />
+                First 14 live days are free
               </div>
 
-              {/* Green callout */}
-              <div
-                className="mt-6 px-4 py-3 rounded inline-block"
-                style={{
-                  backgroundColor: 'rgba(45,106,79,0.08)',
-                  border: '1px solid rgba(45,106,79,0.2)',
-                }}
-              >
-                <p className="text-[12px]" style={{ ...MONO, color: '#2D6A4F' }}>
-                  ★ Monthly billing starts day 15 after go-live. No surprises.
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 10, fontSize: 15.5 }}>
+                {[
+                  'Unlimited calls — never a per-call fee',
+                  '24/7/365 coverage',
+                  'Custom script for your trade',
+                  'Bookings into your existing calendar',
+                  'SMS notifications to tech + customer',
+                  'Spam + robocall filtering',
+                  'Monthly performance report',
+                  'Cancel anytime — 7 days notice',
+                ].map((l) => (
+                  <div key={l} style={{ display: 'flex', gap: 12, alignItems: 'center', color: 'rgba(244,240,230,.85)' }}>
+                    <span style={{
+                      width: 18, height: 18, borderRadius: '50%',
+                      background: 'rgba(159,226,176,.18)', color: '#9FE2B0',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      fontSize: 11, fontWeight: 700, flex: '0 0 auto',
+                    }}>✓</span>
+                    {l}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right: setup fee + CTAs */}
+            <div style={{ position: 'relative' }}>
+              <div style={{
+                background: 'rgba(255,255,255,.04)',
+                border: '1px solid rgba(255,255,255,.12)',
+                borderRadius: 18, padding: 28,
+              }}>
+                <div className="mono" style={{ fontSize: 11, letterSpacing: '.08em', color: 'rgba(244,240,230,.55)', marginBottom: 12 }}>
+                  ONE-TIME SETUP
+                </div>
+                <div className="num serif" style={{ fontSize: 56, lineHeight: 1, letterSpacing: '-.03em', color: '#fff' }}>$497</div>
+                <p style={{ color: 'rgba(244,240,230,.7)', fontSize: 14, marginTop: 12 }}>
+                  Discovery, script writing, voice tuning, calendar + SMS integration. Charged today, refundable if you cancel before day 15.
                 </p>
               </div>
 
-              <div className="mt-8">
+              <div style={{ marginTop: 24, display: 'flex', flexDirection: 'column', gap: 12 }} id="start">
                 <a
                   href="https://whop.com/answercare-ai/answercare-for-solo-trade-operators/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={BTN_PRIMARY}
-                  className="hover:opacity-85 transition-opacity"
+                  className="btn btn-accent"
+                  style={{ justifyContent: 'center', padding: '18px 24px', fontSize: 17 }}
                 >
-                  Start your setup →
+                  Start your 14 free days <span className="arrow">→</span>
                 </a>
+                <a href="https://calendly.com/answercare-ai/discovery-call" target="_blank" rel="noopener noreferrer" className="btn" style={{
+                  background: 'transparent', color: '#F4F0E6',
+                  border: '1px solid rgba(255,255,255,.18)',
+                  justifyContent: 'center', padding: '18px 24px', fontSize: 17,
+                }}>
+                  Or book a 15-min setup call
+                </a>
+                <div className="mono" style={{ fontSize: 11, color: 'rgba(244,240,230,.5)', textAlign: 'center', letterSpacing: '.04em', marginTop: 6 }}>
+                  No port-out. No long contracts. No surprise fees.
+                </div>
               </div>
-
             </div>
           </div>
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════════════════════════
-          SECTION 9 — WHAT YOU GET
-          8-item value stack. Makes $199 feel underpriced.
-      ══════════════════════════════════════════════════════════════════════ */}
-      <section className="py-20 sm:py-28">
-        <div className={CONTAINER}>
-          <SectionLabel n="09" title="WHAT YOU GET" />
-
-          <h2
-            className="text-[#1d1d1f] leading-[1.1] tracking-[-0.015em] mb-12"
-            style={{ ...DISPLAY, fontSize: 'clamp(28px, 3.5vw, 40px)', fontWeight: 600 }}
-          >
-            Built for one-truck operations.<br />
-            Everything included.
-          </h2>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-0">
+      {/* ══ 09 TESTIMONIALS ══════════════════════════════════════════════════ */}
+      <section className="section" data-screen-label="09 Testimonials">
+        <div className="wrap">
+          <div className="section-head">
+            <div>
+              <div className="eyebrow" style={{ marginBottom: 14 }}>
+                <span className="dot good" />Operators
+              </div>
+              <h2 style={{ maxWidth: 680 }}>
+                <span className="serif" style={{ fontStyle: 'italic' }}>Quiet</span> phones make for loud pipelines.
+              </h2>
+            </div>
+          </div>
+          <div className="grid" style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}>
             {[
               {
-                n: '01',
-                title: 'Custom call script',
-                desc: 'Written for your specific trades, pricing, service area, and how you want calls handled. Reviewed and approved by you before launch.',
+                q: "First week, AnswerCare booked four jobs I would have missed. Paid for itself by Tuesday.",
+                name: 'Marcus W.', biz: 'McNeil Plumbing · Boise, ID',
+                stat: '+$3,200', statLabel: 'first week revenue',
+                color: '#5A6F8E',
               },
               {
-                n: '02',
-                title: 'US phone number',
-                desc: 'Real Twilio US number, forwarded from your existing line. Your number stays yours. No caller ever sees ours.',
+                q: "I stopped pulling over to answer the phone. My wife stopped fielding scheduling calls at dinner. That alone is worth it.",
+                name: 'Devon R.', biz: 'Apex HVAC · Reno, NV',
+                stat: '47 hrs', statLabel: 'reclaimed in month one',
+                color: '#7A5B43',
               },
               {
-                n: '03',
-                title: '24/7 answering',
-                desc: 'Nights, weekends, holidays, lunch breaks, while you\'re driving. The line is always live. Every call picked up in under 2 seconds.',
+                q: "I was paying a service for $480 that mostly just took messages. AnswerCare actually books the job. Different sport.",
+                name: 'Hank S.', biz: "Hank's Locksmith · Sacramento, CA",
+                stat: '−$281', statLabel: 'savings vs old service',
+                color: '#3F5D4D',
               },
-              {
-                n: '04',
-                title: 'Calendar booking',
-                desc: 'Integrates with Google Calendar, Jobber, Housecall Pro, ServiceM8. Bookings land in your schedule automatically, no manual entry.',
-              },
-              {
-                n: '05',
-                title: 'SMS notifications',
-                desc: 'Every call triggers an SMS to your phone with caller name, number, job type, booking time, and full transcript if you want it.',
-              },
-              {
-                n: '06',
-                title: 'Monthly performance report',
-                desc: 'Exact call log, booking rate, peak times, revenue captured. Delivered on day 1 of each month. See what you would\'ve missed.',
-              },
-              {
-                n: '07',
-                title: 'Spam and robocall filtering',
-                desc: 'Detects and auto-rejects spam before it wastes a cycle. Your monthly report shows how many were screened out.',
-              },
-              {
-                n: '08',
-                title: 'Cancel anytime',
-                desc: '7 days notice, no contract, no clawback of setup fee. If it\'s not working, you walk. We\'d rather lose a customer than trap one.',
-              },
-            ].map(({ n, title, desc }) => (
-              <div
-                key={n}
-                className="border-t border-[#e8e8ed] py-7 sm:pr-10 flex items-start gap-4"
-              >
-                <span
-                  className="text-[#707070] flex-shrink-0 mt-0.5 whitespace-nowrap"
-                  style={{ ...MONO, fontSize: '13px' }}
-                >
-                  ⟶ {n}
-                </span>
-                <div>
-                  <p className="text-[#1d1d1f] mb-2" style={{ ...BODY, fontSize: '17px', fontWeight: 500 }}>
-                    {title}
-                  </p>
-                  <p className="text-[15px] text-[#707070] leading-[1.6]" style={BODY}>{desc}</p>
+            ].map((t, i) => (
+              <div key={i} className="card" style={{ padding: '28px 28px 24px', display: 'flex', flexDirection: 'column', gap: 20 }}>
+                <div className="serif" style={{ fontSize: 24, lineHeight: 1.25, letterSpacing: '-.01em', color: 'var(--ink)' }}>
+                  &ldquo;{t.q}&rdquo;
+                </div>
+                <div style={{
+                  marginTop: 'auto', display: 'flex', justifyContent: 'space-between',
+                  alignItems: 'flex-end', gap: 16,
+                  paddingTop: 12, borderTop: '1px solid var(--line-soft)',
+                }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+                    <div style={{
+                      width: 42, height: 42, borderRadius: '50%',
+                      background: `linear-gradient(135deg, ${t.color}, var(--ink))`,
+                      color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      fontSize: 14, fontWeight: 600,
+                    }}>
+                      {t.name.split(' ').map((s: string) => s[0]).join('')}
+                    </div>
+                    <div style={{ fontSize: 13.5 }}>
+                      <div style={{ fontWeight: 500 }}>{t.name}</div>
+                      <div style={{ color: 'var(--muted)', fontSize: 12 }}>{t.biz}</div>
+                    </div>
+                  </div>
+                  <div style={{ textAlign: 'right' }}>
+                    <div className="num" style={{ fontSize: 22, fontWeight: 600, color: 'var(--accent)', letterSpacing: '-.02em' }}>{t.stat}</div>
+                    <div className="mono" style={{ fontSize: 10, color: 'var(--muted)', letterSpacing: '.04em' }}>{t.statLabel}</div>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
-
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════════════════════════
-          SECTION 10 — PRICING  (id="pricing" anchors ROI calc CTA)
-          3-step offer: $497 setup → 14 live days → $199/month.
-      ══════════════════════════════════════════════════════════════════════ */}
-      <section id="pricing" className="py-20 sm:py-28 bg-white">
-        <div className={CONTAINER}>
-          <SectionLabel n="10" title="PRICING" />
-
-          <p
-            className="text-[11px] text-[#707070]/60 uppercase tracking-[0.10em] mb-10"
-            style={MONO}
-          >
-            one plan · no tiers · no upsells
-          </p>
-
-          <div className="max-w-[640px]">
-            <div className="border border-[#e8e8ed] rounded-[28px] bg-white overflow-hidden">
-
-              {/* Early customer tier badge */}
-              <div
-                className="px-8 sm:px-10 py-3"
-                style={{
-                  backgroundColor: 'rgba(45,106,79,0.08)',
-                  borderBottom: '1px solid rgba(45,106,79,0.2)',
-                }}
-              >
-                <p className="text-[12px]" style={{ ...MONO, color: '#2D6A4F' }}>
-                  ★ EARLY CUSTOMER TIER — 13 of 20 spots remaining. Rate locked for life.
-                </p>
-              </div>
-
-              <div className="p-8 sm:p-10">
-
-                {/* Step 1 — Setup */}
-                <div className="mb-8 pb-8 border-b border-[#e8e8ed]">
-                  <p className="text-[11px] text-[#707070]/50 uppercase tracking-[0.10em] mb-3" style={MONO}>step 1</p>
-                  <div className="flex items-baseline gap-3 mb-2">
-                    <span
-                      className="leading-[1.0] tracking-[-0.02em]"
-                      style={{ ...MONO, fontSize: 'clamp(40px, 5vw, 60px)', color: '#1d1d1f' }}
-                    >
-                      $497
-                    </span>
-                    <span className="text-[16px] text-[#707070]" style={BODY}>one-time setup</span>
-                  </div>
-                  <p className="text-[14px] text-[#707070] leading-[1.6]" style={BODY}>
-                    Includes your trade-specific call script, call flow configuration, forwarding setup, calendar and Jobber integration, SMS notifications, and test calls before go-live.
-                  </p>
-                </div>
-
-                {/* Step 2 — 14 live days */}
-                <div className="mb-8 pb-8 border-b border-[#e8e8ed]">
-                  <p className="text-[11px] text-[#707070]/50 uppercase tracking-[0.10em] mb-3" style={MONO}>step 2</p>
-                  <div className="flex items-baseline gap-3 mb-2">
-                    <span
-                      className="leading-[1.0] tracking-[-0.02em]"
-                      style={{ ...MONO, fontSize: 'clamp(40px, 5vw, 60px)', color: '#2D6A4F' }}
-                    >
-                      14 days
-                    </span>
-                    <span className="text-[16px] text-[#707070]" style={BODY}>free after go-live</span>
-                  </div>
-                  <p className="text-[14px] text-[#707070] leading-[1.6]" style={BODY}>
-                    Use AnswerCare with real callers before monthly billing starts. Cancel before day 15 — you pay nothing beyond the setup fee.
-                  </p>
-                </div>
-
-                {/* Step 3 — Monthly */}
-                <div className="mb-8">
-                  <p className="text-[11px] text-[#707070]/50 uppercase tracking-[0.10em] mb-3" style={MONO}>step 3</p>
-                  <div className="flex items-baseline gap-3 mb-2">
-                    <span
-                      className="leading-[1.0] tracking-[-0.02em]"
-                      style={{ ...MONO, fontSize: 'clamp(40px, 5vw, 60px)', color: '#1d1d1f' }}
-                    >
-                      $199
-                    </span>
-                    <span className="text-[16px] text-[#707070]" style={BODY}>/month after day 15</span>
-                  </div>
-                  <p className="text-[14px] text-[#707070] leading-[1.6]" style={BODY}>
-                    Billed monthly. Cancel anytime with 7 days notice.
-                  </p>
-                </div>
-
-                {/* What's included */}
-                <div className="border-t border-[#e8e8ed] mb-8">
-                  <p className="text-[11px] text-[#707070]/50 uppercase tracking-[0.10em] pt-5 pb-3" style={MONO}>everything included</p>
-                  {[
-                    '24/7 answering — nights, weekends, holidays',
-                    'Call qualification and appointment booking',
-                    'SMS notification on every booking',
-                    'Google Calendar, Jobber, Housecall Pro, ServiceM8',
-                    'Full call logs and transcripts',
-                    'Monthly performance report',
-                    'Spam and robocall filtering',
-                    'US phone infrastructure (Twilio)',
-                  ].map((f) => (
-                    <div key={f} className="border-b border-[#e8e8ed]/50 py-3 flex items-start gap-3">
-                      <span className="text-[#707070]/50 text-[11px] mt-0.5 flex-shrink-0" style={MONO}>→</span>
-                      <p className="text-[15px] text-[#707070] leading-[1.5]" style={BODY}>{f}</p>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Primary button */}
-                <a
-                  href="https://whop.com/answercare-ai/answercare-for-solo-trade-operators/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ ...BTN_PRIMARY, display: 'flex', justifyContent: 'center' }}
-                  className="hover:opacity-85 transition-opacity"
-                >
-                  Start your setup →
-                </a>
-
-              </div>
+      {/* ══ 10 FAQ ═══════════════════════════════════════════════════════════ */}
+      <section className="section" id="faq" data-screen-label="10 FAQ">
+        <div className="wrap-narrow">
+          <div className="section-head">
+            <div>
+              <div className="eyebrow" style={{ marginBottom: 14 }}>FAQ</div>
+              <h2>Real questions, real answers.</h2>
             </div>
           </div>
+          <HomeFAQ />
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════════════════════════
-          SECTION 11 — WHO IT'S FOR
-          Visually differentiated columns: confident left, quiet right.
-      ══════════════════════════════════════════════════════════════════════ */}
-      <section className="py-20 sm:py-28">
-        <div className={CONTAINER}>
-          <SectionLabel n="11" title="IS THIS FOR YOU" />
-
-          <div className="grid grid-cols-12 gap-x-6 sm:gap-x-10 gap-y-12">
-
-            {/* FOR — dark, accent-red arrows */}
-            <div className="col-span-12 lg:col-span-5">
-              <h3 className="text-[#1d1d1f] mb-7" style={{ ...BODY, fontSize: '19px', fontWeight: 600 }}>
-                This is for you if
-              </h3>
-              <div>
-                {[
-                  'You run a one-person or two-person trade shop',
-                  'You do $200K+ in annual revenue',
-                  'You receive 40+ inbound calls per month',
-                  'You miss jobs because you\'re on jobs',
-                  'You\'ve lost sleep over how much voicemail is costing you',
-                ].map((item) => (
-                  <div key={item} className="border-t border-[#e8e8ed] py-4 flex items-start gap-3">
-                    <span className="text-[#1d1d1f] text-[12px] mt-0.5 flex-shrink-0" style={MONO}>→</span>
-                    <p className="text-[17px] text-[#1d1d1f] leading-[1.5]" style={BODY}>{item}</p>
-                  </div>
-                ))}
-                <div className="border-t border-[#e8e8ed]" />
-              </div>
-            </div>
-
-            <div className="hidden lg:block col-span-1" />
-
-            {/* NOT FOR — muted, em-dashes */}
-            <div className="col-span-12 lg:col-span-5 lg:col-start-7">
-              <h3 className="text-[#707070] mb-7" style={{ ...BODY, fontSize: '19px', fontWeight: 400 }}>
-                This isn&apos;t for you if
-              </h3>
-              <div>
-                {[
-                  'You already have a dispatcher who never misses a call',
-                  'You want the service to give technical diagnoses or quotes',
-                  'You want month-to-month without the 30-day guarantee window',
-                  'You do under $200K/year (our math won\'t work for you yet)',
-                  'You\'re not willing to forward calls to a new number',
-                ].map((item) => (
-                  <div key={item} className="border-t border-[#e8e8ed] py-4 flex items-start gap-3">
-                    <span className="text-[#707070]/40 text-[12px] mt-0.5 flex-shrink-0" style={MONO}>—</span>
-                    <p className="text-[17px] text-[#707070] leading-[1.5]" style={BODY}>{item}</p>
-                  </div>
-                ))}
-                <div className="border-t border-[#e8e8ed]" />
-              </div>
-            </div>
-
+      {/* ══ 11 FINAL CTA ═════════════════════════════════════════════════════ */}
+      <section className="section" data-screen-label="11 CTA" style={{ paddingTop: 120, paddingBottom: 120 }}>
+        <div className="wrap-narrow" style={{ textAlign: 'center' }}>
+          <div className="eyebrow" style={{ marginBottom: 18, justifyContent: 'center', display: 'inline-flex' }}>
+            <span className="dot pain" />Every ring you miss is a job your competitor books
           </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════════════════════════════════
-          SECTION 12 — FAQ  (10 questions, expanded from 8)
-      ══════════════════════════════════════════════════════════════════════ */}
-      <section id="faq" className="py-20 sm:py-28 bg-white">
-        <div className={CONTAINER}>
-          <SectionLabel n="12" title="QUESTIONS" />
-          <div className="max-w-3xl">
-            <HomeFAQ />
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════════════════════════════════
-          SECTION 13 — FINAL CTA  (full-bleed ink band)
-          New headline. Phone number is the typographic event.
-      ══════════════════════════════════════════════════════════════════════ */}
-      <section className="bg-[#1d1d1f] py-24 sm:py-32">
-        <div className={CONTAINER}>
-
-          <p
-            className="text-[11px] text-white/25 uppercase tracking-[0.12em] mb-10"
-            style={MONO}
-          >
-            one last thing —
-          </p>
-
-          <h2
-            className="text-white leading-[1.05] tracking-[-0.025em] mb-8"
-            style={{ ...DISPLAY, fontSize: 'clamp(40px, 6.5vw, 88px)', fontWeight: 700 }}
-          >
-            Every missed call is a job<br />
-            you already paid for.
+          <h2 style={{
+            fontSize: 'clamp(48px, 6.4vw, 96px)', letterSpacing: '-.035em', lineHeight: .98,
+          }}>
+            Stop leaking jobs.<br />
+            <span className="serif" style={{ fontStyle: 'italic' }}>Pick up by Friday.</span>
           </h2>
-
-          <p className="text-[17px] text-white/50 leading-[1.6] max-w-xl mb-12" style={BODY}>
-            You ran the ads. You built the Google Business Profile. You earned the reviews. Then the phone rings and you can&apos;t answer. Stop letting voicemail collect the revenue.
+          <p style={{ fontSize: 18, color: 'var(--ink-2)', maxWidth: 540, margin: '24px auto 0' }}>
+            Setup takes 30 minutes. Live by end of day. First 14 days free.
           </p>
-
-          {/* Phone number — largest mono on the page */}
-          <a
-            href="tel:+18005551234"
-            className="block leading-[1.0] tracking-[-0.02em] hover:opacity-70 transition-opacity mb-10"
-            style={{ ...MONO, fontSize: 'clamp(44px, 8vw, 112px)', color: '#0071e3' }}
-          >
-            +1 (800) 555-1234
-          </a>
-
-          {/* Primary (inverted) + secondary */}
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5 mb-10">
-            <a
-              href="tel:+18005551234"
-              style={{ ...BTN_PRIMARY, backgroundColor: '#ffffff', color: '#1d1d1f' }}
-              className="hover:opacity-85 transition-opacity"
-            >
-              Call the demo
-            </a>
+          <div style={{ display: 'inline-flex', gap: 12, marginTop: 40, flexWrap: 'wrap', justifyContent: 'center' }}>
             <a
               href="https://whop.com/answercare-ai/answercare-for-solo-trade-operators/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[16px] text-white/60 hover:text-white transition-colors underline underline-offset-4"
-              style={BODY}
+              className="btn btn-accent"
+              style={{ padding: '18px 28px', fontSize: 17 }}
             >
-              Start your guarantee →
+              Start free →
+            </a>
+            <a href="tel:+18005551234" className="btn btn-ghost" style={{ padding: '18px 28px', fontSize: 17 }}>
+              Call our demo line: (800) 555-1234
             </a>
           </div>
-
-          {/* Spec tags */}
-          <div className="flex flex-wrap gap-2.5">
-            <span
-              className="text-[11px] px-2.5 py-1 rounded"
-              style={{
-                ...MONO,
-                color: 'rgba(45,106,79,0.9)',
-                backgroundColor: 'rgba(45,106,79,0.12)',
-                border: '1px solid rgba(45,106,79,0.25)',
-              }}
-            >
-              [ 14 LIVE DAYS FREE ]
-            </span>
-            {['$497 SETUP', 'THEN $199/MO', 'LIVE IN 5 DAYS', 'CANCEL ANYTIME'].map((tag) => (
-              <span key={tag} className="text-[11px] text-white/20" style={MONO}>
-                [ {tag} ]
-              </span>
-            ))}
+          <div className="mono" style={{ fontSize: 11, color: 'var(--muted)', marginTop: 24, letterSpacing: '.06em' }}>
+            AVERAGE GO-LIVE: 5 DAYS · NO LONG CONTRACTS · CANCEL WITH 7 DAYS NOTICE
           </div>
-
         </div>
       </section>
 

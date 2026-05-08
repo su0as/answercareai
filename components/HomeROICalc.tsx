@@ -2,209 +2,190 @@
 
 import { useState, useEffect, useRef } from 'react'
 
-const MONO = { fontFamily: '"JetBrains Mono", "IBM Plex Mono", monospace' }
-const BODY = { fontFamily: 'Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif' }
-
-function useCountUp(target: number, duration = 400) {
-  const [value, setValue] = useState(target)
-  const raf = useRef<number | null>(null)
-  const start = useRef<number | null>(null)
-  const from = useRef(target)
-
-  useEffect(() => {
-    from.current = value
-    if (raf.current) cancelAnimationFrame(raf.current)
-    start.current = null
-
-    const animate = (ts: number) => {
-      if (!start.current) start.current = ts
-      const p = Math.min((ts - start.current) / duration, 1)
-      const ease = 1 - Math.pow(1 - p, 3)
-      setValue(Math.round(from.current + (target - from.current) * ease))
-      if (p < 1) raf.current = requestAnimationFrame(animate)
-    }
-    raf.current = requestAnimationFrame(animate)
-    return () => { if (raf.current) cancelAnimationFrame(raf.current) }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [target])
-
-  return value
-}
-
 function fmt(n: number) {
-  return '$' + n.toLocaleString('en-US', { maximumFractionDigits: 0 })
+  return new Intl.NumberFormat('en-US').format(Math.round(n))
+}
+function fmtMoney(n: number) {
+  return '$' + new Intl.NumberFormat('en-US').format(Math.round(n))
 }
 
-interface SliderProps {
+interface CalcRowProps {
   label: string
+  sub?: string
   value: number
   min: number
   max: number
-  step?: number
-  display: string
+  step: number
+  unit: string
   onChange: (v: number) => void
+  hint?: string
 }
 
-function Slider({ label, value, min, max, step = 1, display, onChange }: SliderProps) {
-  const pct = ((value - min) / (max - min)) * 100
-
+function CalcRow({ label, sub, value, min, max, step, unit, onChange, hint }: CalcRowProps) {
   return (
-    <div className="mb-10">
-      <div className="flex items-baseline justify-between mb-4">
-        <label className="text-[15px] text-[#707070]" style={BODY}>{label}</label>
-        <span className="text-[16px] text-[#1d1d1f]" style={{ ...MONO, letterSpacing: '-0.01em' }}>{display}</span>
+    <div style={{ padding: '20px 0', borderBottom: '1px solid var(--line-soft)' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: 16, marginBottom: 10 }}>
+        <div>
+          <div style={{ fontSize: 15, fontWeight: 500 }}>{label}</div>
+          {sub && <div style={{ fontSize: 12.5, color: 'var(--muted)', marginTop: 2 }}>{sub}</div>}
+        </div>
+        <div className="num" style={{ fontSize: 30, fontWeight: 500, letterSpacing: '-.02em', whiteSpace: 'nowrap' }}>
+          {unit === '$' ? fmtMoney(value) : `${value}${unit || ''}`}
+        </div>
       </div>
-      <div className="relative h-[2px] bg-[#e8e8ed] rounded-full">
-        {/* Filled portion — accent red */}
-        <div
-          className="absolute left-0 top-0 h-full rounded-full"
-          style={{ width: `${pct}%`, backgroundColor: '#B3392D' }}
-        />
-        {/* Hidden range input for interaction */}
-        <input
-          type="range"
-          min={min}
-          max={max}
-          step={step}
-          value={value}
-          onChange={(e) => onChange(Number(e.target.value))}
-          className="absolute -top-4 left-0 w-full h-9 opacity-0 cursor-pointer"
-          style={{ WebkitAppearance: 'none' }}
-          aria-label={label}
-        />
-        {/* Thumb — accent red with paper border */}
-        <div
-          className="absolute top-1/2 -translate-y-1/2 w-5 h-5 rounded-full pointer-events-none"
-          style={{
-            left: `calc(${pct}% - 10px)`,
-            backgroundColor: '#B3392D',
-            border: '2.5px solid #f5f5f7',
-            boxShadow: '0 0 0 1px rgba(179,57,45,0.25), 0 1px 3px rgba(0,0,0,0.12)',
-          }}
-        />
-      </div>
+      <input
+        className="rng"
+        type="range"
+        value={value}
+        min={min}
+        max={max}
+        step={step}
+        onChange={e => onChange(Number(e.target.value))}
+      />
+      {hint && (
+        <div className="mono" style={{ fontSize: 11, color: 'var(--muted-2)', marginTop: 8, letterSpacing: '.04em' }}>
+          {hint}
+        </div>
+      )}
+    </div>
+  )
+}
+
+function Stat({ label, value, bold, muted, accent }: { label: string; value: string; bold?: boolean; muted?: boolean; accent?: boolean }) {
+  return (
+    <div style={{
+      display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: 12,
+      opacity: muted ? .6 : 1,
+    }}>
+      <span style={{ color: 'rgba(244,240,230,.7)' }}>{label}</span>
+      <span className="num" style={{
+        fontWeight: bold ? 600 : 500,
+        fontSize: bold ? 22 : 17,
+        color: accent ? '#9FE2B0' : '#fff',
+      }}>{value}</span>
     </div>
   )
 }
 
 export default function HomeROICalc() {
-  const [jobValue, setJobValue] = useState(350)
-  const [missedCalls, setMissedCalls] = useState(25)
-  const [closeRate, setCloseRate] = useState(50)
+  const [calls, setCalls]   = useState(7)
+  const [job, setJob]       = useState(750)
+  const [close, setClose]   = useState(30)
 
-  const monthlyLoss = Math.round(missedCalls * (closeRate / 100) * jobValue)
-  const annualLoss = monthlyLoss * 12
+  const missedPerMonth   = calls * 22
+  const recoverableJobs  = missedPerMonth * (close / 100)
+  const recoveredRevenue = recoverableJobs * job
+  const acCost           = 199
+  const net              = recoveredRevenue - acCost
+  const multiple         = recoveredRevenue / acCost
 
-  const displayLoss = useCountUp(monthlyLoss)
-  const displayAnnual = useCountUp(annualLoss)
+  // Animated counter
+  const [display, setDisplay] = useState(net)
+  const rafRef = useRef<number | null>(null)
+
+  useEffect(() => {
+    const start = display
+    const end   = net
+    const t0    = performance.now()
+    const dur   = 500
+    const step  = (now: number) => {
+      const k      = Math.min(1, (now - t0) / dur)
+      const eased  = 1 - Math.pow(1 - k, 3)
+      setDisplay(start + (end - start) * eased)
+      if (k < 1) rafRef.current = requestAnimationFrame(step)
+    }
+    rafRef.current = requestAnimationFrame(step)
+    return () => { if (rafRef.current) cancelAnimationFrame(rafRef.current) }
+  }, [net]) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-20 items-start">
+    <div style={{
+      display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 0,
+      border: '1px solid var(--line)', borderRadius: 24, overflow: 'hidden',
+      background: 'var(--panel)',
+    }}>
+      {/* Left — inputs */}
+      <div style={{ padding: '36px 40px', borderRight: '1px solid var(--line)' }}>
+        <div className="eyebrow" style={{ marginBottom: 18 }}>
+          <span className="dot pain" />Your numbers
+        </div>
+        <h3 style={{ marginBottom: 6 }}>What is voicemail costing you?</h3>
+        <p style={{ color: 'var(--muted)', fontSize: 14.5 }}>Drag the sliders. We do the math.</p>
 
-      {/* Left — inputs (5/12) */}
-      <div className="lg:col-span-5">
-        <h3
-          className="text-[#1d1d1f] leading-[1.15] tracking-[-0.015em] mb-3"
-          style={{ ...BODY, fontSize: 'clamp(22px, 3vw, 28px)', fontWeight: 500 }}
-        >
-          What&apos;s voicemail costing you?
-        </h3>
-        <p className="text-[16px] text-[#707070] leading-[1.55] mb-10" style={BODY}>
-          Drag the sliders. The math updates live.
-        </p>
-
-        <Slider
-          label="Average job value"
-          value={jobValue}
-          min={50}
-          max={2000}
-          step={10}
-          display={fmt(jobValue)}
-          onChange={setJobValue}
+        <CalcRow
+          label="Calls you miss per workday"
+          sub="Phone rings, you're on a roof or under a sink."
+          value={calls} min={1} max={20} step={1} unit=""
+          onChange={setCalls}
+          hint={`≈ ${fmt(missedPerMonth)} missed calls / month`}
         />
-        <Slider
-          label="Missed calls / month"
-          value={missedCalls}
-          min={5}
-          max={150}
-          step={1}
-          display={`${missedCalls}`}
-          onChange={setMissedCalls}
+        <CalcRow
+          label="Average job ticket"
+          sub="Typical revenue per booked job."
+          value={job} min={150} max={3000} step={25} unit="$"
+          onChange={setJob}
         />
-        <Slider
+        <CalcRow
           label="Close rate on answered calls"
-          value={closeRate}
-          min={10}
-          max={70}
-          step={5}
-          display={`${closeRate}%`}
-          onChange={setCloseRate}
+          sub="Of the people who reach you, how many book?"
+          value={close} min={10} max={70} step={1} unit="%"
+          onChange={setClose}
+          hint="Industry median for trades is 28–34%."
         />
-
-        {/* Formula */}
-        <div className="pt-6 border-t border-[#e8e8ed]">
-          <p className="text-[11px] text-[#707070]/60 leading-[1.7]" style={MONO}>
-            missed calls × close rate × job value<br />
-            = monthly revenue lost to voicemail
-          </p>
-        </div>
       </div>
 
-      {/* Right — output (7/12) */}
-      <div className="lg:col-span-7">
-        <p className="text-[11px] text-[#707070] uppercase tracking-[0.10em] mb-4" style={MONO}>
-          you&apos;re losing
-        </p>
-
-        {/* Big number */}
-        <div
-          className="leading-[1.0] tracking-[-0.02em] mb-3"
-          style={{ ...MONO, fontSize: 'clamp(72px, 11vw, 144px)', color: '#B3392D' }}
-        >
-          {fmt(displayLoss)}
+      {/* Right — output */}
+      <div style={{
+        padding: '36px 40px',
+        background: 'linear-gradient(180deg, #0E0E0C 0%, #1B1B17 100%)',
+        color: '#F4F0E6',
+        position: 'relative',
+      }}>
+        <div className="eyebrow" style={{ color: 'rgba(244,240,230,.6)', marginBottom: 18 }}>
+          <span className="dot good" />Net upside / month
         </div>
 
-        {/* Underline accent */}
-        <div className="mb-4" style={{ width: '55%', height: '2px', backgroundColor: '#B3392D' }} />
-
-        <p className="text-[12px] text-[#707070] uppercase tracking-[0.10em] mb-8" style={MONO}>
-          /month to voicemail
-        </p>
-
-        <div className="space-y-3 mb-10 border-t border-[#e8e8ed] pt-6">
-          <p className="text-[17px] text-[#707070] leading-[1.55]" style={BODY}>
-            That&apos;s{' '}
-            <span className="text-[#1d1d1f]" style={{ ...MONO, fontWeight: 400 }}>{fmt(displayAnnual)}</span>
-            {' '}per year someone else is booking.
-          </p>
-          <p className="text-[17px] text-[#707070] leading-[1.55]" style={BODY}>
-            AnswerCare costs{' '}
-            <span className="text-[#1d1d1f]" style={MONO}>$199/month</span>
-            {' '}— covered by the first 2 hours of recovered work each month.
-          </p>
+        <div style={{ position: 'relative' }}>
+          <div className="num serif" style={{
+            fontSize: 'clamp(64px, 9vw, 140px)',
+            lineHeight: 1, letterSpacing: '-.04em', color: '#FFFFFF',
+          }}>
+            {fmtMoney(Math.max(0, display))}
+          </div>
+          <div style={{
+            position: 'absolute', top: -8, right: 0,
+            transform: 'rotate(8deg)',
+            background: 'var(--pain)', color: '#fff',
+            padding: '6px 10px', borderRadius: 8, fontSize: 12, fontWeight: 600,
+          }}>
+            {multiple.toFixed(1)}× ROI
+          </div>
         </div>
 
-        <a
-          href="#pricing"
-          className="hover:opacity-85 transition-opacity"
-          style={{
-            backgroundColor: '#B3392D',
-            color: '#ffffff',
-            padding: '14px 28px',
-            borderRadius: '999px',
-            fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
-            fontWeight: 400,
-            fontSize: '17px',
-            display: 'inline-flex',
-            alignItems: 'center',
-            textDecoration: 'none',
-            letterSpacing: '-0.01em',
-          }}
-        >
-          Stop the bleed →
-        </a>
+        <div style={{ marginTop: 20, display: 'flex', flexDirection: 'column', gap: 14, fontSize: 14.5 }}>
+          <Stat label="Recoverable jobs / mo"  value={fmt(recoverableJobs)} />
+          <Stat label="Revenue back in pocket"  value={fmtMoney(recoveredRevenue)} accent />
+          <Stat label="AnswerCare flat fee"     value={`– ${fmtMoney(acCost)}`} muted />
+          <div style={{ height: 1, background: 'rgba(244,240,230,.18)', margin: '6px 0' }} />
+          <Stat label="Net upside"              value={fmtMoney(Math.max(0, net))} bold />
+        </div>
+
+        <div style={{ marginTop: 28, display: 'flex', gap: 10, flexWrap: 'wrap' }}>
+          <a className="btn btn-accent" href="#pricing">
+            Start your 14 free days <span className="arrow">→</span>
+          </a>
+          <a className="btn" style={{
+            background: 'rgba(255,255,255,.08)', color: '#F4F0E6',
+            border: '1px solid rgba(255,255,255,.18)',
+          }} href="#demo">
+            Hear it answer a call
+          </a>
+        </div>
+
+        <div className="mono" style={{ fontSize: 11, color: 'rgba(244,240,230,.5)', marginTop: 18, letterSpacing: '.05em' }}>
+          MATH: {fmt(missedPerMonth)} × {close}% × {fmtMoney(job)} − {fmtMoney(acCost)} = {fmtMoney(Math.max(0, net))}
+        </div>
       </div>
-
     </div>
   )
 }
