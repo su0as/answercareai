@@ -38,8 +38,8 @@ export default function StickyCTA() {
           <span><strong>14 days free.</strong> $497 setup, refunded if you cancel before day 15.</span>
         </div>
         <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
-          <a href="tel:+18005551234" className="mono" style={{ fontSize: 13, color: 'rgba(246,244,238,.7)' }}>
-            (800) 555-1234
+          <a href="tel:+17542276342" className="mono" style={{ fontSize: 13, color: 'rgba(246,244,238,.7)' }}>
+            (754) 227-6342
           </a>
           <a href="#start" className="btn btn-accent" style={{ padding: '10px 18px', fontSize: 14 }}>
             Start free →

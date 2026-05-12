@@ -32,8 +32,8 @@ function TradesNav() {
         </Link>
 
         <div className="hidden sm:flex items-center gap-4">
-          <a href="tel:+18005551234" className="text-sm text-[#525252]" style={{ ...MONO, fontSize: '13px' }}>
-            (800) 555-1234
+          <a href="tel:+17542276342" className="text-sm text-[#525252]" style={{ ...MONO, fontSize: '13px' }}>
+            (754) 227-6342
           </a>
           <a
             href="https://calendly.com/answercare-ai/discovery-call"
@@ -47,7 +47,7 @@ function TradesNav() {
         </div>
 
         <a
-          href="tel:+18005551234"
+          href="tel:+17542276342"
           className="sm:hidden text-sm font-semibold text-white px-4 py-2 rounded-lg"
           style={{ backgroundColor: '#E85D04', ...DISPLAY }}
         >
@@ -88,7 +88,7 @@ export default function TradesPage() {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-8">
             <a
-              href="tel:+18005551234"
+              href="tel:+17542276342"
               className="flex items-center gap-2.5 px-7 py-4 rounded-xl font-bold text-white text-sm w-full sm:w-auto text-center transition-all hover:opacity-90 hover:-translate-y-0.5"
               style={{ backgroundColor: '#E85D04', ...DISPLAY }}
             >
@@ -119,11 +119,11 @@ export default function TradesPage() {
             Don&apos;t take our word for it. Place a call.
           </p>
           <a
-            href="tel:+18005551234"
+            href="tel:+17542276342"
             className="block font-black text-white leading-none mb-6 hover:opacity-80 transition-opacity"
             style={{ ...MONO, fontSize: 'clamp(36px, 10vw, 80px)' }}
           >
-            +1 (800) 555-1234
+            +1 (754) 227-6342
           </a>
           <p className="text-white/50 text-sm sm:text-base max-w-lg mx-auto leading-relaxed" style={BODY}>
             You&apos;ll speak with the same AI that will answer your business&apos;s calls.
@@ -317,7 +317,7 @@ export default function TradesPage() {
               <div key={scenario} className="border border-[#E5E5E5] rounded-2xl p-5 sm:p-6">
                 <div className="flex items-start gap-4">
                   <a
-                    href="tel:+18005551234"
+                    href="tel:+17542276342"
                     className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center text-white transition-opacity hover:opacity-80"
                     style={{ backgroundColor: '#E85D04' }}
                     title="Call the demo line to hear it live"
@@ -346,7 +346,7 @@ export default function TradesPage() {
 
           <p className="mt-6 text-center text-sm text-[#525252]" style={BODY}>
             Want to run your own test?{' '}
-            <a href="tel:+18005551234" className="font-semibold underline underline-offset-2" style={{ color: '#E85D04' }}>
+            <a href="tel:+17542276342" className="font-semibold underline underline-offset-2" style={{ color: '#E85D04' }}>
               Call the demo line →
             </a>
           </p>
@@ -589,12 +589,12 @@ export default function TradesPage() {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <a
-              href="tel:+18005551234"
+              href="tel:+17542276342"
               className="flex items-center justify-center gap-2 px-7 py-4 rounded-xl font-bold text-white text-sm w-full sm:w-auto transition-all hover:opacity-90"
               style={{ backgroundColor: '#E85D04', ...DISPLAY }}
             >
               <span>📞</span>
-              Call the live demo: (800) 555-1234
+              Call the live demo: (754) 227-6342
             </a>
             <a
               href="https://calendly.com/answercare-ai/discovery-call"
@@ -627,8 +627,8 @@ export default function TradesPage() {
             <span>&middot;</span>
             <Link href="/terms" className="hover:text-white/60 transition-colors">Terms</Link>
             <span>&middot;</span>
-            <a href="tel:+18005551234" className="hover:text-white/60 transition-colors" style={MONO}>
-              (800) 555-1234
+            <a href="tel:+17542276342" className="hover:text-white/60 transition-colors" style={MONO}>
+              (754) 227-6342
             </a>
           </div>
         </div>

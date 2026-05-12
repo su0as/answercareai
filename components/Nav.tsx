@@ -53,8 +53,8 @@ export default function Nav() {
         </nav>
 
         <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
-          <a href="tel:+18005551234" className="mono" style={{ fontSize: 13, color: 'var(--muted)' }}>
-            +1 (800) 555-1234
+          <a href="tel:+17542276342" className="mono" style={{ fontSize: 13, color: 'var(--muted)' }}>
+            +1 (754) 227-6342
           </a>
           <a href="#start" className="btn btn-primary" style={{ padding: '10px 16px', fontSize: 14 }}>
             Start free <span className="arrow">→</span>

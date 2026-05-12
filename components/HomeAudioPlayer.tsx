@@ -87,11 +87,11 @@ export default function HomeAudioPlayer() {
               <p className="text-[13px] text-[#707070]" style={BODY}>
                 → Call{' '}
                 <a
-                  href="tel:+18005551234"
+                  href="tel:+17542276342"
                   className="underline underline-offset-2 hover:text-[#1d1d1f] transition-colors"
                   style={{ ...MONO, color: '#0071e3', fontSize: '12px' }}
                 >
-                  +1 (800) 555-1234
+                  +1 (754) 227-6342
                 </a>{' '}
                 to hear it live — you&apos;ll speak with the same agent.
               </p>

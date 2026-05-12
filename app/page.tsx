@@ -78,12 +78,12 @@ export default function HomePage() {
               }}>
                 <div>
                   <div className="eyebrow" style={{ marginBottom: 6 }}>Try the live demo</div>
-                  <a href="tel:+18005551234" className="serif num" style={{
+                  <a href="tel:+17542276342" className="serif num" style={{
                     fontSize: 'clamp(28px, 3vw, 40px)',
                     letterSpacing: '-.02em',
                     color: 'var(--accent)',
                   }}>
-                    +1 (800) 555-1234
+                    +1 (754) 227-6342
                   </a>
                 </div>
                 <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
@@ -591,8 +591,8 @@ export default function HomePage() {
             >
               Start free →
             </a>
-            <a href="tel:+18005551234" className="btn btn-ghost" style={{ padding: '18px 28px', fontSize: 17 }}>
-              Call our demo line: (800) 555-1234
+            <a href="tel:+17542276342" className="btn btn-ghost" style={{ padding: '18px 28px', fontSize: 17 }}>
+              Call our demo line: (754) 227-6342
             </a>
           </div>
           <div className="mono" style={{ fontSize: 11, color: 'var(--muted)', marginTop: 24, letterSpacing: '.06em' }}>

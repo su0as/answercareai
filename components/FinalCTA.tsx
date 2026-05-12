@@ -12,7 +12,7 @@ export default function FinalCTA({
   headline = 'Your front desk, reimagined.',
   subheadline = '14-day free trial. Full onboarding included. No credit card required.',
   ctaPrimary = { label: 'Start Free Trial', href: 'https://calendly.com/answercare-ai/discovery-call' },
-  ctaSecondary = { label: 'Book a Demo', href: 'tel:+18005551234' },
+  ctaSecondary = { label: 'Book a Demo', href: 'tel:+17542276342' },
   accentButtonClass = 'bg-bg-primary text-text-primary hover:bg-bg-secondary',
 }: FinalCTAProps) {
   return (
