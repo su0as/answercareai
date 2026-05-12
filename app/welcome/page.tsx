@@ -74,7 +74,7 @@ export default function WelcomePage() {
             </span>
             <div>
               <p className="text-[#1d1d1f] mb-2" style={{ ...BODY, fontSize: '18px', fontWeight: 500 }}>
-                Book your 30-minute setup call
+                Book your 15-minute setup call
               </p>
               <p className="text-[16px] text-[#707070] leading-[1.6] mb-5" style={BODY}>
                 This is where we learn your trade, service area, rates, and how you want calls handled. Pick any slot that works for you.

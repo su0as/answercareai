@@ -76,7 +76,7 @@ export const howItWorksSteps = [
     number: '01',
     title: 'Discovery Call',
     description:
-      '30 minutes with your dedicated account manager. We learn your business, your callers, your edge cases, and what success looks like for you.',
+      '15 minutes with your dedicated account manager. We learn your business, your callers, your edge cases, and what success looks like for you.',
   },
   {
     number: '02',

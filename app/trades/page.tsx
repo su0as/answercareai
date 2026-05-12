@@ -195,7 +195,7 @@ export default function TradesPage() {
               {
                 num: '01',
                 title: 'Setup (Week 1)',
-                body: '30-minute call. We learn your trade, service area, rates, and job types. We write your custom call script. You review and approve it in 15 minutes.',
+                body: '15-minute call. We learn your trade, service area, rates, and job types. We write your custom call script. You review and approve it in 15 minutes.',
               },
               {
                 num: '02',
@@ -585,7 +585,7 @@ export default function TradesPage() {
           </h2>
           <p className="text-white/50 text-base sm:text-lg mb-10 max-w-xl mx-auto" style={BODY}>
             Call the demo, or book a 15-minute setup call. Either way, you&apos;ll know in
-            30 minutes whether this is for you.
+            15 minutes whether this is for you.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">

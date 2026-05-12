@@ -101,7 +101,7 @@ function SetupAccordion({ accentTextClass }: { accentTextClass?: string }) {
       <div className="px-6 pb-6 pt-2 border-t border-border-subtle">
         <ul className="space-y-2.5 mt-3">
           {[
-            'Discovery call with your dedicated account manager (60 min)',
+            'Discovery call with your dedicated account manager (15 min)',
             'Custom script written for your business, workflows, and edge cases',
             'Integration with your scheduling software or CRM',
             'Call forwarding configuration and technical testing',

@@ -352,8 +352,8 @@ export default function HomePage() {
           <div className="grid" style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}>
             {[
               {
-                n: '01', t: 'Setup', sub: 'Day 1 · 30 min',
-                body: '30-minute discovery call. We learn your trade, service area, rates, job types, and how you want calls handled. We write your custom call script. You review and approve.',
+                n: '01', t: 'Setup', sub: 'Day 1 · 15 min',
+                body: '15-minute discovery call. We learn your trade, service area, rates, job types, and how you want calls handled. We write your custom call script. You review and approve.',
               },
               {
                 n: '02', t: 'Go live', sub: 'Day 1 · 1 hr',
@@ -580,7 +580,7 @@ export default function HomePage() {
             <span className="serif" style={{ fontStyle: 'italic' }}>Pick up by Friday.</span>
           </h2>
           <p style={{ fontSize: 18, color: 'var(--ink-2)', maxWidth: 540, margin: '24px auto 0' }}>
-            Setup takes 30 minutes. Live by end of day. First 14 days free.
+            Setup takes 15 minutes. Live by end of day. First 14 days free.
           </p>
           <div style={{ display: 'inline-flex', gap: 12, marginTop: 40, flexWrap: 'wrap', justifyContent: 'center' }}>
             <a
