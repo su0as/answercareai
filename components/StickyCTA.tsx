@@ -7,7 +7,6 @@ export default function StickyCTA() {
   const [show, setShow] = useState(false)
   const pathname = usePathname()
 
-  const shouldHide = pathname === '/' ? false : true
   // Show sticky on homepage only; on other pages hide entirely
   // (homepage has its own sticky via scroll position)
 
@@ -41,7 +40,7 @@ export default function StickyCTA() {
           <a href="tel:+17542276342" className="mono" style={{ fontSize: 13, color: 'rgba(246,244,238,.7)' }}>
             (754) 227-6342
           </a>
-          <a href="#start" className="btn btn-accent" style={{ padding: '10px 18px', fontSize: 14 }}>
+          <a href="#pricing" className="btn btn-accent" style={{ padding: '10px 18px', fontSize: 14 }}>
             Start free →
           </a>
         </div>

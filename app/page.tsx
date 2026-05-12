@@ -284,7 +284,8 @@ export default function HomePage() {
               <div style={{ padding: '18px 24px', fontSize: 12, color: 'var(--muted)' }} className="mono">FEATURE</div>
               {compCols.map((c, i) => (
                 <div key={c} style={{
-                  padding: '18px 20px', textAlign: 'center',
+                  padding: i === compCols.length - 1 ? '34px 20px 18px' : '18px 20px',
+                  textAlign: 'center',
                   background: i === compCols.length - 1 ? 'var(--ink)' : 'transparent',
                   color: i === compCols.length - 1 ? 'var(--bg)' : 'var(--ink)',
                   fontWeight: i === compCols.length - 1 ? 600 : 500,
@@ -295,10 +296,11 @@ export default function HomePage() {
                   {c}
                   {i === compCols.length - 1 && (
                     <div style={{
-                      position: 'absolute', top: -12, left: '50%', transform: 'translateX(-50%)',
+                      position: 'absolute', top: 8, left: '50%', transform: 'translateX(-50%)',
                       background: 'var(--accent)', color: '#fff',
                       fontSize: 10, fontWeight: 600, letterSpacing: '.08em',
-                      padding: '4px 8px', borderRadius: 6,
+                      padding: '4px 9px', borderRadius: 6,
+                      lineHeight: 1,
                     }} className="mono">RECOMMENDED</div>
                   )}
                 </div>
