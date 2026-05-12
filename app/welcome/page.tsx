@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import CalendlyInline from '@/components/CalendlyInline'
+import { CALENDLY_SETUP_CALL_URL } from '@/lib/links'
 
 const BODY = { fontFamily: 'Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif' }
 const MONO = { fontFamily: '"JetBrains Mono", "IBM Plex Mono", monospace' }
@@ -78,7 +80,7 @@ export default function WelcomePage() {
                 This is where we learn your trade, service area, rates, and how you want calls handled. Pick any slot that works for you.
               </p>
               <a
-                href="https://calendly.com/answercare-ai/discovery-call"
+                href={CALENDLY_SETUP_CALL_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:opacity-85 transition-opacity inline-flex items-center"
@@ -96,6 +98,9 @@ export default function WelcomePage() {
               >
                 Book your setup call →
               </a>
+            </div>
+            <div className="col-span-2 mt-2">
+              <CalendlyInline />
             </div>
           </div>
 

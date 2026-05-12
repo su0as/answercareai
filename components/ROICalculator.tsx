@@ -6,6 +6,7 @@ import {
   calcDental, calcLegal, calcRealEstate, calcHome, fmt,
   type ROIResults,
 } from '@/lib/calculations'
+import { CALENDLY_SETUP_CALL_URL } from '@/lib/links'
 import type { CalcVertical } from '@/lib/calculations'
 import SectionTag from './SectionTag'
 
@@ -287,7 +288,7 @@ export default function ROICalculator({ vertical, accentTextClass = 'text-white'
               </p>
               <p className="text-white/40 text-xs mb-4">on the table every year.</p>
               <a
-                href="https://calendly.com/answercare-ai/discovery-call"
+                href={CALENDLY_SETUP_CALL_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block bg-bg-primary text-text-primary font-medium text-sm px-6 py-3 rounded-xl hover:scale-[1.02] transition-transform"

@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { CALENDLY_SETUP_CALL_URL } from '@/lib/links'
 
 interface FinalCTAProps {
   headline?: string
@@ -11,7 +12,7 @@ interface FinalCTAProps {
 export default function FinalCTA({
   headline = 'Your front desk, reimagined.',
   subheadline = '14-day free trial. Full onboarding included. No credit card required.',
-  ctaPrimary = { label: 'Start Free Trial', href: 'https://calendly.com/answercare-ai/discovery-call' },
+  ctaPrimary = { label: 'Start Free Trial', href: CALENDLY_SETUP_CALL_URL },
   ctaSecondary = { label: 'Book a Demo', href: 'tel:+17542276342' },
   accentButtonClass = 'bg-bg-primary text-text-primary hover:bg-bg-secondary',
 }: FinalCTAProps) {

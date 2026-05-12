@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect, useRef, useCallback } from 'react'
+import { CALENDLY_SETUP_CALL_URL } from '@/lib/links'
 
 const ORANGE = '#E85D04'
 const ORANGE_H = '#C94C00'
@@ -197,7 +198,7 @@ export default function TradesROICalc() {
             </div>
 
             <a
-              href="https://calendly.com/answercare-ai/discovery-call"
+              href={CALENDLY_SETUP_CALL_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-8 block text-center py-3.5 rounded-xl font-semibold text-sm text-white transition-all hover:opacity-90"

@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import TradesROICalc from '@/components/trades/TradesROICalc'
 import TradesFAQ from '@/components/trades/TradesFAQ'
+import { CALENDLY_SETUP_CALL_URL } from '@/lib/links'
 
 // ─── Design tokens (trades palette) ────────────────────────────────────────
 // bg:      #FFFFFF / #F5F5F5 / #0A0A0A
@@ -36,7 +37,7 @@ function TradesNav() {
             (754) 227-6342
           </a>
           <a
-            href="https://calendly.com/answercare-ai/discovery-call"
+            href={CALENDLY_SETUP_CALL_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm font-semibold text-white px-4 py-2 rounded-lg transition-all hover:opacity-90"
@@ -96,7 +97,7 @@ export default function TradesPage() {
               Call our live demo →
             </a>
             <a
-              href="https://calendly.com/answercare-ai/discovery-call"
+              href={CALENDLY_SETUP_CALL_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="px-7 py-4 rounded-xl font-semibold text-[#0A0A0A] text-sm w-full sm:w-auto text-center border-2 border-[#0A0A0A] hover:bg-[#0A0A0A] hover:text-white transition-all"
@@ -390,7 +391,7 @@ export default function TradesPage() {
           </div>
 
           <a
-            href="https://calendly.com/answercare-ai/discovery-call"
+            href={CALENDLY_SETUP_CALL_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block px-8 py-4 rounded-xl font-bold text-white text-sm transition-all hover:opacity-90"
@@ -512,7 +513,7 @@ export default function TradesPage() {
             </ul>
 
             <a
-              href="https://calendly.com/answercare-ai/discovery-call"
+              href={CALENDLY_SETUP_CALL_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="block text-center py-4 rounded-xl font-bold text-white text-sm transition-all hover:opacity-90"
@@ -597,7 +598,7 @@ export default function TradesPage() {
               Call the live demo: (754) 227-6342
             </a>
             <a
-              href="https://calendly.com/answercare-ai/discovery-call"
+              href={CALENDLY_SETUP_CALL_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="px-7 py-4 rounded-xl font-semibold text-white text-sm w-full sm:w-auto text-center border border-white/20 hover:border-white/50 transition-all"

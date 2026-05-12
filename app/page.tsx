@@ -3,6 +3,7 @@ import HomeLiveDemo from '@/components/HomeLiveDemo'
 import HomeROICalc from '@/components/HomeROICalc'
 import HomeRealCalls from '@/components/HomeRealCalls'
 import HomeFAQ from '@/components/HomeFAQ'
+import { CALENDLY_SETUP_CALL_URL } from '@/lib/links'
 
 export const metadata: Metadata = {
   title: 'AI Phone Agent for One-Person Trades | AnswerCare AI',
@@ -469,7 +470,7 @@ export default function HomePage() {
                 >
                   Start your 14 free days <span className="arrow">→</span>
                 </a>
-                <a href="https://calendly.com/answercare-ai/discovery-call" target="_blank" rel="noopener noreferrer" className="btn" style={{
+                <a href={CALENDLY_SETUP_CALL_URL} target="_blank" rel="noopener noreferrer" className="btn" style={{
                   background: 'transparent', color: '#F4F0E6',
                   border: '1px solid rgba(255,255,255,.18)',
                   justifyContent: 'center', padding: '18px 24px', fontSize: 17,

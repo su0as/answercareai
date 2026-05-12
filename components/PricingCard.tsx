@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { CALENDLY_SETUP_CALL_URL } from '@/lib/links'
 
 interface PricingTier {
   name: string
@@ -81,7 +82,7 @@ export default function PricingCard({
       </ul>
 
       <Link
-        href="https://calendly.com/answercare-ai/discovery-call"
+        href={CALENDLY_SETUP_CALL_URL}
         target="_blank"
         rel="noopener noreferrer"
         className={`block text-center px-6 py-3 rounded-xl font-medium text-sm transition-all duration-200 hover:scale-[1.01] ${
