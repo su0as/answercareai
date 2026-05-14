@@ -26,7 +26,7 @@ export default function HomeRealCalls() {
 
   return (
     <div className="card" style={{ padding: 0, overflow: 'hidden' }}>
-      <div style={{ display: 'grid', gridTemplateColumns: '1.1fr 1fr', minHeight: 320 }}>
+      <div className="calls-grid">
         {/* Left — call list */}
         <div>
           {calls.map((c, i) => (
@@ -52,10 +52,9 @@ export default function HomeRealCalls() {
         </div>
 
         {/* Right — player */}
-        <div style={{
+        <div className="calls-panel" style={{
           padding: '28px 32px',
           background: 'rgba(14,14,12,.03)',
-          borderLeft: '1px solid var(--line)',
         }}>
           <div className="eyebrow" style={{ marginBottom: 12 }}>Now playing</div>
           <h3 className="serif" style={{ fontSize: 28, fontStyle: 'italic', marginBottom: 10 }}>

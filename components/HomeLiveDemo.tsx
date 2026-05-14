@@ -135,8 +135,8 @@ export default function HomeLiveDemo({ autoplay = true }: { autoplay?: boolean }
       </div>
 
       {/* Transcript body */}
-      <div style={{
-        padding: '20px 22px', minHeight: 380, maxHeight: 420,
+      <div className="demo-transcript" style={{
+        padding: '20px 22px', minHeight: 320, maxHeight: 400,
         display: 'flex', flexDirection: 'column', gap: 12, overflow: 'hidden',
         background: 'linear-gradient(180deg, transparent, transparent 70%, var(--bg) 100%)',
         position: 'relative',
@@ -199,10 +199,7 @@ export default function HomeLiveDemo({ autoplay = true }: { autoplay?: boolean }
       </div>
 
       {/* Outcomes strip */}
-      <div style={{
-        display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)',
-        borderTop: '1px solid var(--line)', background: 'rgba(14,14,12,.03)',
-      }}>
+      <div className="outcomes-strip">
         {[
           ['Job type', 'Emergency repair'],
           ['Address', '1422 Oak Ridge Dr'],

@@ -58,7 +58,7 @@ export default function HomePage() {
             <span className="dot pain" />For plumbers, electricians, HVAC, locksmiths · 24/7/365
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1.05fr .95fr', gap: 64, alignItems: 'start' }}>
+          <div className="hero-grid">
 
             {/* Left: headline + CTA */}
             <div>
@@ -74,9 +74,8 @@ export default function HomePage() {
               </p>
 
               {/* Phone CTA block */}
-              <div style={{
+              <div className="hero-cta-block" style={{
                 marginTop: 40, padding: '20px 24px',
-                display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 24,
                 border: '1px solid var(--line)', borderRadius: 18,
                 background: 'linear-gradient(180deg, #FFFEFB, #FBFAF6)',
               }}>
@@ -102,11 +101,7 @@ export default function HomePage() {
               </div>
 
               {/* Metrics row */}
-              <div style={{
-                marginTop: 32,
-                display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 20,
-                borderTop: '1px solid var(--line)', paddingTop: 24,
-              }}>
+              <div className="metrics-strip">
                 {[
                   ['< 2 sec', 'pickup time'],
                   ['24/7/365', 'always on'],
@@ -141,7 +136,7 @@ export default function HomePage() {
         borderTop: '1px solid var(--line)', borderBottom: '1px solid var(--line)',
         background: 'rgba(14,14,12,.02)',
       }}>
-        <div className="wrap" style={{ display: 'grid', gridTemplateColumns: 'auto 1fr', gap: 40, alignItems: 'center' }}>
+        <div className="wrap trust-grid">
           <div>
             <div className="num" style={{ fontSize: 36, fontWeight: 500, letterSpacing: '-.02em' }}>847</div>
             <div className="mono" style={{ fontSize: 11, color: 'var(--muted)', letterSpacing: '.06em' }}>
@@ -196,7 +191,7 @@ export default function HomePage() {
       {/* ══ 04 STORY SCENE ═══════════════════════════════════════════════════ */}
       <section className="section" data-screen-label="04 Story" style={{ background: 'var(--ink)', color: '#F4F0E6' }}>
         <div className="wrap">
-          <div style={{ display: 'grid', gridTemplateColumns: '1.1fr 1fr', gap: 80, alignItems: 'start' }}>
+          <div className="story-grid">
 
             <div>
               <div className="eyebrow" style={{ color: 'rgba(244,240,230,.55)', marginBottom: 16 }}>
@@ -284,6 +279,7 @@ export default function HomePage() {
             </div>
           </div>
 
+          <div className="table-scroll">
           <div className="card" style={{ padding: 0, overflow: 'hidden' }}>
             {/* Header row */}
             <div style={{ display: 'grid', gridTemplateColumns: '1.4fr repeat(4, 1fr)', borderBottom: '1px solid var(--line)' }}>
@@ -334,6 +330,7 @@ export default function HomePage() {
             ))}
           </div>
 
+          </div>{/* end table-scroll */}
           <div className="mono" style={{ fontSize: 12, color: 'var(--muted)', marginTop: 18, letterSpacing: '.04em' }}>
             Answering service pricing from industry averages · Ringwell public pricing $49/mo ·
             cost-per-job assumes 50 booked jobs / mo · AnswerCare data from live customers
@@ -395,10 +392,9 @@ export default function HomePage() {
             </h2>
           </div>
 
-          <div style={{
+          <div className="pricing-inner" style={{
             background: 'var(--ink)', color: '#F4F0E6',
             borderRadius: 24, padding: 48,
-            display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 48, alignItems: 'center',
             position: 'relative', overflow: 'hidden',
           }}>
             {/* Decorative dots */}

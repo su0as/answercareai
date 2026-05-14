@@ -99,13 +99,12 @@ export default function HomeROICalc() {
   }, [net]) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <div style={{
-      display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 0,
+    <div className="calc-grid" style={{
       border: '1px solid var(--line)', borderRadius: 24, overflow: 'hidden',
       background: 'var(--panel)',
     }}>
       {/* Left — inputs */}
-      <div style={{ padding: '36px 40px', borderRight: '1px solid var(--line)' }}>
+      <div className="calc-left" style={{ padding: '36px 40px' }}>
         <div className="eyebrow" style={{ marginBottom: 18 }}>
           <span className="dot pain" />Your numbers
         </div>
