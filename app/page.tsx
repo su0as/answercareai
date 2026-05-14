@@ -15,33 +15,36 @@ export const metadata: Metadata = {
 function HeadlineRender() {
   return (
     <h1 style={{ textWrap: 'balance' } as React.CSSProperties}>
-      Stop losing{' '}
-      <span style={{ color: 'var(--pain)', position: 'relative', whiteSpace: 'nowrap' }}>
-        $4,375<sup style={{ fontSize: '.4em', verticalAlign: 'super', fontWeight: 400, color: 'var(--muted)' }}>/mo</sup>
+      What is voicemail{' '}
+      <span className="serif" style={{ fontStyle: 'italic', color: 'var(--pain)', position: 'relative', whiteSpace: 'nowrap' }}>
+        actually
         <svg
-          style={{ position: 'absolute', left: -4, right: -4, bottom: -6, width: 'calc(100% + 8px)' }}
+          style={{ position: 'absolute', left: -2, right: -2, bottom: -6, width: 'calc(100% + 4px)' }}
           height="12" viewBox="0 0 200 12" preserveAspectRatio="none"
         >
           <path d="M2 9 Q 50 2, 100 7 T 198 6" stroke="var(--pain)" strokeWidth="2" fill="none" strokeLinecap="round" />
         </svg>
-      </span>
-      {' '}to voicemail.
+      </span>{' '}
+      costing your shop?
     </h1>
   )
 }
 
 // ─── Comparison table ─────────────────────────────────────────────────────────
-const compCols = ['Voicemail', 'Hire receptionist', 'Generic IVR', 'AnswerCare']
+// Cols ordered by how relevant they are to a one-truck operator:
+// Voicemail (where they are now) → Answering service (the $150-300 option they know) →
+// Named AI competitors (Ringwell $49/mo) → AnswerCare
+const compCols = ['Voicemail', 'Answering service', 'Ringwell / Voios / Capta', 'AnswerCare']
 const compRows: [string, string[]][] = [
-  ['Cost / mo',              ['$0',        '$3,400',       '$80',       '$199']],
-  ['Pickup time',            ['—',         '6 rings',      'instant',   '< 2 sec']],
-  ['Available 24/7',         ['—',         '—',            'partial',   '✓ Always']],
-  ['Knows your trade',       ['—',         '—',            '—',         '✓ Custom script']],
-  ['Books in your calendar', ['—',         'manual',       '—',         '✓ Automatic']],
-  ['Custom script for biz',  ['—',         'maybe in 1 yr','generic',   '✓ Day 1']],
-  ['SMS to you + customer',  ['—',         'usually',      'rare',      '✓ Every call']],
-  ['Handles a critical hour',['—',         '—',            '—',         '✓']],
-  ['Approx cost-per-job',    ['∞ lost',    '$135',         '$80',       '~ $4']],
+  ['Cost / mo',              ['$0',         '$150–300',      '$49–99',            '$199']],
+  ['Setup fee',              ['—',          '$0–50',         '$0 (self-serve)',    '$497 one-time']],
+  ['Pickup time',            ['—',          '2–4 rings',     '< 3 sec',           '< 2 sec']],
+  ['Available 24/7',         ['—',          'business hours','✓',                 '✓ Always']],
+  ['Knows your trade',       ['—',          'generic script','basic prompts',      '✓ Custom script']],
+  ['Books in your calendar', ['—',          'takes message', '—',                 '✓ Automatic']],
+  ['SMS to you + customer',  ['—',          'sometimes',     '—',                 '✓ Every call']],
+  ['Setup in < 1 day',       ['instant',    '1–2 weeks',     'self-serve',        '✓ Same day']],
+  ['Approx cost-per-job',    ['∞ lost',     '~$45',          '~$18',              '~$4']],
 ]
 
 export default function HomePage() {
@@ -92,6 +95,9 @@ export default function HomePage() {
                     Start 14 days free <span className="arrow">→</span>
                   </a>
                   <a href="#demo" className="btn btn-ghost">Hear it work</a>
+                </div>
+                <div className="mono" style={{ fontSize: 11, color: 'var(--muted)', marginTop: 12, letterSpacing: '.04em' }}>
+                  $497 setup · 14 days free · then $199/mo · cancel anytime with 7 days notice
                 </div>
               </div>
 
@@ -209,7 +215,7 @@ export default function HomePage() {
                   &ldquo;You just lost a job you didn&apos;t know existed.&rdquo;
                 </p>
                 <p style={{ color: 'rgba(244,240,230,.6)', fontSize: 14 }}>
-                  Hiring a receptionist costs $3,400/mo, goes home at 5 PM, and won&apos;t answer the call at 2:43.
+                  An answering service costs $150–300/mo — and takes a message. It doesn&apos;t book the job.
                 </p>
               </div>
             </div>
@@ -273,7 +279,7 @@ export default function HomePage() {
                 <span className="dot" />Side-by-side
               </div>
               <h2 style={{ maxWidth: 800 }}>
-                Your four options for <br />handling calls.
+                How AnswerCare stacks up <br />against your real options.
               </h2>
             </div>
           </div>
@@ -329,8 +335,8 @@ export default function HomePage() {
           </div>
 
           <div className="mono" style={{ fontSize: 12, color: 'var(--muted)', marginTop: 18, letterSpacing: '.04em' }}>
-            Based on 847 AnswerCare customers · receptionist data from BLS Q4 ·
-            IVR pricing from average of 5 vendors · cost-per-job assumes 50 booked jobs / mo
+            Answering service pricing from industry averages · Ringwell public pricing $49/mo ·
+            cost-per-job assumes 50 booked jobs / mo · AnswerCare data from live customers
           </div>
         </div>
       </section>
@@ -454,12 +460,20 @@ export default function HomePage() {
                 borderRadius: 18, padding: 28,
               }}>
                 <div className="mono" style={{ fontSize: 11, letterSpacing: '.08em', color: 'rgba(244,240,230,.55)', marginBottom: 12 }}>
-                  ONE-TIME SETUP
+                  ONE-TIME SETUP FEE
                 </div>
                 <div className="num serif" style={{ fontSize: 56, lineHeight: 1, letterSpacing: '-.03em', color: '#fff' }}>$497</div>
                 <p style={{ color: 'rgba(244,240,230,.7)', fontSize: 14, marginTop: 12 }}>
-                  Discovery, script writing, voice tuning, calendar + SMS integration. Charged today, refundable if you cancel before day 15.
+                  Discovery, script writing, voice tuning, calendar + SMS integration. Non-refundable — this is the real work.
                 </p>
+                <div style={{
+                  marginTop: 14,
+                  padding: '10px 14px', borderRadius: 10,
+                  background: 'rgba(159,226,176,.10)', border: '1px solid rgba(159,226,176,.25)',
+                  color: '#9FE2B0', fontSize: 13,
+                }}>
+                  Your 14-day free trial starts immediately — no $199/mo charge until day 15. Cancel before then and you owe nothing more.
+                </div>
               </div>
 
               <div style={{ marginTop: 24, display: 'flex', flexDirection: 'column', gap: 12 }} id="start">

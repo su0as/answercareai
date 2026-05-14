@@ -9,7 +9,11 @@ const items = [
   },
   {
     q: "What happens with truly weird calls?",
-    a: "If a call falls outside your script — say, a vendor or a question we genuinely can't answer — AnswerCare collects the details, books a callback in your calendar, and texts you a transcript within 60 seconds. Nothing is dropped.",
+    a: "If a call falls outside your script — irate customer, vendor dispute, a question we genuinely can't answer — AnswerCare immediately texts you a live transcript and books a callback in your calendar. For true emergencies (gas leak, flooding, dangerous situation), it can be configured to ring your personal cell directly, skipping the queue entirely. Nothing gets dropped, nothing gets made up.",
+  },
+  {
+    q: "I've managed 20 years without this — why change now?",
+    a: "Because the technology only became good enough in the last 12 months. Every year before that, AI voice was robotic, full of awkward pauses, and lost customers the moment they heard it. That's no longer true. The same AI powering tools like ChatGPT now handles nuanced trade calls — emergency lockouts, pricing questions, scheduling changes — without sounding like a phone tree. The operators moving first are capturing calls their competitors still send to voicemail.",
   },
   {
     q: "Do I have to port my number?",
@@ -17,7 +21,7 @@ const items = [
   },
   {
     q: "How does the 14 days free actually work?",
-    a: "You pay $497 for setup today. Billing starts day 15 after go-live. If AnswerCare doesn't make sense by day 14, email us and we shut it down. No retention call.",
+    a: "You pay $497 for setup today — that covers discovery, script writing, voice tuning, and integration work. That fee is non-refundable. What's free is the first 14 days of live service: no $199/mo charge until day 15. If AnswerCare doesn't make sense by day 14, email us and we shut it down. You walk away having paid only for the setup. No retention call.",
   },
   {
     q: "What if I already have a CRM or dispatch tool?",
