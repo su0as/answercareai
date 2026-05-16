@@ -699,6 +699,321 @@ export const tradesData: Record<string, TradeData> = {
     ],
     relatedTrades: ['plumbers', 'locksmiths', 'roofers'],
   },
+
+  // ─────────────────────────────────────────────────────────────────────────
+
+  'garage-door': {
+    slug: 'garage-door',
+    trade: 'garage door companies',
+    tradeSingular: 'garage door technician',
+    tradeAdj: 'garage door',
+    headline: 'AI Phone Answering for Garage Door Companies',
+    subheadline: 'A stuck garage door traps a car, blocks a workday, or locks someone out of their home. AnswerCare answers in 2 seconds, books the service call, and texts you the address before you finish the job you\'re on.',
+    seoTitle: 'AI Answering Service for Garage Door Companies — Answer Every Emergency Call',
+    seoDescription: 'AnswerCare answers every garage door call 24/7 in under 2 seconds. Handles broken spring, stuck door, and off-track emergencies — books the job and texts you details. 14 days free.',
+    accentColor: '#1F44FF',
+    heroEyebrow: 'For garage door repair & installation companies · 24/7/365',
+
+    avgTicket: '$290',
+    missedCallsPerDay: '5–11',
+    emergencyPct: '71%',
+    voicemailHangupPct: '89%',
+
+    storyTime: '7:45 AM',
+    storyScenario: 'You\'re replacing a torsion spring on a two-car garage in a subdivision.',
+    storyCallerSituation: 'A homeowner calls — their garage door snapped off-track and their car is blocked inside. They need to leave for work in 30 minutes.',
+    storyLostJobValue: '$310',
+
+    painPoints: [
+      {
+        title: 'Garage door emergencies are time-critical — callers hire whoever answers first',
+        body: 'A broken spring or off-track door isn\'t a "schedule it for next week" problem. It\'s someone\'s car blocked, their workday disrupted, or their home unsecured. That caller is dialing every garage door company on Google Maps and hiring whoever picks up first.',
+        stat: '89% of garage door emergency callers who reach voicemail call a competitor immediately',
+      },
+      {
+        title: 'Morning and evening are your peak call windows — and you\'re always on a job',
+        body: 'Garage door calls spike at 7–9 AM (morning opens) and 5–7 PM (evening closes). Those are exactly when you\'re finishing installations or mid-repair. AnswerCare handles every call during your peak hours so you never choose between the job in front of you and the next one.',
+        stat: '64% of garage door service calls come between 6 AM and 10 AM or after 4 PM',
+      },
+      {
+        title: 'Installation estimates require information gathering — callers don\'t want to wait for a callback',
+        body: 'New door installations are your highest-ticket jobs ($800–3,000). A homeowner who wants a quote is comparison-shopping. If you don\'t collect their details and book an estimate visit immediately, they\'ll have three competitors in their driveway before you return the call.',
+        stat: 'Garage door installation jobs go to the first company that books an in-person estimate',
+      },
+    ],
+
+    callTypes: [
+      { type: 'Broken spring (emergency)', urgency: 'emergency', pct: '34%', ticket: '$180–350' },
+      { type: 'Door off-track / stuck (emergency)', urgency: 'emergency', pct: '28%', ticket: '$150–280' },
+      { type: 'New door installation estimate', urgency: 'routine', pct: '18%', ticket: '$800–3,000' },
+      { type: 'Opener repair / replacement', urgency: 'urgent', pct: '12%', ticket: '$120–280' },
+      { type: 'Maintenance / tune-up', urgency: 'routine', pct: '8%', ticket: '$75–150' },
+    ],
+
+    faq: [
+      {
+        q: 'Can it handle the "my car is trapped inside" urgency level?',
+        a: 'Yes — this is exactly the scenario AnswerCare is built for. The agent identifies emergency framing ("stuck," "can\'t get out," "car blocked"), triggers an expedited flow, captures address and access details, and books the earliest available slot — including same-day. You get a priority text before you finish the job you\'re on.',
+      },
+      {
+        q: 'Can it give ballpark prices for spring replacements or opener installs?',
+        a: 'Yes. During setup, we build a rate card for your common service types — torsion spring replacement, extension spring, opener repair, off-track service. The agent gives callers a "starting from $X" range and books an estimate or service appointment depending on job complexity.',
+      },
+      {
+        q: 'What about large installation projects? Can it qualify those leads?',
+        a: 'Absolutely. For new door installations, we configure a qualification flow: single vs. double door, material preference, timeframe, and whether it\'s a replacement or new construction. You get a full lead profile in your text message so you can arrive at the estimate prepared.',
+      },
+      {
+        q: 'I cover both residential and commercial garage doors. Can it handle both?',
+        a: 'Yes. Commercial calls (warehouse doors, roll-up doors, dock levelers) get a different qualification flow — property type, door width/height, urgency. Commercial leads get flagged for your personal follow-up since those often require site visits and custom quotes.',
+      },
+      {
+        q: 'What about calls that come in at 6 AM when a spring breaks during the first open?',
+        a: 'AnswerCare runs 24/7 with no extra after-hours charge on your end. Early morning emergency calls are answered immediately, at your configured rates. You set whether early-AM calls should be booked at a standard or after-hours rate — the agent quotes accordingly.',
+      },
+      {
+        q: 'How does forwarding work with my existing number?',
+        a: 'Conditional call forwarding — your number stays yours. If you don\'t pick up within 1–4 rings (you choose), the call forwards to AnswerCare. If you answer, it never triggers. Cancel and forwarding is off in 5 minutes.',
+      },
+    ],
+
+    testimonial: {
+      quote: 'Spring season I was missing 6-8 calls a day from job sites. AnswerCare handled them all. Three became $2,000+ door replacement jobs I nearly never got.',
+      name: 'Tyler N.',
+      biz: 'NorthBay Garage Doors',
+      city: 'Portland, OR',
+      stat: '+$6,200',
+      statLabel: 'captured in first month',
+      avatarColor: '#4A6E8E',
+    },
+
+    primaryKeyword: 'ai answering service for garage door companies',
+    secondaryKeywords: [
+      'garage door answering service',
+      'phone answering for garage door repair',
+      'garage door company call answering',
+      'ai receptionist for garage door',
+      '24 hour garage door answering service',
+    ],
+    longTailKeywords: [
+      'best answering service for garage door company',
+      'never miss a garage door emergency call',
+      'garage door repair missed call solution',
+      'ai phone agent for garage door business',
+      'how to handle garage door calls while on a job',
+    ],
+    relatedTrades: ['locksmiths', 'electricians', 'hvac'],
+  },
+
+  // ─────────────────────────────────────────────────────────────────────────
+
+  'appliance-repair': {
+    slug: 'appliance-repair',
+    trade: 'appliance repair technicians',
+    tradeSingular: 'appliance repair tech',
+    tradeAdj: 'appliance repair',
+    headline: 'AI Phone Answering for Appliance Repair Technicians',
+    subheadline: 'Appliance calls peak while you\'re mid-repair. AnswerCare answers instantly, books the service appointment, and keeps your schedule full — while you\'re diagnosing the one in front of you.',
+    seoTitle: 'AI Answering Service for Appliance Repair — Book Every Service Call, Miss None',
+    seoDescription: 'AnswerCare answers every appliance repair call 24/7. Books washing machine, dryer, refrigerator, and dishwasher service calls while you\'re on the job. 14 days free.',
+    accentColor: '#1F44FF',
+    heroEyebrow: 'For appliance repair technicians & service companies · 24/7/365',
+
+    avgTicket: '$195',
+    missedCallsPerDay: '5–10',
+    emergencyPct: '38%',
+    voicemailHangupPct: '80%',
+
+    storyTime: '11:30 AM',
+    storyScenario: 'You\'re diagnosing a refrigerator compressor issue — it\'s a complex job, phone in your pocket.',
+    storyCallerSituation: 'A caller\'s washing machine flooded their laundry room this morning. They have four kids and need it fixed today.',
+    storyLostJobValue: '$210',
+
+    painPoints: [
+      {
+        title: 'Appliance failures feel urgent to the caller even when they\'re not dangerous',
+        body: 'A family without a working washer, a fridge that\'s not cooling, or a dishwasher mid-cycle is a stressed household. They\'re calling every technician they can find. The one who answers and offers same-day or next-day service books the job.',
+        stat: 'Same-day appliance repair bookings convert at 2.8× the rate of next-day callbacks',
+      },
+      {
+        title: 'You\'re in someone\'s home all day — calls go unanswered for hours',
+        body: 'Appliance repair is a house-call business. You\'re in basements, utility rooms, and kitchens with your hands full. Every hour you\'re on a job is an hour of missed calls — and those missed calls each represent a $150–400 opportunity.',
+        stat: 'Average appliance tech misses 5–10 calls per workday while on service calls',
+      },
+      {
+        title: 'Multiple appliance brands require different qualification questions — callers want quick answers',
+        body: 'Callers want to know fast: do you service their brand? AnswerCare is configured with your supported brands and appliance types, so callers get a yes/no immediately and book without a callback.',
+        stat: 'Technicians who confirm brand/model compatibility on the first call book 2.2× more jobs',
+      },
+    ],
+
+    callTypes: [
+      { type: 'Washing machine / dryer repair', urgency: 'urgent', pct: '28%', ticket: '$150–320' },
+      { type: 'Refrigerator / freezer repair', urgency: 'urgent', pct: '24%', ticket: '$180–400' },
+      { type: 'Dishwasher repair', urgency: 'routine', pct: '18%', ticket: '$120–280' },
+      { type: 'Oven / range / stove repair', urgency: 'urgent', pct: '16%', ticket: '$130–300' },
+      { type: 'New appliance install / hook-up', urgency: 'routine', pct: '14%', ticket: '$80–200' },
+    ],
+
+    faq: [
+      {
+        q: 'Can it confirm whether I service specific appliance brands?',
+        a: 'Yes. During setup, you give us your supported brands and appliance types. The agent confirms compatibility on the first call — no wasted appointments. If a caller has a brand you don\'t service, they\'re politely declined rather than booked for a job you\'ll have to cancel.',
+      },
+      {
+        q: 'Can it handle calls from homeowners and property managers differently?',
+        a: 'Yes. Property manager calls (multiple units, recurring service accounts) get a different qualification flow — property name, unit count, preferred scheduling windows. They get flagged as high-value commercial leads vs. one-time residential calls.',
+      },
+      {
+        q: 'What if a caller needs a same-day repair for a flooding washer?',
+        a: 'AnswerCare identifies urgent language ("flooding," "water on floor," "not draining") and routes those calls through an expedited same-day booking flow. You get a priority text immediately. The caller gets a confirmed time window — not a "we\'ll call you back."',
+      },
+      {
+        q: 'Can it give estimates for common repairs?',
+        a: 'We build a rate card for your common service types during setup — diagnostic fee, common repair ranges by appliance type, service call minimums. The agent quotes "starting from $X for a diagnostic" or "typical repair runs $X–Y depending on the part" — no promises beyond your rate card.',
+      },
+      {
+        q: 'What about warranty calls or manufacturer service referrals?',
+        a: 'We configure AnswerCare to handle warranty inquiry calls — if a caller has an active manufacturer warranty, the agent advises them to contact the manufacturer\'s service line first, then offers to book you as the alternative if the manufacturer can\'t service promptly.',
+      },
+      {
+        q: 'I cover a specific service area. Can it filter by zip code?',
+        a: 'Yes. Service area filtering by zip code, city, or radius is configured during setup. Calls from outside your area are declined politely so you don\'t drive 40 minutes for a $150 job outside your route.',
+      },
+    ],
+
+    testimonial: {
+      quote: 'I was losing $1,800–2,400 a month in missed calls while on jobs. AnswerCare paid for itself in the first week.',
+      name: 'Kevin R.',
+      biz: 'ProFix Appliance',
+      city: 'Nashville, TN',
+      stat: '+$2,100',
+      statLabel: 'captured in first month',
+      avatarColor: '#6E5A4A',
+    },
+
+    primaryKeyword: 'ai answering service for appliance repair',
+    secondaryKeywords: [
+      'appliance repair answering service',
+      'phone answering for appliance repair',
+      'appliance technician call answering',
+      'ai receptionist for appliance repair',
+      'answering service appliance repair company',
+    ],
+    longTailKeywords: [
+      'best answering service for appliance repair company',
+      'how to never miss an appliance repair call',
+      'appliance repair missed call solution',
+      'ai phone agent for appliance repair',
+      'same day appliance repair booking service',
+    ],
+    relatedTrades: ['hvac', 'electricians', 'plumbers'],
+  },
+
+  // ─────────────────────────────────────────────────────────────────────────
+
+  septic: {
+    slug: 'septic',
+    trade: 'septic service companies',
+    tradeSingular: 'septic technician',
+    tradeAdj: 'septic',
+    headline: 'AI Phone Answering for Septic Companies',
+    subheadline: 'Septic emergencies don\'t wait — sewage backup, tank overflow, drain field failure. AnswerCare answers in 2 seconds, qualifies the urgency, and books the job while you\'re already on a pump-out.',
+    seoTitle: 'AI Answering Service for Septic Companies — Handle Every Emergency Call 24/7',
+    seoDescription: 'AnswerCare answers every septic call 24/7. Handles backup emergencies, pump-out scheduling, and inspection bookings — books the job, texts you the details. 14 days free.',
+    accentColor: '#1F44FF',
+    heroEyebrow: 'For septic pumping, service & repair companies · 24/7/365',
+
+    avgTicket: '$380',
+    missedCallsPerDay: '4–8',
+    emergencyPct: '55%',
+    voicemailHangupPct: '84%',
+
+    storyTime: '8:20 AM',
+    storyScenario: 'You\'re doing a routine pump-out on a 1,000-gallon residential tank.',
+    storyCallerSituation: 'A caller has sewage backing up into their downstairs bathroom. They have guests arriving tonight and are panicked.',
+    storyLostJobValue: '$520',
+
+    painPoints: [
+      {
+        title: 'Sewage backup is the highest-stress call in residential services — speed wins',
+        body: 'When sewage backs up into a home, the caller is calling every septic company they can find. It\'s unsanitary, it\'s urgent, and they need someone immediately. The company that answers first and commits to a same-day service call wins the job.',
+        stat: '84% of septic emergency callers who reach voicemail call a competitor — they can\'t wait',
+      },
+      {
+        title: 'You\'re in the field all day — pump-outs, repairs, inspections, permits',
+        body: 'Septic service work is physically demanding and location-specific. You\'re at job sites, unable to take incoming calls for hours at a time. Every missed call during those windows is a potential $300–600 pump-out or $1,500+ repair going elsewhere.',
+        stat: 'Septic companies miss an average of 4–8 inbound calls per workday while on service calls',
+      },
+      {
+        title: 'Inspection and pump-out scheduling is a volume game — automate the routine',
+        body: 'Routine pump-outs ($300–450), inspections for real estate transactions, and maintenance reminders are high-volume, low-complexity bookings. AnswerCare handles all of these automatically, keeping your schedule full without you personally managing every call.',
+        stat: 'Real estate inspection calls are time-critical — buyers have closing deadlines',
+      },
+    ],
+
+    callTypes: [
+      { type: 'Backup / overflow emergency', urgency: 'emergency', pct: '32%', ticket: '$400–900' },
+      { type: 'Routine pump-out / cleaning', urgency: 'routine', pct: '30%', ticket: '$300–450' },
+      { type: 'Real estate inspection', urgency: 'urgent', pct: '18%', ticket: '$250–450' },
+      { type: 'Drain field repair / replacement', urgency: 'urgent', pct: '12%', ticket: '$1,500–12,000' },
+      { type: 'New system install / perc test', urgency: 'routine', pct: '8%', ticket: '$5,000–25,000' },
+    ],
+
+    faq: [
+      {
+        q: 'Can it handle the panic-level urgency of a sewage backup call?',
+        a: 'Yes. AnswerCare recognizes emergency language ("backing up," "sewage in the house," "overflow") and immediately routes to an expedited same-day booking flow. The agent captures address, tank size if known, and the nature of the backup — you get a priority text with full details. No hold music, no "we\'ll call you back."',
+      },
+      {
+        q: 'Can it schedule routine pump-outs and maintenance reminders?',
+        a: 'Absolutely. We configure your pump-out pricing and available schedule windows. Inbound scheduling calls book directly into your calendar. If you want to set up outbound reminders for existing customers, we can build that flow too — though that\'s a separate feature discussion.',
+      },
+      {
+        q: 'Real estate transactions have tight timelines. Can it prioritize inspection calls?',
+        a: 'Yes. Real estate inspection calls get a priority qualifier — closing date, buyer\'s agent contact, property address. These get flagged as time-sensitive and booked into your earliest available inspection slot. Realtors appreciate a company that answers and books immediately.',
+      },
+      {
+        q: 'Can it handle questions about different tank systems — aerobic, conventional, mound?',
+        a: 'We build your script around the systems you service. The agent can explain basic differences and confirm whether your company handles a specific system type. Complex technical questions get escalated to a callback, with the contact info and question already captured in your text.',
+      },
+      {
+        q: 'What about permit-related calls and municipality questions?',
+        a: 'AnswerCare collects permit inquiry details (address, type of work, county/municipality) and books a callback for those conversations — these typically require your direct involvement. The information is pre-gathered so the callback is efficient.',
+      },
+      {
+        q: 'I only service certain counties. Can it enforce my service area?',
+        a: 'Yes. We configure your service area by county, zip code, or radius. Callers outside your area are declined politely. For septic specifically, this matters — you don\'t want to drive 60 miles for a $350 pump-out.',
+      },
+    ],
+
+    testimonial: {
+      quote: 'Summer is our busiest season and I was missing calls while doing pump-outs. AnswerCare handled all of them. Best $199 I spend every month.',
+      name: 'Dave M.',
+      biz: 'Clearwater Septic',
+      city: 'Raleigh, NC',
+      stat: '+$3,400',
+      statLabel: 'first-month revenue increase',
+      avatarColor: '#4A6B5A',
+    },
+
+    primaryKeyword: 'ai answering service for septic companies',
+    secondaryKeywords: [
+      'septic company answering service',
+      'phone answering for septic service',
+      'septic pumping call answering',
+      'ai receptionist for septic company',
+      '24 hour septic answering service',
+    ],
+    longTailKeywords: [
+      'best answering service for septic company',
+      'septic emergency call answering service',
+      'never miss a septic service call',
+      'ai phone agent for septic business',
+      'answering service for septic pumping company',
+    ],
+    relatedTrades: ['plumbers', 'pest-control', 'roofers'],
+  },
 }
 
 export const tradeKeys = Object.keys(tradesData) as (keyof typeof tradesData)[]
