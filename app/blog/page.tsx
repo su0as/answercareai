@@ -8,10 +8,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'AnswerCare AI Blog — Contractor Call & Revenue Guides',
     description: 'How much are missed calls costing you? Data-driven guides for every trade.',
-    url: 'https://answercareai.com/blog',
+    url: 'https://www.answercareai.com/blog',
     type: 'website',
   },
-  alternates: { canonical: 'https://answercareai.com/blog' },
+  alternates: { canonical: 'https://www.answercareai.com/blog' },
 }
 
 const posts = [
@@ -70,8 +70,8 @@ export default function BlogIndex() {
         '@type': 'Blog',
         name: 'AnswerCare AI Blog',
         description: 'Data-driven guides on missed call costs, AI answering, and phone strategy for home service contractors.',
-        url: 'https://answercareai.com/blog',
-        publisher: { '@type': 'Organization', name: 'AnswerCare AI', url: 'https://answercareai.com' },
+        url: 'https://www.answercareai.com/blog',
+        publisher: { '@type': 'Organization', name: 'AnswerCare AI', url: 'https://www.answercareai.com' },
       })}} />
 
       {/* Header */}

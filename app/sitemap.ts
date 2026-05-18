@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next'
 
-const BASE = 'https://answercareai.com'
+const BASE = 'https://www.answercareai.com'
 const NOW  = new Date()
 
 export default function sitemap(): MetadataRoute.Sitemap {

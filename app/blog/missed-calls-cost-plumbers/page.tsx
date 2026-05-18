@@ -8,10 +8,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'How Much Revenue Are Missed Calls Costing Plumbers?',
     description: 'The average plumbing shop misses 2–3 calls per day. That\'s $800+ in revenue leaking daily. Here\'s the math.',
-    url: 'https://answercareai.com/blog/missed-calls-cost-plumbers',
+    url: 'https://www.answercareai.com/blog/missed-calls-cost-plumbers',
     type: 'article',
   },
-  alternates: { canonical: 'https://answercareai.com/blog/missed-calls-cost-plumbers' },
+  alternates: { canonical: 'https://www.answercareai.com/blog/missed-calls-cost-plumbers' },
 }
 
 const jsonLd = {
@@ -21,9 +21,9 @@ const jsonLd = {
   description: 'Data-driven analysis of how missed calls translate to lost revenue for plumbing businesses, with a concrete calculator and fix.',
   datePublished: '2025-05-14',
   dateModified: '2025-05-14',
-  author: { '@type': 'Organization', name: 'AnswerCare AI', url: 'https://answercareai.com' },
-  publisher: { '@type': 'Organization', name: 'AnswerCare AI', url: 'https://answercareai.com' },
-  mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://answercareai.com/blog/missed-calls-cost-plumbers' },
+  author: { '@type': 'Organization', name: 'AnswerCare AI', url: 'https://www.answercareai.com' },
+  publisher: { '@type': 'Organization', name: 'AnswerCare AI', url: 'https://www.answercareai.com' },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://www.answercareai.com/blog/missed-calls-cost-plumbers' },
 }
 
 const faqJsonLd = {

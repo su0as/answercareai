@@ -8,10 +8,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Ringwell Alternative for Trades — AnswerCare AI',
     description: 'Ringwell answers calls. AnswerCare books jobs. See the real difference for trade contractors.',
-    url: 'https://answercareai.com/compare/ringwell-alternative',
+    url: 'https://www.answercareai.com/compare/ringwell-alternative',
     type: 'article',
   },
-  alternates: { canonical: 'https://answercareai.com/compare/ringwell-alternative' },
+  alternates: { canonical: 'https://www.answercareai.com/compare/ringwell-alternative' },
 }
 
 const rows: [string, string, string][] = [
@@ -39,7 +39,7 @@ export default function RingwellAlternativePage() {
         headline: 'Ringwell Alternative for Trade Contractors — AnswerCare vs Ringwell',
         description: 'Detailed comparison of Ringwell vs AnswerCare AI for plumbers, HVAC, electricians, and other trade contractors.',
         author: { '@type': 'Organization', name: 'AnswerCare AI' },
-        publisher: { '@type': 'Organization', name: 'AnswerCare AI', url: 'https://answercareai.com' },
+        publisher: { '@type': 'Organization', name: 'AnswerCare AI', url: 'https://www.answercareai.com' },
       })}} />
 
       {/* Hero */}

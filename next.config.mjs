@@ -5,11 +5,11 @@ const nextConfig = {
   },
   async redirects() {
     return [
-      // Force www → non-www (301 permanent)
+      // Force non-www → www (301 permanent)
       {
         source: '/:path*',
-        has: [{ type: 'host', value: 'www.answercareai.com' }],
-        destination: 'https://answercareai.com/:path*',
+        has: [{ type: 'host', value: 'answercareai.com' }],
+        destination: 'https://www.answercareai.com/:path*',
         permanent: true,
       },
     ]

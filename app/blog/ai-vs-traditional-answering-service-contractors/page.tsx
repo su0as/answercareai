@@ -8,10 +8,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'AI vs Traditional Answering Service for Contractors',
     description: 'Traditional takes a message. AI books the job. Here\'s the honest comparison.',
-    url: 'https://answercareai.com/blog/ai-vs-traditional-answering-service-contractors',
+    url: 'https://www.answercareai.com/blog/ai-vs-traditional-answering-service-contractors',
     type: 'article',
   },
-  alternates: { canonical: 'https://answercareai.com/blog/ai-vs-traditional-answering-service-contractors' },
+  alternates: { canonical: 'https://www.answercareai.com/blog/ai-vs-traditional-answering-service-contractors' },
 }
 
 const jsonLd = {
@@ -21,9 +21,9 @@ const jsonLd = {
   description: 'A direct comparison of AI vs human answering services for plumbers, HVAC techs, electricians, and other home service contractors.',
   datePublished: '2025-05-14',
   dateModified: '2025-05-14',
-  author: { '@type': 'Organization', name: 'AnswerCare AI', url: 'https://answercareai.com' },
-  publisher: { '@type': 'Organization', name: 'AnswerCare AI', url: 'https://answercareai.com' },
-  mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://answercareai.com/blog/ai-vs-traditional-answering-service-contractors' },
+  author: { '@type': 'Organization', name: 'AnswerCare AI', url: 'https://www.answercareai.com' },
+  publisher: { '@type': 'Organization', name: 'AnswerCare AI', url: 'https://www.answercareai.com' },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://www.answercareai.com/blog/ai-vs-traditional-answering-service-contractors' },
 }
 
 const rows: [string, string, string][] = [

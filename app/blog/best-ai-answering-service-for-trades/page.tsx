@@ -8,10 +8,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Best AI Answering Service for Contractors & Trades in 2025',
     description: 'We tested 5 AI answering options for home service contractors. Here\'s what actually works.',
-    url: 'https://answercareai.com/blog/best-ai-answering-service-for-trades',
+    url: 'https://www.answercareai.com/blog/best-ai-answering-service-for-trades',
     type: 'article',
   },
-  alternates: { canonical: 'https://answercareai.com/blog/best-ai-answering-service-for-trades' },
+  alternates: { canonical: 'https://www.answercareai.com/blog/best-ai-answering-service-for-trades' },
 }
 
 const jsonLd = {
@@ -21,9 +21,9 @@ const jsonLd = {
   description: 'Tested comparison of AI answering services built for home service contractors — pickup speed, job booking, voice quality, and pricing.',
   datePublished: '2025-05-14',
   dateModified: '2025-05-14',
-  author: { '@type': 'Organization', name: 'AnswerCare AI', url: 'https://answercareai.com' },
-  publisher: { '@type': 'Organization', name: 'AnswerCare AI', url: 'https://answercareai.com' },
-  mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://answercareai.com/blog/best-ai-answering-service-for-trades' },
+  author: { '@type': 'Organization', name: 'AnswerCare AI', url: 'https://www.answercareai.com' },
+  publisher: { '@type': 'Organization', name: 'AnswerCare AI', url: 'https://www.answercareai.com' },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://www.answercareai.com/blog/best-ai-answering-service-for-trades' },
 }
 
 export default function BestAIAnsweringServiceTrades() {

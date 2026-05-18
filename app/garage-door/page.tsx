@@ -11,12 +11,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: data.seoTitle,
     description: data.seoDescription,
-    url: `https://answercareai.com/garage-door`,
+    url: `https://www.answercareai.com/garage-door`,
     siteName: 'AnswerCare AI',
     type: 'website',
   },
   twitter: { card: 'summary_large_image', title: data.seoTitle, description: data.seoDescription },
-  alternates: { canonical: `https://answercareai.com/garage-door` },
+  alternates: { canonical: `https://www.answercareai.com/garage-door` },
 }
 
 export default function Page() {

@@ -9,10 +9,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'AI Answering Service for Contractors | AnswerCare AI',
     description: 'Stop losing jobs to voicemail. AnswerCare answers every call in under 2 seconds and books the job — for every trade.',
-    url: 'https://answercareai.com/contractors',
+    url: 'https://www.answercareai.com/contractors',
     type: 'website',
   },
-  alternates: { canonical: 'https://answercareai.com/contractors' },
+  alternates: { canonical: 'https://www.answercareai.com/contractors' },
 }
 
 const trades = [
@@ -35,7 +35,7 @@ export default function ContractorsPage() {
         '@type': 'Service',
         name: 'AI Answering Service for Contractors',
         description: 'AnswerCare AI answers every contractor call 24/7, books jobs, and texts the tech the details. Built for all home service trades.',
-        provider: { '@type': 'Organization', name: 'AnswerCare AI', url: 'https://answercareai.com' },
+        provider: { '@type': 'Organization', name: 'AnswerCare AI', url: 'https://www.answercareai.com' },
         serviceType: 'AI Phone Answering Service',
         audience: { '@type': 'BusinessAudience', audienceType: 'Home service contractors and solo trade operators' },
         offers: { '@type': 'Offer', price: '199', priceCurrency: 'USD' },

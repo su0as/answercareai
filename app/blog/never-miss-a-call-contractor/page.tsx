@@ -8,10 +8,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'How to Never Miss a Customer Call as a Solo Contractor',
     description: 'A practical 3-step system. No receptionist needed. Every call covered.',
-    url: 'https://answercareai.com/blog/never-miss-a-call-contractor',
+    url: 'https://www.answercareai.com/blog/never-miss-a-call-contractor',
     type: 'article',
   },
-  alternates: { canonical: 'https://answercareai.com/blog/never-miss-a-call-contractor' },
+  alternates: { canonical: 'https://www.answercareai.com/blog/never-miss-a-call-contractor' },
 }
 
 const jsonLd = {

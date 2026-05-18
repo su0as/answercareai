@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: data.seoTitle,
     description: data.seoDescription,
-    url: `https://answercareai.com/locksmiths`,
+    url: `https://www.answercareai.com/locksmiths`,
     siteName: 'AnswerCare AI',
     type: 'website',
   },
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     description: data.seoDescription,
   },
   alternates: {
-    canonical: `https://answercareai.com/locksmiths`,
+    canonical: `https://www.answercareai.com/locksmiths`,
   },
 }
 

@@ -8,10 +8,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Best Answering Service for Plumbers in 2025 — Ranked',
     description: 'We compared 6 options. One books the job. Here\'s how they stack up for plumbing shops.',
-    url: 'https://answercareai.com/blog/best-answering-service-for-plumbers',
+    url: 'https://www.answercareai.com/blog/best-answering-service-for-plumbers',
     type: 'article',
   },
-  alternates: { canonical: 'https://answercareai.com/blog/best-answering-service-for-plumbers' },
+  alternates: { canonical: 'https://www.answercareai.com/blog/best-answering-service-for-plumbers' },
 }
 
 const jsonLd = {
@@ -21,9 +21,9 @@ const jsonLd = {
   description: 'Comparison of the top 6 answering services for plumbing businesses, ranked by pickup speed, booking capability, and price.',
   datePublished: '2025-05-14',
   dateModified: '2025-05-14',
-  author: { '@type': 'Organization', name: 'AnswerCare AI', url: 'https://answercareai.com' },
-  publisher: { '@type': 'Organization', name: 'AnswerCare AI', url: 'https://answercareai.com' },
-  mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://answercareai.com/blog/best-answering-service-for-plumbers' },
+  author: { '@type': 'Organization', name: 'AnswerCare AI', url: 'https://www.answercareai.com' },
+  publisher: { '@type': 'Organization', name: 'AnswerCare AI', url: 'https://www.answercareai.com' },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://www.answercareai.com/blog/best-answering-service-for-plumbers' },
 }
 
 const services = [

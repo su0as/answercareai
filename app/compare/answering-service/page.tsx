@@ -8,10 +8,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'AI vs Traditional Answering Service — Which Grows Your Trade Business?',
     description: 'Traditional answering services take messages. AnswerCare books jobs. Here\'s the real difference for solo trade operators.',
-    url: 'https://answercareai.com/compare/answering-service',
+    url: 'https://www.answercareai.com/compare/answering-service',
     type: 'article',
   },
-  alternates: { canonical: 'https://answercareai.com/compare/answering-service' },
+  alternates: { canonical: 'https://www.answercareai.com/compare/answering-service' },
 }
 
 const scenarios = [
@@ -47,7 +47,7 @@ export default function AnsweringServiceComparisonPage() {
         headline: 'AI Answering Service vs Traditional Answering Service for Trade Contractors',
         description: 'A detailed comparison of AI-powered answering services vs traditional human answering services for solo plumbers, HVAC, electricians, and other trade operators.',
         author: { '@type': 'Organization', name: 'AnswerCare AI' },
-        publisher: { '@type': 'Organization', name: 'AnswerCare AI', url: 'https://answercareai.com' },
+        publisher: { '@type': 'Organization', name: 'AnswerCare AI', url: 'https://www.answercareai.com' },
       })}} />
 
       {/* Hero */}
