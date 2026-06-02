@@ -34,7 +34,7 @@ export default function StickyCTA() {
             boxShadow: '0 0 0 4px rgba(159,226,176,.2)',
             animation: 'blink 1.6s infinite',
           }} />
-          <span><strong>14 days free.</strong> $497 setup · cancel before day 15 and owe nothing more.</span>
+          <span><strong>Every unanswered call is lost revenue.</strong> Start a pilot — pay only for jobs we recover.</span>
         </div>
         <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
           <a href="tel:+17542276342" className="mono" style={{ fontSize: 13, color: 'rgba(246,244,238,.7)' }}>

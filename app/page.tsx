@@ -6,45 +6,42 @@ import HomeFAQ from '@/components/HomeFAQ'
 import { CALENDLY_SETUP_CALL_URL } from '@/lib/links'
 
 export const metadata: Metadata = {
-  title: 'AI Phone Agent for One-Person Trades | AnswerCare AI',
+  title: 'Missed-Call Revenue Recovery for Service Businesses | AnswerCare AI',
   description:
-    'Stop losing jobs to voicemail. AI phone agent for solo trade operators — answers every call in under 2 seconds, qualifies the customer, books the job. 14 days free.',
+    'Every unanswered call is revenue your competitor books. AnswerCare answers every call in under 2 seconds, qualifies the caller, and books the job — for HVAC, plumbing, electrical, property management, dental practices, and law firms.',
 }
 
-// ─── Hero headline variants ───────────────────────────────────────────────────
+// ─── Hero headline ────────────────────────────────────────────────────────────
 function HeadlineRender() {
   return (
     <h1 style={{ textWrap: 'balance' } as React.CSSProperties}>
-      What is voicemail{' '}
+      How much revenue walks out the door every time a call goes{' '}
       <span className="serif" style={{ fontStyle: 'italic', color: 'var(--pain)', position: 'relative', whiteSpace: 'nowrap' }}>
-        actually
+        unanswered?
         <svg
           style={{ position: 'absolute', left: -2, right: -2, bottom: -6, width: 'calc(100% + 4px)' }}
           height="12" viewBox="0 0 200 12" preserveAspectRatio="none"
         >
           <path d="M2 9 Q 50 2, 100 7 T 198 6" stroke="var(--pain)" strokeWidth="2" fill="none" strokeLinecap="round" />
         </svg>
-      </span>{' '}
-      costing your shop?
+      </span>
     </h1>
   )
 }
 
 // ─── Comparison table ─────────────────────────────────────────────────────────
-// Cols ordered by how relevant they are to a one-truck operator:
-// Voicemail (where they are now) → Answering service (the $150-300 option they know) →
-// Named AI competitors (Ringwell $49/mo) → AnswerCare
-const compCols = ['Voicemail', 'Answering service', 'Ringwell / Voios / Capta', 'AnswerCare']
+const compCols = ['Voicemail', 'Answering service', 'DIY AI tools', 'AnswerCare']
 const compRows: [string, string[]][] = [
-  ['Cost / mo',              ['$0',         '$150–300',      '$49–99',            '$199']],
-  ['Setup fee',              ['—',          '$0–50',         '$0 (self-serve)',    '$497 one-time']],
-  ['Pickup time',            ['—',          '2–4 rings',     '< 3 sec',           '< 2 sec']],
-  ['Available 24/7',         ['—',          'business hours','✓',                 '✓ Always']],
-  ['Knows your trade',       ['—',          'generic script','basic prompts',      '✓ Custom script']],
-  ['Books in your calendar', ['—',          'takes message', '—',                 '✓ Automatic']],
-  ['SMS to you + customer',  ['—',          'sometimes',     '—',                 '✓ Every call']],
-  ['Setup in < 1 day',       ['instant',    '1–2 weeks',     'self-serve',        '✓ Same day']],
-  ['Approx cost-per-job',    ['∞ lost',     '~$45',          '~$18',              '~$4']],
+  ['Cost / mo',                        ['$0',         '$200–600',       '$49–99',             '$500–1,500']],
+  ['Picks up in < 2 sec',              ['—',          '2–5 rings',      '< 3 sec',            '✓ Every time']],
+  ['Available 24/7',                   ['—',          'varies',         '✓',                  '✓ Always']],
+  ['Knows your business + script',     ['—',          'generic script', 'basic prompts',       '✓ Custom per line']],
+  ['Books into your calendar',         ['—',          'takes message',  '—',                  '✓ Automatic']],
+  ['Routes details to your team',      ['—',          'sometimes',      '—',                  '✓ Every call']],
+  ['Recovers your old missed leads',   ['—',          '—',              '—',                  '✓ Included in Scale']],
+  ['Setup in < 1 day',                 ['instant',    '1–2 weeks',      'self-serve (hours)', '✓ Same day']],
+  ['Done-for-you — no config',         ['—',          '✓',              '—',                  '✓']],
+  ['Approx cost per booked job',       ['∞ lost',     '~$45',           '~$18',               '~$9–28']],
 ]
 
 export default function HomePage() {
@@ -55,7 +52,7 @@ export default function HomePage() {
       <section data-screen-label="01 Hero" className="section" style={{ paddingTop: 64, paddingBottom: 64 }}>
         <div className="wrap">
           <div className="eyebrow" style={{ marginBottom: 24 }}>
-            <span className="dot pain" />For plumbers, electricians, HVAC, locksmiths · 24/7/365
+            <span className="dot pain" />For growing service businesses, practices &amp; property managers · every call answered, every job captured
           </div>
 
           <div className="hero-grid">
@@ -65,12 +62,12 @@ export default function HomePage() {
               <HeadlineRender />
 
               <p style={{
-                fontSize: 19, lineHeight: 1.5, color: 'var(--ink-2)',
+                fontSize: 19, lineHeight: 1.55, color: 'var(--ink-2)',
                 marginTop: 32, maxWidth: 520,
               }}>
-                AnswerCare answers every call in under 2 seconds, qualifies the customer,
-                books the job, and texts you the details — while you&apos;re on a ladder, under
-                a sink, or halfway through a drive.
+                AnswerCare answers every call in under 2 seconds — daytime overflow, after-hours, lunch rushes,
+                holidays — qualifies the caller, books the job, and routes the details to your team. You stop
+                paying for missed calls and start recovering the revenue they were worth.
               </p>
 
               {/* Phone CTA block */}
@@ -90,13 +87,13 @@ export default function HomePage() {
                   </a>
                 </div>
                 <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
-                  <a href="https://whop.com/answercare-ai/answercare-for-solo-trade-operators/" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-                    Start 14 days free <span className="arrow">→</span>
+                  <a href="#calc" className="btn btn-primary">
+                    See your missed-revenue number <span className="arrow">→</span>
                   </a>
-                  <a href="#demo" className="btn btn-ghost">Hear it work</a>
+                  <a href={CALENDLY_SETUP_CALL_URL} target="_blank" rel="noopener noreferrer" className="btn btn-ghost">Book a 15-min revenue audit</a>
                 </div>
                 <div className="mono" style={{ fontSize: 11, color: 'var(--muted)', marginTop: 12, letterSpacing: '.04em' }}>
-                  $497 setup · 14 days free · then $199/mo · cancel anytime with 7 days notice
+                  Plans from $500/mo · Or start with a performance pilot — pay only for jobs we recover
                 </div>
               </div>
 
@@ -106,7 +103,7 @@ export default function HomePage() {
                   ['< 2 sec', 'pickup time'],
                   ['24/7/365', 'always on'],
                   ['100%', 'calls logged + recorded'],
-                  ['5 days', 'average setup'],
+                  ['1 day', 'average go-live'],
                 ].map(([v, l]) => (
                   <div key={l}>
                     <div className="num" style={{ fontSize: 22, fontWeight: 500, letterSpacing: '-.02em' }}>{v}</div>
@@ -123,7 +120,7 @@ export default function HomePage() {
               </div>
               <HomeLiveDemo autoplay={true} />
               <div className="mono" style={{ fontSize: 11, color: 'var(--muted)', marginTop: 12, letterSpacing: '.04em', textAlign: 'center' }}>
-                Recordings anonymized · all calls reviewed by you
+                Same engine handles emergency trades calls, new-patient intake, tenant maintenance requests, and new-client screening · all calls reviewed by you
               </div>
             </div>
 
@@ -138,20 +135,21 @@ export default function HomePage() {
       }}>
         <div className="wrap trust-grid">
           <div>
-            <div className="num" style={{ fontSize: 36, fontWeight: 500, letterSpacing: '-.02em' }}>847</div>
+            <div className="num" style={{ fontSize: 36, fontWeight: 500, letterSpacing: '-.02em' }}>[VERIFY]</div>
             <div className="mono" style={{ fontSize: 11, color: 'var(--muted)', letterSpacing: '.06em' }}>
-              ONE-TRUCK<br />OPERATIONS<br />RUNNING IT
+              GROWING TEAMS<br />RUNNING IT<br />&nbsp;
             </div>
           </div>
+          {/* ILLUSTRATIVE — swap for real clients as won */}
           <div className="marquee">
             <div className="marquee-track">
               {[
-                'McNeil Plumbing', 'Apex HVAC Co.', 'Riverstone Electrical',
-                "Hank's Locksmith", 'Sierra Roofing', 'Bluebird Pest Control',
-                'Iron Tree Service', 'Northwest Septic', 'TwoBros Heating',
-                'McNeil Plumbing', 'Apex HVAC Co.', 'Riverstone Electrical',
-                "Hank's Locksmith", 'Sierra Roofing', 'Bluebird Pest Control',
-                'Iron Tree Service', 'Northwest Septic', 'TwoBros Heating',
+                'Meridian HVAC Group', 'Crestview Property Mgmt', 'Lakeside Dental Associates',
+                'Thornton & Park Law', 'Summit Plumbing Co.', 'Harborview Pest Control',
+                'Keystone Electrical Services', 'Pineridge Roofing', 'Atlas Property Group',
+                'Meridian HVAC Group', 'Crestview Property Mgmt', 'Lakeside Dental Associates',
+                'Thornton & Park Law', 'Summit Plumbing Co.', 'Harborview Pest Control',
+                'Keystone Electrical Services', 'Pineridge Roofing', 'Atlas Property Group',
               ].map((n, i) => (
                 <span key={i} className="serif" style={{
                   fontSize: 28, color: 'var(--ink-2)', letterSpacing: '-.01em', whiteSpace: 'nowrap',
@@ -172,16 +170,16 @@ export default function HomePage() {
           <div className="section-head">
             <div>
               <div className="eyebrow" style={{ marginBottom: 14 }}>
-                <span className="dot pain" />The truth
+                <span className="dot pain" />The leak
               </div>
               <h2 style={{ maxWidth: 760 }}>
-                <span className="serif" style={{ fontStyle: 'italic' }}>Most</span> trades miss{' '}
-                <br />30–40% of inbound calls.
+                <span className="serif" style={{ fontStyle: 'italic' }}>Most</span> growing businesses miss{' '}
+                <br />25–40% of inbound calls. <span style={{ color: 'var(--muted)', fontSize: '0.65em', fontStyle: 'normal' }} className="mono">[VERIFY STAT]</span>
               </h2>
             </div>
             <p style={{ maxWidth: 360, color: 'var(--muted)', fontSize: 16, paddingTop: 12 }}>
-              Each missed call is a job that never existed.
-              Drag the sliders below — see what voicemail is actually costing your shop.
+              During overflow, lunch, and after-hours, each missed call is a job, patient, tenant request,
+              or new client that quietly went to a competitor. Adjust the sliders to see your number.
             </p>
           </div>
           <HomeROICalc />
@@ -198,29 +196,29 @@ export default function HomePage() {
                 <span className="dot pain" />A story
               </div>
               <h2 className="serif" style={{ fontStyle: 'italic', color: '#fff' }}>
-                It&apos;s 2:43 PM.<br />You&apos;re under a sink.
+                It&apos;s 2:43 PM.<br />Your front desk is on two other lines.
               </h2>
               <div style={{
                 marginTop: 28, fontSize: 18, lineHeight: 1.55, color: 'rgba(244,240,230,.8)',
                 maxWidth: 560, display: 'flex', flexDirection: 'column', gap: 14,
               }}>
-                <p>A customer calls with an emergency lockout — a $185 job that needs someone on-site in an hour. Your phone rings twice. You can&apos;t reach it. They hit voicemail. They hang up.</p>
-                <p>They call the next locksmith on Google. They book with him.</p>
+                <p>A caller with an urgent, high-value need — emergency repair, new-patient appointment, flooding tenant, new-client inquiry — rings through. Three rings. Voicemail. Hang up.</p>
+                <p>They call the next name on Google and book there.</p>
                 <p style={{ color: '#fff', fontWeight: 500, fontSize: 21 }} className="serif">
-                  &ldquo;You just lost a job you didn&apos;t know existed.&rdquo;
+                  &ldquo;You just lost revenue you never saw on a report.&rdquo;
                 </p>
                 <p style={{ color: 'rgba(244,240,230,.6)', fontSize: 14 }}>
-                  An answering service costs $150–300/mo — and takes a message. It doesn&apos;t book the job.
+                  A human answering service costs $200–600/mo — and takes a message. It doesn&apos;t book the job, fill the appointment, or capture the tenant.
                 </p>
               </div>
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
               {[
-                { n: '85%',   label: 'of voicemail callers never call back', accent: false },
-                { n: '4–12×', label: 'how often a tech is unreachable in an average work day', accent: false },
-                { n: '$4,200',label: 'average monthly revenue lost to voicemail', accent: true },
-                { n: '67%',   label: 'of the missed calls go answered by a competitor', accent: false },
+                { n: '85%',   label: 'of voicemail callers never call back [VERIFY]', accent: false },
+                { n: '1 in 4+', label: 'calls go unanswered during peak hours and after-hours [VERIFY]', accent: false },
+                { n: '$900+', label: 'avg monthly plan cost — pays for itself with one recovered booking', accent: true },
+                { n: 'mins',  label: 'most unanswered callers book with a competitor within minutes [VERIFY]', accent: false },
               ].map(({ n, label, accent }) => (
                 <div key={n} style={{
                   padding: '22px 24px',
@@ -254,11 +252,11 @@ export default function HomePage() {
                 <span className="dot good" />Real calls. Anonymized.
               </div>
               <h2 style={{ maxWidth: 720 }}>
-                <span className="serif" style={{ fontStyle: 'italic' }}>Hear</span> exactly what your customer hears.
+                <span className="serif" style={{ fontStyle: 'italic' }}>Hear</span> exactly what your caller hears.
               </h2>
             </div>
             <p style={{ maxWidth: 380, color: 'var(--muted)', paddingTop: 12 }}>
-              Three recordings of the same service line, captured this week. Listen, then call our demo line yourself to test it live.
+              Illustrative samples across business types — after-hours emergencies, new-patient intake, tenant requests, new-client screening. Call our demo line to test it live.
             </p>
           </div>
           <HomeRealCalls />
@@ -329,11 +327,10 @@ export default function HomePage() {
               </div>
             ))}
           </div>
-
           </div>{/* end table-scroll */}
           <div className="mono" style={{ fontSize: 12, color: 'var(--muted)', marginTop: 18, letterSpacing: '.04em' }}>
-            Answering service pricing from industry averages · Ringwell public pricing $49/mo ·
-            cost-per-job assumes 50 booked jobs / mo · AnswerCare data from live customers
+            Answering service pricing from industry averages · DIY AI tools (Ringwell, Voios) public pricing $49–99/mo ·
+            cost-per-job assumes 50 booked jobs/mo · AnswerCare tiers $500–1,500/mo
           </div>
         </div>
       </section>
@@ -349,7 +346,7 @@ export default function HomePage() {
               <div className="eyebrow" style={{ marginBottom: 14 }}>How it works</div>
               <h2 style={{ maxWidth: 780 }}>
                 Live by the end of the day.{' '}
-                <br /><span className="serif" style={{ fontStyle: 'italic', color: 'var(--muted)' }}>No port. No commitment.</span>
+                <br /><span className="serif" style={{ fontStyle: 'italic', color: 'var(--muted)' }}>Revenue in the first week.</span>
               </h2>
             </div>
           </div>
@@ -357,16 +354,16 @@ export default function HomePage() {
           <div className="grid" style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}>
             {[
               {
-                n: '01', t: 'Setup', sub: 'Day 1 · 15 min',
-                body: '15-minute discovery call. We learn your trade, service area, rates, job types, and how you want calls handled. We write your custom call script. You review and approve.',
+                n: '01', t: 'Revenue audit', sub: 'Day 1 · 15 min',
+                body: 'We review your call volume, after-hours gaps, average job value, and your existing list of old or missed leads. We map exactly where revenue is leaking — before we charge you a dollar.',
               },
               {
-                n: '02', t: 'Go live', sub: 'Day 1 · 1 hr',
-                body: 'We forward your existing phone line. Every incoming call is answered in under 2 seconds. Bookings land in your calendar and your SMS inbox.',
+                n: '02', t: 'Go live + reactivate', sub: 'Day 1 · 1 hr',
+                body: 'We answer overflow and after-hours calls in under 2 seconds — and launch a reactivation campaign on your dormant leads. Bookings route directly to your team and calendar.',
               },
               {
-                n: '03', t: '14 free days', sub: 'Days 2–15',
-                body: 'Monthly billing starts on day 15 after go-live — not before. AnswerCare is live with real callers for two full weeks. Cancel before day 15 and you pay nothing beyond the $497 setup. Continue and you pay $199/month.',
+                n: '03', t: 'Prove it in revenue', sub: 'Days 2–15',
+                body: 'You see booked jobs and recovered revenue, attributed and logged. Continue on a monthly plan or stay on performance — your call. If you cancel before day 15, you pay nothing beyond the onboarding fee.',
               },
             ].map((s) => (
               <div key={s.n} className="card" style={{ padding: '28px 28px 32px', position: 'relative' }}>
@@ -380,118 +377,194 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ══ 07b PERFORMANCE PILOT ════════════════════════════════════════════ */}
+      <section className="section" id="pilot" data-screen-label="07b Pilot" style={{ paddingTop: 64, paddingBottom: 64 }}>
+        <div className="wrap-narrow">
+          <div style={{
+            background: 'var(--ink)', color: '#F4F0E6',
+            borderRadius: 24, padding: '48px 52px',
+            position: 'relative', overflow: 'hidden',
+          }}>
+            <svg style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', opacity: .05, pointerEvents: 'none' }}>
+              <defs>
+                <pattern id="dots-pilot" width="24" height="24" patternUnits="userSpaceOnUse">
+                  <circle cx="1" cy="1" r="1" fill="#fff" />
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#dots-pilot)" />
+            </svg>
+            <div style={{ position: 'relative', maxWidth: 680 }}>
+              <div className="eyebrow" style={{ color: 'rgba(244,240,230,.55)', marginBottom: 14 }}>
+                <span className="dot good" />No retainer. No risk.
+              </div>
+              <h2 style={{ color: '#fff', fontSize: 'clamp(28px, 4vw, 48px)', letterSpacing: '-.03em', lineHeight: 1.05, marginBottom: 20 }}>
+                Not ready to commit?<br />
+                <span className="serif" style={{ fontStyle: 'italic' }}>Start with a performance pilot.</span>
+              </h2>
+              <p style={{ fontSize: 18, color: 'rgba(244,240,230,.8)', lineHeight: 1.6, marginBottom: 28 }}>
+                Give us your list of missed calls and old leads. We re-contact them, qualify them, and book
+                the ready-to-buy ones onto your calendar. You pay only a share of the revenue we recover —
+                or a flat fee per booked job. No retainer. No risk. If we don&apos;t book you jobs, you don&apos;t pay.
+              </p>
+              <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+                <a href={CALENDLY_SETUP_CALL_URL} target="_blank" rel="noopener noreferrer"
+                  className="btn btn-accent" style={{ padding: '16px 24px', fontSize: 16 }}>
+                  Start a performance pilot <span className="arrow">→</span>
+                </a>
+                <a href="#calc" className="btn" style={{
+                  background: 'rgba(255,255,255,.08)', color: '#F4F0E6',
+                  border: '1px solid rgba(255,255,255,.18)',
+                  padding: '16px 24px', fontSize: 16,
+                }}>
+                  See your revenue number first
+                </a>
+              </div>
+              <div className="mono" style={{ fontSize: 11, color: 'rgba(244,240,230,.45)', marginTop: 20, letterSpacing: '.04em' }}>
+                Performance pilots convert to a monthly plan once we&apos;ve proven the revenue. Available to businesses with an existing customer or lead list.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ══ 08 PRICING ═══════════════════════════════════════════════════════ */}
       <section className="section" id="pricing" data-screen-label="08 Pricing">
-        <div className="wrap-narrow">
+        <div className="wrap">
           <div className="section-head" style={{ justifyContent: 'center', textAlign: 'center', flexDirection: 'column', gap: 12 }}>
             <div className="eyebrow">
               <span className="dot accent" />Pricing
             </div>
             <h2 style={{ maxWidth: 700, margin: '0 auto' }}>
-              One price. <span className="serif" style={{ fontStyle: 'italic' }}>No per-call fees.</span> No tiers.
+              Pricing that pays for itself <span className="serif" style={{ fontStyle: 'italic' }}>in recovered jobs.</span>
             </h2>
           </div>
 
-          <div className="pricing-inner" style={{
-            background: 'var(--ink)', color: '#F4F0E6',
-            borderRadius: 24, padding: 48,
-            position: 'relative', overflow: 'hidden',
-          }}>
-            {/* Decorative dots */}
-            <svg style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', opacity: .05, pointerEvents: 'none' }}>
-              <defs>
-                <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
-                  <circle cx="1" cy="1" r="1" fill="#fff" />
-                </pattern>
-              </defs>
-              <rect width="100%" height="100%" fill="url(#dots)" />
-            </svg>
-
-            {/* Left: price + features */}
-            <div style={{ position: 'relative' }}>
-              <div className="eyebrow" style={{ color: 'rgba(244,240,230,.55)', marginBottom: 14 }}>Single plan</div>
-              <div style={{ display: 'flex', alignItems: 'baseline', gap: 8, marginBottom: 18 }}>
-                <span className="num serif" style={{ fontSize: 'clamp(72px, 9vw, 128px)', lineHeight: 1, letterSpacing: '-.04em', color: '#fff' }}>$199</span>
-                <span style={{ color: 'rgba(244,240,230,.7)', fontSize: 18 }}>/ month</span>
-              </div>
-              <div style={{
-                display: 'inline-flex', gap: 8, alignItems: 'center',
-                padding: '8px 14px', borderRadius: 999,
-                background: 'rgba(31,68,255,.18)', border: '1px solid rgba(31,68,255,.4)',
-                color: '#BFCFFF', fontSize: 13, fontWeight: 500, marginBottom: 28,
-              }}>
-                <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#7B9CFF' }} />
-                First 14 live days are free
-              </div>
-
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 10, fontSize: 15.5 }}>
-                {[
-                  'Unlimited calls — never a per-call fee',
-                  '24/7/365 coverage',
-                  'Custom script for your trade',
-                  'Bookings into your existing calendar',
-                  'SMS notifications to tech + customer',
+          <div className="grid" style={{ gridTemplateColumns: 'repeat(3, 1fr)', gap: 24, alignItems: 'start' }}>
+            {[
+              {
+                name: 'Recover',
+                price: '$500',
+                tag: null,
+                desc: 'After-hours + overflow answered. Jobs booked. Revenue attributed.',
+                features: [
+                  'After-hours + overflow call answering',
+                  'Caller qualification + booking to calendar',
+                  'SMS/email routing to your team',
                   'Spam + robocall filtering',
-                  'Monthly performance report',
+                  'Monthly recovered-revenue report',
                   'Cancel anytime — 7 days notice',
-                ].map((l) => (
-                  <div key={l} style={{ display: 'flex', gap: 12, alignItems: 'center', color: 'rgba(244,240,230,.85)' }}>
-                    <span style={{
-                      width: 18, height: 18, borderRadius: '50%',
-                      background: 'rgba(159,226,176,.18)', color: '#9FE2B0',
-                      display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      fontSize: 11, fontWeight: 700, flex: '0 0 auto',
-                    }}>✓</span>
-                    {l}
+                ],
+                note: 'Best for a single busy location.',
+                cta: 'Start recovering →',
+              },
+              {
+                name: 'Grow',
+                price: '$900',
+                tag: 'MOST POPULAR',
+                desc: '24/7 coverage, multi-line routing, CRM integration, quarterly optimization.',
+                features: [
+                  'Everything in Recover',
+                  '24/7 coverage — no gaps',
+                  'Multi-location / multi-line routing',
+                  'Custom scripts per service line',
+                  'CRM + dispatch integration',
+                  'Quarterly script + performance review',
+                ],
+                note: 'Best for 3–10 trucks or a multi-provider practice.',
+                cta: 'Start growing →',
+              },
+              {
+                name: 'Scale',
+                price: '$1,500',
+                tag: null,
+                desc: 'Dedicated numbers, dormant-lead reactivation, bilingual, dedicated success manager.',
+                features: [
+                  'Everything in Grow',
+                  'Dedicated number per location',
+                  'Priority escalation rules',
+                  'Dormant-lead reactivation campaigns',
+                  'Dedicated success manager',
+                  'Bilingual handling (EN + ES)',
+                ],
+                note: 'Best for property managers, multi-site groups, high-volume intake.',
+                cta: 'Start scaling →',
+              },
+            ].map((tier, i) => (
+              <div key={tier.name} className="card" style={{
+                padding: 0, overflow: 'hidden',
+                background: i === 1 ? 'var(--ink)' : undefined,
+                color: i === 1 ? '#F4F0E6' : undefined,
+                position: 'relative',
+              }}>
+                {tier.tag && (
+                  <div style={{
+                    background: 'var(--accent)', color: '#fff',
+                    fontSize: 11, fontWeight: 600, letterSpacing: '.08em',
+                    padding: '8px 20px', textAlign: 'center',
+                  }} className="mono">{tier.tag}</div>
+                )}
+                <div style={{ padding: '28px 28px 32px' }}>
+                  <div className="mono" style={{ fontSize: 11, letterSpacing: '.08em', color: i === 1 ? 'rgba(244,240,230,.55)' : 'var(--muted)', marginBottom: 8 }}>
+                    {tier.name.toUpperCase()}
                   </div>
-                ))}
+                  <div style={{ display: 'flex', alignItems: 'baseline', gap: 6, marginBottom: 8 }}>
+                    <span className="num serif" style={{ fontSize: 56, lineHeight: 1, letterSpacing: '-.03em', color: i === 1 ? '#fff' : 'var(--ink)' }}>
+                      {tier.price}
+                    </span>
+                    <span style={{ color: i === 1 ? 'rgba(244,240,230,.6)' : 'var(--muted)', fontSize: 16 }}>/mo</span>
+                  </div>
+                  <p style={{ fontSize: 14, color: i === 1 ? 'rgba(244,240,230,.7)' : 'var(--muted)', marginBottom: 20, lineHeight: 1.5 }}>
+                    {tier.desc}
+                  </p>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 9, marginBottom: 24 }}>
+                    {tier.features.map(f => (
+                      <div key={f} style={{ display: 'flex', gap: 10, alignItems: 'flex-start', fontSize: 14.5 }}>
+                        <span style={{
+                          width: 18, height: 18, borderRadius: '50%', flexShrink: 0, marginTop: 2,
+                          background: i === 1 ? 'rgba(159,226,176,.18)' : 'rgba(14,14,12,.06)',
+                          color: i === 1 ? '#9FE2B0' : 'var(--ink)',
+                          display: 'flex', alignItems: 'center', justifyContent: 'center',
+                          fontSize: 11, fontWeight: 700,
+                        }}>✓</span>
+                        <span style={{ color: i === 1 ? 'rgba(244,240,230,.85)' : 'var(--ink-2)', lineHeight: 1.45 }}>{f}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <div style={{ fontSize: 12, color: i === 1 ? 'rgba(244,240,230,.45)' : 'var(--muted)', marginBottom: 20, fontStyle: 'italic' }}>
+                    {tier.note}
+                  </div>
+                  <a href={CALENDLY_SETUP_CALL_URL} target="_blank" rel="noopener noreferrer"
+                    className={`btn ${i === 1 ? 'btn-accent' : ''}`}
+                    style={{
+                      justifyContent: 'center', width: '100%',
+                      ...(i !== 1 ? { background: 'transparent', border: '1px solid var(--line)', color: 'var(--ink)' } : {}),
+                    }}>
+                    {tier.cta}
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Setup fee + risk reversal */}
+          <div style={{
+            marginTop: 28, padding: '24px 28px',
+            border: '1px solid var(--line)', borderRadius: 16,
+            display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+            flexWrap: 'wrap', gap: 20,
+          }}>
+            <div>
+              <div className="mono" style={{ fontSize: 11, letterSpacing: '.08em', color: 'var(--muted)', marginBottom: 6 }}>ONE-TIME ONBOARDING FEE</div>
+              <div style={{ fontSize: 16, fontWeight: 600 }}>$497–$997 depending on tier</div>
+              <div style={{ fontSize: 14, color: 'var(--muted)', marginTop: 4 }}>
+                Discovery, custom scripts, voice tuning, calendar + CRM wiring. Non-refundable — this is the real work.
               </div>
             </div>
-
-            {/* Right: setup fee + CTAs */}
-            <div style={{ position: 'relative' }}>
-              <div style={{
-                background: 'rgba(255,255,255,.04)',
-                border: '1px solid rgba(255,255,255,.12)',
-                borderRadius: 18, padding: 28,
-              }}>
-                <div className="mono" style={{ fontSize: 11, letterSpacing: '.08em', color: 'rgba(244,240,230,.55)', marginBottom: 12 }}>
-                  ONE-TIME SETUP FEE
-                </div>
-                <div className="num serif" style={{ fontSize: 56, lineHeight: 1, letterSpacing: '-.03em', color: '#fff' }}>$497</div>
-                <p style={{ color: 'rgba(244,240,230,.7)', fontSize: 14, marginTop: 12 }}>
-                  Discovery, script writing, voice tuning, calendar + SMS integration. Non-refundable — this is the real work.
-                </p>
-                <div style={{
-                  marginTop: 14,
-                  padding: '10px 14px', borderRadius: 10,
-                  background: 'rgba(159,226,176,.10)', border: '1px solid rgba(159,226,176,.25)',
-                  color: '#9FE2B0', fontSize: 13,
-                }}>
-                  Your 14-day free trial starts immediately — no $199/mo charge until day 15. Cancel before then and you owe nothing more.
-                </div>
-              </div>
-
-              <div style={{ marginTop: 24, display: 'flex', flexDirection: 'column', gap: 12 }} id="start">
-                <a
-                  href="https://whop.com/answercare-ai/answercare-for-solo-trade-operators/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-accent"
-                  style={{ justifyContent: 'center', padding: '18px 24px', fontSize: 17 }}
-                >
-                  Start your 14 free days <span className="arrow">→</span>
-                </a>
-                <a href={CALENDLY_SETUP_CALL_URL} target="_blank" rel="noopener noreferrer" className="btn" style={{
-                  background: 'transparent', color: '#F4F0E6',
-                  border: '1px solid rgba(255,255,255,.18)',
-                  justifyContent: 'center', padding: '18px 24px', fontSize: 17,
-                }}>
-                  Or book a 15-min setup call
-                </a>
-                <div className="mono" style={{ fontSize: 11, color: 'rgba(244,240,230,.5)', textAlign: 'center', letterSpacing: '.04em', marginTop: 6 }}>
-                  No port-out. No long contracts. No surprise fees.
-                </div>
+            <div style={{ textAlign: 'right' }}>
+              <div style={{ fontSize: 14, color: 'var(--ink-2)', maxWidth: 340, lineHeight: 1.55 }}>
+                Or skip the retainer entirely — start with a{' '}
+                <a href="#pilot" style={{ color: 'var(--accent)', fontWeight: 500 }}>performance pilot</a>{' '}
+                and pay only for recovered jobs.
               </div>
             </div>
           </div>
@@ -504,37 +577,31 @@ export default function HomePage() {
           <div className="section-head">
             <div>
               <div className="eyebrow" style={{ marginBottom: 14 }}>
-                <span className="dot good" />Operators
+                <span className="dot good" />Results
               </div>
               <h2 style={{ maxWidth: 680 }}>
-                <span className="serif" style={{ fontStyle: 'italic' }}>Quiet</span> phones make for loud pipelines.
+                <span className="serif" style={{ fontStyle: 'italic' }}>Recovered</span> jobs, attributed and logged.
               </h2>
             </div>
           </div>
           <div className="grid" style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}>
             {[
               {
-                q: "First week, AnswerCare booked four jobs I would have missed. Paid for itself by Tuesday.",
-                name: 'Marcus W.', biz: 'McNeil Plumbing · Boise, ID',
-                stat: '+$3,200', statLabel: 'first week revenue',
+                segment: 'Home Services (HVAC / Plumbing)',
                 color: '#5A6F8E',
               },
               {
-                q: "I stopped pulling over to answer the phone. My wife stopped fielding scheduling calls at dinner. That alone is worth it.",
-                name: 'Devon R.', biz: 'Apex HVAC · Reno, NV',
-                stat: '47 hrs', statLabel: 'reclaimed in month one',
+                segment: 'Dental / Medical Practice',
                 color: '#7A5B43',
               },
               {
-                q: "I was paying a service for $480 that mostly just took messages. AnswerCare actually books the job. Different sport.",
-                name: 'Hank S.', biz: "Hank's Locksmith · Sacramento, CA",
-                stat: '−$281', statLabel: 'savings vs old service',
+                segment: 'Property Management',
                 color: '#3F5D4D',
               },
             ].map((t, i) => (
               <div key={i} className="card" style={{ padding: '28px 28px 24px', display: 'flex', flexDirection: 'column', gap: 20 }}>
-                <div className="serif" style={{ fontSize: 24, lineHeight: 1.25, letterSpacing: '-.01em', color: 'var(--ink)' }}>
-                  &ldquo;{t.q}&rdquo;
+                <div className="serif" style={{ fontSize: 20, lineHeight: 1.35, letterSpacing: '-.01em', color: 'var(--muted)', fontStyle: 'italic' }}>
+                  [REAL TESTIMONIAL NEEDED]
                 </div>
                 <div style={{
                   marginTop: 'auto', display: 'flex', justifyContent: 'space-between',
@@ -546,18 +613,18 @@ export default function HomePage() {
                       width: 42, height: 42, borderRadius: '50%',
                       background: `linear-gradient(135deg, ${t.color}, var(--ink))`,
                       color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      fontSize: 14, fontWeight: 600,
+                      fontSize: 12, fontWeight: 600,
                     }}>
-                      {t.name.split(' ').map((s: string) => s[0]).join('')}
+                      ?
                     </div>
                     <div style={{ fontSize: 13.5 }}>
-                      <div style={{ fontWeight: 500 }}>{t.name}</div>
-                      <div style={{ color: 'var(--muted)', fontSize: 12 }}>{t.biz}</div>
+                      <div style={{ fontWeight: 500 }}>[Name, Title]</div>
+                      <div style={{ color: 'var(--muted)', fontSize: 12 }}>{t.segment}</div>
                     </div>
                   </div>
                   <div style={{ textAlign: 'right' }}>
-                    <div className="num" style={{ fontSize: 22, fontWeight: 600, color: 'var(--accent)', letterSpacing: '-.02em' }}>{t.stat}</div>
-                    <div className="mono" style={{ fontSize: 10, color: 'var(--muted)', letterSpacing: '.04em' }}>{t.statLabel}</div>
+                    <div className="num" style={{ fontSize: 18, fontWeight: 600, color: 'var(--muted)', letterSpacing: '-.02em' }}>—</div>
+                    <div className="mono" style={{ fontSize: 10, color: 'var(--muted)', letterSpacing: '.04em' }}>add real result</div>
                   </div>
                 </div>
               </div>
@@ -583,33 +650,33 @@ export default function HomePage() {
       <section className="section" data-screen-label="11 CTA" style={{ paddingTop: 120, paddingBottom: 120 }}>
         <div className="wrap-narrow" style={{ textAlign: 'center' }}>
           <div className="eyebrow" style={{ marginBottom: 18, justifyContent: 'center', display: 'inline-flex' }}>
-            <span className="dot pain" />Every ring you miss is a job your competitor books
+            <span className="dot pain" />Every unanswered call is revenue your competitor books
           </div>
           <h2 style={{
             fontSize: 'clamp(48px, 6.4vw, 96px)', letterSpacing: '-.035em', lineHeight: .98,
           }}>
-            Stop leaking jobs.<br />
-            <span className="serif" style={{ fontStyle: 'italic' }}>Pick up by Friday.</span>
+            Stop the leak.<br />
+            <span className="serif" style={{ fontStyle: 'italic' }}>Start recovering.</span>
           </h2>
           <p style={{ fontSize: 18, color: 'var(--ink-2)', maxWidth: 540, margin: '24px auto 0' }}>
-            Setup takes 15 minutes. Live by end of day. First 14 days free.
+            Get your missed-revenue number in 15 minutes. Start with a pilot — pay only for what we recover.
           </p>
           <div style={{ display: 'inline-flex', gap: 12, marginTop: 40, flexWrap: 'wrap', justifyContent: 'center' }}>
             <a
-              href="https://whop.com/answercare-ai/answercare-for-solo-trade-operators/"
+              href={CALENDLY_SETUP_CALL_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-accent"
               style={{ padding: '18px 28px', fontSize: 17 }}
             >
-              Start free →
+              Start a performance pilot →
             </a>
-            <a href="tel:+17542276342" className="btn btn-ghost" style={{ padding: '18px 28px', fontSize: 17 }}>
-              Call our demo line: (754) 227-6342
+            <a href={CALENDLY_SETUP_CALL_URL} target="_blank" rel="noopener noreferrer" className="btn btn-ghost" style={{ padding: '18px 28px', fontSize: 17 }}>
+              Book a revenue audit
             </a>
           </div>
           <div className="mono" style={{ fontSize: 11, color: 'var(--muted)', marginTop: 24, letterSpacing: '.06em' }}>
-            AVERAGE GO-LIVE: 5 DAYS · NO LONG CONTRACTS · CANCEL WITH 7 DAYS NOTICE
+            GO LIVE IN 1 DAY · NO LONG CONTRACTS · CANCEL WITH 7 DAYS NOTICE
           </div>
         </div>
       </section>

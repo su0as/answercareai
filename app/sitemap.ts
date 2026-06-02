@@ -23,6 +23,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // ── Umbrella / hub pages ──────────────────────────────────────────────
     { url: `${BASE}/contractors`,                      lastModified: NOW, changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${BASE}/missed-revenue`,                   lastModified: NOW, changeFrequency: 'monthly', priority: 0.95 },
+    { url: `${BASE}/home-services`,                    lastModified: NOW, changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${BASE}/property-management`,              lastModified: NOW, changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${BASE}/dental-medical`,                   lastModified: NOW, changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${BASE}/law-firms`,                        lastModified: NOW, changeFrequency: 'monthly', priority: 0.9 },
 
     // ── Other vertical pages ──────────────────────────────────────────────
     { url: `${BASE}/dental`,                           lastModified: NOW, changeFrequency: 'monthly', priority: 0.8 },

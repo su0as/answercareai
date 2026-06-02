@@ -75,7 +75,7 @@ export default function HomeROICalc() {
   const missedPerMonth   = calls * 22
   const recoverableJobs  = missedPerMonth * (close / 100)
   const recoveredRevenue = recoverableJobs * job
-  const acCost           = 199
+  const acCost           = 900  // default Grow plan
   const net              = recoveredRevenue - acCost
   const multiple         = recoveredRevenue / acCost
 
@@ -108,28 +108,28 @@ export default function HomeROICalc() {
         <div className="eyebrow" style={{ marginBottom: 18 }}>
           <span className="dot pain" />Your numbers
         </div>
-        <h3 style={{ marginBottom: 6 }}>What is voicemail costing you?</h3>
+        <h3 style={{ marginBottom: 6 }}>What are unanswered calls costing you?</h3>
         <p style={{ color: 'var(--muted)', fontSize: 14.5 }}>Drag the sliders. We do the math.</p>
 
         <CalcRow
-          label="Calls you miss per workday"
-          sub="Phone rings, you're on a roof or under a sink."
+          label="Calls that go unanswered per day"
+          sub="Overflow, after-hours, or when your team is on another line."
           value={calls} min={1} max={20} step={1} unit=""
           onChange={setCalls}
-          hint={`≈ ${fmt(missedPerMonth)} missed calls / month`}
+          hint={`≈ ${fmt(missedPerMonth)} unanswered calls / month`}
         />
         <CalcRow
-          label="Average job ticket"
-          sub="Typical revenue per booked job."
+          label="Average value of a booked job / client / patient"
+          sub="Typical revenue per booked appointment or job."
           value={job} min={150} max={3000} step={25} unit="$"
           onChange={setJob}
         />
         <CalcRow
           label="Close rate on answered calls"
-          sub="Of the people who reach you, how many book?"
+          sub="Of callers who reach a person, how many convert?"
           value={close} min={10} max={70} step={1} unit="%"
           onChange={setClose}
-          hint="Industry median for trades is 28–34%."
+          hint="Industry median for home services is 28–34%."
         />
       </div>
 
@@ -162,11 +162,11 @@ export default function HomeROICalc() {
         </div>
 
         <div style={{ marginTop: 20, display: 'flex', flexDirection: 'column', gap: 14, fontSize: 14.5 }}>
-          <Stat label="Recoverable jobs / mo"  value={fmt(recoverableJobs)} />
-          <Stat label="Revenue back in pocket"  value={fmtMoney(recoveredRevenue)} accent />
-          <Stat label="AnswerCare flat fee"     value={`– ${fmtMoney(acCost)}`} muted />
+          <Stat label="Recoverable bookings / mo"  value={fmt(recoverableJobs)} />
+          <Stat label="Revenue back in pocket"     value={fmtMoney(recoveredRevenue)} accent />
+          <Stat label="AnswerCare Grow plan"        value={`– ${fmtMoney(acCost)}`} muted />
           <div style={{ height: 1, background: 'rgba(244,240,230,.18)', margin: '6px 0' }} />
-          <Stat label="Net upside"              value={fmtMoney(Math.max(0, net))} bold />
+          <Stat label="Net upside"                  value={fmtMoney(Math.max(0, net))} bold />
         </div>
 
         <div style={{ marginTop: 28, display: 'flex', gap: 10, flexWrap: 'wrap' }}>
@@ -182,7 +182,7 @@ export default function HomeROICalc() {
         </div>
 
         <div className="mono" style={{ fontSize: 11, color: 'rgba(244,240,230,.5)', marginTop: 18, letterSpacing: '.05em' }}>
-          MATH: {fmt(missedPerMonth)} × {close}% × {fmtMoney(job)} − {fmtMoney(acCost)} = {fmtMoney(Math.max(0, net))}
+          MATH: {fmt(missedPerMonth)} × {close}% × {fmtMoney(job)} − {fmtMoney(acCost)} = {fmtMoney(Math.max(0, net))} · Illustrative — adjust to your real numbers. We&apos;ll verify them live.
         </div>
       </div>
     </div>

@@ -4,32 +4,36 @@ import { useState } from 'react'
 
 const items = [
   {
-    q: "Will customers know it's an AI?",
-    a: "Most don't — and you can choose either way. Default voice is warm, conversational, and identifies as 'a service from [your business].' If you'd rather it disclose, we have a one-line script for that too. We'll show you both before you go live.",
+    q: "Will my callers know it's not my front desk?",
+    a: "Most don't — and you can choose either way. The voice is warm, conversational, and introduces itself as a service from your business. If you prefer full disclosure, we have a one-line script for that too. We'll show you both options before you go live. The goal is for every caller to feel heard immediately — not to guess whether they're talking to a person.",
   },
   {
-    q: "What happens with truly weird calls?",
-    a: "If a call falls outside your script — irate customer, vendor dispute, a question we genuinely can't answer — AnswerCare immediately texts you a live transcript and books a callback in your calendar. For true emergencies (gas leak, flooding, dangerous situation), it can be configured to ring your personal cell directly, skipping the queue entirely. Nothing gets dropped, nothing gets made up.",
+    q: "How does this work with my existing team — does it replace them?",
+    a: "It handles overflow and after-hours — it never replaces your people. When your team is on another line, at lunch, or after hours, AnswerCare catches what would otherwise go to voicemail. Your front desk, office manager, or dispatcher stays in charge of the calendar and customer relationships. We just make sure nothing falls through when they can't get to the phone.",
   },
   {
-    q: "I've managed 20 years without this — why change now?",
-    a: "Because the technology only became good enough in the last 12 months. Every year before that, AI voice was robotic, full of awkward pauses, and lost customers the moment they heard it. That's no longer true. The same AI powering tools like ChatGPT now handles nuanced trade calls — emergency lockouts, pricing questions, scheduling changes — without sounding like a phone tree. The operators moving first are capturing calls their competitors still send to voicemail.",
+    q: "We use [CRM / dispatch / PMS] — does it integrate?",
+    a: "We integrate with Google Calendar, Outlook, Housecall Pro, Jobber, ServiceM8, and any iCal-compatible tool. For property management software (Buildium, AppFolio, Rent Manager), legal practice software, and dental/medical schedulers, we connect via calendar sync or direct API. We confirm your stack during the revenue audit before anything goes live.",
+  },
+  {
+    q: "How do you recover our old leads?",
+    a: "Give us your list — missed calls, old inquiries, dead leads from your CRM. We re-contact them on your behalf with a warm, scripted outreach, qualify the ones who are still in the market, and book the ready-to-buy ones onto your calendar. You see exactly which leads were contacted, which responded, and which booked — attributed and logged.",
+  },
+  {
+    q: "How is the performance pilot priced?",
+    a: "Performance pilots are priced as a share of recovered revenue or a flat per-booked-job fee — agreed upfront. No retainer. No monthly fee to start. If we don't book you measurable jobs, you don't pay for the pilot. Once we've proven the revenue, most pilots convert to a monthly plan within 30 days.",
+  },
+  {
+    q: "Is customer / patient / tenant data handled securely?",
+    a: "All call data is encrypted in transit and at rest. We do not sell or share caller data. For medical and dental practices, we maintain a privacy-forward posture and can discuss our compliance documentation — [LEGAL REVIEW NEEDED before making any specific HIPAA claims]. For legal and property management, data handling terms are reviewed during onboarding.",
   },
   {
     q: "Do I have to port my number?",
-    a: "No. We give you a forwarding number and you set conditional forwarding on your existing line — answers when you don't, after 1 ring or 4 rings (you pick). Your number stays yours. Cancel and forwarding is off in 5 minutes.",
+    a: "No. We give you a forwarding number and you set conditional forwarding on your existing line — forwards when your team doesn't answer after 1–4 rings (you pick). Your number stays yours. Cancel and forwarding is off in 5 minutes.",
   },
   {
-    q: "How does the 14 days free actually work?",
-    a: "You pay $497 for setup today — that covers discovery, script writing, voice tuning, and integration work. That fee is non-refundable. What's free is the first 14 days of live service: no $199/mo charge until day 15. If AnswerCare doesn't make sense by day 14, email us and we shut it down. You walk away having paid only for the setup. No retention call.",
-  },
-  {
-    q: "What if I already have a CRM or dispatch tool?",
-    a: "We integrate with Google Calendar, Housecall Pro, Jobber, ServiceM8, and any iCal-compatible tool. New jobs land where you already work. SMS, email, calendar — you pick.",
-  },
-  {
-    q: "Can it handle Spanish?",
-    a: "Yes. English + Spanish out of the box, with caller-language detection. Other languages on request.",
+    q: "What happens with calls that fall outside the script?",
+    a: "If a call falls outside your configured script — a complex complaint, a vendor dispute, a question we genuinely can't answer — AnswerCare immediately texts your team a live transcript and books a callback. For true emergencies (gas leak, flooding, urgent safety situation), it can be configured to ring your team's on-call number directly, bypassing the queue entirely. Nothing gets dropped.",
   },
 ]
 

@@ -2,22 +2,23 @@
 
 import { useState } from 'react'
 
+// ILLUSTRATIVE SAMPLES — replace with real anonymized calls as available
 const calls = [
   {
-    time: '11:47 PM', kind: 'Emergency lockout', sec: '1:12',
-    summary: 'Stranded customer in parking lot. Confirmed cross-streets, dispatched tech, sent ETA confirmation.',
+    time: '11:47 PM', kind: 'After-hours emergency repair', sec: '1:12',
+    summary: 'Emergency call after hours. Caller triaged, urgency confirmed, on-call tech dispatched, ETA texted to caller.',
   },
   {
-    time: 'Sat 7:02 AM', kind: 'Garage door off track', sec: '0:54',
-    summary: 'Homeowner can not get to work. Booked 9 AM same-day slot, collected gate code, verified address.',
+    time: 'Sat 8:14 AM', kind: 'New-patient appointment request', sec: '0:54',
+    summary: 'First-time caller requesting an appointment. Insurance and availability confirmed, booked directly into scheduler.',
   },
   {
-    time: 'Tue 1:21 PM', kind: 'Pricing inquiry — water heater', sec: '1:31',
-    summary: 'Quoted from your script, collected job details, scheduled in-home estimate. No callback required.',
+    time: 'Tue 1:21 PM', kind: 'Tenant maintenance / flooding', sec: '1:31',
+    summary: 'Tenant reporting water issue. Emergency flagged, property manager notified, maintenance dispatched same hour.',
   },
   {
-    time: 'Thu 6:48 AM', kind: 'Scheduling change request', sec: '0:43',
-    summary: 'Existing customer rescheduling. Updated calendar, texted tech, confirmed new arrival window.',
+    time: 'Thu 6:48 AM', kind: 'New-client intake screening', sec: '0:43',
+    summary: 'Prospective client inquiry. Screened against intake criteria, qualified lead, consultation booked on calendar.',
   },
 ]
 
