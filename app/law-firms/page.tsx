@@ -3,7 +3,7 @@ import HomeROICalc from '@/components/HomeROICalc'
 import { CALENDLY_SETUP_CALL_URL } from '@/lib/links'
 
 export const metadata: Metadata = {
-  title: 'After-Hours Intake & Lead Recovery for Law Firms | AnswerCare AI',
+  title: 'After-Hours Intake & Lead Recovery for Law Firms',
   description: 'In legal, the firm that answers first signs the client. Every missed intake call is a case that walks to another firm. AnswerCare answers 24/7, screens and qualifies intakes, and books consultations on your calendar.',
   keywords: 'answering service law firm, legal intake answering service, after hours legal intake, law firm phone answering, attorney answering service, new client intake answering',
   openGraph: {
@@ -129,8 +129,8 @@ export default function LawFirmsPage() {
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
               {[
-                { n: '1st', label: 'firm a prospect speaks with signs the case the majority of the time [VERIFY]', accent: false },
-                { n: '70%+', label: 'of legal intake calls come outside standard business hours [VERIFY STAT]', accent: false },
+                { n: '1st', label: 'firm a prospect speaks with usually signs the case — the first-responder advantage (HBR, 2011)', accent: false },
+                { n: 'After-hrs', label: 'legal emergencies don\'t wait for 9 AM — injury, arrest, and family crises happen 24/7', accent: false },
                 { n: '$K–$M', label: 'case value of each qualified intake — missed calls are expensive', accent: true },
                 { n: '24/7', label: 'legal emergencies don\'t wait for 9 AM on Monday', accent: false },
               ].map(({ n, label, accent }) => (

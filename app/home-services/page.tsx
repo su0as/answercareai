@@ -3,7 +3,7 @@ import HomeROICalc from '@/components/HomeROICalc'
 import { CALENDLY_SETUP_CALL_URL } from '@/lib/links'
 
 export const metadata: Metadata = {
-  title: 'Missed-Revenue Recovery for Home Services — HVAC, Plumbing, Electrical & More | AnswerCare AI',
+  title: 'Missed-Revenue Recovery for Home Services — HVAC, Plumbing, Electrical & More',
   description: 'Your techs are on jobs and your office can\'t catch every line during peak season. AnswerCare catches overflow and after-hours calls, books the high-ticket jobs, and recovers the revenue your competitors are picking up.',
   keywords: 'answering service home services, hvac answering service, plumbing phone answering, electrical contractor answering, home service overflow answering, after hours home services',
   openGraph: {
@@ -141,8 +141,8 @@ export default function HomeServicesPage() {
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
               {[
-                { n: '85%', label: 'of voicemail callers never call back [VERIFY]', accent: false },
-                { n: '25–40%', label: 'of inbound calls go unanswered during peak hours [VERIFY STAT]', accent: false },
+                { n: 'Most', label: 'voicemail callers never try again — they call the next contractor on the list', accent: false },
+                { n: '25–40%', label: 'of calls go unanswered during peak hours and after-hours — industry estimates', accent: false },
                 { n: '$900', label: 'Grow plan — one recovered high-ticket job pays for 3+ months', accent: true },
                 { n: 'mins', label: 'emergency callers book with a competitor within minutes of hitting voicemail', accent: false },
               ].map(({ n, label, accent }) => (

@@ -30,7 +30,7 @@ function HeadlineRender() {
 }
 
 // ─── Comparison table ─────────────────────────────────────────────────────────
-const compCols = ['Voicemail', 'Answering service', 'DIY AI tools', 'AnswerCare']
+const compCols = ['Voicemail', 'Answering service', 'Self-serve AI tools', 'AnswerCare']
 const compRows: [string, string[]][] = [
   ['Cost / mo',                        ['$0',         '$200–600',       '$49–99',             '$500–1,500']],
   ['Picks up in < 2 sec',              ['—',          '2–5 rings',      '< 3 sec',            '✓ Every time']],
@@ -174,12 +174,12 @@ export default function HomePage() {
               </div>
               <h2 style={{ maxWidth: 760 }}>
                 <span className="serif" style={{ fontStyle: 'italic' }}>Most</span> growing businesses miss{' '}
-                <br />25–40% of inbound calls. <span style={{ color: 'var(--muted)', fontSize: '0.65em', fontStyle: 'normal' }} className="mono">[VERIFY STAT]</span>
+                <br />25–40% of inbound calls during peak hours and after-hours.
               </h2>
             </div>
             <p style={{ maxWidth: 360, color: 'var(--muted)', fontSize: 16, paddingTop: 12 }}>
-              During overflow, lunch, and after-hours, each missed call is a job, patient, tenant request,
-              or new client that quietly went to a competitor. Adjust the sliders to see your number.
+              Industry estimates. During overflow, lunch, and after-hours, each missed call is a job, patient, tenant request,
+              or new client that quietly went to a competitor. Adjust the sliders to your real numbers.
             </p>
           </div>
           <HomeROICalc />
@@ -215,10 +215,10 @@ export default function HomePage() {
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
               {[
-                { n: '85%',   label: 'of voicemail callers never call back [VERIFY]', accent: false },
-                { n: '1 in 4+', label: 'calls go unanswered during peak hours and after-hours [VERIFY]', accent: false },
-                { n: '$900+', label: 'avg monthly plan cost — pays for itself with one recovered booking', accent: true },
-                { n: 'mins',  label: 'most unanswered callers book with a competitor within minutes [VERIFY]', accent: false },
+                { n: '100×',  label: 'more likely to reach a lead within 5 min vs. 30 min (MIT/InsideSales Lead Response Study; HBR 2011)', accent: false },
+                { n: '25–40%', label: 'of calls go unanswered during peak hours and after-hours — industry estimates', accent: false },
+                { n: '$900+', label: 'avg plan cost — one recovered booking typically covers 1–3 months', accent: true },
+                { n: '1st',   label: 'business to answer usually wins the job — the first responder advantage (Harvard Business Review, 2011)', accent: false },
               ].map(({ n, label, accent }) => (
                 <div key={n} style={{
                   padding: '22px 24px',
@@ -329,7 +329,7 @@ export default function HomePage() {
           </div>
           </div>{/* end table-scroll */}
           <div className="mono" style={{ fontSize: 12, color: 'var(--muted)', marginTop: 18, letterSpacing: '.04em' }}>
-            Answering service pricing from industry averages · DIY AI tools (Ringwell, Voios) public pricing $49–99/mo ·
+            Answering service pricing from industry averages · Self-serve AI tools public pricing $49–99/mo ·
             cost-per-job assumes 50 booked jobs/mo · AnswerCare tiers $500–1,500/mo
           </div>
         </div>
@@ -349,6 +349,10 @@ export default function HomePage() {
                 <br /><span className="serif" style={{ fontStyle: 'italic', color: 'var(--muted)' }}>Revenue in the first week.</span>
               </h2>
             </div>
+          </div>
+
+          <div className="mono" style={{ fontSize: 12, color: 'var(--muted)', marginBottom: 32, letterSpacing: '.03em', maxWidth: 640 }}>
+            Responding within 5 minutes makes a business up to 100× more likely to reach a lead than waiting 30 minutes — MIT/InsideSales Lead Response Study; Harvard Business Review, 2011.
           </div>
 
           <div className="grid" style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}>

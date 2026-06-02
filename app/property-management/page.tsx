@@ -3,7 +3,7 @@ import HomeROICalc from '@/components/HomeROICalc'
 import { CALENDLY_SETUP_CALL_URL } from '@/lib/links'
 
 export const metadata: Metadata = {
-  title: 'Missed-Revenue Recovery for Property Management Companies | AnswerCare AI',
+  title: 'Missed-Revenue Recovery for Property Management Companies',
   description: 'After-hours maintenance emergencies and leasing inquiries can\'t go to voicemail. AnswerCare answers 24/7, triages emergencies, captures every prospective tenant, and routes to the right person.',
   keywords: 'answering service property management, property management after hours answering, tenant emergency answering service, leasing inquiry answering, property manager phone answering',
   openGraph: {
@@ -129,7 +129,7 @@ export default function PropertyManagementPage() {
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
               {[
-                { n: '$60+', label: 'cost per day of an empty unit (at $1,800/mo rent) [VERIFY]', accent: false },
+                { n: '$60+', label: 'cost per day of an empty unit at $1,800/mo rent — your vacancy rate varies', accent: false },
                 { n: '24/7', label: 'maintenance emergencies don\'t wait for business hours', accent: false },
                 { n: '1st', label: 'prospective tenant to tour usually signs — speed to showing matters', accent: true },
                 { n: '∞', label: 'cost of an unanswered emergency that becomes a legal dispute', accent: false },

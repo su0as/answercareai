@@ -3,7 +3,7 @@ import HomeROICalc from '@/components/HomeROICalc'
 import { CALENDLY_SETUP_CALL_URL } from '@/lib/links'
 
 export const metadata: Metadata = {
-  title: 'Missed New-Patient Recovery for Dental & Medical Practices | AnswerCare AI',
+  title: 'Missed New-Patient Recovery for Dental & Medical Practices',
   description: 'Every missed new-patient call is thousands in lifetime value handed to the practice down the street. AnswerCare answers overflow and after-hours, books new patients into your scheduler, and never lets a first-time caller hit voicemail.',
   keywords: 'answering service dental practice, medical practice phone answering, new patient call answering, dental office overflow answering, medical front desk answering service',
   openGraph: {
@@ -129,8 +129,8 @@ export default function DentalMedicalPage() {
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
               {[
-                { n: '$8k+', label: 'average lifetime value of a dental patient [VERIFY STAT]', accent: false },
-                { n: '1 in 3', label: 'new-patient calls go unanswered during peak hours [VERIFY STAT]', accent: false },
+                { n: '$8k+', label: 'industry-cited average lifetime value of a dental patient — varies by practice', accent: false },
+                { n: 'Most', label: 'new-patient callers who hit voicemail don\'t call back — they call the next practice', accent: false },
                 { n: '1st', label: 'practice to answer usually books the new patient — speed wins', accent: true },
                 { n: '0', label: 'new patients should ever reach your voicemail', accent: false },
               ].map(({ n, label, accent }) => (

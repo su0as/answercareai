@@ -170,14 +170,14 @@ export default function HomeROICalc() {
         </div>
 
         <div style={{ marginTop: 28, display: 'flex', gap: 10, flexWrap: 'wrap' }}>
-          <a className="btn btn-accent" href="#pricing">
-            Start your 14 free days <span className="arrow">→</span>
+          <a className="btn btn-accent" href="#pilot">
+            Start a performance pilot <span className="arrow">→</span>
           </a>
           <a className="btn" style={{
             background: 'rgba(255,255,255,.08)', color: '#F4F0E6',
             border: '1px solid rgba(255,255,255,.18)',
-          }} href="#demo">
-            Hear it answer a call
+          }} href="#calc">
+            See your revenue number
           </a>
         </div>
 

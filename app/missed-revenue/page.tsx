@@ -3,7 +3,7 @@ import HomeROICalc from '@/components/HomeROICalc'
 import { CALENDLY_SETUP_CALL_URL } from '@/lib/links'
 
 export const metadata: Metadata = {
-  title: 'Missed-Call Revenue Recovery — AnswerCare AI',
+  title: 'Missed-Call Revenue Recovery',
   description: 'Every missed call is a job, patient, tenant, or client that booked with someone else. AnswerCare answers every call, recovers your old leads, and turns them into booked revenue. Start by paying only for what we recover.',
   keywords: 'missed call revenue recovery, answer every call business, missed revenue service business, recover lost leads, answering service revenue',
   openGraph: {
