@@ -51,7 +51,7 @@ export default function VerticalPage({ data }: VerticalPageProps) {
           href: `tel:+${data.demoPhone.replace(/\D/g, '')}`,
           phone: 'true',
         }}
-        trustBadges={['14-day free trial', 'No credit card', 'Full onboarding included']}
+        trustBadges={['Performance pilot available', 'Pay per recovered job', 'Full onboarding included']}
         accentButtonClass={data.accentButtonClass}
         accentButtonOutlineClass={data.accentButtonOutlineClass}
       />
@@ -167,7 +167,7 @@ export default function VerticalPage({ data }: VerticalPageProps) {
       {/* Final CTA */}
       <FinalCTA
         headline={`Your ${data.shortName.toLowerCase()} practice, reimagined.`}
-        subheadline="14-day free trial. Full onboarding. Dedicated account manager. No credit card required."
+        subheadline="Start with a performance pilot — pay only for recovered jobs. Full onboarding included. Plans from $500/mo."
         ctaPrimary={{ label: 'Start Free Trial', href: CALENDLY_SETUP_CALL_URL }}
         ctaSecondary={{ label: `Call Demo: ${data.demoPhone}`, href: `tel:+${data.demoPhone.replace(/\D/g, '')}` }}
         accentButtonClass="bg-bg-primary text-text-primary hover:bg-bg-secondary"

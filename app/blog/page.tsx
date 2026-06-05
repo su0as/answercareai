@@ -145,12 +145,12 @@ export default function BlogIndex() {
             Ready to stop missing calls?
           </h2>
           <p style={{ fontSize: 16, color: 'var(--ink-2)', maxWidth: 400, margin: '0 auto 32px' }}>
-            AnswerCare answers in under 2 seconds, qualifies the caller, and books the job. 14 days free.
+            AnswerCare answers in under 2 seconds, qualifies the caller, and books the job. Start with a performance pilot — pay only for what we recover.
           </p>
           <div style={{ display: 'inline-flex', gap: 10, flexWrap: 'wrap', justifyContent: 'center' }}>
-            <a href="https://whop.com/answercare-ai/answercare-for-solo-trade-operators/"
-              target="_blank" rel="noopener noreferrer" className="btn btn-accent">
-              Start 14 days free →
+            <a href="/missed-revenue#pilot"
+              className="btn btn-accent">
+              Start a performance pilot →
             </a>
             <a href={CALENDLY_SETUP_CALL_URL} target="_blank" rel="noopener noreferrer" className="btn btn-ghost">
               Book a setup call

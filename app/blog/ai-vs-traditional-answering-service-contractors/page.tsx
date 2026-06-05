@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { CALENDLY_SETUP_CALL_URL } from '@/lib/links'
 
 export const metadata: Metadata = {
-  title: 'AI Answering Service vs Traditional Answering Service for Contractors (2025)',
+  title: 'AI vs Traditional Answering Service for Contractors (2025)',
   description: 'Traditional services take a message. AI answering services book the job. The price difference is $0–150/mo. Here\'s what each actually does and which one earns its keep.',
   keywords: 'ai answering service vs traditional answering service contractors, ai phone answering vs human answering service, best answering service contractors, contractor answering service comparison',
   openGraph: {
@@ -12,6 +12,16 @@ export const metadata: Metadata = {
     type: 'article',
   },
   alternates: { canonical: 'https://www.answercareai.com/blog/ai-vs-traditional-answering-service-contractors' },
+}
+
+const breadcrumbLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.answercareai.com' },
+    { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://www.answercareai.com/blog' },
+    { '@type': 'ListItem', position: 3, name: 'AI vs Traditional Answering Service for Contractors', item: 'https://www.answercareai.com/blog/ai-vs-traditional-answering-service-contractors' },
+  ],
 }
 
 const jsonLd = {
@@ -33,7 +43,7 @@ const rows: [string, string, string][] = [
   ['After-call summary', 'Full transcript + job summary texted to you', 'Basic message relay'],
   ['Emergency routing', 'Can call your cell for true emergencies', 'Usually just takes a message'],
   ['Trade knowledge', 'Scripted for your specific trade + service area', 'Generic — no trade training'],
-  ['Pricing', '$150–250/mo flat rate (AnswerCare: $199)', '$150–600/mo (often per-minute overages)'],
+  ['Pricing', 'From $500/mo flat · performance pilot available', '$150–600/mo (often per-minute overages)'],
   ['Setup time', '15-minute setup call, live same day', 'Days to weeks for onboarding'],
   ['Quality consistency', 'Identical on every call', 'Varies by operator and time of day'],
   ['Scales with call volume', 'Yes — no per-minute cost increase', 'Often not — overages add up'],
@@ -42,6 +52,7 @@ const rows: [string, string, string][] = [
 export default function AIVsTraditionalAnsweringService() {
   return (
     <div>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       <section className="section" style={{ paddingTop: 64, paddingBottom: 48 }}>
@@ -197,7 +208,7 @@ export default function AIVsTraditionalAnsweringService() {
             {[
               ['Traditional (Ruby, AnswerConnect)', '$150–600/mo', 'Per-minute overages apply on busy days'],
               ['Traditional (budget options)', '$99–200/mo', 'Limited hours or message-relay only'],
-              ['AnswerCare AI', '$199/mo + $497 setup', 'Flat rate, no overages, books the job'],
+              ['AnswerCare AI', 'From $500/mo', 'Flat rate, no overages, books the job'],
             ].map(([name, price, note], i) => (
               <div key={name} style={{
                 display: 'grid', gridTemplateColumns: '1.5fr 1fr 1.5fr',
@@ -211,9 +222,9 @@ export default function AIVsTraditionalAnsweringService() {
             ))}
           </div>
           <p>
-            The $497 setup fee covers real work — script writing, voice tuning, calendar integration,
-            and emergency routing setup. After that, $199/month flat — no per-minute overages when
-            you have a busy day.
+            Plans start at $500/month flat — no per-minute overages when you have a busy day.
+            Not ready for a monthly plan? The performance pilot lets you start by paying only
+            for jobs we recover, with no retainer until you&apos;ve seen results.
           </p>
 
           <h2>The verdict</h2>
@@ -240,23 +251,23 @@ export default function AIVsTraditionalAnsweringService() {
       <section className="section" style={{ borderTop: '1px solid var(--line)', paddingTop: 64, paddingBottom: 80 }}>
         <div className="wrap-narrow" style={{ textAlign: 'center' }}>
           <h2 style={{ fontSize: 'clamp(28px, 4vw, 48px)', letterSpacing: '-.03em', lineHeight: 1, marginBottom: 16 }}>
-            Try the AI option free for 14 days.
+            See the difference — start a performance pilot.
           </h2>
           <p style={{ fontSize: 17, color: 'var(--ink-2)', maxWidth: 440, margin: '0 auto 36px', lineHeight: 1.6 }}>
-            Answers in under 2 seconds. Books the job. Texts you the summary. See the difference live — 14 days free.
+            Answers in under 2 seconds. Books the job. Texts you the summary. Pay only for jobs we recover — no retainer up front.
           </p>
           <div style={{ display: 'inline-flex', gap: 10, flexWrap: 'wrap', justifyContent: 'center' }}>
-            <a href="https://whop.com/answercare-ai/answercare-for-solo-trade-operators/"
+            <a href={CALENDLY_SETUP_CALL_URL}
               target="_blank" rel="noopener noreferrer" className="btn btn-accent" style={{ padding: '16px 26px', fontSize: 16 }}>
-              Start 14 days free →
+              Start a performance pilot →
             </a>
             <a href={CALENDLY_SETUP_CALL_URL} target="_blank" rel="noopener noreferrer"
               className="btn btn-ghost" style={{ padding: '16px 26px', fontSize: 16 }}>
-              Book a setup call
+              Book a revenue audit
             </a>
           </div>
           <div className="mono" style={{ fontSize: 11, color: 'var(--muted)', marginTop: 14, letterSpacing: '.04em' }}>
-            $497 setup · 14 days free · then $199/mo · cancel anytime
+            Performance pilot · pay per recovered job · plans from $500/mo
           </div>
           <div style={{ marginTop: 32, paddingTop: 28, borderTop: '1px solid var(--line-soft)' }}>
             <div style={{ fontSize: 13, color: 'var(--muted)', marginBottom: 12 }}>Related reading</div>

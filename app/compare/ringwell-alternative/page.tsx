@@ -53,14 +53,14 @@ export default function RingwellAlternativePage() {
             <span className="serif" style={{ fontStyle: 'italic', color: 'var(--accent)' }}>AnswerCare books jobs.</span>
           </h1>
           <p style={{ fontSize: 19, color: 'var(--ink-2)', maxWidth: 620, marginTop: 24, lineHeight: 1.55 }}>
-            Ringwell is a capable AI call router at $49/mo. AnswerCare is a job-booking system at $199/mo.
-            For contractors, the difference is the $150/mo delta vs. the jobs that actually get booked.
+            Ringwell is a capable AI call router at $49/mo. AnswerCare is a job-booking system from $500/mo.
+            For contractors, the question is: how many extra booked jobs per month does the difference cover?
           </p>
           <div style={{ display: 'flex', gap: 12, marginTop: 32, flexWrap: 'wrap' }}>
-            <a href="https://whop.com/answercare-ai/answercare-for-solo-trade-operators/"
-              target="_blank" rel="noopener noreferrer" className="btn btn-accent"
+            <a href="/missed-revenue#pilot"
+              className="btn btn-accent"
               style={{ padding: '16px 24px', fontSize: 16 }}>
-              Try AnswerCare free for 14 days →
+              Start a performance pilot →
             </a>
             <a href="tel:+17542276342" className="btn btn-ghost" style={{ padding: '16px 24px', fontSize: 16 }}>
               Call demo: (754) 227-6342
@@ -189,17 +189,17 @@ export default function RingwellAlternativePage() {
       <section className="section">
         <div className="wrap-narrow" style={{ textAlign: 'center' }}>
           <h2 style={{ maxWidth: 680, margin: '0 auto' }}>
-            Try AnswerCare free for 14 days.<br />
-            <span className="serif" style={{ fontStyle: 'italic', color: 'var(--muted)' }}>Keep Ringwell as a backup.</span>
+            Start a performance pilot.<br />
+            <span className="serif" style={{ fontStyle: 'italic', color: 'var(--muted)' }}>Pay only for jobs we recover.</span>
           </h2>
           <p style={{ fontSize: 17, color: 'var(--ink-2)', maxWidth: 480, margin: '20px auto 0' }}>
-            $497 setup. 14 days free. Then $199/mo. If it doesn&apos;t pay for itself, cancel — no retention call.
+            No retainer up front. We recover your missed leads — you pay only for booked jobs. Plans from $500/mo after.
           </p>
           <div style={{ display: 'inline-flex', gap: 12, marginTop: 36, flexWrap: 'wrap', justifyContent: 'center' }}>
-            <a href="https://whop.com/answercare-ai/answercare-for-solo-trade-operators/"
-              target="_blank" rel="noopener noreferrer" className="btn btn-accent"
+            <a href="/missed-revenue#pilot"
+              className="btn btn-accent"
               style={{ padding: '18px 28px', fontSize: 17 }}>
-              Start free →
+              Start a performance pilot →
             </a>
             <a href={CALENDLY_SETUP_CALL_URL} target="_blank" rel="noopener noreferrer"
               className="btn btn-ghost" style={{ padding: '18px 28px', fontSize: 17 }}>

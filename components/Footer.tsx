@@ -32,23 +32,58 @@ export default function Footer() {
   if (pathname?.startsWith('/trades')) return null
 
   return (
-    <footer style={{ borderTop: '1px solid var(--line)', padding: '36px 0', background: 'rgba(14,14,12,.02)' }}>
-      <div className="wrap" style={{
-        display: 'flex', justifyContent: 'space-between',
-        alignItems: 'center', gap: 24, flexWrap: 'wrap',
-      }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 24 }}>
-          <Logo />
-          <span className="mono" style={{ fontSize: 11, color: 'var(--muted)', letterSpacing: '.06em' }}>
-            EST. 2024 · AUSTIN, TX
-          </span>
+    <footer style={{ borderTop: '1px solid var(--line)', padding: '48px 0 36px', background: 'rgba(14,14,12,.02)' }}>
+      <div className="wrap">
+        {/* Top row: logo + columns */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'auto 1fr 1fr 1fr', gap: '40px 48px', marginBottom: 40 }}>
+          <div>
+            <Logo />
+            <div className="mono" style={{ fontSize: 11, color: 'var(--muted)', letterSpacing: '.06em', marginTop: 10 }}>
+              EST. 2024 · AUSTIN, TX
+            </div>
+            <a href="mailto:hello@answercareai.com" className="ulink" style={{ fontSize: 13, color: 'var(--muted)', display: 'block', marginTop: 10 }}>
+              hello@answercareai.com
+            </a>
+          </div>
+          <div>
+            <div style={{ fontSize: 11, fontFamily: 'var(--mono)', letterSpacing: '.08em', color: 'var(--muted)', marginBottom: 14 }}>SOLUTIONS</div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+              <Link href="/missed-revenue" className="ulink" style={{ fontSize: 13, color: 'var(--ink-2)' }}>Missed Revenue Recovery</Link>
+              <Link href="/home-services" className="ulink" style={{ fontSize: 13, color: 'var(--ink-2)' }}>Home Services</Link>
+              <Link href="/property-management" className="ulink" style={{ fontSize: 13, color: 'var(--ink-2)' }}>Property Management</Link>
+              <Link href="/dental-medical" className="ulink" style={{ fontSize: 13, color: 'var(--ink-2)' }}>Dental & Medical</Link>
+              <Link href="/law-firms" className="ulink" style={{ fontSize: 13, color: 'var(--ink-2)' }}>Law Firms</Link>
+            </div>
+          </div>
+          <div>
+            <div style={{ fontSize: 11, fontFamily: 'var(--mono)', letterSpacing: '.08em', color: 'var(--muted)', marginBottom: 14 }}>TRADES</div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+              <Link href="/plumbers" className="ulink" style={{ fontSize: 13, color: 'var(--ink-2)' }}>Plumbers</Link>
+              <Link href="/hvac" className="ulink" style={{ fontSize: 13, color: 'var(--ink-2)' }}>HVAC</Link>
+              <Link href="/electricians" className="ulink" style={{ fontSize: 13, color: 'var(--ink-2)' }}>Electricians</Link>
+              <Link href="/contractors" className="ulink" style={{ fontSize: 13, color: 'var(--ink-2)' }}>All Contractors</Link>
+              <Link href="/blog" className="ulink" style={{ fontSize: 13, color: 'var(--ink-2)' }}>Blog</Link>
+            </div>
+          </div>
+          <div>
+            <div style={{ fontSize: 11, fontFamily: 'var(--mono)', letterSpacing: '.08em', color: 'var(--muted)', marginBottom: 14 }}>COMPANY</div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+              <Link href="/product" className="ulink" style={{ fontSize: 13, color: 'var(--ink-2)' }}>How It Works</Link>
+              <Link href="/#pricing" className="ulink" style={{ fontSize: 13, color: 'var(--ink-2)' }}>Pricing</Link>
+              <Link href="/privacy" className="ulink" style={{ fontSize: 13, color: 'var(--ink-2)' }}>Privacy</Link>
+              <Link href="/terms" className="ulink" style={{ fontSize: 13, color: 'var(--ink-2)' }}>Terms</Link>
+              <Link href="/refund" className="ulink" style={{ fontSize: 13, color: 'var(--ink-2)' }}>Refund</Link>
+            </div>
+          </div>
         </div>
-        <div style={{ display: 'flex', gap: 24, fontSize: 13, color: 'var(--muted)', flexWrap: 'wrap' }}>
-          <Link href="/privacy" className="ulink">Privacy</Link>
-          <Link href="/terms" className="ulink">Terms</Link>
-          <Link href="/refund" className="ulink">Refund</Link>
-          <Link href="/product" className="ulink">How It Works</Link>
-          <a href="mailto:hello@answercareai.com" className="ulink">hello@answercareai.com</a>
+        {/* Bottom row */}
+        <div style={{ borderTop: '1px solid var(--line-soft)', paddingTop: 24, display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 12 }}>
+          <span className="mono" style={{ fontSize: 11, color: 'var(--muted)', letterSpacing: '.04em' }}>
+            © {new Date().getFullYear()} AnswerCare AI. All rights reserved.
+          </span>
+          <span style={{ fontSize: 12, color: 'var(--muted)' }}>
+            Plans from $500/mo · Performance pilot available
+          </span>
         </div>
       </div>
     </footer>

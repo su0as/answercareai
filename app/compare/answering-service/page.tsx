@@ -67,10 +67,10 @@ export default function AnsweringServiceComparisonPage() {
             AnswerCare qualifies, schedules, and confirms the booking in real time — 24/7, no hold times.
           </p>
           <div style={{ display: 'flex', gap: 12, marginTop: 32, flexWrap: 'wrap' }}>
-            <a href="https://whop.com/answercare-ai/answercare-for-solo-trade-operators/"
-              target="_blank" rel="noopener noreferrer" className="btn btn-accent"
+            <a href="/missed-revenue#pilot"
+              className="btn btn-accent"
               style={{ padding: '16px 24px', fontSize: 16 }}>
-              Start 14 days free →
+              Start a performance pilot →
             </a>
             <a href="tel:+17542276342" className="btn btn-ghost" style={{ padding: '16px 24px', fontSize: 16 }}>
               Call the demo line
@@ -231,13 +231,13 @@ export default function AnsweringServiceComparisonPage() {
             <span className="serif" style={{ fontStyle: 'italic' }}>Start getting booked jobs.</span>
           </h2>
           <p style={{ fontSize: 17, color: 'var(--ink-2)', maxWidth: 480, margin: '20px auto 0' }}>
-            $497 setup. First 14 days free. Then $199/mo. No per-call fees, no contracts.
+            Start with a performance pilot — pay only for jobs we recover, no retainer up front. Plans from $500/mo after.
           </p>
           <div style={{ display: 'inline-flex', gap: 12, marginTop: 36, flexWrap: 'wrap', justifyContent: 'center' }}>
-            <a href="https://whop.com/answercare-ai/answercare-for-solo-trade-operators/"
-              target="_blank" rel="noopener noreferrer" className="btn btn-accent"
+            <a href="/missed-revenue#pilot"
+              className="btn btn-accent"
               style={{ padding: '18px 28px', fontSize: 17 }}>
-              Start free →
+              Start a performance pilot →
             </a>
             <a href={CALENDLY_SETUP_CALL_URL} target="_blank" rel="noopener noreferrer"
               className="btn btn-ghost" style={{ padding: '18px 28px', fontSize: 17 }}>

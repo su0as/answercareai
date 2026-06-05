@@ -14,6 +14,16 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://www.answercareai.com/blog/missed-calls-cost-plumbers' },
 }
 
+const breadcrumbLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.answercareai.com' },
+    { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://www.answercareai.com/blog' },
+    { '@type': 'ListItem', position: 3, name: 'How Much Revenue Are Missed Calls Costing Plumbers?', item: 'https://www.answercareai.com/blog/missed-calls-cost-plumbers' },
+  ],
+}
+
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Article',
@@ -56,6 +66,7 @@ const faqJsonLd = {
 export default function MissedCallsCostPlumbers() {
   return (
     <div>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
@@ -271,8 +282,8 @@ export default function MissedCallsCostPlumbers() {
               },
               {
                 opt: 'Option 3: AI answering service (AnswerCare)',
-                cost: '$199/mo + $497 setup',
-                note: 'Answers in under 2 seconds 24/7. Qualifies the caller. Books the appointment directly. Texts you the full transcript. Handles emergency routing.',
+                cost: 'From $500/mo · pilot available',
+                note: 'Answers in under 2 seconds 24/7. Qualifies the caller. Books the appointment directly. Texts you the full transcript. Handles emergency routing. Start with a performance pilot — pay only for recovered jobs.',
                 good: true,
               },
             ].map(({ opt, cost, note, good }) => (
@@ -292,7 +303,7 @@ export default function MissedCallsCostPlumbers() {
 
           <p>
             The math on AnswerCare: if you&apos;re missing 2 calls per day and recovering even 1 of them,
-            you&apos;re generating $385 in revenue per day. The service costs $199/month.
+            you&apos;re generating $385 in revenue per day. The Recover plan starts at $500/month.
             That&apos;s a <strong>payback period measured in hours, not months</strong>.
           </p>
 
@@ -388,20 +399,20 @@ export default function MissedCallsCostPlumbers() {
           </h2>
           <p style={{ fontSize: 17, color: 'var(--ink-2)', maxWidth: 440, margin: '0 auto 36px', lineHeight: 1.6 }}>
             AnswerCare answers in under 2 seconds, qualifies the caller, and books the appointment.
-            14 days free. Setup in 15 minutes.
+            Start with a performance pilot — pay only for recovered jobs, no retainer up front.
           </p>
           <div style={{ display: 'inline-flex', gap: 10, flexWrap: 'wrap', justifyContent: 'center' }}>
-            <a href="https://whop.com/answercare-ai/answercare-for-solo-trade-operators/"
+            <a href={CALENDLY_SETUP_CALL_URL}
               target="_blank" rel="noopener noreferrer" className="btn btn-accent" style={{ padding: '16px 26px', fontSize: 16 }}>
-              Start 14 days free →
+              Start a performance pilot →
             </a>
             <a href={CALENDLY_SETUP_CALL_URL} target="_blank" rel="noopener noreferrer"
               className="btn btn-ghost" style={{ padding: '16px 26px', fontSize: 16 }}>
-              Book a setup call
+              Book a revenue audit
             </a>
           </div>
           <div className="mono" style={{ fontSize: 11, color: 'var(--muted)', marginTop: 14, letterSpacing: '.04em' }}>
-            $497 setup · 14 days free · then $199/mo · cancel anytime
+            Performance pilot · pay per recovered job · plans from $500/mo
           </div>
           <div style={{ marginTop: 36, paddingTop: 32, borderTop: '1px solid var(--line-soft)' }}>
             <div style={{ fontSize: 13, color: 'var(--muted)', marginBottom: 14 }}>Related reading</div>

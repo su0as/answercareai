@@ -160,11 +160,10 @@ export default function TradeVerticalPage({ data }: { data: TradeData }) {
                 </div>
                 <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
                   <a
-                    href="https://whop.com/answercare-ai/answercare-for-solo-trade-operators/"
-                    target="_blank" rel="noopener noreferrer"
+                    href="/missed-revenue#pilot"
                     className="btn btn-primary"
                   >
-                    Start 14 days free <span className="arrow">→</span>
+                    Start a performance pilot <span className="arrow">→</span>
                   </a>
                   <a href={CALENDLY_SETUP_CALL_URL} target="_blank" rel="noopener noreferrer"
                     className="btn btn-ghost">
@@ -173,7 +172,7 @@ export default function TradeVerticalPage({ data }: { data: TradeData }) {
                 </div>
               </div>
               <div className="mono" style={{ fontSize: 11, color: 'var(--muted)', marginTop: 10, letterSpacing: '.04em' }}>
-                $497 setup · 14 days free · then $199/mo · cancel anytime
+                Performance pilot · pay per recovered job · plans from $500/mo
               </div>
 
               {/* Metrics */}
@@ -399,8 +398,8 @@ export default function TradeVerticalPage({ data }: { data: TradeData }) {
                 body: 'Set conditional forwarding on your existing phone number. AnswerCare answers when you don\'t, after 1–4 rings. Your number stays yours. Cancel and forwarding is off in 5 minutes.',
               },
               {
-                n: '03', t: '14 free days live', sub: 'Days 1–15',
-                body: 'No monthly charge until day 15. Real callers, real jobs, real bookings. If AnswerCare doesn\'t prove itself in 14 days, cancel by email — no retention call, no fees beyond the $497 setup.',
+                n: '03', t: 'Performance pilot live', sub: 'Week 1–2',
+                body: 'AnswerCare answers your overflow calls, reactivates missed leads, and books jobs. You pay only for recovered jobs — no retainer until you\'ve seen real results.',
               },
             ].map((s) => (
               <div key={s.n} className="card" style={{ padding: '28px 28px 32px' }}>
@@ -490,7 +489,7 @@ export default function TradeVerticalPage({ data }: { data: TradeData }) {
                 color: '#BFCFFF', fontSize: 13, fontWeight: 500, marginBottom: 24,
               }}>
                 <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#7B9CFF' }} />
-                First 14 days free — billing starts day 15
+                Performance pilot — pay only for jobs recovered
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 10, fontSize: 15 }}>
                 {[
@@ -533,17 +532,16 @@ export default function TradeVerticalPage({ data }: { data: TradeData }) {
                   background: 'rgba(159,226,176,.1)', border: '1px solid rgba(159,226,176,.25)',
                   color: '#9FE2B0', fontSize: 12.5,
                 }}>
-                  14 days free trial starts immediately. Cancel before day 15 — owe nothing more.
+                  Performance pilot: pay only for recovered jobs. No retainer until you&apos;ve seen results.
                 </div>
               </div>
 
               <a
-                href="https://whop.com/answercare-ai/answercare-for-solo-trade-operators/"
-                target="_blank" rel="noopener noreferrer"
+                href="/missed-revenue#pilot"
                 className="btn btn-accent"
                 style={{ justifyContent: 'center', padding: '18px 24px', fontSize: 17, width: '100%', display: 'flex' }}
               >
-                Start your 14 free days <span className="arrow">→</span>
+                Start a performance pilot <span className="arrow">→</span>
               </a>
               <a href={CALENDLY_SETUP_CALL_URL} target="_blank" rel="noopener noreferrer"
                 className="btn"
@@ -594,16 +592,15 @@ export default function TradeVerticalPage({ data }: { data: TradeData }) {
             <span className="serif" style={{ fontStyle: 'italic' }}>to voicemail.</span>
           </h2>
           <p style={{ fontSize: 18, color: 'var(--ink-2)', maxWidth: 480, margin: '24px auto 0' }}>
-            Setup takes 15 minutes. Live by end of day. First 14 days free.
+            Setup takes 15 minutes. Start with a performance pilot — pay only for jobs we recover.
           </p>
           <div style={{ display: 'inline-flex', gap: 12, marginTop: 36, flexWrap: 'wrap', justifyContent: 'center' }}>
             <a
-              href="https://whop.com/answercare-ai/answercare-for-solo-trade-operators/"
-              target="_blank" rel="noopener noreferrer"
+              href="/missed-revenue#pilot"
               className="btn btn-accent"
               style={{ padding: '18px 28px', fontSize: 17 }}
             >
-              Start free →
+              Start a performance pilot →
             </a>
             <a href="tel:+17542276342" className="btn btn-ghost" style={{ padding: '18px 28px', fontSize: 17 }}>
               Call demo: (754) 227-6342

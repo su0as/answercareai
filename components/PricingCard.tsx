@@ -94,7 +94,7 @@ export default function PricingCard({
         Start Free Trial
       </Link>
 
-      <p className="text-center text-xs text-text-muted mt-3">14-day free trial • No credit card</p>
+      <p className="text-center text-xs text-text-muted mt-3">Performance pilot available • Pay per recovered job</p>
     </div>
   )
 }

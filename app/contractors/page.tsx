@@ -4,7 +4,7 @@ import HomeROICalc from '@/components/HomeROICalc'
 
 export const metadata: Metadata = {
   title: 'AI Answering Service for Contractors — Never Miss a Job Call Again',
-  description: 'AnswerCare answers every contractor call in under 2 seconds, 24/7. Books the job, texts you the details. Built for plumbers, HVAC, electricians, roofers, and every trade in between. 14 days free.',
+  description: 'AnswerCare answers every contractor call in under 2 seconds, 24/7. Books the job, texts you the details. Built for plumbers, HVAC, electricians, roofers, and every trade. Plans from $500/mo.',
   keywords: 'answering service for contractors, ai answering service for contractors, contractor phone answering, ai receptionist for contractors',
   openGraph: {
     title: 'AI Answering Service for Contractors | AnswerCare AI',
@@ -72,9 +72,9 @@ export default function ContractorsPage() {
                   </a>
                 </div>
                 <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
-                  <a href="https://whop.com/answercare-ai/answercare-for-solo-trade-operators/"
-                    target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-                    Start 14 days free <span className="arrow">→</span>
+                  <a href="/missed-revenue#pilot"
+                    className="btn btn-primary">
+                    Start a performance pilot <span className="arrow">→</span>
                   </a>
                   <a href={CALENDLY_SETUP_CALL_URL} target="_blank" rel="noopener noreferrer" className="btn btn-ghost">
                     Book a setup call
@@ -82,10 +82,10 @@ export default function ContractorsPage() {
                 </div>
               </div>
               <div className="mono" style={{ fontSize: 11, color: 'var(--muted)', marginTop: 10, letterSpacing: '.04em' }}>
-                $497 setup · 14 days free · then $199/mo · cancel anytime
+                Performance pilot · pay per recovered job · plans from $500/mo
               </div>
               <div className="metrics-strip">
-                {[['< 2 sec','pickup time'],['24/7/365','always on'],['$199/mo','flat fee, no per-call'],['9 trades','currently supported']].map(([v,l]) => (
+                {[['< 2 sec','pickup time'],['24/7/365','always on'],['$500/mo','plans from'],['9 trades','currently supported']].map(([v,l]) => (
                   <div key={l}>
                     <div className="num" style={{ fontSize: 20, fontWeight: 500, letterSpacing: '-.02em' }}>{v}</div>
                     <div className="mono" style={{ fontSize: 10, color: 'var(--muted)', marginTop: 3, letterSpacing: '.04em' }}>{l}</div>
@@ -203,13 +203,13 @@ export default function ContractorsPage() {
             <span className="serif" style={{ fontStyle: 'italic' }}>Pick up by Friday.</span>
           </h2>
           <p style={{ fontSize: 18, color: 'var(--ink-2)', maxWidth: 480, margin: '20px auto 0' }}>
-            Setup takes 15 minutes. Live by end of day. First 14 days free.
+            Setup takes 15 minutes. Start with a performance pilot — pay only for jobs we recover.
           </p>
           <div style={{ display: 'inline-flex', gap: 12, marginTop: 36, flexWrap: 'wrap', justifyContent: 'center' }}>
-            <a href="https://whop.com/answercare-ai/answercare-for-solo-trade-operators/"
-              target="_blank" rel="noopener noreferrer" className="btn btn-accent"
+            <a href="/missed-revenue#pilot"
+              className="btn btn-accent"
               style={{ padding: '18px 28px', fontSize: 17 }}>
-              Start free →
+              Start a performance pilot →
             </a>
             <a href="tel:+17542276342" className="btn btn-ghost" style={{ padding: '18px 28px', fontSize: 17 }}>
               Call demo: (754) 227-6342

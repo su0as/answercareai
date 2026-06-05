@@ -40,7 +40,7 @@ export default function PricingSection({
             Simple, transparent pricing.
           </h2>
           <p className="mt-4 text-text-secondary max-w-xl mx-auto">
-            All plans include a 14-day free trial. Full onboarding. No credit card required.
+            All plans include full onboarding. Or start with a performance pilot — pay only for recovered jobs.
           </p>
         </div>
 

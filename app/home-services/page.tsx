@@ -3,8 +3,8 @@ import HomeROICalc from '@/components/HomeROICalc'
 import { CALENDLY_SETUP_CALL_URL } from '@/lib/links'
 
 export const metadata: Metadata = {
-  title: 'Missed-Revenue Recovery for Home Services — HVAC, Plumbing, Electrical & More',
-  description: 'Your techs are on jobs and your office can\'t catch every line during peak season. AnswerCare catches overflow and after-hours calls, books the high-ticket jobs, and recovers the revenue your competitors are picking up.',
+  title: 'Missed-Revenue Recovery for Home Services',
+  description: 'Overflow and after-hours calls answered 24/7. AnswerCare qualifies high-ticket jobs and books them directly — so missed calls stop going to your competitors.',
   keywords: 'answering service home services, hvac answering service, plumbing phone answering, electrical contractor answering, home service overflow answering, after hours home services',
   openGraph: {
     title: 'Missed-Revenue Recovery for Home Services | AnswerCare AI',

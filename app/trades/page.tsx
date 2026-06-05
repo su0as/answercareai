@@ -374,7 +374,7 @@ export default function TradesPage() {
               'We start tracking booked jobs from day 1.',
               'On day 31, we show you the booking log. You count.',
               'Below 20? You pay nothing and receive $500 via Zelle within 48 hours.',
-              'At 20 or above? You continue at $199/month — cancel any month with 7 days notice.',
+              'At 20 or above? You continue on a monthly plan — cancel any month with 7 days notice.',
             ].map((item, i) => (
               <div key={i} className="flex items-start gap-3 bg-white border border-[#E5E5E5] rounded-xl p-4">
                 <div
@@ -478,12 +478,11 @@ export default function TradesPage() {
           <div className="bg-white border-2 border-[#E85D04] rounded-2xl p-7 sm:p-10">
             <div className="mb-6">
               <div className="flex items-baseline gap-1 mb-1">
-                <span className="font-black text-[#0A0A0A]" style={{ ...DISPLAY, fontSize: '48px' }}>$199</span>
+                <span className="font-black text-[#0A0A0A]" style={{ ...DISPLAY, fontSize: '48px' }}>$500</span>
                 <span className="text-[#525252] text-lg" style={BODY}>/month</span>
               </div>
               <p className="text-[#525252] text-sm" style={BODY}>
-                + <strong className="text-[#0A0A0A]">$497</strong> one-time setup fee{' '}
-                <span className="text-xs">(non-refundable — covers script, integration, testing)</span>
+                Recover plan · or start with a performance pilot — pay only for recovered jobs
               </p>
               <div className="mt-3 inline-flex items-center gap-2 bg-[#FEC89A]/30 border border-[#E85D04]/20 text-[#0A0A0A] text-xs px-3 py-1.5 rounded-full" style={BODY}>
                 🎁 <strong>Founding rate:</strong> Lock this price for life — 7 of 10 spots remaining

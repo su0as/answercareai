@@ -3,8 +3,8 @@ import HomeROICalc from '@/components/HomeROICalc'
 import { CALENDLY_SETUP_CALL_URL } from '@/lib/links'
 
 export const metadata: Metadata = {
-  title: 'Missed-Revenue Recovery for Property Management Companies',
-  description: 'After-hours maintenance emergencies and leasing inquiries can\'t go to voicemail. AnswerCare answers 24/7, triages emergencies, captures every prospective tenant, and routes to the right person.',
+  title: 'Revenue Recovery for Property Management Companies',
+  description: 'After-hours emergencies and leasing calls answered 24/7. AnswerCare triages, books, and routes — so vacancies fill faster and tenants stop escalating.',
   keywords: 'answering service property management, property management after hours answering, tenant emergency answering service, leasing inquiry answering, property manager phone answering',
   openGraph: {
     title: 'Missed-Revenue Recovery for Property Management | AnswerCare AI',

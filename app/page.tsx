@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: 'Missed-Call Revenue Recovery for Service Businesses | AnswerCare AI',
   description:
     'Every unanswered call is revenue your competitor books. AnswerCare answers every call in under 2 seconds, qualifies the caller, and books the job — for HVAC, plumbing, electrical, property management, dental practices, and law firms.',
+  alternates: { canonical: 'https://www.answercareai.com' },
 }
 
 // ─── Hero headline ────────────────────────────────────────────────────────────

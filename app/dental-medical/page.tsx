@@ -3,8 +3,8 @@ import HomeROICalc from '@/components/HomeROICalc'
 import { CALENDLY_SETUP_CALL_URL } from '@/lib/links'
 
 export const metadata: Metadata = {
-  title: 'Missed New-Patient Recovery for Dental & Medical Practices',
-  description: 'Every missed new-patient call is thousands in lifetime value handed to the practice down the street. AnswerCare answers overflow and after-hours, books new patients into your scheduler, and never lets a first-time caller hit voicemail.',
+  title: 'New-Patient Call Recovery for Dental & Medical Practices',
+  description: 'Missed new-patient calls cost thousands per year. AnswerCare answers overflow and after-hours calls, books into your scheduler, and recovers dormant leads.',
   keywords: 'answering service dental practice, medical practice phone answering, new patient call answering, dental office overflow answering, medical front desk answering service',
   openGraph: {
     title: 'New-Patient Recovery for Dental & Medical Practices | AnswerCare AI',

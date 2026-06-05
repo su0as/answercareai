@@ -11,7 +11,7 @@ interface FinalCTAProps {
 
 export default function FinalCTA({
   headline = 'Your front desk, reimagined.',
-  subheadline = '14-day free trial. Full onboarding included. No credit card required.',
+  subheadline = 'Start with a performance pilot — pay only for recovered jobs. Plans from $500/mo.',
   ctaPrimary = { label: 'Start Free Trial', href: CALENDLY_SETUP_CALL_URL },
   ctaSecondary = { label: 'Book a Demo', href: 'tel:+17542276342' },
   accentButtonClass = 'bg-bg-primary text-text-primary hover:bg-bg-secondary',

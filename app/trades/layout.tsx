@@ -3,15 +3,15 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'AI Phone Agent for Solo Trade Operators | AnswerCare AI',
   description:
-    'We answer every call, book 20 jobs in 30 days, or you don\'t pay — and we\'ll Zelle you $500. $199/month. 5-day setup. Works with Jobber, Housecall Pro, Google Calendar.',
+    'Every missed call is revenue your competitor books. AnswerCare answers 24/7, qualifies, and books jobs for contractors. Start with a performance pilot — pay only for what we recover.',
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://answercare.ai/trades',
+    url: 'https://www.answercareai.com/trades',
     siteName: 'AnswerCare AI',
-    title: 'AI Phone Agent for Solo Trade Operators | AnswerCare AI',
+    title: 'AI Phone Answering for Contractors | AnswerCare AI',
     description:
-      '20 booked jobs in 30 days or you don\'t pay. $199/month, 5-day setup.',
+      'Missed calls are missed jobs. AnswerCare answers 24/7, books the job, texts the tech. Plans from $500/mo.',
   },
 }
 

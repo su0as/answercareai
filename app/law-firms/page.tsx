@@ -4,7 +4,7 @@ import { CALENDLY_SETUP_CALL_URL } from '@/lib/links'
 
 export const metadata: Metadata = {
   title: 'After-Hours Intake & Lead Recovery for Law Firms',
-  description: 'In legal, the firm that answers first signs the client. Every missed intake call is a case that walks to another firm. AnswerCare answers 24/7, screens and qualifies intakes, and books consultations on your calendar.',
+  description: 'The firm that answers first signs the client. AnswerCare handles intake 24/7, screens callers against your criteria, and books consultations to your calendar.',
   keywords: 'answering service law firm, legal intake answering service, after hours legal intake, law firm phone answering, attorney answering service, new client intake answering',
   openGraph: {
     title: 'After-Hours Intake & Lead Recovery for Law Firms | AnswerCare AI',

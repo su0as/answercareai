@@ -45,19 +45,19 @@ export default function Nav() {
         </Link>
 
         <nav className="nav-links">
+          <a href="/missed-revenue" className="ulink" style={{ color: 'var(--ink-2)' }}>Solutions</a>
           <a href="/#how" className="ulink" style={{ color: 'var(--ink-2)' }}>How it works</a>
-          <a href="/#calc" className="ulink" style={{ color: 'var(--ink-2)' }}>ROI calculator</a>
-          <a href="/#proof" className="ulink" style={{ color: 'var(--ink-2)' }}>Proof</a>
+          <a href="/#calc" className="ulink" style={{ color: 'var(--ink-2)' }}>ROI calc</a>
           <a href="/#pricing" className="ulink" style={{ color: 'var(--ink-2)' }}>Pricing</a>
-          <a href="/#faq" className="ulink" style={{ color: 'var(--ink-2)' }}>FAQ</a>
+          <a href="/blog" className="ulink" style={{ color: 'var(--ink-2)' }}>Blog</a>
         </nav>
 
         <div className="nav-right">
           <a href="tel:+17542276342" className="nav-phone mono" style={{ fontSize: 13, color: 'var(--muted)' }}>
             +1 (754) 227-6342
           </a>
-          <a href="/#pricing" className="btn btn-primary" style={{ padding: '10px 16px', fontSize: 14 }}>
-            Start free <span className="arrow">→</span>
+          <a href="/#pilot" className="btn btn-primary" style={{ padding: '10px 16px', fontSize: 14 }}>
+            Start pilot <span className="arrow">→</span>
           </a>
         </div>
       </div>

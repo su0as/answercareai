@@ -134,7 +134,7 @@ export default function ProductPage() {
             <div className="border-t border-[#e8e8ed]">
               {[
                 { label: 'Setup fee', value: '$497 one-time (configuration and onboarding)' },
-                { label: 'Monthly subscription', value: '$199/month, billed monthly in advance' },
+                { label: 'Monthly subscription', value: 'From $500/month — Recover, Grow, or Scale plans' },
                 { label: 'Cancellation', value: 'Anytime with 7 days notice' },
                 { label: 'Performance guarantee', value: '30-day performance guarantee on first month subscription' },
               ].map(({ label, value }) => (

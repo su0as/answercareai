@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { CALENDLY_SETUP_CALL_URL } from '@/lib/links'
 
 export const metadata: Metadata = {
-  title: 'Best AI Answering Service for Trades & Contractors in 2025 (Tested & Ranked)',
+  title: 'Best AI Answering Service for Trades & Contractors (2025)',
   description: 'AI voice quality crossed a real threshold in 2024. We tested 5 options for home service contractors — pickup speed, job booking, price, and which one actually sounds human.',
   keywords: 'best ai answering service for contractors, ai answering service trades, ai phone answering plumbers hvac, contractor ai receptionist 2025',
   openGraph: {
@@ -12,6 +12,16 @@ export const metadata: Metadata = {
     type: 'article',
   },
   alternates: { canonical: 'https://www.answercareai.com/blog/best-ai-answering-service-for-trades' },
+}
+
+const breadcrumbLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.answercareai.com' },
+    { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://www.answercareai.com/blog' },
+    { '@type': 'ListItem', position: 3, name: 'Best AI Answering Service for Trades & Contractors', item: 'https://www.answercareai.com/blog/best-ai-answering-service-for-trades' },
+  ],
 }
 
 const jsonLd = {
@@ -29,6 +39,7 @@ const jsonLd = {
 export default function BestAIAnsweringServiceTrades() {
   return (
     <div>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       <section className="section" style={{ paddingTop: 64, paddingBottom: 48 }}>
@@ -98,10 +109,10 @@ export default function BestAIAnsweringServiceTrades() {
               {
                 rank: 1,
                 name: 'AnswerCare AI',
-                price: '$199/mo + $497 setup',
+                price: 'From $500/mo · pilot available',
                 built: 'Built for trades',
                 verdict: 'Best for home service contractors',
-                desc: 'Designed specifically for the trades market. Custom-scripted for your trade, service area, pricing, and emergency escalation. Answers in under 2 seconds, books the appointment, texts the tech. Flat-rate pricing with no per-minute overages.',
+                desc: 'Designed specifically for the trades market. Custom-scripted for your trade, service area, pricing, and emergency escalation. Answers in under 2 seconds, books the appointment, texts the tech. No per-minute overages. Performance pilot lets you start by paying only for recovered jobs.',
                 best: true,
               },
               {
@@ -185,18 +196,19 @@ export default function BestAIAnsweringServiceTrades() {
 
           <h2>What AI answering costs vs what it earns</h2>
           <p>
-            At $199/month, AnswerCare pays for itself with a single recovered job per month — at any
-            average ticket above $200. Most plumbing, HVAC, and electrical jobs are $350–$600+.
+            AnswerCare&apos;s Recover plan starts at $500/month. At a typical plumbing or HVAC ticket of
+            $350–$600+, recovering two missed calls per month covers the plan entirely. Most shops
+            see a payback period measured in days, not months.
           </p>
           <p>
-            The setup fee ($497) covers custom script writing, voice tuning, calendar integration,
-            and emergency routing configuration — real work that takes 2–3 hours of setup per account.
-            After that, it runs autonomously.
+            Not ready for a monthly plan? The <strong>performance pilot</strong> lets you start
+            without a retainer — AnswerCare reactivates your missed leads and you pay only for
+            booked jobs. It&apos;s the lowest-risk entry point in the industry.
           </p>
           <p>
             Compared to a receptionist ($3,400–4,200/month) or a traditional answering service
-            ($150–300/month, message-only), AI answering at $199 flat is the highest-ROI option
-            for small and solo trade operations.
+            ($150–300/month, message-only), AI answering is the highest-ROI option
+            for home service operations of any size.
           </p>
 
           <h2>The verdict</h2>
@@ -206,9 +218,9 @@ export default function BestAIAnsweringServiceTrades() {
             and still won&apos;t handle trade-specific booking logic without custom development.
           </p>
           <p>
-            For a plumber, HVAC tech, electrician, or any home service trade with 1–5 trucks:
+            For a plumber, HVAC tech, electrician, or any home service trade:
             AnswerCare is the done-for-you option designed specifically for your situation.
-            14-day free trial, setup in 15 minutes.
+            Start with a performance pilot — no retainer until you&apos;ve seen results.
           </p>
 
           <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', marginTop: 16 }}>
@@ -231,20 +243,20 @@ export default function BestAIAnsweringServiceTrades() {
             The AI answering service built for trades.
           </h2>
           <p style={{ fontSize: 17, color: 'var(--ink-2)', maxWidth: 440, margin: '0 auto 36px', lineHeight: 1.6 }}>
-            Custom-scripted for your trade. Answers in under 2 seconds. Books the job, not a message. 14 days free.
+            Custom-scripted for your trade. Answers in under 2 seconds. Books the job, not a message. Start with a performance pilot.
           </p>
           <div style={{ display: 'inline-flex', gap: 10, flexWrap: 'wrap', justifyContent: 'center' }}>
-            <a href="https://whop.com/answercare-ai/answercare-for-solo-trade-operators/"
+            <a href={CALENDLY_SETUP_CALL_URL}
               target="_blank" rel="noopener noreferrer" className="btn btn-accent" style={{ padding: '16px 26px', fontSize: 16 }}>
-              Start 14 days free →
+              Start a performance pilot →
             </a>
             <a href={CALENDLY_SETUP_CALL_URL} target="_blank" rel="noopener noreferrer"
               className="btn btn-ghost" style={{ padding: '16px 26px', fontSize: 16 }}>
-              Book a setup call
+              Book a revenue audit
             </a>
           </div>
           <div className="mono" style={{ fontSize: 11, color: 'var(--muted)', marginTop: 14, letterSpacing: '.04em' }}>
-            $497 setup · 14 days free · then $199/mo · cancel anytime
+            Performance pilot · pay per recovered job · plans from $500/mo
           </div>
         </div>
       </section>

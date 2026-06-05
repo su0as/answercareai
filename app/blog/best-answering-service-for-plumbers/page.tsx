@@ -14,6 +14,16 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://www.answercareai.com/blog/best-answering-service-for-plumbers' },
 }
 
+const breadcrumbLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.answercareai.com' },
+    { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://www.answercareai.com/blog' },
+    { '@type': 'ListItem', position: 3, name: 'Best Answering Service for Plumbers', item: 'https://www.answercareai.com/blog/best-answering-service-for-plumbers' },
+  ],
+}
+
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Article',
@@ -31,12 +41,12 @@ const services = [
     rank: 1,
     name: 'AnswerCare AI',
     tagline: 'Best overall for plumbing — books the job, not just a message',
-    price: '$199/mo + $497 setup',
+    price: 'From $500/mo · pilot available',
     pickup: '< 2 seconds',
     books: true,
     hours: '24/7',
-    pros: ['Answers in under 2 seconds every time', 'Books the appointment into your calendar during the call', 'Texts you the full transcript and job details', 'Custom script for your trade, service area, rates', 'Emergency routing to your cell for true crises', '14-day free trial'],
-    cons: ['$497 one-time setup required', 'Newer service — smaller track record than legacy options'],
+    pros: ['Answers in under 2 seconds every time', 'Books the appointment into your calendar during the call', 'Texts you the full transcript and job details', 'Custom script for your trade, service area, rates', 'Emergency routing to your cell for true crises', 'Performance pilot — pay only for recovered jobs'],
+    cons: ['Higher monthly cost than budget options', 'Newer service — smaller track record than legacy options'],
     best: true,
   },
   {
@@ -104,6 +114,7 @@ const services = [
 export default function BestAnsweringServiceForPlumbers() {
   return (
     <div>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       {/* Header */}
@@ -143,7 +154,7 @@ export default function BestAnsweringServiceForPlumbers() {
           <div style={{ fontSize: 13, fontFamily: 'var(--mono)', letterSpacing: '.06em', color: 'var(--muted)', marginBottom: 16 }}>QUICK SUMMARY</div>
           <div style={{ display: 'grid', gap: 12 }}>
             {[
-              { label: 'Best overall', val: 'AnswerCare AI — answers in < 2s, books the job, $199/mo flat' },
+              { label: 'Best overall', val: 'AnswerCare AI — answers in < 2s, books the job, from $500/mo' },
               { label: 'Best live-agent', val: 'Ruby Receptionists — professional, human, but message-only and expensive' },
               { label: 'Best 24/7 coverage', val: 'AnswerConnect — reliable human ops, message relay only' },
               { label: 'Skip', val: 'Voicemail — 67–80% of callers hang up and call your competitor' },
@@ -248,7 +259,7 @@ export default function BestAnsweringServiceForPlumbers() {
           <h2>Who should use what</h2>
           <div style={{ display: 'grid', gap: 16, margin: '32px 0' }}>
             {[
-              { who: 'Solo plumber, 1–2 trucks', rec: 'AnswerCare AI', reason: 'Flat $199/mo, books the job, no per-minute overages on busy days, 14-day trial to test it live.' },
+              { who: 'Solo plumber, 1–2 trucks', rec: 'AnswerCare AI', reason: 'Books the job, no per-minute overages on busy days. Start with a performance pilot — pay only for recovered jobs.' },
               { who: 'Want a human voice, price is secondary', rec: 'Ruby Receptionists', reason: 'Professional live agents. Accept that you\'re paying for a voice, not a booking engine.' },
               { who: 'Need 24/7 coverage on a budget', rec: 'AnswerConnect', reason: 'Solid 24/7 human coverage. Plan for message-only and build your own callback system.' },
               { who: '5+ truck operation with CRM', rec: 'Smith.ai', reason: 'Worth the setup complexity at scale. Booking capability plus CRM integration.' },
@@ -278,8 +289,8 @@ export default function BestAnsweringServiceForPlumbers() {
           <p>
             For most plumbing shops — solo operators and 1–3 truck businesses — <strong>AnswerCare AI
             is the right call</strong>. It picks up in under 2 seconds, qualifies the caller, books
-            the appointment, and texts you the job details. You pay $199/month flat, no per-minute
-            overages, no callback gap.
+            the appointment, and texts you the job details — no per-minute overages, no callback gap.
+            Plans from $500/mo, or start with a performance pilot and pay only for jobs we recover.
           </p>
           <p>
             If you want a human voice and have the budget, Ruby Receptionists is the best live-agent option.
@@ -295,23 +306,23 @@ export default function BestAnsweringServiceForPlumbers() {
       <section className="section" style={{ borderTop: '1px solid var(--line)', paddingTop: 64, paddingBottom: 80 }}>
         <div className="wrap-narrow" style={{ textAlign: 'center' }}>
           <h2 style={{ fontSize: 'clamp(28px, 4vw, 48px)', letterSpacing: '-.03em', lineHeight: 1, marginBottom: 16 }}>
-            Try the #1 rated option free for 14 days.
+            Start by paying only for jobs we recover.
           </h2>
           <p style={{ fontSize: 17, color: 'var(--ink-2)', maxWidth: 440, margin: '0 auto 36px', lineHeight: 1.6 }}>
-            Answers in under 2 seconds. Books the job. Texts you the details. Setup takes 15 minutes.
+            Answers in under 2 seconds. Books the job. Texts you the details. Performance pilot — no retainer until you&apos;ve seen results.
           </p>
           <div style={{ display: 'inline-flex', gap: 10, flexWrap: 'wrap', justifyContent: 'center' }}>
-            <a href="https://whop.com/answercare-ai/answercare-for-solo-trade-operators/"
+            <a href={CALENDLY_SETUP_CALL_URL}
               target="_blank" rel="noopener noreferrer" className="btn btn-accent" style={{ padding: '16px 26px', fontSize: 16 }}>
-              Start 14 days free →
+              Start a performance pilot →
             </a>
             <a href={CALENDLY_SETUP_CALL_URL} target="_blank" rel="noopener noreferrer"
               className="btn btn-ghost" style={{ padding: '16px 26px', fontSize: 16 }}>
-              Book a setup call
+              Book a revenue audit
             </a>
           </div>
           <div className="mono" style={{ fontSize: 11, color: 'var(--muted)', marginTop: 14, letterSpacing: '.04em' }}>
-            $497 setup · 14 days free · then $199/mo · cancel anytime
+            Performance pilot · pay per recovered job · plans from $500/mo
           </div>
         </div>
       </section>

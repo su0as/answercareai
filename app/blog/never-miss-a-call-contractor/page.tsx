@@ -14,6 +14,16 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://www.answercareai.com/blog/never-miss-a-call-contractor' },
 }
 
+const breadcrumbLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.answercareai.com' },
+    { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://www.answercareai.com/blog' },
+    { '@type': 'ListItem', position: 3, name: 'How to Never Miss a Customer Call as a Solo Contractor', item: 'https://www.answercareai.com/blog/never-miss-a-call-contractor' },
+  ],
+}
+
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'HowTo',
@@ -30,6 +40,7 @@ const jsonLd = {
 export default function NeverMissACallContractor() {
   return (
     <div>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       <section className="section" style={{ paddingTop: 64, paddingBottom: 48 }}>
@@ -169,11 +180,11 @@ export default function NeverMissACallContractor() {
             borderRadius: 12, padding: '24px 28px', margin: '24px 0',
           }}>
             {[
-              ['AnswerCare monthly cost', '$199/mo'],
+              ['AnswerCare Recover plan', '$500/mo'],
               ['Calls recovered per month (conservative)', '20'],
               ['Average ticket (plumbing)', '$385'],
               ['Revenue recovered per month', '$7,700'],
-              ['Net gain after service cost', '$7,501'],
+              ['Net gain after service cost', '$7,200'],
             ].map(([label, val], i) => (
               <div key={label} style={{
                 display: 'flex', justifyContent: 'space-between',
@@ -263,17 +274,20 @@ export default function NeverMissACallContractor() {
             Set it up in 15 minutes.
           </h2>
           <p style={{ fontSize: 17, color: 'var(--ink-2)', maxWidth: 440, margin: '0 auto 36px', lineHeight: 1.6 }}>
-            Call forwarding + AnswerCare. Every call answered, every job booked, every summary texted to you. 14 days free.
+            Call forwarding + AnswerCare. Every call answered, every job booked, every summary texted to you. Start with a performance pilot.
           </p>
           <div style={{ display: 'inline-flex', gap: 10, flexWrap: 'wrap', justifyContent: 'center' }}>
-            <a href="https://whop.com/answercare-ai/answercare-for-solo-trade-operators/"
+            <a href={CALENDLY_SETUP_CALL_URL}
               target="_blank" rel="noopener noreferrer" className="btn btn-accent" style={{ padding: '16px 26px', fontSize: 16 }}>
-              Start 14 days free →
+              Start a performance pilot →
             </a>
             <a href={CALENDLY_SETUP_CALL_URL} target="_blank" rel="noopener noreferrer"
               className="btn btn-ghost" style={{ padding: '16px 26px', fontSize: 16 }}>
-              Book a setup call
+              Book a revenue audit
             </a>
+          </div>
+          <div className="mono" style={{ fontSize: 11, color: 'var(--muted)', marginTop: 14, letterSpacing: '.04em' }}>
+            Performance pilot · pay per recovered job · plans from $500/mo
           </div>
         </div>
       </section>
