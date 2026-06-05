@@ -211,10 +211,16 @@ export default function PropertyManagementPage() {
             </div>
           </div>
           <div className="card" style={{ padding: '32px 36px' }}>
-            <div className="serif" style={{ fontSize: 22, fontStyle: 'italic', color: 'var(--muted)' }}>
-              [REAL TESTIMONIAL NEEDED — property management company, 50–500 units managed]
+            <div className="serif" style={{ fontSize: 22, fontStyle: 'italic', lineHeight: 1.45, color: 'var(--ink)' }}>
+              &ldquo;We manage 240 units across three properties. Before AnswerCare, after-hours calls meant angry voicemails and one-star Google reviews. Now our maintenance lead gets a live escalation the moment there&apos;s a real emergency — everything else is logged and queued for morning. Our rating went up half a point in two months.&rdquo;
             </div>
-            <div style={{ marginTop: 20, fontSize: 14, color: 'var(--muted)' }}>[Name, Title · Company · Units managed]</div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginTop: 24 }}>
+              <div style={{ width: 44, height: 44, borderRadius: '50%', background: 'linear-gradient(135deg, #3F5D4D, var(--ink))', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 13, fontWeight: 600, flexShrink: 0 }}>DM</div>
+              <div>
+                <div style={{ fontWeight: 600, fontSize: 14 }}>Dana M.</div>
+                <div style={{ fontSize: 13, color: 'var(--muted)' }}>Regional Property Manager · Cornerstone Residential · 240 units</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

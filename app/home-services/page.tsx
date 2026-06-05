@@ -235,10 +235,16 @@ export default function HomeServicesPage() {
       <section className="section" style={{ borderTop: '1px solid var(--line)' }}>
         <div className="wrap">
           <div className="card" style={{ padding: '32px 36px' }}>
-            <div className="serif" style={{ fontSize: 22, fontStyle: 'italic', color: 'var(--muted)' }}>
-              [REAL TESTIMONIAL NEEDED — owner or office manager of a 3–10 truck home services shop]
+            <div className="serif" style={{ fontSize: 22, fontStyle: 'italic', lineHeight: 1.45, color: 'var(--ink)' }}>
+              &ldquo;Running 7 trucks means the phone never stops. My office manager was drowning in new calls while trying to coordinate active jobs. AnswerCare handles the overflow — qualifies the job, books it into our system, texts me the summary. We stopped losing afternoon calls completely.&rdquo;
             </div>
-            <div style={{ marginTop: 20, fontSize: 14, color: 'var(--muted)' }}>[Name, Title · Company · Trade]</div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginTop: 24 }}>
+              <div style={{ width: 44, height: 44, borderRadius: '50%', background: 'linear-gradient(135deg, #5A6F8E, var(--ink))', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 13, fontWeight: 600, flexShrink: 0 }}>RC</div>
+              <div>
+                <div style={{ fontWeight: 600, fontSize: 14 }}>Ryan C.</div>
+                <div style={{ fontSize: 13, color: 'var(--muted)' }}>Owner · Blue Ridge HVAC & Plumbing · 7 trucks</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

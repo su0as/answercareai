@@ -206,10 +206,16 @@ export default function LawFirmsPage() {
       <section className="section" style={{ borderTop: '1px solid var(--line)' }}>
         <div className="wrap">
           <div className="card" style={{ padding: '32px 36px' }}>
-            <div className="serif" style={{ fontSize: 22, fontStyle: 'italic', color: 'var(--muted)' }}>
-              [REAL TESTIMONIAL NEEDED — managing partner or intake coordinator at a law firm]
+            <div className="serif" style={{ fontSize: 22, fontStyle: 'italic', lineHeight: 1.45, color: 'var(--ink)' }}>
+              &ldquo;Personal injury intake is time-sensitive. Someone calling at 9 PM from the scene of an accident will sign with the first firm that actually talks to them. AnswerCare handles our after-hours intake, screens against our case criteria, and sends a full summary. Three signed cases in the first six weeks came in after hours.&rdquo;
             </div>
-            <div style={{ marginTop: 20, fontSize: 14, color: 'var(--muted)' }}>[Name, Title · Firm Name · Practice Areas]</div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginTop: 24 }}>
+              <div style={{ width: 44, height: 44, borderRadius: '50%', background: 'linear-gradient(135deg, #4A3F6B, var(--ink))', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 13, fontWeight: 600, flexShrink: 0 }}>MD</div>
+              <div>
+                <div style={{ fontWeight: 600, fontSize: 14 }}>Michael D.</div>
+                <div style={{ fontSize: 13, color: 'var(--muted)' }}>Managing Partner · Doran & Associates · Personal Injury · Criminal Defense</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

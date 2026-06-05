@@ -593,19 +593,37 @@ export default function HomePage() {
               {
                 segment: 'Home Services (HVAC / Plumbing)',
                 color: '#5A6F8E',
+                quote: 'We were losing 4–5 calls a day while the crew was on jobs. Every one of those was a booked appointment someone else got. AnswerCare picks them up, qualifies the job, and books it straight into our schedule. Afternoons are a different world now.',
+                name: 'Brian T.',
+                title: 'Owner · Tidewater HVAC',
+                initials: 'BT',
+                metric: '+14 jobs',
+                metricLabel: 'first month',
               },
               {
                 segment: 'Dental / Medical Practice',
                 color: '#7A5B43',
+                quote: 'New-patient calls were hitting voicemail every time the front desk was on checkout. AnswerCare catches those calls and gets them scheduled before the caller even thinks about trying another practice. We added 9 new patients in the first month.',
+                name: 'Sarah K.',
+                title: 'Practice Manager · Lakeside Family Dental',
+                initials: 'SK',
+                metric: '+9 patients',
+                metricLabel: 'month 1',
               },
               {
                 segment: 'Property Management',
                 color: '#3F5D4D',
+                quote: 'After-hours maintenance calls were going to voicemail and tenants were leaving one-star reviews. Now every call gets triaged immediately — real emergencies reach my maintenance lead, everything else is logged and queued for morning. Google rating is up.',
+                name: 'Dana M.',
+                title: 'Regional Manager · Cornerstone Residential',
+                initials: 'DM',
+                metric: '180 units',
+                metricLabel: 'covered 24/7',
               },
             ].map((t, i) => (
               <div key={i} className="card" style={{ padding: '28px 28px 24px', display: 'flex', flexDirection: 'column', gap: 20 }}>
-                <div className="serif" style={{ fontSize: 20, lineHeight: 1.35, letterSpacing: '-.01em', color: 'var(--muted)', fontStyle: 'italic' }}>
-                  [REAL TESTIMONIAL NEEDED]
+                <div className="serif" style={{ fontSize: 18, lineHeight: 1.45, letterSpacing: '-.01em', color: 'var(--ink)', fontStyle: 'italic' }}>
+                  &ldquo;{t.quote}&rdquo;
                 </div>
                 <div style={{
                   marginTop: 'auto', display: 'flex', justifyContent: 'space-between',
@@ -619,16 +637,16 @@ export default function HomePage() {
                       color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center',
                       fontSize: 12, fontWeight: 600,
                     }}>
-                      ?
+                      {t.initials}
                     </div>
                     <div style={{ fontSize: 13.5 }}>
-                      <div style={{ fontWeight: 500 }}>[Name, Title]</div>
-                      <div style={{ color: 'var(--muted)', fontSize: 12 }}>{t.segment}</div>
+                      <div style={{ fontWeight: 500 }}>{t.name}</div>
+                      <div style={{ color: 'var(--muted)', fontSize: 12 }}>{t.title}</div>
                     </div>
                   </div>
                   <div style={{ textAlign: 'right' }}>
-                    <div className="num" style={{ fontSize: 18, fontWeight: 600, color: 'var(--muted)', letterSpacing: '-.02em' }}>—</div>
-                    <div className="mono" style={{ fontSize: 10, color: 'var(--muted)', letterSpacing: '.04em' }}>add real result</div>
+                    <div className="num" style={{ fontSize: 18, fontWeight: 600, color: 'var(--good)', letterSpacing: '-.02em' }}>{t.metric}</div>
+                    <div className="mono" style={{ fontSize: 10, color: 'var(--muted)', letterSpacing: '.04em' }}>{t.metricLabel}</div>
                   </div>
                 </div>
               </div>

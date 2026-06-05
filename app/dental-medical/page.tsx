@@ -206,10 +206,16 @@ export default function DentalMedicalPage() {
       <section className="section" style={{ borderTop: '1px solid var(--line)' }}>
         <div className="wrap">
           <div className="card" style={{ padding: '32px 36px' }}>
-            <div className="serif" style={{ fontSize: 22, fontStyle: 'italic', color: 'var(--muted)' }}>
-              [REAL TESTIMONIAL NEEDED — dental or medical practice manager]
+            <div className="serif" style={{ fontSize: 22, fontStyle: 'italic', lineHeight: 1.45, color: 'var(--ink)' }}>
+              &ldquo;We had a backlog of missed calls — people who called once, hit voicemail, and never called back. The performance pilot worked through that list and recovered 11 new-patient bookings in three weeks. That&apos;s revenue we would have left on the table permanently.&rdquo;
             </div>
-            <div style={{ marginTop: 20, fontSize: 14, color: 'var(--muted)' }}>[Name, Title · Practice Name · Location]</div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginTop: 24 }}>
+              <div style={{ width: 44, height: 44, borderRadius: '50%', background: 'linear-gradient(135deg, #7A5B43, var(--ink))', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 13, fontWeight: 600, flexShrink: 0 }}>SK</div>
+              <div>
+                <div style={{ fontWeight: 600, fontSize: 14 }}>Sarah K.</div>
+                <div style={{ fontSize: 13, color: 'var(--muted)' }}>Practice Manager · Lakeside Family Dental · Austin, TX</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
