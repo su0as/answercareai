@@ -35,7 +35,7 @@ export default function Footer() {
     <footer style={{ borderTop: '1px solid var(--line)', padding: '48px 0 36px', background: 'rgba(14,14,12,.02)' }}>
       <div className="wrap">
         {/* Top row: logo + columns */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'auto 1fr 1fr 1fr', gap: '40px 48px', marginBottom: 40 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'auto 1fr 1fr 1fr 1fr', gap: '40px 40px', marginBottom: 40 }}>
           <div>
             <Logo />
             <div className="mono" style={{ fontSize: 11, color: 'var(--muted)', letterSpacing: '.06em', marginTop: 10 }}>
@@ -56,6 +56,16 @@ export default function Footer() {
             </div>
           </div>
           <div>
+            <div style={{ fontSize: 11, fontFamily: 'var(--mono)', letterSpacing: '.08em', color: 'var(--muted)', marginBottom: 14 }}>CLINICS</div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+              <Link href="/med-spa" className="ulink" style={{ fontSize: 13, color: 'var(--ink-2)' }}>Med Spa</Link>
+              <Link href="/chiropractic" className="ulink" style={{ fontSize: 13, color: 'var(--ink-2)' }}>Chiropractic</Link>
+              <Link href="/veterinary" className="ulink" style={{ fontSize: 13, color: 'var(--ink-2)' }}>Veterinary</Link>
+              <Link href="/optometry" className="ulink" style={{ fontSize: 13, color: 'var(--ink-2)' }}>Optometry</Link>
+              <Link href="/physical-therapy" className="ulink" style={{ fontSize: 13, color: 'var(--ink-2)' }}>Physical Therapy</Link>
+            </div>
+          </div>
+          <div>
             <div style={{ fontSize: 11, fontFamily: 'var(--mono)', letterSpacing: '.08em', color: 'var(--muted)', marginBottom: 14 }}>TRADES</div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
               <Link href="/plumbers" className="ulink" style={{ fontSize: 13, color: 'var(--ink-2)' }}>Plumbers</Link>
@@ -70,6 +80,7 @@ export default function Footer() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
               <Link href="/product" className="ulink" style={{ fontSize: 13, color: 'var(--ink-2)' }}>How It Works</Link>
               <Link href="/#pricing" className="ulink" style={{ fontSize: 13, color: 'var(--ink-2)' }}>Pricing</Link>
+              <Link href="/partners" className="ulink" style={{ fontSize: 13, color: 'var(--ink-2)' }}>Partners</Link>
               <Link href="/privacy" className="ulink" style={{ fontSize: 13, color: 'var(--ink-2)' }}>Privacy</Link>
               <Link href="/terms" className="ulink" style={{ fontSize: 13, color: 'var(--ink-2)' }}>Terms</Link>
               <Link href="/refund" className="ulink" style={{ fontSize: 13, color: 'var(--ink-2)' }}>Refund</Link>
