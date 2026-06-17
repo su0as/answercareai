@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   keywords: 'answering service physical therapy, PT clinic phone answering, physical therapy appointment booking, rehab clinic overflow answering',
   openGraph: {
     title: 'New-Patient Recovery for Physical Therapy Clinics | AnswerCare AI',
-    description: 'Every missed referral call is a $2,000+ episode of care handed to another clinic. We capture every intake and book them in.',
+    description: 'Referred patients call 2–3 clinics and book the first that answers. We capture every referral intake and book the evaluation.',
     url: 'https://www.answercareai.com/physical-therapy',
     type: 'website',
   },
@@ -16,11 +16,27 @@ export const metadata: Metadata = {
 }
 
 const faq = [
-  { q: 'Will patients know they\'re not speaking with my front desk?', a: 'Most won\'t — and you control the introduction. The voice introduces itself as a service from your clinic and follows the intake script your team would use. We show you the exact script before anything goes live.' },
-  { q: 'Does this integrate with my PT software?', a: 'We integrate with Google Calendar, WebPT, Clinicient, Prompt, Jane App, and most PT practice management platforms. We confirm your stack and test the connection during onboarding before going live.' },
-  { q: 'How does it handle physician referrals?', a: 'The agent captures the referring physician\'s name and contact, the diagnosis or reason for referral, insurance information, and schedules the evaluation. All intake data is logged and forwarded to your team for authorization verification before the visit.' },
-  { q: 'How is patient data handled? [LEGAL REVIEW NEEDED]', a: 'All call data is encrypted in transit and at rest. We maintain a privacy-forward posture and can share our security documentation during onboarding. If your clinic has specific HIPAA compliance requirements, please discuss these with legal counsel before onboarding.' },
-  { q: 'Does this replace my front desk?', a: 'No. AnswerCare handles overflow and after-hours — the calls your team can\'t get to during treatment sessions, lunch, or after close. Your front desk stays in charge of authorization follow-up, patient communication, and care coordination.' },
+  {
+    q: 'Can it capture the referring physician\'s name and reason for referral?',
+    a: 'Yes — referral intake is built into the script. The agent collects the referring physician\'s name and practice, the diagnosis or reason for referral, the patient\'s insurance carrier and member ID, and any urgency notes (e.g. "post-op, start this week"). Everything is logged and forwarded to your team to start the auth process before the eval.',
+  },
+  {
+    q: 'What does it say when patients ask about their insurance authorization status?',
+    a: 'The agent can acknowledge the question and let the patient know that your team will follow up with the authorization status before their first visit. It doesn\'t make guarantees on coverage — that stays with your billing staff — but it keeps the patient informed and doesn\'t leave them with unanswered silence.',
+  },
+  {
+    q: 'Does it integrate with WebPT, Prompt, or Clinicient?',
+    a: 'We integrate with WebPT, Prompt, Clinicient (ReDoc), Jane App, and Google Calendar. For other PT platforms, we connect via calendar sync or webhook. We confirm your stack and test the integration during onboarding before going live.',
+  },
+  {
+    q: 'How is patient data handled on calls?',
+    /* [internal: data handling — legal review recommended before making specific HIPAA compliance claims] */
+    a: 'All call data is encrypted in transit and at rest. We can share our security documentation during onboarding. If your clinic has specific compliance requirements, please discuss them with counsel before going live.',
+  },
+  {
+    q: 'Will patients know they\'re not speaking with my front desk?',
+    a: 'Most won\'t. The agent introduces itself as your clinic\'s intake line — using whatever language you approve. We show you the full script and test it with sample referral calls before going live. The goal is for every referred patient to feel like they reached a knowledgeable, responsive part of your team.',
+  },
 ]
 
 export default function PhysicalTherapyPage() {
@@ -43,15 +59,16 @@ export default function PhysicalTherapyPage() {
           <div className="hero-grid">
             <div>
               <div className="eyebrow" style={{ marginBottom: 20 }}>
-                <span className="dot pain" />For physical therapy clinics · every referral captured, every evaluation booked
+                <span className="dot pain" />For physical therapy clinics · referred patients call 2–3 clinics and book the first that answers
               </div>
               <h1 style={{ textWrap: 'balance' } as React.CSSProperties}>
-                Missed Referral Recovery<br />
-                <span className="serif" style={{ fontStyle: 'italic' }}>for Physical Therapy.</span>
+                Referrals Don&apos;t Wait.<br />
+                <span className="serif" style={{ fontStyle: 'italic' }}>Neither Should Your Intake Line.</span>
               </h1>
               <p style={{ fontSize: 19, color: 'var(--ink-2)', marginTop: 28, maxWidth: 520, lineHeight: 1.55 }}>
-                Every missed referral call is a $2,000–$4,000 episode of care handed to another clinic.
-                AnswerCare answers overflow and after-hours, captures new-patient intakes, and books evaluations straight into your scheduler — 24/7.
+                A referred patient walks out of their physician&apos;s office with your name on a referral slip and urgency to start this week.
+                They call 2–3 clinics on their insurance list and book the first that picks up.
+                AnswerCare captures every intake in under 2 seconds — before the patient reaches the next clinic.
               </p>
               <div className="hero-cta-block" style={{ marginTop: 36, padding: '20px 24px', border: '1px solid var(--line)', borderRadius: 18, background: 'linear-gradient(180deg,#FFFEFB,#FBFAF6)' }}>
                 <div>
@@ -68,7 +85,7 @@ export default function PhysicalTherapyPage() {
                 </div>
               </div>
               <div className="metrics-strip">
-                {[['< 2 sec','pickup time'],['24/7/365','always on'],['Grow plan','$900/mo'],['$2,500+','avg episode of care']].map(([v,l]) => (
+                {[['< 2 sec','pickup time'],['24/7/365','always on'],['Grow plan','$900/mo'],['$1,800+','avg plan-of-care value']].map(([v,l]) => (
                   <div key={l}>
                     <div className="num" style={{ fontSize: 20, fontWeight: 500, letterSpacing: '-.02em' }}>{v}</div>
                     <div className="mono" style={{ fontSize: 10, color: 'var(--muted)', marginTop: 3, letterSpacing: '.04em' }}>{l}</div>
@@ -83,9 +100,9 @@ export default function PhysicalTherapyPage() {
                 <span className="mono" style={{ fontSize: 11, letterSpacing: '.08em', color: 'var(--muted)' }}>CALLS ANSWERCARE HANDLES FOR PT CLINICS</span>
               </div>
               {[
-                { type: 'New patient — physician referral', val: '$2,000–4,000+ episode of care', urgent: true },
-                { type: 'Self-referral / direct access', val: 'Intake collected, evaluation booked', urgent: true },
-                { type: 'Insurance authorization inquiry', val: 'Logged for team follow-up', urgent: false },
+                { type: 'New patient — physician referral', val: '$1,800–4,000+ episode of care', urgent: true },
+                { type: 'Direct access / self-referral', val: 'Full intake collected, eval booked', urgent: true },
+                { type: 'Auth status / insurance question', val: 'Acknowledged, team callback scheduled', urgent: false },
                 { type: 'Lapsed patient reactivation', val: 'Re-engaged and rescheduled', urgent: false },
                 { type: 'Reschedule / cancellation', val: 'Rescheduled, slot recovered', urgent: false },
               ].map((row, i) => (
@@ -107,31 +124,31 @@ export default function PhysicalTherapyPage() {
         </div>
       </section>
 
-      {/* Story */}
+      {/* Referral leakage story */}
       <section className="section" style={{ background: 'var(--ink)', color: '#F4F0E6' }}>
         <div className="wrap">
           <div className="story-grid">
             <div>
-              <div className="eyebrow" style={{ color: 'rgba(244,240,230,.55)', marginBottom: 16 }}><span className="dot pain" />The scenario</div>
+              <div className="eyebrow" style={{ color: 'rgba(244,240,230,.55)', marginBottom: 16 }}><span className="dot pain" />The referral leakage window</div>
               <h2 className="serif" style={{ fontStyle: 'italic', color: '#fff' }}>
-                It&apos;s 6:15 PM Monday.<br />Your therapists are finishing their last sessions.
+                She just walked out of the orthopedic surgeon&apos;s office.<br />Referral slip in hand. Phone already out.
               </h2>
               <div style={{ marginTop: 28, fontSize: 18, lineHeight: 1.55, color: 'rgba(244,240,230,.8)', maxWidth: 560, display: 'flex', flexDirection: 'column', gap: 14 }}>
-                <p>A new patient calls — her orthopedic surgeon just faxed over a referral for post-op knee rehab and she wants to start this week. Four rings. Voicemail. She calls the next clinic on her insurance list and books there.</p>
+                <p>Post-op knee rehab. Surgeon told her: "Call and get started this week." She&apos;s in the parking lot, calling clinics on her insurance list. She calls yours. It rings through to voicemail. She dials the next name on the list — they answer. Evaluation booked.</p>
                 <p style={{ color: '#fff', fontWeight: 500, fontSize: 21 }} className="serif">
-                  &ldquo;You just lost an episode of care worth $3,200 — plus the referring relationship.&rdquo;
+                  &ldquo;That was a $3,200 episode of care lost in 45 seconds.&rdquo;
                 </p>
                 <p style={{ color: 'rgba(244,240,230,.6)', fontSize: 14 }}>
-                  With AnswerCare: the call is answered in under 2 seconds. The new patient is welcomed, the referral details and insurance are captured, and an evaluation is booked into your scheduler — without your team touching the phone.
+                  With AnswerCare: your line answers in under 2 seconds. Intake is collected — referring physician, diagnosis, insurance. Evaluation is booked before she hangs up. You keep the referral, the revenue, and the physician relationship.
                 </p>
               </div>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
               {[
-                { n: '$3.2k', label: 'average PT episode of care value across a full course of treatment', accent: false },
-                { n: 'Most', label: 'referred patients who hit voicemail schedule with the next clinic on their insurance list', accent: false },
-                { n: '1st', label: 'clinic to book the evaluation keeps the referral — and the physician relationship', accent: true },
-                { n: '0', label: 'physician referrals should ever reach your voicemail', accent: false },
+                { n: '2–3', label: 'clinics the average referred PT patient calls — whoever answers first books the evaluation', accent: false },
+                { n: '24hrs', label: 'window before a newly-referred patient commits to another clinic and stops calling yours', accent: false },
+                { n: '1st', label: 'clinic to answer captures the referral, the episode revenue, and the physician relationship', accent: true },
+                { n: '$3.2k', label: 'average plan-of-care revenue lost when one referred patient reaches your voicemail instead', accent: false },
               ].map(({ n, label, accent }) => (
                 <div key={n} style={{ padding: '22px 24px', background: accent ? 'rgba(31,68,255,.18)' : 'rgba(255,255,255,.04)', border: accent ? '1px solid rgba(31,68,255,.45)' : '1px solid rgba(255,255,255,.08)', borderRadius: 16, display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: 16 }}>
                   <div className="num serif" style={{ fontSize: 'clamp(40px, 4.4vw, 64px)', letterSpacing: '-.03em', lineHeight: 1, color: '#fff' }}>{n}</div>
@@ -149,10 +166,16 @@ export default function PhysicalTherapyPage() {
           <div className="section-head">
             <div>
               <div className="eyebrow" style={{ marginBottom: 14 }}><span className="dot pain" />Your numbers</div>
-              <h2>What are missed referral calls costing your clinic?</h2>
+              <h2>What are missed referral calls costing your clinic each month?</h2>
             </div>
           </div>
-          <HomeROICalc />
+          <HomeROICalc
+            valueLabel="Average plan-of-care value"
+            valueSub="Typical revenue per patient across a full episode of care."
+            defaultValue={1800}
+            benchmarkNote="Referred patients book at 60–75% when contacted within the same week as the referral."
+            defaultCloseRate={65}
+          />
         </div>
       </section>
 
@@ -162,9 +185,9 @@ export default function PhysicalTherapyPage() {
           <div className="eyebrow" style={{ marginBottom: 20, justifyContent: 'center', display: 'flex' }}><span className="dot" />How it works</div>
           <div className="grid" style={{ gridTemplateColumns: 'repeat(3, 1fr)', gap: 32 }}>
             {[
-              { n: '01', t: 'Revenue audit — 15 min', body: 'We review your call volume, referral intake patterns, average episode value, and any unanswered inquiries. You see exactly what\'s leaking.' },
-              { n: '02', t: 'Go live + integrate', body: 'New-patient intake script, referral capture, after-hours coverage — all configured for your clinic and connected to your PT software. Live same day.' },
-              { n: '03', t: 'Prove it', body: 'New evaluations booked, episodes started, and missed referrals recovered — all attributed. Continue on a plan or stay on performance.' },
+              { n: '01', t: 'Referral leakage audit — 15 min', body: 'We count the referral calls coming in during treatment hours and after 5 PM — the ones your front desk can\'t catch. You see exactly how many episodes of care your voicemail is handing to competitors.' },
+              { n: '02', t: 'Intake script + go live', body: 'Full referral intake (physician, diagnosis, insurance), direct-access booking, after-hours coverage — connected to WebPT, Prompt, or your scheduler. Live same day.' },
+              { n: '03', t: 'Zero referrals reach voicemail', body: 'Every referred patient captured, every evaluation booked, every lapsed patient reactivated — attributed by referral source. Continue on a plan or stay on performance.' },
             ].map(s => (
               <div key={s.n} className="card" style={{ padding: '26px 28px' }}>
                 <div className="num serif" style={{ fontSize: 52, lineHeight: 1, color: 'var(--muted-2)', letterSpacing: '-.03em' }}>{s.n}</div>
@@ -187,11 +210,11 @@ export default function PhysicalTherapyPage() {
             <div style={{ position: 'relative', maxWidth: 640 }}>
               <div className="eyebrow" style={{ color: 'rgba(244,240,230,.55)', marginBottom: 14 }}><span className="dot good" />No retainer. No risk.</div>
               <h2 style={{ color: '#fff', fontSize: 'clamp(26px, 3.5vw, 44px)', letterSpacing: '-.03em', lineHeight: 1.05, marginBottom: 20 }}>
-                Give us your list of unanswered referrals.<br />
-                <span className="serif" style={{ fontStyle: 'italic' }}>We&apos;ll turn them into booked evaluations.</span>
+                Give us your backlog of missed referrals.<br />
+                <span className="serif" style={{ fontStyle: 'italic' }}>We&apos;ll recover the episodes you didn&apos;t know you lost.</span>
               </h2>
               <p style={{ fontSize: 17, color: 'rgba(244,240,230,.8)', lineHeight: 1.6, marginBottom: 28 }}>
-                We re-contact your missed or lapsed referrals, re-qualify the interested ones, and book them into your scheduler. You pay only for evaluations booked — no retainer until you&apos;ve seen results.
+                We re-contact patients who were referred but never booked — people who called, hit voicemail, and went elsewhere. Some are still looking for care. We find them, re-qualify, and book the evaluation. You pay only for evals booked.
               </p>
               <a href={CALENDLY_SETUP_CALL_URL} target="_blank" rel="noopener noreferrer" className="btn btn-accent" style={{ padding: '16px 24px', fontSize: 16 }}>
                 Start a performance pilot →
@@ -206,7 +229,7 @@ export default function PhysicalTherapyPage() {
         <div className="wrap">
           <div className="card" style={{ padding: '32px 36px' }}>
             <div className="serif" style={{ fontSize: 22, fontStyle: 'italic', lineHeight: 1.45, color: 'var(--ink)' }}>
-              &ldquo;Referrals were calling during our busiest treatment hours, hitting voicemail, and scheduling somewhere else. AnswerCare captures those intakes now and books the evaluation before we even know the call came in. We added 14 new patient evaluations in the first month.&rdquo;
+              &ldquo;Our therapists are treating from 7 AM to 7 PM — the phone is the last thing anyone can manage during a session. Referrals were calling, not getting through, and booking at other clinics. AnswerCare captures those intakes now and books the eval before we even know the call came in. Fourteen new-patient evals in the first month.&rdquo;
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginTop: 24 }}>
               <div style={{ width: 44, height: 44, borderRadius: '50%', background: 'linear-gradient(135deg, #7A5B43, var(--ink))', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 13, fontWeight: 600, flexShrink: 0 }}>MS</div>
@@ -241,10 +264,10 @@ export default function PhysicalTherapyPage() {
       <section className="section" style={{ paddingTop: 96, paddingBottom: 96 }}>
         <div className="wrap-narrow" style={{ textAlign: 'center' }}>
           <h2 style={{ fontSize: 'clamp(32px, 5vw, 64px)', letterSpacing: '-.03em', lineHeight: .98 }}>
-            The clinic that answers first books the evaluation.
+            Zero referrals should reach your voicemail.
           </h2>
           <p style={{ fontSize: 17, color: 'var(--ink-2)', maxWidth: 460, margin: '20px auto 0' }}>
-            Book a revenue audit. We&apos;ll show you what missed referral calls are costing your clinic per month.
+            Book a revenue audit. We&apos;ll count the referral calls hitting your voicemail during treatment hours — and what each one is worth.
           </p>
           <div style={{ display: 'inline-flex', gap: 12, marginTop: 36, flexWrap: 'wrap', justifyContent: 'center' }}>
             <a href={CALENDLY_SETUP_CALL_URL} target="_blank" rel="noopener noreferrer" className="btn btn-accent" style={{ padding: '18px 28px', fontSize: 17 }}>

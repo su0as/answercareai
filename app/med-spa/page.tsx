@@ -16,11 +16,27 @@ export const metadata: Metadata = {
 }
 
 const faq = [
-  { q: 'Will clients know they\'re not speaking with my front desk?', a: 'Most won\'t — and you control the introduction. The voice introduces itself as a service from your clinic and follows your front desk script exactly. We show you the script before anything goes live.' },
-  { q: 'Does this integrate with my booking software?', a: 'We integrate with Google Calendar, Vagaro, Mindbody, Jane App, Boulevard, and most practice management platforms. We confirm your stack and test the connection during onboarding before going live.' },
-  { q: 'How is client data handled? [LEGAL REVIEW NEEDED]', a: 'All call data is encrypted in transit and at rest. We maintain a privacy-forward posture and can share our security documentation during onboarding. If your clinic has specific compliance requirements, please discuss these with legal counsel before onboarding.' },
-  { q: 'What types of calls does AnswerCare handle for med spas?', a: 'New consultation requests, treatment inquiries (Botox, filler, laser, body contouring), membership and package questions, rescheduling, and after-hours new-client inquiries. We qualify the caller, capture contact info, and book the consultation.' },
-  { q: 'Does this replace my front desk?', a: 'No. AnswerCare handles overflow and after-hours — the calls your team can\'t get to during busy treatment blocks, lunch, or after close. Your front desk stays in charge of the in-person client experience.' },
+  {
+    q: 'A caller saw my ad but asks about a treatment I don\'t offer — what happens?',
+    a: 'The agent follows your approved service list and will politely clarify what your clinic does offer, then offer to book them for a consultation to discuss the best option for their goals. We never promise treatments you haven\'t authorized.',
+  },
+  {
+    q: 'Will clients know they\'re not speaking with a live receptionist?',
+    a: 'Most won\'t — and you control the introduction. The voice can introduce itself as "the booking line for [Your Clinic Name]" or however you prefer. We show you the exact script and you approve it before anything goes live.',
+  },
+  {
+    q: 'Can it handle callers asking for price quotes or package comparisons?',
+    a: 'Yes — we build a Q&A script from your actual service menu and pricing. For nuanced consultations or custom packages, the agent collects the caller\'s name and interest and books them for a complimentary consultation where your team can close in person.',
+  },
+  {
+    q: 'How is client information handled on calls?',
+    /* [internal: data handling — legal review recommended before making specific compliance claims] */
+    a: 'All call data is encrypted in transit and at rest. We can share our security documentation during onboarding. If your clinic has specific data handling or compliance requirements, please review them with counsel before onboarding.',
+  },
+  {
+    q: 'I run seasonal promotions — can the script be updated quickly?',
+    a: 'Yes. You can request script updates any time via email or your client dashboard. Promotion changes typically go live within one business day. We recommend giving us a 48-hour lead before a campaign launches so everything is tested before traffic spikes.',
+  },
 ]
 
 export default function MedSpaPage() {
@@ -43,16 +59,16 @@ export default function MedSpaPage() {
           <div className="hero-grid">
             <div>
               <div className="eyebrow" style={{ marginBottom: 20 }}>
-                <span className="dot pain" />For med spas &amp; aesthetic clinics · every consultation captured, every appointment booked
+                <span className="dot pain" />For med spas &amp; aesthetic clinics · turn every ad click into a booked consultation
               </div>
               <h1 style={{ textWrap: 'balance' } as React.CSSProperties}>
-                Missed-Consultation Recovery<br />
-                <span className="serif" style={{ fontStyle: 'italic' }}>for Med Spas.</span>
+                Stop Paying for Clicks<br />
+                <span className="serif" style={{ fontStyle: 'italic' }}>That Go to Voicemail.</span>
               </h1>
               <p style={{ fontSize: 19, color: 'var(--ink-2)', marginTop: 28, maxWidth: 520, lineHeight: 1.55 }}>
-                Every missed consultation request is hundreds — sometimes thousands — in treatment revenue handed to the clinic down the street.
-                AnswerCare answers overflow and after-hours, books new clients straight into your scheduler,
-                and never lets an inquiry go unanswered.
+                Your ads run around the clock. Your front desk doesn&apos;t.
+                Every missed call after hours is a paid lead handed directly to the clinic that picks up.
+                AnswerCare answers 24/7, books new consultations into your scheduler, and turns ad spend into booked revenue.
               </p>
               <div className="hero-cta-block" style={{ marginTop: 36, padding: '20px 24px', border: '1px solid var(--line)', borderRadius: 18, background: 'linear-gradient(180deg,#FFFEFB,#FBFAF6)' }}>
                 <div>
@@ -69,7 +85,7 @@ export default function MedSpaPage() {
                 </div>
               </div>
               <div className="metrics-strip">
-                {[['< 2 sec','pickup time'],['24/7/365','always on'],['Grow plan','$900/mo'],['$500+','avg treatment value']].map(([v,l]) => (
+                {[['< 2 sec','pickup time'],['24/7/365','always on'],['Grow plan','$900/mo'],['$1,200+','avg treatment value']].map(([v,l]) => (
                   <div key={l}>
                     <div className="num" style={{ fontSize: 20, fontWeight: 500, letterSpacing: '-.02em' }}>{v}</div>
                     <div className="mono" style={{ fontSize: 10, color: 'var(--muted)', marginTop: 3, letterSpacing: '.04em' }}>{l}</div>
@@ -85,7 +101,7 @@ export default function MedSpaPage() {
               </div>
               {[
                 { type: 'New consultation request', val: '$500–2,000+ treatment value', urgent: true },
-                { type: 'After-hours treatment inquiry', val: 'Captured + scheduled for follow-up', urgent: true },
+                { type: 'After-hours inquiry via ad click', val: 'Captured + consultation booked', urgent: true },
                 { type: 'Membership / package inquiry', val: 'Qualified, booked, or logged', urgent: false },
                 { type: 'Reschedule / cancellation', val: 'Rescheduled, slot recovered', urgent: false },
                 { type: 'Returning client booking', val: 'Booked into scheduler directly', urgent: false },
@@ -108,31 +124,31 @@ export default function MedSpaPage() {
         </div>
       </section>
 
-      {/* Story */}
+      {/* Ad-spend waste story */}
       <section className="section" style={{ background: 'var(--ink)', color: '#F4F0E6' }}>
         <div className="wrap">
           <div className="story-grid">
             <div>
-              <div className="eyebrow" style={{ color: 'rgba(244,240,230,.55)', marginBottom: 16 }}><span className="dot pain" />The scenario</div>
+              <div className="eyebrow" style={{ color: 'rgba(244,240,230,.55)', marginBottom: 16 }}><span className="dot pain" />Where your ad budget goes to die</div>
               <h2 className="serif" style={{ fontStyle: 'italic', color: '#fff' }}>
-                It&apos;s Saturday at 2 PM.<br />Your front desk clocked out an hour ago.
+                It&apos;s 9:15 PM on a Tuesday.<br />Your Instagram campaign is live.
               </h2>
               <div style={{ marginTop: 28, fontSize: 18, lineHeight: 1.55, color: 'rgba(244,240,230,.8)', maxWidth: 560, display: 'flex', flexDirection: 'column', gap: 14 }}>
-                <p>A new client calls — she saw your Instagram ad and is ready to book a Botox consultation today. Four rings. Voicemail. She books with the next clinic that picks up.</p>
+                <p>You&apos;re paying $15 per click. A prospective client sees your Botox ad, taps "Call now," and hears four rings — then voicemail. She books with the next clinic whose number is already in her recent calls.</p>
                 <p style={{ color: '#fff', fontWeight: 500, fontSize: 21 }} className="serif">
-                  &ldquo;You just lost a client relationship worth $3,000 over the next year.&rdquo;
+                  &ldquo;You paid $15 to send a client to your competitor.&rdquo;
                 </p>
                 <p style={{ color: 'rgba(244,240,230,.6)', fontSize: 14 }}>
-                  With AnswerCare: the call is answered in under 2 seconds. The new client is welcomed, her interest is noted, and a consultation is booked into your scheduler — without your front desk touching the phone.
+                  With AnswerCare: the call is answered in under 2 seconds regardless of the time. The new client is welcomed, her interest is captured, and a consultation is booked — turning your ad spend into confirmed revenue instead of wasted clicks.
                 </p>
               </div>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
               {[
-                { n: '$3k+', label: 'average annual spend of a loyal med spa client across treatments and memberships', accent: false },
-                { n: 'Most', label: 'consultation requesters who hit voicemail don\'t call back — they book with the next clinic', accent: false },
-                { n: '1st', label: 'clinic to respond books the new client — response speed drives conversion', accent: true },
-                { n: '0', label: 'consultation requests should ever reach your voicemail', accent: false },
+                { n: '$15+', label: 'average cost per click on aesthetic social ads — wasted every time the call hits voicemail', accent: false },
+                { n: '9PM', label: 'peak time for aesthetic clinic inquiries — when your front desk has long clocked out', accent: false },
+                { n: '1st', label: 'clinic to respond after an ad click books the consultation — speed is the whole conversion', accent: true },
+                { n: '0', label: 'paid clicks should ever end in voicemail', accent: false },
               ].map(({ n, label, accent }) => (
                 <div key={n} style={{ padding: '22px 24px', background: accent ? 'rgba(31,68,255,.18)' : 'rgba(255,255,255,.04)', border: accent ? '1px solid rgba(31,68,255,.45)' : '1px solid rgba(255,255,255,.08)', borderRadius: 16, display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: 16 }}>
                   <div className="num serif" style={{ fontSize: 'clamp(40px, 4.4vw, 64px)', letterSpacing: '-.03em', lineHeight: 1, color: '#fff' }}>{n}</div>
@@ -153,7 +169,13 @@ export default function MedSpaPage() {
               <h2>What are missed consultation calls costing your clinic?</h2>
             </div>
           </div>
-          <HomeROICalc />
+          <HomeROICalc
+            valueLabel="Average treatment or package value"
+            valueSub="Typical revenue per consultation or service booked."
+            defaultValue={1200}
+            benchmarkNote="Aesthetic clinics close 35–50% of answered consultation requests."
+            defaultCloseRate={40}
+          />
         </div>
       </section>
 
@@ -163,9 +185,9 @@ export default function MedSpaPage() {
           <div className="eyebrow" style={{ marginBottom: 20, justifyContent: 'center', display: 'flex' }}><span className="dot" />How it works</div>
           <div className="grid" style={{ gridTemplateColumns: 'repeat(3, 1fr)', gap: 32 }}>
             {[
-              { n: '01', t: 'Revenue audit — 15 min', body: 'We review your call volume, peak-hour overflow, average treatment value, and any existing list of unanswered inquiries. You see exactly what\'s leaking.' },
-              { n: '02', t: 'Go live + integrate', body: 'New-client script, consultation booking, after-hours inquiry capture — all configured for your clinic and connected to your scheduler. Live same day.' },
-              { n: '03', t: 'Prove it', body: 'New consultations booked, slots filled, and unanswered inquiries recovered — all attributed. Continue on a plan or stay on performance.' },
+              { n: '01', t: 'Ad-spend audit — 15 min', body: 'We look at your call volume, campaign hours, average treatment value, and missed inquiry backlog. You see exactly how much ad spend is leaking to competitors via unanswered calls.' },
+              { n: '02', t: 'Go live overnight', body: 'New-client booking script, consultation capture, after-hours coverage — configured for your clinic and connected to your scheduler. Live same day, before your next campaign goes out.' },
+              { n: '03', t: 'Every click converts', body: 'Every ad-driven call answered, every inquiry qualified, every consultation booked — attributed by source. Your ad spend finally works around the clock.' },
             ].map(s => (
               <div key={s.n} className="card" style={{ padding: '26px 28px' }}>
                 <div className="num serif" style={{ fontSize: 52, lineHeight: 1, color: 'var(--muted-2)', letterSpacing: '-.03em' }}>{s.n}</div>
@@ -192,7 +214,7 @@ export default function MedSpaPage() {
                 <span className="serif" style={{ fontStyle: 'italic' }}>We&apos;ll turn them into booked consultations.</span>
               </h2>
               <p style={{ fontSize: 17, color: 'rgba(244,240,230,.8)', lineHeight: 1.6, marginBottom: 28 }}>
-                We re-contact your missed or lost inquiries, re-qualify the interested ones, and book them into your scheduler. You pay only for consultations booked — no retainer until you&apos;ve seen results.
+                We re-contact your missed or lapsed leads — people who clicked your ad, called once, hit voicemail, and disappeared. We re-qualify them and book the consultation. You pay only for consultations booked.
               </p>
               <a href={CALENDLY_SETUP_CALL_URL} target="_blank" rel="noopener noreferrer" className="btn btn-accent" style={{ padding: '16px 24px', fontSize: 16 }}>
                 Start a performance pilot →
@@ -207,7 +229,7 @@ export default function MedSpaPage() {
         <div className="wrap">
           <div className="card" style={{ padding: '32px 36px' }}>
             <div className="serif" style={{ fontSize: 22, fontStyle: 'italic', lineHeight: 1.45, color: 'var(--ink)' }}>
-              &ldquo;We had a long list of people who inquired through Instagram and our website, called once, hit voicemail, and disappeared. The performance pilot worked through that backlog and booked 8 new consultations in three weeks. That&apos;s revenue we would have left on the table permanently.&rdquo;
+              &ldquo;We were running paid ads but bleeding leads after hours. People were clicking, calling, hitting voicemail, and booking down the street. AnswerCare plugged that hole in week one. Eight new consultations in the first three weeks — all from calls we would have missed.&rdquo;
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginTop: 24 }}>
               <div style={{ width: 44, height: 44, borderRadius: '50%', background: 'linear-gradient(135deg, #7A5B43, var(--ink))', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 13, fontWeight: 600, flexShrink: 0 }}>RM</div>
@@ -242,10 +264,10 @@ export default function MedSpaPage() {
       <section className="section" style={{ paddingTop: 96, paddingBottom: 96 }}>
         <div className="wrap-narrow" style={{ textAlign: 'center' }}>
           <h2 style={{ fontSize: 'clamp(32px, 5vw, 64px)', letterSpacing: '-.03em', lineHeight: .98 }}>
-            The clinic that answers first books the consultation.
+            Your ads are running. Make sure someone&apos;s answering.
           </h2>
           <p style={{ fontSize: 17, color: 'var(--ink-2)', maxWidth: 460, margin: '20px auto 0' }}>
-            Book a revenue audit. We&apos;ll show you what unanswered calls are costing your clinic in treatment revenue.
+            Book a revenue audit. We&apos;ll show you exactly how many ad-driven calls your clinic is losing after hours.
           </p>
           <div style={{ display: 'inline-flex', gap: 12, marginTop: 36, flexWrap: 'wrap', justifyContent: 'center' }}>
             <a href={CALENDLY_SETUP_CALL_URL} target="_blank" rel="noopener noreferrer" className="btn btn-accent" style={{ padding: '18px 28px', fontSize: 17 }}>

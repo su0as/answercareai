@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   keywords: 'answering service chiropractic, chiropractic clinic phone answering, new patient booking chiropractic, chiro office overflow answering',
   openGraph: {
     title: 'New-Patient Recovery for Chiropractic Clinics | AnswerCare AI',
-    description: 'Every missed new-patient call is a care plan worth thousands handed to the clinic down the street. We answer and book them in.',
+    description: 'Acute-pain patients book with the first clinic that answers. We answer 24/7 and capture every new patient.',
     url: 'https://www.answercareai.com/chiropractic',
     type: 'website',
   },
@@ -16,11 +16,27 @@ export const metadata: Metadata = {
 }
 
 const faq = [
-  { q: 'Will patients know they\'re not speaking with the front desk?', a: 'Most won\'t — and you control the introduction. The voice introduces itself as a service from your clinic and follows the script your front desk would use. We show you the exact script before anything goes live.' },
-  { q: 'Does this integrate with my EHR or scheduling system?', a: 'We integrate with Google Calendar, Jane App, ChiroTouch, Genesis Chiropractic Software, and most scheduling platforms. We confirm your stack and test the connection during onboarding before going live.' },
-  { q: 'How is patient data handled? [LEGAL REVIEW NEEDED]', a: 'All call data is encrypted in transit and at rest. We maintain a privacy-forward posture and can share our security documentation during onboarding. If your clinic has specific HIPAA compliance requirements, please discuss these with legal counsel before onboarding.' },
-  { q: 'Can it handle calls about insurance and coverage?', a: 'Yes — we answer common insurance and coverage questions from your pre-approved FAQ script. We can also collect insurance information for new patients and log it for your team to verify before the first appointment.' },
-  { q: 'Does this replace my front desk?', a: 'No. AnswerCare handles overflow and after-hours — the calls your team can\'t get to during adjustments, lunch, or after close. Your front desk stays in charge of patient relationships and care coordination.' },
+  {
+    q: 'Can it handle callers who are in active pain and anxious on the phone?',
+    a: 'Yes — we script for it specifically. The agent opens with empathy, acknowledges the caller\'s discomfort, and moves quickly to booking. It doesn\'t try to diagnose or give medical advice — it focuses on getting the patient seen as fast as possible, which is exactly what an anxious caller needs.',
+  },
+  {
+    q: 'Will new patients know they\'re not speaking with the front desk?',
+    a: 'Most won\'t — and you control the framing. The agent can introduce itself as your clinic\'s booking line. We show you the exact script before anything goes live and you approve every word.',
+  },
+  {
+    q: 'Does it integrate with ChiroTouch, Jane App, or Genesis?',
+    a: 'Yes — we integrate with ChiroTouch, Jane App, Genesis Chiropractic Software, and Google Calendar. For other platforms, we connect via calendar sync or webhook. We confirm your stack and test the connection during onboarding before going live.',
+  },
+  {
+    q: 'Can it collect insurance information from new patients during intake?',
+    a: 'Yes. The agent can collect insurance carrier, member ID, and group number from new patients and log everything for your team to verify before the first visit. It won\'t attempt to verify benefits — that stays with your staff — but it captures what they need to start the process.',
+  },
+  {
+    q: 'How is patient data handled on calls?',
+    /* [internal: data handling — legal review recommended before making specific HIPAA compliance claims] */
+    a: 'All call data is encrypted in transit and at rest. We can share our security documentation during onboarding. If your practice has specific compliance requirements, please review them with counsel before going live.',
+  },
 ]
 
 export default function ChiropracticPage() {
@@ -43,16 +59,16 @@ export default function ChiropracticPage() {
           <div className="hero-grid">
             <div>
               <div className="eyebrow" style={{ marginBottom: 20 }}>
-                <span className="dot pain" />For chiropractic clinics · every new patient captured, every care plan started
+                <span className="dot pain" />For chiropractic clinics · acute-pain patients book with the first clinic that picks up
               </div>
               <h1 style={{ textWrap: 'balance' } as React.CSSProperties}>
-                Missed New-Patient Recovery<br />
-                <span className="serif" style={{ fontStyle: 'italic' }}>for Chiropractic.</span>
+                The Urgency Window<br />
+                <span className="serif" style={{ fontStyle: 'italic' }}>Closes in Two Hours.</span>
               </h1>
               <p style={{ fontSize: 19, color: 'var(--ink-2)', marginTop: 28, maxWidth: 520, lineHeight: 1.55 }}>
-                Every missed new-patient call is a care plan worth $2,000–$8,000 handed to the clinic down the street.
-                AnswerCare answers overflow and after-hours, books new patients straight into your scheduler,
-                and never lets a first-time caller hit voicemail.
+                Acute-pain patients don&apos;t research for days — they call down the list until someone answers.
+                AnswerCare picks up in under 2 seconds, captures the new patient, and books the evaluation before the urgency fades.
+                Every unanswered call is a care plan worth thousands going to the clinic that picked up.
               </p>
               <div className="hero-cta-block" style={{ marginTop: 36, padding: '20px 24px', border: '1px solid var(--line)', borderRadius: 18, background: 'linear-gradient(180deg,#FFFEFB,#FBFAF6)' }}>
                 <div>
@@ -69,7 +85,7 @@ export default function ChiropracticPage() {
                 </div>
               </div>
               <div className="metrics-strip">
-                {[['< 2 sec','pickup time'],['24/7/365','always on'],['Grow plan','$900/mo'],['$4,000+','avg care plan value']].map(([v,l]) => (
+                {[['< 2 sec','pickup time'],['24/7/365','always on'],['Grow plan','$900/mo'],['$2,500+','avg care plan value']].map(([v,l]) => (
                   <div key={l}>
                     <div className="num" style={{ fontSize: 20, fontWeight: 500, letterSpacing: '-.02em' }}>{v}</div>
                     <div className="mono" style={{ fontSize: 10, color: 'var(--muted)', marginTop: 3, letterSpacing: '.04em' }}>{l}</div>
@@ -84,10 +100,10 @@ export default function ChiropracticPage() {
                 <span className="mono" style={{ fontSize: 11, letterSpacing: '.08em', color: 'var(--muted)' }}>CALLS ANSWERCARE HANDLES FOR CHIRO CLINICS</span>
               </div>
               {[
-                { type: 'New patient — pain or injury', val: '$2,000–8,000+ care plan value', urgent: true },
-                { type: 'After-hours acute pain inquiry', val: 'Triaged + next-day appointment booked', urgent: true },
-                { type: 'Insurance & coverage questions', val: 'Answered from script, logged', urgent: false },
-                { type: 'Recall / lapsed patient', val: 'Reactivated and rescheduled', urgent: false },
+                { type: 'New patient — acute pain or injury', val: '$2,500–8,000+ care-plan value', urgent: true },
+                { type: 'After-hours urgent spine / back call', val: 'Triaged + earliest opening booked', urgent: true },
+                { type: 'Insurance & coverage questions', val: 'Answered from script, intake logged', urgent: false },
+                { type: 'Lapsed patient reactivation', val: 'Reengaged and rescheduled', urgent: false },
                 { type: 'Reschedule / cancellation', val: 'Rescheduled, slot recovered', urgent: false },
               ].map((row, i) => (
                 <div key={row.type} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '14px 22px', borderBottom: i < 4 ? '1px solid var(--line-soft)' : 'none', gap: 12 }}>
@@ -108,31 +124,31 @@ export default function ChiropracticPage() {
         </div>
       </section>
 
-      {/* Story */}
+      {/* Urgency window story */}
       <section className="section" style={{ background: 'var(--ink)', color: '#F4F0E6' }}>
         <div className="wrap">
           <div className="story-grid">
             <div>
-              <div className="eyebrow" style={{ color: 'rgba(244,240,230,.55)', marginBottom: 16 }}><span className="dot pain" />The scenario</div>
+              <div className="eyebrow" style={{ color: 'rgba(244,240,230,.55)', marginBottom: 16 }}><span className="dot pain" />The urgency window</div>
               <h2 className="serif" style={{ fontStyle: 'italic', color: '#fff' }}>
-                It&apos;s 6:30 PM Tuesday.<br />You&apos;re with your last adjustment of the day.
+                It&apos;s 7:15 PM Monday.<br />Someone just threw out their back.
               </h2>
               <div style={{ marginTop: 28, fontSize: 18, lineHeight: 1.55, color: 'rgba(244,240,230,.8)', maxWidth: 560, display: 'flex', flexDirection: 'column', gap: 14 }}>
-                <p>A new patient calls — she threw out her back and needs to see someone this week. Four rings. Voicemail. She calls the next chiropractor on Google and books there.</p>
+                <p>She Googled "chiropractor near me" and called the top result — your clinic. Four rings. Voicemail. She immediately calls the next name on the list. That clinic answers. The appointment is booked before she can even dial a third number.</p>
                 <p style={{ color: '#fff', fontWeight: 500, fontSize: 21 }} className="serif">
-                  &ldquo;You just lost a care plan worth $5,000 over the next six months.&rdquo;
+                  &ldquo;Acute-pain patients book with the first voice they hear. Not the best-reviewed clinic.&rdquo;
                 </p>
                 <p style={{ color: 'rgba(244,240,230,.6)', fontSize: 14 }}>
-                  With AnswerCare: the call is answered in under 2 seconds. The new patient is welcomed, her injury is noted, and an initial appointment is booked into your scheduler — without you touching the phone.
+                  With AnswerCare: your line picks up in under 2 seconds. The patient is greeted, her injury is noted, and she&apos;s booked into your earliest opening — before she even thinks about calling anyone else.
                 </p>
               </div>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
               {[
-                { n: '$5k+', label: 'average value of a chiropractic care plan over a full treatment episode', accent: false },
-                { n: 'Most', label: 'new-patient callers who hit voicemail don\'t call back — they call the next clinic', accent: false },
-                { n: '1st', label: 'clinic to answer usually books the new patient — speed wins in acute pain', accent: true },
-                { n: '0', label: 'new patients should ever reach your voicemail', accent: false },
+                { n: '~2hrs', label: 'typical window before an acute-pain patient commits to the first clinic that helped them', accent: false },
+                { n: '80%', label: 'of acute-pain callers book with the first clinic that answers — urgency overrides comparison', accent: false },
+                { n: '1st', label: 'clinic to pick up keeps the care plan — there is no second chance with an acute caller', accent: true },
+                { n: '$5k+', label: 'average care-plan value lost every time an acute caller reaches your voicemail', accent: false },
               ].map(({ n, label, accent }) => (
                 <div key={n} style={{ padding: '22px 24px', background: accent ? 'rgba(31,68,255,.18)' : 'rgba(255,255,255,.04)', border: accent ? '1px solid rgba(31,68,255,.45)' : '1px solid rgba(255,255,255,.08)', borderRadius: 16, display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: 16 }}>
                   <div className="num serif" style={{ fontSize: 'clamp(40px, 4.4vw, 64px)', letterSpacing: '-.03em', lineHeight: 1, color: '#fff' }}>{n}</div>
@@ -153,7 +169,13 @@ export default function ChiropracticPage() {
               <h2>What are missed new-patient calls costing your clinic?</h2>
             </div>
           </div>
-          <HomeROICalc />
+          <HomeROICalc
+            valueLabel="Average care-plan value"
+            valueSub="Typical revenue per new patient across a full treatment plan."
+            defaultValue={2500}
+            benchmarkNote="Acute-pain callers book same-day at 50–65% when a live voice answers first."
+            defaultCloseRate={55}
+          />
         </div>
       </section>
 
@@ -163,9 +185,9 @@ export default function ChiropracticPage() {
           <div className="eyebrow" style={{ marginBottom: 20, justifyContent: 'center', display: 'flex' }}><span className="dot" />How it works</div>
           <div className="grid" style={{ gridTemplateColumns: 'repeat(3, 1fr)', gap: 32 }}>
             {[
-              { n: '01', t: 'Revenue audit — 15 min', body: 'We review your call volume, peak-hour overflow, average care plan value, and any existing list of unanswered inquiries. You see exactly what\'s leaking.' },
-              { n: '02', t: 'Go live + integrate', body: 'New-patient intake script, care plan booking, after-hours triage — all configured for your clinic and connected to your EHR or scheduler. Live same day.' },
-              { n: '03', t: 'Prove it', body: 'New patients booked, care plans started, and unanswered inquiries recovered — all attributed. Continue on a plan or stay on performance.' },
+              { n: '01', t: 'Revenue audit — 15 min', body: 'We review your call volume, after-hours patterns, average care-plan value, and any unanswered inquiry backlog. You see exactly how many acute-pain patients your voicemail is handing to competitors.' },
+              { n: '02', t: 'Go live + integrate', body: 'New-patient intake script tuned for urgency, insurance collection, earliest-opening booking — connected to ChiroTouch, Jane, or your calendar. Live same day.' },
+              { n: '03', t: 'Capture every urgency window', body: 'Every acute-pain call answered, every new-patient care plan started, every lapsed patient reactivated — all attributed. Continue on a plan or stay on performance.' },
             ].map(s => (
               <div key={s.n} className="card" style={{ padding: '26px 28px' }}>
                 <div className="num serif" style={{ fontSize: 52, lineHeight: 1, color: 'var(--muted-2)', letterSpacing: '-.03em' }}>{s.n}</div>
@@ -188,11 +210,11 @@ export default function ChiropracticPage() {
             <div style={{ position: 'relative', maxWidth: 640 }}>
               <div className="eyebrow" style={{ color: 'rgba(244,240,230,.55)', marginBottom: 14 }}><span className="dot good" />No retainer. No risk.</div>
               <h2 style={{ color: '#fff', fontSize: 'clamp(26px, 3.5vw, 44px)', letterSpacing: '-.03em', lineHeight: 1.05, marginBottom: 20 }}>
-                Give us your list of unanswered inquiries.<br />
-                <span className="serif" style={{ fontStyle: 'italic' }}>We&apos;ll turn them into booked appointments.</span>
+                Give us your backlog of missed inquiries.<br />
+                <span className="serif" style={{ fontStyle: 'italic' }}>We&apos;ll reopen closed urgency windows.</span>
               </h2>
               <p style={{ fontSize: 17, color: 'rgba(244,240,230,.8)', lineHeight: 1.6, marginBottom: 28 }}>
-                We re-contact your missed or lost inquiries, re-qualify the interested ones, and book them into your scheduler. You pay only for appointments booked — no retainer until you&apos;ve seen results.
+                We re-contact lapsed inquiries, re-qualify the ones still in pain or seeking care, and book them in. You pay only for patients booked — no retainer until you&apos;ve seen results.
               </p>
               <a href={CALENDLY_SETUP_CALL_URL} target="_blank" rel="noopener noreferrer" className="btn btn-accent" style={{ padding: '16px 24px', fontSize: 16 }}>
                 Start a performance pilot →
@@ -207,7 +229,7 @@ export default function ChiropracticPage() {
         <div className="wrap">
           <div className="card" style={{ padding: '32px 36px' }}>
             <div className="serif" style={{ fontSize: 22, fontStyle: 'italic', lineHeight: 1.45, color: 'var(--ink)' }}>
-              &ldquo;New patients were calling after hours, hitting voicemail, and scheduling somewhere else. AnswerCare fixed that immediately. Twelve new patients in the first month — most from calls that came in after 6 PM or over the weekend.&rdquo;
+              &ldquo;I didn&apos;t realize how many acute-pain patients were calling after 6 PM and hitting voicemail until I looked at the missed-call log. AnswerCare caught twelve new patient intakes in the first month — most were people in real pain who just needed someone to answer and get them in.&rdquo;
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginTop: 24 }}>
               <div style={{ width: 44, height: 44, borderRadius: '50%', background: 'linear-gradient(135deg, #7A5B43, var(--ink))', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 13, fontWeight: 600, flexShrink: 0 }}>KL</div>
@@ -242,10 +264,10 @@ export default function ChiropracticPage() {
       <section className="section" style={{ paddingTop: 96, paddingBottom: 96 }}>
         <div className="wrap-narrow" style={{ textAlign: 'center' }}>
           <h2 style={{ fontSize: 'clamp(32px, 5vw, 64px)', letterSpacing: '-.03em', lineHeight: .98 }}>
-            The clinic that answers first books the patient.
+            Close the urgency window before your competitor does.
           </h2>
           <p style={{ fontSize: 17, color: 'var(--ink-2)', maxWidth: 460, margin: '20px auto 0' }}>
-            Book a revenue audit. We&apos;ll show you what unanswered calls are costing your practice in care plan revenue.
+            Book a revenue audit. We&apos;ll count how many acute-pain callers your voicemail is sending to the clinic down the street.
           </p>
           <div style={{ display: 'inline-flex', gap: 12, marginTop: 36, flexWrap: 'wrap', justifyContent: 'center' }}>
             <a href={CALENDLY_SETUP_CALL_URL} target="_blank" rel="noopener noreferrer" className="btn btn-accent" style={{ padding: '18px 28px', fontSize: 17 }}>

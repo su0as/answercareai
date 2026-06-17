@@ -67,10 +67,28 @@ function Stat({ label, value, bold, muted, accent }: { label: string; value: str
   )
 }
 
-export default function HomeROICalc() {
+interface HomeROICalcProps {
+  valueLabel?: string
+  valueSub?: string
+  defaultValue?: number
+  /** undefined = show default home-services note; null = suppress; string = custom note */
+  benchmarkNote?: string | null
+  defaultCloseRate?: number
+}
+
+export default function HomeROICalc({
+  valueLabel = 'Average value of a booked job / client / patient',
+  valueSub = 'Typical revenue per booked appointment or job.',
+  defaultValue = 750,
+  benchmarkNote,
+  defaultCloseRate = 30,
+}: HomeROICalcProps = {}) {
+  const resolvedBenchmarkNote =
+    benchmarkNote === undefined ? 'Industry median for home services is 28–34%.' : (benchmarkNote ?? undefined)
+
   const [calls, setCalls]   = useState(7)
-  const [job, setJob]       = useState(750)
-  const [close, setClose]   = useState(30)
+  const [job, setJob]       = useState(defaultValue)
+  const [close, setClose]   = useState(defaultCloseRate)
 
   const missedPerMonth   = calls * 22
   const recoverableJobs  = missedPerMonth * (close / 100)
@@ -119,8 +137,8 @@ export default function HomeROICalc() {
           hint={`≈ ${fmt(missedPerMonth)} unanswered calls / month`}
         />
         <CalcRow
-          label="Average value of a booked job / client / patient"
-          sub="Typical revenue per booked appointment or job."
+          label={valueLabel}
+          sub={valueSub}
           value={job} min={150} max={3000} step={25} unit="$"
           onChange={setJob}
         />
@@ -129,7 +147,7 @@ export default function HomeROICalc() {
           sub="Of callers who reach a person, how many convert?"
           value={close} min={10} max={70} step={1} unit="%"
           onChange={setClose}
-          hint="Industry median for home services is 28–34%."
+          hint={resolvedBenchmarkNote}
         />
       </div>
 

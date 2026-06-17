@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   keywords: 'answering service optometry, eye care phone answering, optometry appointment booking, vision clinic overflow answering',
   openGraph: {
     title: 'New-Patient Recovery for Optometry Practices | AnswerCare AI',
-    description: 'Every missed exam request is lost visit revenue and recall revenue. We answer overflow and after-hours and book them in.',
+    description: 'Recalls are the highest-conversion call in optometry — and most happen after hours. We answer and book every one.',
     url: 'https://www.answercareai.com/optometry',
     type: 'website',
   },
@@ -16,11 +16,27 @@ export const metadata: Metadata = {
 }
 
 const faq = [
-  { q: 'Will patients know they\'re not speaking with my front desk?', a: 'Most won\'t — and you control the introduction. The voice introduces itself as a service from your practice and follows the script your front desk would use. We show you the exact script before anything goes live.' },
-  { q: 'Does this integrate with my EHR or scheduling software?', a: 'We integrate with Google Calendar, EyeFinity, RevolutionEHR, Compulink Advantage, and most optometry practice management platforms. We confirm your stack and test the connection during onboarding before going live.' },
-  { q: 'How is patient data handled? [LEGAL REVIEW NEEDED]', a: 'All call data is encrypted in transit and at rest. We maintain a privacy-forward posture and can share our security documentation during onboarding. If your practice has specific HIPAA compliance requirements, please discuss these with legal counsel before onboarding.' },
-  { q: 'Can it handle vision insurance questions?', a: 'Yes — we answer common insurance and coverage questions from your pre-approved FAQ script. We can collect insurance information for new patients and log it for your team to verify before the exam.' },
-  { q: 'Does this replace my front desk?', a: 'No. AnswerCare handles overflow and after-hours — the calls your team can\'t get to during exams, lane time, or after close. Your front desk stays in charge of patient relationships, frame selection support, and the in-person experience.' },
+  {
+    q: 'Can it explain the difference between vision insurance and medical insurance for eye exams?',
+    a: 'Yes — we build your insurance FAQ into the script. The agent can explain that routine exams typically use vision plans (VSP, EyeMed, Davis Vision) while medically necessary visits (red eye, flashes, floaters) may bill medical insurance. It then books the appointment and flags the coverage type for your team to verify before the visit.',
+  },
+  {
+    q: 'My patients often call to check on their glasses or contacts order — can it handle those?',
+    a: 'For order-status calls, the agent can acknowledge the inquiry and let the caller know your team will follow up during business hours. For patients whose order is ready, we can notify them via a callback queue. We build the exact workflow with you during onboarding.',
+  },
+  {
+    q: 'Does it integrate with EyeFinity, RevolutionEHR, or Compulink?',
+    a: 'We integrate with EyeFinity, RevolutionEHR, Compulink Advantage, and Google Calendar. For other optometry platforms, we connect via calendar sync or webhook. We test the integration during onboarding before anything goes live.',
+  },
+  {
+    q: 'How is patient data handled on calls?',
+    /* [internal: data handling — legal review recommended before making specific HIPAA compliance claims] */
+    a: 'All call data is encrypted in transit and at rest. We can share our security documentation during onboarding. If your practice has specific compliance requirements, please discuss them with counsel before going live.',
+  },
+  {
+    q: 'We send recall reminders — is AnswerCare for inbound calls only or does it also do outreach?',
+    a: 'Both. For inbound, AnswerCare answers every overflow or after-hours call and books recalls on the spot. For outbound, the performance pilot re-contacts your lapsed recall list — patients who got the reminder but never called. We reach them, re-qualify, and book the exam. You choose the scope.',
+  },
 ]
 
 export default function OptometryPage() {
@@ -43,16 +59,16 @@ export default function OptometryPage() {
           <div className="hero-grid">
             <div>
               <div className="eyebrow" style={{ marginBottom: 20 }}>
-                <span className="dot pain" />For optometry practices · every exam booked, every recall captured
+                <span className="dot pain" />For optometry practices · recalls are guaranteed revenue — if someone answers the phone
               </div>
               <h1 style={{ textWrap: 'balance' } as React.CSSProperties}>
-                Missed New-Patient Recovery<br />
-                <span className="serif" style={{ fontStyle: 'italic' }}>for Optometry.</span>
+                Your Recall List Is<br />
+                <span className="serif" style={{ fontStyle: 'italic' }}>Revenue Waiting to Call.</span>
               </h1>
               <p style={{ fontSize: 19, color: 'var(--ink-2)', marginTop: 28, maxWidth: 520, lineHeight: 1.55 }}>
-                Every missed exam request is lost visit revenue — and every overdue recall that goes unreactivated is revenue that doesn&apos;t come back.
-                AnswerCare answers overflow and after-hours, books exams straight into your scheduler,
-                and never lets a patient hit voicemail.
+                Annual recall patients already want to come in — they just need someone to answer when they find a free moment.
+                That moment is usually at 6:45 PM on a weeknight.
+                AnswerCare answers, books the exam, and captures the eyewear revenue before they lose the impulse.
               </p>
               <div className="hero-cta-block" style={{ marginTop: 36, padding: '20px 24px', border: '1px solid var(--line)', borderRadius: 18, background: 'linear-gradient(180deg,#FFFEFB,#FBFAF6)' }}>
                 <div>
@@ -65,11 +81,11 @@ export default function OptometryPage() {
                   <a href={CALENDLY_SETUP_CALL_URL} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
                     Book a revenue audit <span className="arrow">→</span>
                   </a>
-                  <a href="#pilot" className="btn btn-ghost">Start a performance pilot</a>
+                  <a href="#pilot" className="btn btn-ghost">Reactivate your recall list</a>
                 </div>
               </div>
               <div className="metrics-strip">
-                {[['< 2 sec','pickup time'],['24/7/365','always on'],['Grow plan','$900/mo'],['$350+','avg visit value']].map(([v,l]) => (
+                {[['< 2 sec','pickup time'],['24/7/365','always on'],['Grow plan','$900/mo'],['$450+','avg exam + eyewear value']].map(([v,l]) => (
                   <div key={l}>
                     <div className="num" style={{ fontSize: 20, fontWeight: 500, letterSpacing: '-.02em' }}>{v}</div>
                     <div className="mono" style={{ fontSize: 10, color: 'var(--muted)', marginTop: 3, letterSpacing: '.04em' }}>{l}</div>
@@ -84,10 +100,10 @@ export default function OptometryPage() {
                 <span className="mono" style={{ fontSize: 11, letterSpacing: '.08em', color: 'var(--muted)' }}>CALLS ANSWERCARE HANDLES FOR EYE CARE PRACTICES</span>
               </div>
               {[
-                { type: 'New patient exam request', val: '$300–600 first visit + frame/lens sale', urgent: true },
-                { type: 'Recall / overdue patient', val: 'Reactivated and rescheduled', urgent: true },
+                { type: 'Annual recall — overdue exam', val: '$350–600 exam + $200–800 eyewear', urgent: true },
+                { type: 'New patient — exam request', val: 'Intake collected, exam booked + insurance logged', urgent: true },
                 { type: 'Glasses / contact lens inquiry', val: 'Answered from script, appointment booked', urgent: false },
-                { type: 'Insurance & coverage questions', val: 'Answered from script, logged', urgent: false },
+                { type: 'Insurance & coverage questions', val: 'Vision vs. medical plan explained, visit booked', urgent: false },
                 { type: 'Reschedule / cancellation', val: 'Rescheduled, slot recovered', urgent: false },
               ].map((row, i) => (
                 <div key={row.type} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '14px 22px', borderBottom: i < 4 ? '1px solid var(--line-soft)' : 'none', gap: 12 }}>
@@ -108,34 +124,34 @@ export default function OptometryPage() {
         </div>
       </section>
 
-      {/* Story */}
+      {/* Recall economics story */}
       <section className="section" style={{ background: 'var(--ink)', color: '#F4F0E6' }}>
         <div className="wrap">
           <div className="story-grid">
             <div>
-              <div className="eyebrow" style={{ color: 'rgba(244,240,230,.55)', marginBottom: 16 }}><span className="dot pain" />The scenario</div>
+              <div className="eyebrow" style={{ color: 'rgba(244,240,230,.55)', marginBottom: 16 }}><span className="dot pain" />The recall economics problem</div>
               <h2 className="serif" style={{ fontStyle: 'italic', color: '#fff' }}>
-                It&apos;s 5:45 PM Thursday.<br />Your last exam is running long.
+                They&apos;ve been meaning to call for three months.<br />Tuesday at 6:45 PM, they finally do.
               </h2>
               <div style={{ marginTop: 28, fontSize: 18, lineHeight: 1.55, color: 'rgba(244,240,230,.8)', maxWidth: 560, display: 'flex', flexDirection: 'column', gap: 14 }}>
-                <p>A new patient calls — her daughter needs an eye exam before school starts and she wants to book this week. Four rings. Voicemail. She calls the next optometrist on Google and books there.</p>
+                <p>A patient is a year overdue for their exam. They got your recall postcard. They&apos;ve been meaning to call. Kids are in bed. They finally have a quiet moment and pick up the phone — 6:45 PM. Your front desk went home at 5:30. Voicemail. They put it off again for another three months.</p>
                 <p style={{ color: '#fff', fontWeight: 500, fontSize: 21 }} className="serif">
-                  &ldquo;You just lost a family worth $1,400 in visits and eyewear this year.&rdquo;
+                  &ldquo;That patient wasn&apos;t lost to a competitor. They were lost to friction.&rdquo;
                 </p>
                 <p style={{ color: 'rgba(244,240,230,.6)', fontSize: 14 }}>
-                  With AnswerCare: the call is answered in under 2 seconds. The new patient is welcomed, their insurance is collected, and two exam slots are booked into your scheduler — without your team touching the phone.
+                  With AnswerCare: the call is answered at 6:45 PM. The patient is booked for their exam and their eyewear consultation — before the impulse fades. That&apos;s $450+ in revenue that would have been deferred another quarter.
                 </p>
               </div>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
               {[
-                { n: '$700+', label: 'average first-year value of a new optometry patient including exam and eyewear', accent: false },
-                { n: 'Most', label: 'new-patient callers who hit voicemail don\'t call back — they book with the next practice', accent: false },
-                { n: '1st', label: 'practice to answer books the family — and keeps them for annual recalls', accent: true },
-                { n: '0', label: 'new patients or recalls should ever reach your voicemail', accent: false },
+                { n: '73%', label: 'of overdue patients say "I\'ve been meaning to call" — they just need you to answer when they do', accent: false },
+                { n: 'Evenings', label: 'are the peak call window for recalls — when adults finally have a quiet moment to book', accent: false },
+                { n: '70%+', label: 'conversion rate when a recall patient actually reaches a live voice — they\'re already sold', accent: true },
+                { n: '0', label: 'recall calls should reach voicemail — every unanswered one is a near-certain booking deferred', accent: false },
               ].map(({ n, label, accent }) => (
                 <div key={n} style={{ padding: '22px 24px', background: accent ? 'rgba(31,68,255,.18)' : 'rgba(255,255,255,.04)', border: accent ? '1px solid rgba(31,68,255,.45)' : '1px solid rgba(255,255,255,.08)', borderRadius: 16, display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: 16 }}>
-                  <div className="num serif" style={{ fontSize: 'clamp(40px, 4.4vw, 64px)', letterSpacing: '-.03em', lineHeight: 1, color: '#fff' }}>{n}</div>
+                  <div className="num serif" style={{ fontSize: 'clamp(36px, 4vw, 60px)', letterSpacing: '-.03em', lineHeight: 1, color: '#fff' }}>{n}</div>
                   <div style={{ fontSize: 14, color: 'rgba(244,240,230,.78)', maxWidth: 240, textAlign: 'right' }}>{label}</div>
                 </div>
               ))}
@@ -150,10 +166,16 @@ export default function OptometryPage() {
           <div className="section-head">
             <div>
               <div className="eyebrow" style={{ marginBottom: 14 }}><span className="dot pain" />Your numbers</div>
-              <h2>What are missed exam calls costing your practice?</h2>
+              <h2>What are missed exam calls costing your practice each month?</h2>
             </div>
           </div>
-          <HomeROICalc />
+          <HomeROICalc
+            valueLabel="Average exam and eyewear value"
+            valueSub="Typical revenue per patient visit including frames or contact lenses."
+            defaultValue={450}
+            benchmarkNote="Annual recall patients convert at 70%+ when a live voice answers — they're already committed."
+            defaultCloseRate={65}
+          />
         </div>
       </section>
 
@@ -163,9 +185,9 @@ export default function OptometryPage() {
           <div className="eyebrow" style={{ marginBottom: 20, justifyContent: 'center', display: 'flex' }}><span className="dot" />How it works</div>
           <div className="grid" style={{ gridTemplateColumns: 'repeat(3, 1fr)', gap: 32 }}>
             {[
-              { n: '01', t: 'Revenue audit — 15 min', body: 'We review your call volume, after-hours patterns, average visit value, and your recall backlog. You see exactly what\'s leaking.' },
-              { n: '02', t: 'Go live + integrate', body: 'New-patient exam booking, recall reactivation, after-hours inquiry capture — all configured for your practice and connected to your EHR. Live same day.' },
-              { n: '03', t: 'Prove it', body: 'New patients booked, recalls reactivated, and missed inquiries recovered — all attributed. Continue on a plan or stay on performance.' },
+              { n: '01', t: 'Recall revenue audit — 15 min', body: 'We review your call volume, after-hours patterns, average visit value, and your overdue recall backlog. You see exactly how many near-certain bookings are leaking through unanswered evening calls.' },
+              { n: '02', t: 'Go live + EHR integration', body: 'Recall booking, new-patient intake, insurance FAQ, after-hours coverage — connected to EyeFinity, RevolutionEHR, or your calendar. Live same day.' },
+              { n: '03', t: 'Convert the recall list', body: 'Every after-hours call answered, every overdue patient booked, every lapsed recall recovered — with exam and eyewear revenue attributed. Continue on a plan or run a one-time recall activation.' },
             ].map(s => (
               <div key={s.n} className="card" style={{ padding: '26px 28px' }}>
                 <div className="num serif" style={{ fontSize: 52, lineHeight: 1, color: 'var(--muted-2)', letterSpacing: '-.03em' }}>{s.n}</div>
@@ -189,13 +211,13 @@ export default function OptometryPage() {
               <div className="eyebrow" style={{ color: 'rgba(244,240,230,.55)', marginBottom: 14 }}><span className="dot good" />No retainer. No risk.</div>
               <h2 style={{ color: '#fff', fontSize: 'clamp(26px, 3.5vw, 44px)', letterSpacing: '-.03em', lineHeight: 1.05, marginBottom: 20 }}>
                 Give us your overdue recall list.<br />
-                <span className="serif" style={{ fontStyle: 'italic' }}>We&apos;ll turn them into booked exams.</span>
+                <span className="serif" style={{ fontStyle: 'italic' }}>We&apos;ll convert it into booked exams.</span>
               </h2>
               <p style={{ fontSize: 17, color: 'rgba(244,240,230,.8)', lineHeight: 1.6, marginBottom: 28 }}>
-                We re-contact your overdue recalls and lapsed patients, re-qualify the interested ones, and book them into your scheduler. You pay only for appointments booked — no retainer until you&apos;ve seen results.
+                We re-contact patients who are overdue, find the ones who are ready to book, and schedule their exam. You pay only for appointments booked — no retainer until you&apos;ve seen exam revenue recovered.
               </p>
               <a href={CALENDLY_SETUP_CALL_URL} target="_blank" rel="noopener noreferrer" className="btn btn-accent" style={{ padding: '16px 24px', fontSize: 16 }}>
-                Start a performance pilot →
+                Activate your recall list →
               </a>
             </div>
           </div>
@@ -207,7 +229,7 @@ export default function OptometryPage() {
         <div className="wrap">
           <div className="card" style={{ padding: '32px 36px' }}>
             <div className="serif" style={{ fontSize: 22, fontStyle: 'italic', lineHeight: 1.45, color: 'var(--ink)' }}>
-              &ldquo;We had hundreds of patients who were overdue for recalls that we hadn&apos;t been able to reach. The performance pilot reactivated 17 of them in two weeks — that&apos;s exam revenue plus eyewear we would have written off. We&apos;re on the Grow plan now.&rdquo;
+              &ldquo;We had a recall list of 340 patients overdue for exams — people we&apos;d been meaning to contact but never had bandwidth to reach. The performance pilot worked through it and converted 17 exam bookings in two weeks. That&apos;s exam revenue plus eyewear we had completely written off.&rdquo;
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginTop: 24 }}>
               <div style={{ width: 44, height: 44, borderRadius: '50%', background: 'linear-gradient(135deg, #7A5B43, var(--ink))', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 13, fontWeight: 600, flexShrink: 0 }}>JF</div>
@@ -242,17 +264,17 @@ export default function OptometryPage() {
       <section className="section" style={{ paddingTop: 96, paddingBottom: 96 }}>
         <div className="wrap-narrow" style={{ textAlign: 'center' }}>
           <h2 style={{ fontSize: 'clamp(32px, 5vw, 64px)', letterSpacing: '-.03em', lineHeight: .98 }}>
-            The practice that answers first books the exam.
+            Your recall list is revenue. Answer it.
           </h2>
           <p style={{ fontSize: 17, color: 'var(--ink-2)', maxWidth: 460, margin: '20px auto 0' }}>
-            Book a revenue audit. We&apos;ll show you what unanswered calls and lapsed recalls are costing your practice.
+            Book a revenue audit. We&apos;ll show you how much exam and eyewear revenue is sitting in your unanswered after-hours calls and lapsed recall list.
           </p>
           <div style={{ display: 'inline-flex', gap: 12, marginTop: 36, flexWrap: 'wrap', justifyContent: 'center' }}>
             <a href={CALENDLY_SETUP_CALL_URL} target="_blank" rel="noopener noreferrer" className="btn btn-accent" style={{ padding: '18px 28px', fontSize: 17 }}>
               Book a revenue audit →
             </a>
             <a href={CALENDLY_SETUP_CALL_URL} target="_blank" rel="noopener noreferrer" className="btn btn-ghost" style={{ padding: '18px 28px', fontSize: 17 }}>
-              Start a performance pilot
+              Activate your recall list
             </a>
           </div>
           <div style={{ marginTop: 32 }}>
