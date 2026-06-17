@@ -22,7 +22,7 @@ function TradeJsonLd({ data }: { data: TradeData }) {
     },
     offers: {
       '@type': 'Offer',
-      price: '199',
+      price: '500',
       priceCurrency: 'USD',
       priceSpecification: {
         '@type': 'RecurringChargeSpecification',
@@ -455,106 +455,117 @@ export default function TradeVerticalPage({ data }: { data: TradeData }) {
 
       {/* ══ PRICING ════════════════════════════════════════════════════════ */}
       <section className="section" id="pricing">
-        <div className="wrap-narrow">
+        <div className="wrap">
           <div className="section-head" style={{ justifyContent: 'center', textAlign: 'center', flexDirection: 'column', gap: 12 }}>
             <div className="eyebrow"><span className="dot" />Pricing</div>
-            <h2>One price. <span className="serif" style={{ fontStyle: 'italic' }}>No per-call fees.</span></h2>
+            <h2>Three plans. <span className="serif" style={{ fontStyle: 'italic' }}>No per-call fees.</span></h2>
+            <p style={{ color: 'var(--muted)', fontSize: 16, marginTop: 4 }}>
+              Start with a performance pilot — pay only for recovered jobs. Move to a monthly plan when you&apos;ve seen results.
+            </p>
           </div>
 
-          <div className="pricing-inner" style={{
-            background: 'var(--ink)', color: '#F4F0E6',
-            borderRadius: 24, padding: 48,
-            position: 'relative', overflow: 'hidden',
-          }}>
-            <svg style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', opacity: .05, pointerEvents: 'none' }}>
-              <defs>
-                <pattern id="trade-dots" width="24" height="24" patternUnits="userSpaceOnUse">
-                  <circle cx="1" cy="1" r="1" fill="#fff" />
-                </pattern>
-              </defs>
-              <rect width="100%" height="100%" fill="url(#trade-dots)" />
-            </svg>
-
-            {/* Left */}
-            <div style={{ position: 'relative' }}>
-              <div className="eyebrow" style={{ color: 'rgba(244,240,230,.55)', marginBottom: 14 }}>Single plan</div>
-              <div style={{ display: 'flex', alignItems: 'baseline', gap: 8, marginBottom: 16 }}>
-                <span className="num serif" style={{ fontSize: 'clamp(64px, 8vw, 112px)', lineHeight: 1, letterSpacing: '-.04em', color: '#fff' }}>$199</span>
-                <span style={{ color: 'rgba(244,240,230,.7)', fontSize: 18 }}>/ month</span>
-              </div>
-              <div style={{
-                display: 'inline-flex', gap: 8, alignItems: 'center',
-                padding: '8px 14px', borderRadius: 999,
-                background: 'rgba(31,68,255,.18)', border: '1px solid rgba(31,68,255,.4)',
-                color: '#BFCFFF', fontSize: 13, fontWeight: 500, marginBottom: 24,
-              }}>
-                <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#7B9CFF' }} />
-                Performance pilot — pay only for jobs recovered
-              </div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 10, fontSize: 15 }}>
-                {[
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20, marginTop: 24 }}>
+            {([
+              {
+                name: 'Recover',
+                price: '$500',
+                setup: '$497',
+                popular: false,
+                features: [
                   'Unlimited calls — no per-call fee',
                   '24/7/365 coverage including weekends',
                   `Custom script for ${data.tradeAdj} jobs`,
-                  'Bookings into your calendar',
+                  'Live calendar booking',
                   'SMS to you + customer after every call',
                   'Cancel anytime — 7 days notice',
-                ].map((l) => (
-                  <div key={l} style={{ display: 'flex', gap: 10, alignItems: 'center', color: 'rgba(244,240,230,.85)' }}>
-                    <span style={{
-                      width: 18, height: 18, borderRadius: '50%',
-                      background: 'rgba(159,226,176,.18)', color: '#9FE2B0',
-                      display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      fontSize: 11, fontWeight: 700, flex: '0 0 auto',
-                    }}>✓</span>
-                    {l}
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Right */}
-            <div style={{ position: 'relative' }} id="start">
-              <div style={{
-                background: 'rgba(255,255,255,.04)',
-                border: '1px solid rgba(255,255,255,.12)',
-                borderRadius: 18, padding: 24, marginBottom: 20,
+                ],
+              },
+              {
+                name: 'Grow',
+                price: '$900',
+                setup: '$747',
+                popular: true,
+                features: [
+                  'Everything in Recover',
+                  'Multi-location call routing',
+                  'Weekly performance reports',
+                  'Lead re-engagement sequences',
+                  'Priority support',
+                  'Cancel anytime — 7 days notice',
+                ],
+              },
+              {
+                name: 'Scale',
+                price: '$1,500',
+                setup: '$997',
+                popular: false,
+                features: [
+                  'Everything in Grow',
+                  'Custom CRM + dispatch integration',
+                  'Dedicated account manager',
+                  'Quarterly strategy review',
+                  'SLA guarantee',
+                  'Cancel anytime — 7 days notice',
+                ],
+              },
+            ] as const).map((tier) => (
+              <div key={tier.name} style={{
+                position: 'relative',
+                background: 'var(--ink)', color: '#F4F0E6',
+                borderRadius: 20, padding: '32px 26px',
+                border: tier.popular ? '2px solid var(--accent)' : '1px solid rgba(255,255,255,.08)',
               }}>
-                <div className="mono" style={{ fontSize: 11, letterSpacing: '.08em', color: 'rgba(244,240,230,.55)', marginBottom: 10 }}>
-                  ONE-TIME SETUP FEE
+                {tier.popular && (
+                  <div className="mono" style={{
+                    position: 'absolute', top: -13, left: '50%', transform: 'translateX(-50%)',
+                    background: 'var(--accent)', color: '#fff',
+                    fontSize: 10, fontWeight: 700, padding: '3px 12px', borderRadius: 999,
+                    letterSpacing: '.08em', whiteSpace: 'nowrap',
+                  }}>MOST POPULAR</div>
+                )}
+                <div className="mono" style={{ fontSize: 11, letterSpacing: '.08em', color: 'rgba(244,240,230,.5)', marginBottom: 10 }}>
+                  {tier.name.toUpperCase()}
                 </div>
-                <div className="num serif" style={{ fontSize: 52, lineHeight: 1, letterSpacing: '-.03em', color: '#fff' }}>$497</div>
-                <p style={{ color: 'rgba(244,240,230,.7)', fontSize: 14, marginTop: 10 }}>
-                  Discovery, {data.tradeAdj} script writing, voice tuning, calendar + SMS integration. Non-refundable — this is the real work.
-                </p>
-                <div style={{
-                  marginTop: 12, padding: '10px 14px', borderRadius: 8,
-                  background: 'rgba(159,226,176,.1)', border: '1px solid rgba(159,226,176,.25)',
-                  color: '#9FE2B0', fontSize: 12.5,
-                }}>
-                  Performance pilot: pay only for recovered jobs. No retainer until you&apos;ve seen results.
+                <div style={{ display: 'flex', alignItems: 'baseline', gap: 6, marginBottom: 4 }}>
+                  <span className="num serif" style={{ fontSize: 52, lineHeight: 1, letterSpacing: '-.04em', color: '#fff' }}>{tier.price}</span>
+                  <span style={{ color: 'rgba(244,240,230,.6)', fontSize: 15 }}>/mo</span>
                 </div>
+                <div className="mono" style={{ fontSize: 11, color: 'rgba(244,240,230,.4)', marginBottom: 24, letterSpacing: '.04em' }}>
+                  {tier.setup} one-time setup
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 9, marginBottom: 28 }}>
+                  {tier.features.map((f) => (
+                    <div key={f} style={{ display: 'flex', gap: 9, alignItems: 'flex-start', fontSize: 14, color: 'rgba(244,240,230,.8)' }}>
+                      <span style={{
+                        width: 16, height: 16, borderRadius: '50%',
+                        background: 'rgba(159,226,176,.18)', color: '#9FE2B0',
+                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                        fontSize: 10, fontWeight: 700, flex: '0 0 auto', marginTop: 1,
+                      }}>✓</span>
+                      {f}
+                    </div>
+                  ))}
+                </div>
+                <a
+                  href="/missed-revenue#pilot"
+                  className="btn btn-accent"
+                  style={{ justifyContent: 'center', padding: '14px', fontSize: 14, width: '100%', display: 'flex' }}
+                >
+                  Start a pilot <span className="arrow">→</span>
+                </a>
+                <a href={CALENDLY_SETUP_CALL_URL} target="_blank" rel="noopener noreferrer"
+                  className="btn"
+                  style={{
+                    background: 'transparent', color: '#F4F0E6',
+                    border: '1px solid rgba(255,255,255,.18)',
+                    justifyContent: 'center', padding: '10px', fontSize: 13,
+                    width: '100%', display: 'flex', marginTop: 8,
+                  }}
+                >
+                  Book a setup call
+                </a>
               </div>
-
-              <a
-                href="/missed-revenue#pilot"
-                className="btn btn-accent"
-                style={{ justifyContent: 'center', padding: '18px 24px', fontSize: 17, width: '100%', display: 'flex' }}
-              >
-                Start a performance pilot <span className="arrow">→</span>
-              </a>
-              <a href={CALENDLY_SETUP_CALL_URL} target="_blank" rel="noopener noreferrer"
-                className="btn"
-                style={{
-                  background: 'transparent', color: '#F4F0E6',
-                  border: '1px solid rgba(255,255,255,.18)',
-                  justifyContent: 'center', padding: '14px 24px', fontSize: 15,
-                  width: '100%', display: 'flex', marginTop: 10,
-                }}
-              >
-                Or book a 15-min setup call
-              </a>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -607,7 +618,7 @@ export default function TradeVerticalPage({ data }: { data: TradeData }) {
             </a>
           </div>
           <div className="mono" style={{ fontSize: 11, color: 'var(--muted)', marginTop: 20, letterSpacing: '.06em' }}>
-            $497 SETUP · 14 DAYS FREE · $199/MO · CANCEL ANYTIME
+            RECOVER $500 · GROW $900 · SCALE $1,500 · CANCEL ANYTIME
           </div>
 
           {/* Related trades */}

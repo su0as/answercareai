@@ -103,7 +103,7 @@ export default function TradesROICalc() {
 
   const monthlyLoss = Math.round(missedCalls * (convRate / 100) * jobValue)
   const annualLoss = monthlyLoss * 12
-  const planCost = 199
+  const planCost = 500
   const recoveredJobs = Math.round(missedCalls * (convRate / 100))
   const paybackJobs = Math.ceil(planCost / jobValue)
 
@@ -187,7 +187,7 @@ export default function TradesROICalc() {
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-white/60 text-sm" style={{ fontFamily: 'Inter, sans-serif' }}>AnswerCare AI costs</span>
-                <span className="font-bold text-white" style={{ fontFamily: '"Inter Tight", Inter, sans-serif' }}>$199/mo</span>
+                <span className="font-bold text-white" style={{ fontFamily: '"Inter Tight", Inter, sans-serif' }}>from $500/mo</span>
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-white/60 text-sm" style={{ fontFamily: 'Inter, sans-serif' }}>Pays for itself after</span>

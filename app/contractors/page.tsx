@@ -38,7 +38,7 @@ export default function ContractorsPage() {
         provider: { '@type': 'Organization', name: 'AnswerCare AI', url: 'https://www.answercareai.com' },
         serviceType: 'AI Phone Answering Service',
         audience: { '@type': 'BusinessAudience', audienceType: 'Home service contractors and solo trade operators' },
-        offers: { '@type': 'Offer', price: '199', priceCurrency: 'USD' },
+        offers: { '@type': 'Offer', price: '500', priceCurrency: 'USD' },
         areaServed: { '@type': 'Country', name: 'United States' },
       })}} />
 
