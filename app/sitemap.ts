@@ -48,6 +48,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/blog/never-miss-a-call-contractor`,                    lastModified: NOW, changeFrequency: 'monthly', priority: 0.8  },
     { url: `${BASE}/blog/ai-vs-traditional-answering-service-contractors`, lastModified: NOW, changeFrequency: 'monthly', priority: 0.8  },
 
+    // ── Cash-pay clinic pages ─────────────────────────────────────────────
+    { url: `${BASE}/med-spa`,                          lastModified: NOW, changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${BASE}/chiropractic`,                     lastModified: NOW, changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${BASE}/veterinary`,                       lastModified: NOW, changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${BASE}/optometry`,                        lastModified: NOW, changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${BASE}/physical-therapy`,                 lastModified: NOW, changeFrequency: 'monthly', priority: 0.9 },
+
+    // ── Channel / partner page ────────────────────────────────────────────
+    { url: `${BASE}/partners`,                         lastModified: NOW, changeFrequency: 'monthly', priority: 0.8 },
+
     // ── Legal / trust pages ───────────────────────────────────────────────
     { url: `${BASE}/privacy`,                          lastModified: NOW, changeFrequency: 'yearly',  priority: 0.3 },
     { url: `${BASE}/terms`,                            lastModified: NOW, changeFrequency: 'yearly',  priority: 0.3 },
